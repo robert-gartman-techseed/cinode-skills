@@ -58,8 +58,10 @@ UA = "cinode-skills-analysis/0.1 (TechSeed internal skill taxonomy; https://www.
 LANGS = ("en", "sv", "nb")
 METHOD_RANK = {"alias": 0, "exact": 1, "cinode": 2, "wikidata": 3, "fuzzy": 4, "cinode_list": 5}
 DECISIONS = {"synonym", "product", "narrower", "broader", "related", "none"}
-# Relation of a keyword to a canonical skill. Only "synonym" (same skill: spelling, language,
-# abbreviation, word order) is an alias; products, models, vendors and tools never are.
+# Relation of a keyword to a canonical skill. Only "synonym" is an alias: a semantic alias, the same
+# concept in any wording ("LLM" = "Large Language Models"), tested both ways: someone listing either
+# keyword has exactly the skill as defined (same scope). Sub-skills are "narrower", supersets and
+# neighbouring skills "related", and products, models, vendors and tools are never aliases ("product").
 RELATIONS = ("synonym", "product", "narrower", "related")
 FUZZY_MIN = 93
 

@@ -2,7 +2,7 @@
  "T01": {
   "AI & Generative AI": "related",
   "AI och Generativ AI": "related",
-  "Applied Generative AI": "narrower",
+  "Applied Generative AI": "synonym",
   "GenAI": "synonym",
   "Generativ AI": "synonym",
   "Generative AI": "synonym",
@@ -19,25 +19,25 @@
   "Ollama/ self-host AI": "product"
  },
  "T03": {
-  "AI-agentutveckling": "narrower",
+  "AI-agentutveckling": "synonym",
   "Agent Design": "narrower",
   "Agentic AI": "synonym",
   "Agentic AI Design": "narrower",
-  "Agentic AI Development": "narrower",
-  "Agentic development": "narrower",
-  "Agentic systems": "related",
+  "Agentic AI Development": "synonym",
+  "Agentic development": "synonym",
+  "Agentic systems": "synonym",
   "Agentisk AI": "synonym",
-  "Agentisk utveckling": "narrower",
-  "Implementation av AI-agenter": "narrower",
-  "LLM Agents": "related",
+  "Agentisk utveckling": "synonym",
+  "Implementation av AI-agenter": "synonym",
+  "LLM Agents": "synonym",
   "OpenAI Agents": "product"
  },
  "T04": {
-  "Agent Orchestration": "related",
+  "Agent Orchestration": "narrower",
   "Agentic AI Architectures (Single- & Multi-Agent Systems)": "related",
   "Agentic AI Architectures (Single‑ & Multi‑Agent Systems)": "related",
   "Agentiska system": "related",
-  "Cooperative AI Systems": "related",
+  "Cooperative AI Systems": "synonym",
   "Multi-agent Systems": "synonym"
  },
  "T05": {
@@ -86,7 +86,7 @@
  "T12": {
   "Intelligent Automation": "synonym",
   "Intelligent Automatisering (AI)": "synonym",
-  "Intelligent Process Automation (AI)": "narrower",
+  "Intelligent Process Automation (AI)": "synonym",
   "RPA": "related",
   "RPA (Robotic Process Automation)": "related",
   "Robotic Process Automation": "related",
@@ -141,7 +141,7 @@
   "GPT": "product",
   "GPT-4o Vision": "product",
   "Open AI": "product",
-  "Open AI Integration": "narrower",
+  "Open AI Integration": "synonym",
   "OpenAI": "product",
   "OpenAI API": "synonym",
   "OpenAI APIs": "synonym",
@@ -165,15 +165,15 @@
   "Python programming language": "related"
  },
  "T23": {
-  "AI Coding (codex & Claude code)": "narrower",
-  "AI Coding - Codex & Claude Code": "narrower",
+  "AI Coding (codex & Claude code)": "synonym",
+  "AI Coding - Codex & Claude Code": "synonym",
   "AI Developer Tools": "related",
   "AI-Assisted Development & Testing": "related",
   "AI-assisted development": "synonym",
-  "AI-assisted engineering": "related",
+  "AI-assisted engineering": "synonym",
   "AI-assisted software development": "synonym",
   "AI-assisterad mjukvaruutveckling": "synonym",
-  "AI-driven Development": "related",
+  "AI-driven Development": "synonym",
   "Claude": "product",
   "Claude AI": "product",
   "Claude Code": "product",
@@ -185,33 +185,44 @@
  },
  "T24": {
   "AIOps": "synonym",
-  "AIOps  Processes & Tools": "narrower",
+  "AIOps  Processes & Tools": "synonym",
   "Service Now": "product",
   "ServiceNow": "product"
  },
  "T25": {
   "AI Act": "synonym",
-  "AI Act Compliance": "narrower",
+  "AI Act Compliance": "synonym",
   "AI-förordningen (AI Act)": "synonym",
   "AIförordningen (EU AI Act)": "synonym",
   "Regulatory Compliance: EU AI Act & EU Data Act": "related",
   "Regulatory awareness (incl. EU AI Act principles)": "related"
  },
  "T26": {
+  "AI Ethics": "related",
   "AI Governance": "synonym",
-  "AI Guidelines": "narrower"
+  "AI Guidelines": "narrower",
+  "Advisory AI Initiatives alignment with governance frameworks and compliance standards": "synonym",
+  "Ethical & responsible AI practices": "related",
+  "Ethical AI": "related",
+  "Introduced ethical AI principles and risk assessment practices in municipal and enterprise projects.": "related",
+  "Responsible AI": "related",
+  "Supported organizations in aligning AI initiatives with governance frameworks and compliance standards.": "synonym"
  },
  "T27": {
   "AI Risk Management": "synonym",
   "Secure AI Workflows": "related"
  },
  "T28": {
-  "AI Strategy": "synonym"
+  "AI Strategy": "synonym",
+  "AI-driven business strategy": "related"
  },
  "T29": {
-  "AI Use Case Discovery": "synonym"
+  "AI Use Case Discovery": "synonym",
+  "AI Use Cases": "synonym"
  },
  "T30": {
+  "AI Adoption & Enablement": "related",
+  "AI Enablement (Technical & Governance)": "related",
   "AI Transformation": "synonym"
  }
 }

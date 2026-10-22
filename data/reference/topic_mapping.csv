@@ -11,11 +11,11 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 2,tag,299244,AI/LLM,exact,
 3,skill,189396,Agentic AI,exact,synonym
 3,skill,313916,Agentisk AI,exact,synonym
-3,skill,296588,Agentic AI Development,exact,narrower
-3,skill,265980,AI-agentutveckling,exact,narrower
-3,skill,306055,Implementation av AI-agenter,exact,narrower
-3,skill,248915,Agentic systems,close,related
-3,skill,236810,Agentic development,close,narrower
+3,skill,296588,Agentic AI Development,exact,synonym
+3,skill,265980,AI-agentutveckling,exact,synonym
+3,skill,306055,Implementation av AI-agenter,exact,synonym
+3,skill,248915,Agentic systems,close,synonym
+3,skill,236810,Agentic development,close,synonym
 3,tag,298893,Agentic AI,exact,
 4,skill,61303,Multi-agent Systems,exact,synonym
 4,skill,330439,Agentic AI Architectures (Single- & Multi-Agent Systems),exact,related
@@ -42,7 +42,7 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 11,skill,31274,NLP,exact,synonym
 11,skill,130603,Natural language understanding,close,narrower
 12,skill,91074,Intelligent Automation,exact,synonym
-12,skill,311988,Intelligent Process Automation (AI),exact,narrower
+12,skill,311988,Intelligent Process Automation (AI),exact,synonym
 12,skill,325105,Intelligent Automatisering (AI),exact,synonym
 12,skill,24364,RPA,close,related
 12,skill,20825,Robotic Process Automation,close,related
@@ -101,17 +101,17 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 23,skill,229624,AI-assisted development,exact,synonym
 23,skill,325388,AI-assisterad mjukvaruutveckling,exact,synonym
 23,skill,332781,AI-assisted software development,exact,synonym
-23,skill,252043,AI-assisted engineering,exact,related
+23,skill,252043,AI-assisted engineering,exact,synonym
 23,skill,110719,Cursor,exact,product
 23,skill,229786,Claude Code,exact,product
 23,skill,212884,Claude,close,product
 24,skill,98133,AIOps,exact,synonym
-24,skill,151660,AIOps  Processes & Tools,exact,narrower
+24,skill,151660,AIOps  Processes & Tools,exact,synonym
 24,skill,5234,ServiceNow,close,product
 24,tag,302969,ServiceNow,close,
 25,skill,92917,AI Act,exact,synonym
 25,skill,282716,AI-förordningen (AI Act),exact,synonym
-25,skill,170134,AI Act Compliance,exact,narrower
+25,skill,170134,AI Act Compliance,exact,synonym
 25,tag,299243,GDPR,close,
 26,skill,118076,AI Governance,exact,synonym
 26,skill,350146,AI Governance & Adoption,exact,related
@@ -131,7 +131,7 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 28,skill,154812,AI Strategist,close,related
 28,tag,258463,AI strategi,exact,
 29,skill,320245,AI Use Case Discovery,exact,synonym
-29,skill,141097,AI Use Cases,exact,related
+29,skill,141097,AI Use Cases,exact,synonym
 29,skill,173309,AI in Business Development,close,related
 30,skill,188676,AI Transformation,exact,synonym
 30,skill,340945,AI Adoption & Enablement,exact,related
@@ -146,18 +146,18 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 23,skill,97294,Cursors,close,product
 1,skill,351204,AI & Generative AI,close,related
 1,skill,327469,AI och Generativ AI,close,related
-1,skill,351664,Applied Generative AI,exact,narrower
+1,skill,351664,Applied Generative AI,exact,synonym
 1,skill,339990,Generative AI & LLM Integration,exact,related
 2,skill,320523,LLM-integration,exact,narrower
 2,skill,233678,Ollama/ self-host AI,close,product
 2,skill,251338,LiteLLM,close,product
 3,skill,193165,Agent Design,exact,narrower
 3,skill,315062,Agentic AI Design,exact,narrower
-3,skill,301280,Agentisk utveckling,exact,narrower
-3,skill,133124,LLM Agents,exact,related
+3,skill,301280,Agentisk utveckling,exact,synonym
+3,skill,133124,LLM Agents,exact,synonym
 3,skill,309299,OpenAI Agents,close,product
-4,skill,327651,Agent Orchestration,exact,related
-4,skill,307208,Cooperative AI Systems,close,related
+4,skill,327651,Agent Orchestration,exact,narrower
+4,skill,307208,Cooperative AI Systems,close,synonym
 5,skill,126552,RAG (LLM),exact,synonym
 6,skill,325814,AI Context Engineering,exact,related
 6,skill,301856,AI Prompting,exact,synonym
@@ -177,18 +177,18 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 18,skill,94875,Azure AI Engineer Associate,close,related
 19,skill,113978,Open AI,exact,product
 19,skill,167444,open ai api,exact,synonym
-19,skill,261813,Open AI Integration,exact,narrower
+19,skill,261813,Open AI Integration,exact,synonym
 19,skill,111965,ChatGPT,close,product
 19,skill,156439,ChatGPT 4,close,product
 19,skill,95052,GPT,close,product
 19,skill,350323,GPT-4o Vision,close,product
 19,skill,342653,Chat GPT & Claude,close,product
-23,skill,348274,AI Coding (codex & Claude code),exact,narrower
-23,skill,348288,AI Coding - Codex & Claude Code,exact,narrower
+23,skill,348274,AI Coding (codex & Claude code),exact,synonym
+23,skill,348288,AI Coding - Codex & Claude Code,exact,synonym
 23,skill,334199,Open AI Codex,exact,product
 23,skill,324918,OpenAI Codex,exact,product
 23,skill,350894,AI-Assisted Development & Testing,exact,related
-23,skill,172566,AI-driven Development,exact,related
+23,skill,172566,AI-driven Development,exact,synonym
 23,skill,232676,AI Developer Tools,exact,related
 23,skill,200940,Claude AI,close,product
 25,skill,310309,AIförordningen (EU AI Act),exact,synonym
@@ -200,8 +200,8 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 26,skill,289389,AI and Data Governance Fram,exact,related
 26,skill,289460,AI Guidelines,exact,narrower
 26,skill,289461,Introduced ethical AI principles and risk assessment practices in municipal and enterprise projects.,exact,related
-26,skill,314495,Advisory AI Initiatives alignment with governance frameworks and compliance standards,exact,related
-26,skill,289462,Supported organizations in aligning AI initiatives with governance frameworks and compliance standards.,exact,related
+26,skill,314495,Advisory AI Initiatives alignment with governance frameworks and compliance standards,exact,synonym
+26,skill,289462,Supported organizations in aligning AI initiatives with governance frameworks and compliance standards.,exact,synonym
 27,skill,307248,Secure AI Workflows,close,related
 28,skill,325904,AI-driven business strategy,exact,related
 29,skill,348080,AI-stödd verksamhetsutveckling,close,related

@@ -130,12 +130,16 @@ uv run pytest
   never re-queued, and decisions typed into the queue survive a refresh.
 * `report` answers: AI-related verified keywords, custom keywords that are
   synonyms of a verified keyword, and custom keywords with no verified match.
-* `topic_mapping.csv` has a `relation` per mapped keyword: `synonym` (the same
-  skill: spelling, language, abbreviation, word order), `product` (a specific
+* `topic_mapping.csv` has a `relation` per mapped keyword: `synonym` (a semantic
+  alias: the same concept in any wording, e.g. "LLM" = "Large Language Models";
+  test both ways: someone listing either keyword has exactly the skill as
+  defined, same scope), `product` (a specific
   product, model, vendor or tool, e.g. ChatGPT, Azure AI Foundry), `narrower`
   (a sub-skill) or `related` (overlapping but different). Only `synonym` is an
   alias; the rest still counts toward topic coverage. The hand-reviewed table
-  is `skill_relations.json`. `uv run src/skills.py view` rebuilds the catalogue
+  is `skill_relations.json`. Semantic aliases cannot be found by spelling or
+  Wikidata alone ("Agent Design" vs "Agentic AI" needs judgement), so the
+  automatic suggestions only catch the surface cases; the rest is review. `uv run src/skills.py view` rebuilds the catalogue
   page data `canonical_skills_view.json`.
 * `person` lists every skill on one profile with level and status: `verified`
   (Cinode-verified keyword), `synonym (accepted)` (reviewed alias),

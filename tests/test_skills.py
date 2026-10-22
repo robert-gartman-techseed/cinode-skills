@@ -134,3 +134,14 @@ def test_profile_status_shows_topic_relation():
     kws = {"1": _kw("1", "ChatGPT", True, 7, "95")}
     rows = skills.profile_status([{"keyword_id": "1", "level": 3}], kws, {}, [], ({"95": "T19 product"}, {}))
     assert rows[0]["topic"] == "T19 product"
+
+
+def test_semantic_synonyms_and_scope():
+    """Synonyms are semantic aliases with the same scope; sub-skills and neighbours are not."""
+    rel = {(r["topic_id"], r["cinode_name"]): r["relation"]
+           for r in skills.read_csv(skills.REF / "topic_mapping.csv") if r["kind"] == "skill"}
+    assert rel[("2", "LLM")] == "synonym"  # abbreviation of the same concept
+    assert rel[("3", "LLM Agents")] == "synonym"  # other words, same concept
+    assert rel[("3", "Agent Design")] == "narrower"  # part of the skill
+    assert rel[("6", "Context Engineering")] == "related"  # neighbouring skill
+    assert rel[("10", "AI/ML")] == "related"  # superset
