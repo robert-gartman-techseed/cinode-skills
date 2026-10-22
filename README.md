@@ -22,10 +22,13 @@ db/cinode.duckdb         generated; safe to delete
 
 ## Use
 
+Uses [uv](https://docs.astral.sh/uv/) (`brew install uv`); dependencies are in
+`pyproject.toml` / `uv.lock` and `uv run` creates `.venv` on first use.
+
 ```
-python -m venv .venv && .venv/bin/pip install -r requirements.txt
-.venv/bin/python src/load_duckdb.py
-.venv/bin/python -c "import duckdb; print(duckdb.connect('db/cinode.duckdb').sql('from topic_coverage'))"
+uv run src/fetch_api.py --max-calls 300   # optional, see below
+uv run src/load_duckdb.py
+uv run python -c "import duckdb; print(duckdb.connect('db/cinode.duckdb').sql('from topic_coverage'))"
 ```
 
 Tables: `tags`, `tag_types`, `skill_sets`, `skill_set_skills`,
@@ -65,7 +68,7 @@ Two ways to fetch:
 * **Direct API (`src/fetch_api.py`):** faster and scriptable. Put the company
   integration token in a gitignored `.env` as `CINODE_API_TOKEN=...` (used
   directly as a Bearer token; `CINODE_COMPANY_ID` defaults to 4041) and run
-  `python src/fetch_api.py --max-calls 300`. Uses `/v0.1/companies/{id}/users`
+  `uv run src/fetch_api.py --max-calls 300`. Uses `/v0.1/companies/{id}/users`
   (filtered to `companyUserType` 0) and `/users/{companyUserId}/skills`.
   Needs a machine that can reach api.cinode.com; some proxies truncate large
   skill responses, so it asks for gzip and retries cut-short reads.

@@ -3,7 +3,7 @@
 Raw files are never modified; the database is rebuilt from scratch each run,
 so it is always safe to rerun after new raw files arrive.
 
-    python src/load_duckdb.py
+    uv run src/load_duckdb.py
 """
 from __future__ import annotations
 

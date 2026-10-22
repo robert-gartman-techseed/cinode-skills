@@ -8,7 +8,7 @@ local, gitignored .env file in the repo root:
     # or CINODE_ACCESS_ID / CINODE_ACCESS_SECRET, exchanged at /token
     CINODE_COMPANY_ID=4041    # optional, defaults to 4041
 
-    python src/fetch_api.py --max-calls 300
+    uv run src/fetch_api.py --max-calls 300
 
 Only employees (companyUserType 0) get a profile file.
 
