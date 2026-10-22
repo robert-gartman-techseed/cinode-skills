@@ -98,7 +98,10 @@ Then rerun `src/load_duckdb.py`.
 ## Skill synonyms (`src/skills.py`)
 
 Our own curated list is the reference (`data/reference/canonical_skills.csv`,
-seeded from the 30 hot topics). Cinode keywords are linked to it through
+seeded from the 30 hot topics, ids `T01`-`T30`). Every AI-related or hot-topic
+skill needs a one-sentence `definition` (about 25 words, plain English, so an
+employee can tell whether they have the skill; vendor-neutral unless the skill
+is a product). Other canonical skills may leave it empty; a test checks this. Cinode keywords are linked to it through
 reviewed aliases. Wikidata is used only as a hint for which keywords mean the
 same thing. ESCO, JobTech and Lightcast were tested and do not cover modern
 AI skills well enough.

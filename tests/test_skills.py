@@ -66,3 +66,13 @@ def test_ancestors_stops_after_hops():
              "D": {"P279": ["E"]}, "E": {"P279": ["F"]}}
     assert skills.ancestors("A", chain, hops=2) == {"B", "C", "D"}
     assert "F" not in skills.ancestors("A", chain, hops=3)
+
+
+def test_ai_and_hot_topic_skills_have_definitions():
+    """Definitions are required for AI-related and hot-topic (T..) canonical skills only."""
+    rows = skills.read_csv(skills.CANONICAL)
+    assert rows, "canonical_skills.csv is missing"
+    missing = [r["id"] for r in rows
+               if (r["ai_related"] == "True" or r["id"].startswith("T")) and not r["definition"].strip()]
+    assert not missing, f"no definition for {missing}"
+    assert all(len(r["definition"].split()) <= 30 for r in rows), "keep definitions to one short sentence"
