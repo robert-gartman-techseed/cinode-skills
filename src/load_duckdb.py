@@ -56,17 +56,30 @@ def load_skill_search() -> tuple[pd.DataFrame, pd.DataFrame]:
     return pd.DataFrame(hits), syn_df
 
 
-def load_profile_skills() -> pd.DataFrame:
-    """Full per-employee skill lists (fetch userProfile:{id}:skills), once they are fetched."""
-    rows = []
+def load_profile_skills() -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Full per-employee skill lists (fetch_api.py or the connector), once they are fetched.
+
+    The REST API (v0.1) leaves keywordSynonymId null and nests the keyword, so
+    synonym_id falls back to keyword.masterSynonymId. Each keyword's names
+    (master + synonyms) go to keyword_names, so topics mapped by synonym can be
+    matched to keyword ids by name.
+    """
+    rows, names = [], set()
     for path in sorted((RAW / "profile_skills").glob("*.json")) if (RAW / "profile_skills").exists() else []:
         data = json.loads(path.read_text(encoding="utf-8"))
         user_id = data["company_user_id"]
         for s in data["skills"]:
-            rows.append({"company_user_id": user_id, "synonym_id": s.get("keywordSynonymId"),
-                         "keyword_id": s.get("keywordId"), "name": s.get("name"),
+            kw = s.get("keyword") or {}
+            keyword_id = s.get("keywordId") or kw.get("id")
+            rows.append({"company_user_id": user_id,
+                         "synonym_id": s.get("keywordSynonymId") or kw.get("masterSynonymId"),
+                         "keyword_id": keyword_id, "name": s.get("name"),
                          "level": s.get("level"), "fetched_at": data.get("_fetched")})
-    return pd.DataFrame(rows, columns=["company_user_id", "synonym_id", "keyword_id", "name", "level", "fetched_at"])
+            for n in [kw.get("masterSynonym"), s.get("name"), *kw.get("synonyms", [])]:
+                if n:
+                    names.add((keyword_id, n))
+    return (pd.DataFrame(rows, columns=["company_user_id", "synonym_id", "keyword_id", "name", "level", "fetched_at"]),
+            pd.DataFrame(sorted(names), columns=["keyword_id", "name"]))
 
 
 def main() -> None:
@@ -79,7 +92,7 @@ def main() -> None:
     tag_types = pd.DataFrame(json.loads((RAW / "catalog" / "tagTypes.json").read_text(encoding="utf-8"))["items"])
     skill_sets, skill_set_skills = load_skill_sets()
     skill_hits, skill_synonyms = load_skill_search()
-    profile_skills = load_profile_skills()
+    profile_skills, keyword_names = load_profile_skills()
     hot_topics = pd.read_csv(REF / "hot_topics.csv")
     topic_mapping = pd.read_csv(REF / "topic_mapping.csv")
 
@@ -87,32 +100,48 @@ def main() -> None:
         "tags": tags, "tag_types": tag_types, "skill_sets": skill_sets,
         "skill_set_skills": skill_set_skills, "skill_search_hits": skill_hits,
         "skill_synonyms": skill_synonyms, "profile_skills": profile_skills,
+        "keyword_names": keyword_names,
         "hot_topics": hot_topics, "topic_mapping": topic_mapping,
     }.items():
         con.register("_df", df)
         con.execute(f"CREATE TABLE {name} AS SELECT * FROM _df")
         con.unregister("_df")
 
-    # Employee skill observations: full profiles when we have them, else search hits.
+    # Mapped topic skills (synonym ids) resolved to keyword ids, by synonym name or master id.
+    con.execute("""
+        CREATE VIEW topic_keywords AS
+        SELECT DISTINCT m.topic_id, m.cinode_id AS synonym_id, k.keyword_id, m.match
+        FROM topic_mapping m JOIN keyword_names k ON lower(k.name) = lower(m.cinode_name)
+        WHERE m.kind = 'skill'
+        UNION
+        SELECT DISTINCT m.topic_id, m.cinode_id, p.keyword_id, m.match
+        FROM topic_mapping m JOIN profile_skills p ON p.synonym_id = m.cinode_id
+        WHERE m.kind = 'skill'
+    """)
+
+    # Best self-assessed level per employee and keyword, from full profiles.
     con.execute("""
         CREATE VIEW employee_skills AS
-        SELECT company_user_id, synonym_id, max(level) AS level, 'profile' AS source
+        SELECT company_user_id, keyword_id, max(level) AS level, 'profile' AS source
         FROM profile_skills GROUP BY ALL
-        UNION ALL
-        SELECT company_user_id, synonym_id, max(level) AS level, 'search' AS source
-        FROM skill_search_hits
-        WHERE company_user_id NOT IN (SELECT company_user_id FROM profile_skills)
-        GROUP BY company_user_id, synonym_id
     """)
 
     # Per topic: how many employees hold a mapped skill, and at what self-assessed level.
+    # Profile holders are matched by keyword; everyone else falls back to search hits.
     con.execute("""
         CREATE VIEW topic_coverage AS
         WITH m AS (SELECT * FROM topic_mapping WHERE kind = 'skill'),
+        obs AS (
+            SELECT t.topic_id, e.company_user_id, e.level, t.match
+            FROM topic_keywords t JOIN employee_skills e USING (keyword_id)
+            UNION ALL
+            SELECT m.topic_id, h.company_user_id, h.level, m.match
+            FROM m JOIN skill_search_hits h ON h.synonym_id = m.cinode_id
+            WHERE h.company_user_id NOT IN (SELECT company_user_id FROM profile_skills)
+        ),
         per_user AS (
-            SELECT m.topic_id, e.company_user_id, max(e.level) AS level, bool_or(m.match = 'exact') AS has_exact
-            FROM m JOIN employee_skills e ON e.synonym_id = m.cinode_id
-            GROUP BY ALL
+            SELECT topic_id, company_user_id, max(level) AS level, bool_or(match = 'exact') AS has_exact
+            FROM obs GROUP BY ALL
         )
         SELECT t.topic_id, t.category, t.topic, t.status,
                count(DISTINCT p.company_user_id) FILTER (WHERE p.has_exact) AS employees_exact,
@@ -126,7 +155,7 @@ def main() -> None:
 
     con = duckdb.connect(str(DB), read_only=True)
     for t in ["tags", "tag_types", "skill_sets", "skill_search_hits", "skill_synonyms",
-              "profile_skills", "hot_topics", "topic_mapping"]:
+              "profile_skills", "keyword_names", "hot_topics", "topic_mapping"]:
         print(f"{t:20} {con.execute(f'SELECT count(*) FROM {t}').fetchone()[0]:>6} rows")
     print(f"\nWrote {DB}")
 

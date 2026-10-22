@@ -32,9 +32,15 @@ uv run python -c "import duckdb; print(duckdb.connect('db/cinode.duckdb').sql('f
 ```
 
 Tables: `tags`, `tag_types`, `skill_sets`, `skill_set_skills`,
-`skill_search_hits`, `skill_synonyms`, `profile_skills`, `hot_topics`,
-`topic_mapping`. Views: `employee_skills` (best available observation per
-person and skill), `topic_coverage` (employees per topic and level).
+`skill_search_hits`, `skill_synonyms`, `profile_skills`, `keyword_names`,
+`hot_topics`, `topic_mapping`. Views: `topic_keywords` (mapped synonyms
+resolved to keyword ids by name), `employee_skills` (best level per person and
+keyword from profiles), `topic_coverage` (employees per topic and level; search
+hits fill in for people without a fetched profile).
+
+The REST API returns `keywordSynonymId: null` on profile skills, so profiles
+are matched by keyword id; a topic's synonym is resolved through any keyword
+that lists that name among its synonyms.
 
 ## Skills vs tags in Cinode
 
@@ -71,6 +77,8 @@ Two ways to fetch:
   `uv run src/fetch_api.py --max-calls 300`. Uses `/v0.1/companies/{id}/users`
   (filtered to `companyUserType` 0) and `/users/{companyUserId}/skills`.
   Needs a machine that can reach api.cinode.com; some proxies truncate large
-  skill responses, so it asks for gzip and retries cut-short reads.
+  skill responses, so it asks for gzip and retries cut-short reads. A 403/404
+  for one employee is logged to `profile_skills/_skipped.jsonl` and skipped
+  on reruns (`--retry-skipped` to try again).
 
 Then rerun `src/load_duckdb.py`.
