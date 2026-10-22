@@ -3962,7 +3962,7 @@ keyword_id,name,techseed_users,qid,ai_related
 187388,Sensornät,1,,False
 187489,Quote Management,1,,False
 187494,Rapporteringsförmåga,1,,False
-187613,AI-based Decision Support,1,,False
+187613,AI-based Decision Support,1,,True
 187723,Change Management & Implementation Strategy,1,,False
 187724,Customer & User Experience (CX/UX),1,,False
 187725,Service Design & UX Audits,1,,False
@@ -5548,7 +5548,7 @@ keyword_id,name,techseed_users,qid,ai_related
 310125,Immutabilitet,1,,False
 310152,NMEA-2000,1,,False
 310153,Multithreaded server applications,1,,False
-310275,AI-baserat beslutsstöd,1,,False
+310275,AI-baserat beslutsstöd,1,,True
 310852,Sakkunnig fastighetsdata,1,,False
 310905,Nationell innovationssystemutveckling,1,,False
 310917,Forskarutbyte,1,,False
@@ -5608,7 +5608,7 @@ keyword_id,name,techseed_users,qid,ai_related
 312970,Vägvalsanalyser,1,,False
 312974,MLOps & DevOps,1,,False
 312977,Test och utrullning,1,,False
-312978,Beslutsstöd baserat på AI och dataanalys,1,,False
+312978,Beslutsstöd baserat på AI och dataanalys,1,,True
 313052,Bitmaskbearbetning,1,,False
 313054,Elektronikgränssnitt (SPI/I2C/UART),1,,False
 313055,Kylnings- och fläktstyrning,1,,False

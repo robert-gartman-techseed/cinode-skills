@@ -29,3 +29,4 @@ T27,AI-risk och säkerhet,"Identifies and manages AI-specific risks and security
 T28,AI-strategi / AI-roadmap / AI-mognad,"Develops AI strategy and roadmap from business goals, and assesses an organisation's AI maturity.",Styrning risk och verksamhet,True,76000,
 T29,Use case-identifiering / AI-värdeskapande / ROI,"Finds and prioritises AI use cases and estimates their business value, cost and ROI.",Styrning risk och verksamhet,True,284906,
 T30,AI-transformation / förändringsledning / AI-adoption,"Leads AI transformation: change management, training and adoption so new AI ways of working stick.",Styrning risk och verksamhet,True,160951,
+T31,Decision models / beslutsmodeller,"Uses decision models that choose among given options and return a calibrated probability, to automate yes/no, classification and scoring decisions with confidence thresholds.",Koncept och tekniker,True,,

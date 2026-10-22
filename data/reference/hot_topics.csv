@@ -29,3 +29,4 @@ topic_id,category,topic,status,gap_note
 28,Styrning risk och verksamhet,AI-strategi / AI-roadmap / AI-mognad,exact,"AI Strategy skill; tag 'AI strategi'"
 29,Styrning risk och verksamhet,Use case-identifiering / AI-värdeskapande / ROI,exact,"AI Use Case Discovery, AI Use Cases; no tag"
 30,Styrning risk och verksamhet,AI-transformation / förändringsledning / AI-adoption,exact,"AI Transformation skill+tag, AI Adoption & Enablement; no AI literacy"
+31,Koncept och tekniker,Decision models / beslutsmodeller,close,No keyword yet; AI-based decision support variants are related. Source: neubird.ai/blog/decision-models-vs-llms

@@ -210,3 +210,6 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 30,skill,316363,AI-acceleration,close,related
 30,skill,348897,Digitalisation & AI,close,related
 30,skill,348892,Digitalisering & AI,close,related
+31,skill,217511,AI-based Decision Support,close,related
+31,skill,346988,AI-baserat beslutsstöd,close,related
+31,skill,349856,Beslutsstöd baserat på AI och dataanalys,close,related

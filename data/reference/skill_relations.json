@@ -224,5 +224,10 @@
   "AI Adoption & Enablement": "related",
   "AI Enablement (Technical & Governance)": "related",
   "AI Transformation": "synonym"
+ },
+ "T31": {
+  "AI-based Decision Support": "related",
+  "AI-baserat beslutsstöd": "related",
+  "Beslutsstöd baserat på AI och dataanalys": "related"
  }
 }
