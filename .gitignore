@@ -1,0 +1,24 @@
+# Personal data: employee ids with self-assessed skill levels (see README).
+# Keep these local; share only aggregated counts.
+data/raw/skill_search/
+data/raw/profile_skills/
+data/raw/catalog/users.json
+
+# Generated DuckDB build (rebuilt by src/load_duckdb.py; contains the personal data above)
+db/*.duckdb
+db/*.duckdb.wal
+
+# Secrets for src/fetch_api.py
+.env
+.env.*
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Local Claude Code state
+.claude/settings.local.json
+.claude/.cc-writes/
+
+.DS_Store

@@ -1,0 +1,142 @@
+topic_id,kind,cinode_id,cinode_name,match
+1,skill,118029,Generative AI,exact
+1,skill,127694,Generativ AI,exact
+1,skill,135909,GenAI,exact
+1,skill,200981,Generative AI (GenAI),exact
+1,tag,299244,AI/LLM,close
+1,tag,253652,AI,close
+2,skill,124963,Large Language Models,exact
+2,skill,117969,Large Language Models (LLMs),exact
+2,skill,129807,Large Language Models (LLM),exact
+2,tag,299244,AI/LLM,exact
+3,skill,189396,Agentic AI,exact
+3,skill,313916,Agentisk AI,exact
+3,skill,296588,Agentic AI Development,exact
+3,skill,265980,AI-agentutveckling,exact
+3,skill,306055,Implementation av AI-agenter,exact
+3,skill,248915,Agentic systems,close
+3,skill,236810,Agentic development,close
+3,tag,298893,Agentic AI,exact
+4,skill,61303,Multi-agent Systems,exact
+4,skill,330439,Agentic AI Architectures (Single- & Multi-Agent Systems),exact
+4,skill,283692,Agentiska system,close
+5,skill,149341,Retrieval-Augmented Generation (RAG),exact
+5,skill,140239,Retrieval-Augmented Generation,exact
+5,skill,134969,RAG,exact
+6,skill,116239,Prompt Engineering,exact
+6,skill,253290,Context Engineering,exact
+7,skill,147371,Vector Databases,exact
+7,skill,232472,Vektordatabaser,exact
+7,skill,76763,Embeddings,exact
+7,skill,130885,Pgvector,exact
+9,skill,229030,MCP (Model Context Protocol),exact
+9,skill,266559,FastMCP,close
+10,skill,4931,Machine Learning,exact
+10,skill,9132,Maskininlärning,exact
+10,skill,72195,Maskinlæring,exact
+10,skill,9888,Deep Learning,exact
+10,tag,307171,Machine Learning,exact
+10,tag,306990,AI/ML,exact
+10,tag,296355,Data Science/ML,close
+11,skill,81226,Natural Language Processing (NLP),exact
+11,skill,31274,NLP,exact
+11,skill,130603,Natural language understanding,close
+12,skill,91074,Intelligent Automation,exact
+12,skill,311988,Intelligent Process Automation (AI),exact
+12,skill,325105,Intelligent Automatisering (AI),exact
+12,skill,24364,RPA,close
+12,skill,20825,Robotic Process Automation,close
+12,tag,269589,Hyperautomation,close
+12,tag,307008,Automation,close
+13,skill,62181,MLOps,exact
+13,tag,298897,MLOps,exact
+14,skill,80719,Data Strategy,exact
+14,skill,81435,Data Strategi,exact
+14,skill,63277,Datastrategi,exact
+14,tag,296063,Data Governance,close
+14,tag,299236,Data Management,close
+15,skill,135509,Data lakehouse,exact
+15,skill,58712,Databricks,exact
+15,skill,45063,Snowflake,exact
+15,skill,130134,Microsoft Fabric,exact
+15,tag,299194,Databricks,exact
+15,tag,302972,Azure Databricks,exact
+15,tag,299197,Snowflake,exact
+15,tag,302971,Microsoft Fabric,exact
+15,tag,266280,Dataplattform,exact
+16,skill,157638,LLM Evaluation,exact
+16,skill,153854,Monitoring and observability,close
+16,tag,306983,Observability,close
+17,skill,128659,Microsoft 365 Copilot,exact
+17,skill,165451,M365 Copilot,exact
+17,skill,182599,Copilot for Microsoft 365,exact
+17,skill,138163,Microsoft Copilot,exact
+17,skill,356364,Microsoft 365 / Copilot,exact
+17,skill,179679,MS Copilot,exact
+17,tag,306433,Microsoft 365,close
+18,skill,198457,Copilot Studio,exact
+18,skill,210616,Azure AI Foundry,exact
+18,skill,267436,Microsoft Azure AI Foundry,exact
+18,skill,286986,Azure Foundry,exact
+18,skill,330440,Azure AI Foundry Agents,exact
+18,tag,302964,Power Platform,close
+18,tag_type,11450,Power Platform,close
+19,skill,119799,Azure Openai,exact
+19,skill,121665,OpenAI API,exact
+19,skill,123596,OpenAI APIs,exact
+19,skill,107665,OpenAI,exact
+19,skill,171262,OpenAI Assistants API,close
+19,skill,252980,OpenAI SDK,close
+19,tag,296156,Azure,close
+20,skill,140518,Amazon Bedrock,exact
+20,tag,296058,AWS,close
+21,skill,120381,Langchain,exact
+21,skill,200947,LangGraph,exact
+21,skill,350443,LangGraph/LangChain,exact
+22,skill,2930,Python,exact
+22,skill,43517,PyTorch,exact
+22,skill,92384,Hugging Face,exact
+22,tag,296163,Python,exact
+23,skill,83705,GitHub Copilot,exact
+23,skill,229624,AI-assisted development,exact
+23,skill,325388,AI-assisterad mjukvaruutveckling,exact
+23,skill,332781,AI-assisted software development,exact
+23,skill,252043,AI-assisted engineering,exact
+23,skill,110719,Cursor,exact
+23,skill,229786,Claude Code,exact
+23,skill,212884,Claude,close
+24,skill,98133,AIOps,exact
+24,skill,151660,AIOps  Processes & Tools,exact
+24,skill,5234,ServiceNow,close
+24,tag,302969,ServiceNow,close
+25,skill,92917,AI Act,exact
+25,skill,282716,AI-förordningen (AI Act),exact
+25,skill,170134,AI Act Compliance,exact
+25,tag,299243,GDPR,close
+26,skill,118076,AI Governance,exact
+26,skill,350146,AI Governance & Adoption,exact
+26,skill,118074,Responsible AI,exact
+26,skill,118072,AI Ethics,exact
+26,skill,103899,Ethical AI,exact
+26,skill,289363,Ethical & responsible AI practices,exact
+26,skill,289455,AI & Data Governance,exact
+26,tag,298878,IT Governance,close
+26,tag,296063,Data Governance,close
+27,skill,238711,AI Risk Management,close
+27,tag,299243,GDPR,close
+27,tag,299245,Information Security,close
+27,tag,225780,Cybersecurity,close
+28,skill,88359,AI Strategy,exact
+28,skill,169259,AI-Strateg,exact
+28,skill,154812,AI Strategist,close
+28,tag,258463,AI strategi,exact
+29,skill,320245,AI Use Case Discovery,exact
+29,skill,141097,AI Use Cases,exact
+29,skill,173309,AI in Business Development,close
+30,skill,188676,AI Transformation,exact
+30,skill,340945,AI Adoption & Enablement,exact
+30,skill,153877,AI implementation,close
+30,tag,306985,AI Transformation,exact
+30,tag,305300,Change Management,close
+30,tag,300134,förändringsledning,close
+30,tag,305302,Transformation Lead,close

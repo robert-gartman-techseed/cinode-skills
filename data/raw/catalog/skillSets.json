@@ -1,0 +1,8 @@
+{"_fetched": "2026-10-22T08:25Z", "_call": "fetch skillSets:", "items":[
+{"id":9575,"name":"AI Skillset","description":"TechSeed curated set of AI related skills","isPrivate":false,"skills":[],"responsibles":[144951,152386]},
+{"id":3815,"name":"Programmeringsspråk","skills":[[297,2597,"JavaScript",5],[703,2971,"Java",5],[745,3008,"CSS",4],[784,3044,"HTML5",5],[3823,72195,"Maskinlæring",4],[11553,13511,"Angular",2],[22070,2930,"Python",4],[70812,82528,"Mithriljs",5]]},
+{"id":3817,"name":"Prosjektroller","skills":[[29451,4078,"Systemarkitekt",5],[43640,3004,"Scrum Master",5],[95354,111573,"Technology Lead",5],[114564,136759,"Fullstack-utvikler",5]]},
+{"id":3816,"name":"Rammeverk & metoder","skills":[[938,3189,"Amazon Web Services",5],[1005,3253,"Backbone.js",5],[2527,3748,"Docker",3],[2775,3984,"DevOps",3],[3789,4897,"Bootstrap",5],[5681,6751,"Spring Boot",4],[5782,39879,"JIRA",3],[6637,28259,"HTTP REST APIs",5],[14932,17355,"Kubernetes",5],[15219,17688,"Semantic UI",5],[37368,43243,"Azure DevOps",5],[67695,2789,"Scrum",4],[90942,105878,"Mikrotjenester",5],[113740,135734,"Apache Kafka/Storm",4],[114562,136757,"Automatiserte tester",4],[114565,136760,"Frontend-utvikling",0],[114566,136761,"Backend-utvikling",5]]},
+{"id":2114,"name":"Senior Java developer","skills":[[181,7061,"Databases",4],[703,2971,"Java",4],[847,3102,"Cloud",3]]},
+{"id":642,"name":"testrt","skills":[[498,2785,"Projektledning",null]]}
+],"_skill_format":"[keywordId, keywordSynonymId, name, requiredLevel]","totalItems":6}

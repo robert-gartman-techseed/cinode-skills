@@ -1,0 +1,477 @@
+# fetch tags:  (Cinode MCP, 2026-10-22T08:25Z). API reported totalItems=476. Format: id|name
+28467|Accounting
+28468|Administration & Office Support
+28469|Advertising, Arts & Media
+28470|Banking & Financial Services
+28471|Call Centre & Customer Service
+28472|Community Services & Development
+28473|Construction
+28474|Consulting & Strategy
+28475|Design & Architecture
+28476|Education & Training
+28477|Engineering
+28478|Farming, Animals & Conservation
+28479|Government & Defence
+28480|Healthcare & Medical
+28481|Hospitality & Tourism
+28482|Human Resources & Recruitment
+28483|Information & Communication Technology
+28484|Insurance & Superannuation
+28485|Legal
+28486|Manufacturing, Transport & Logistics
+28487|Marketing & Communications
+28488|Mining, Resources & Energy
+28489|Real Estate & Property
+28490|Retail & Consumer Products
+28491|Sales
+28492|Science & Technology
+28493|Sport & Recreation
+28494|Trades & Services
+143758|Test
+144824|Hållbarhet
+144825|ISO 14001
+144826|Kemikalieförteckning
+144827|Miljö
+144828|Sustainability
+144829|Bostads
+144830|Fastighetsbolag
+144831|Fastighetssystem
+144832|Förvaltnings
+144833|Kommunalt bolag
+144834|Leverantörsuppföljning
+144835|Strategisk utveckling
+151129|Ellinor Barrdahl
+177275|Köpande kund
+177276|Underkonsulter
+177673|Tidigare kollega
+177674|Vän
+177936|Partner
+178537|köpande
+200219|IoT M prioriterad
+206965|Ramavtal
+208969|Frilans
+209099|Project
+210031|Enskild konsult
+210035|Eget avtal
+211153|Team
+213924|Offentlig förvaltning
+216581|Förlängning
+219321|embedded
+219789|Agile
+219790|electronics
+219791|hvdc
+219792|Things
+222268|IoT GBG
+222269|Studio GBG
+222270|HA GBG
+222271|DI GBG
+225777|Enterprise Risk Management
+225778|Risk Management
+225779|Risk Manager
+225780|Cybersecurity
+229028|InsightsHub
+229522|C/C++
+229523|Embedded Linux
+229524|Lisp
+229525|Yocto
+230562|Data Insights GBG
+238380|Livsmedelindustrin
+238381|Riksförbund
+240091|UX/UI
+241146|GBG
+242111|XR STO
+242112|DI MID
+242113|Prio kund
+247312|Business Accelerate
+247313|Verksamhetssystem
+248933|IoT Mälardalen
+253652|AI
+253653|IndTech
+253654|Rail
+256683|Byggnadsautomation
+256684|Energi
+256685|Energieffektivisering
+256686|Energistrateg
+256687|KTH
+256688|Smart Building
+256689|Smart Building Lead
+256690|Smart Building Champ
+256691|Business Technolgies
+258462|Affärsmodeller
+258463|AI strategi
+258464|Effektoptimering
+258465|Elnät
+258466|Fastighetsförvaltning
+258467|Horisontal Smart Building Stack
+258468|Peak shaving
+258469|Smart Building Champion
+258470|Smart City
+265143|Samhällsutveckling
+265310|Västerås
+266280|Dataplattform
+266281|konsultuppdrag
+266282|projektledning
+266283|VGR
+267479|Kontakta ej
+269054|Cyber Security
+269126|Scrum
+269127|SAP
+269477|product owner
+269478|design
+269479|business analyst
+269588|DevOps
+269589|Hyperautomation
+269590|Solution Architect
+269591|Data Insights Syd
+269592|Data Scientist
+269621|technical lead
+269650|elektronik
+269651|Things Västerås
+269839|produktägare
+272279|Service
+272699|Automotive
+272862|Data Engineer
+272960|Information arkitekture
+273748|Malmö
+281489|Managed Services
+284473|Upphandling
+287625|Ny
+287626|Leta uppdrag
+287627|Leta uppdrag prio
+287628|Leta uppdrag 1mån
+287629|leta uppdrag 2mån
+288161|MID Priokund
+288162|MID Nya Prospects
+288366|Ework Verama
+289613|Biztalk
+289614|Integration
+296024|TOGAF
+296025|Shopify
+296054|Test Engineer
+296055|Digitalisering
+296056|Fullstack
+296057|.NET
+296058|AWS
+296059|Business Intelligence
+296060|Platform Engineering
+296061|Program Management
+296062|Quality Assurance
+296063|Data Governance
+296064|Android
+296065|DUBLETT - RADERA MANUELLT
+296066|Microsoft
+296067|Enterprise Architecture
+296068|Team Leadership
+296069|Cybersäkerhet
+296070|Projektledare
+296071|Testledare
+296072|Elkonstruktion
+296073|ERP
+296074|Backend-utvecklare
+296075|Affärsanalytiker
+296076|Embedded Systems
+296077|Power BI
+296078|Konsult
+296079|Göteborg
+296080|Stockholm
+296081|Borås
+296082|iOS
+296083|Business Development
+296084|Umeå
+296085|Luleå
+296086|Jönköping
+296087|IT Manager
+296088|Oslo
+296089|Enterprise Architect
+296155|Generalist
+296156|Azure
+296157|Scrum Master
+296158|UX/UI Designer
+296159|Figma
+296160|JavaScript
+296161|DevOps Engineer
+296162|Kubernetes
+296163|Python
+296228|Telekom
+296229|Fordon/Automotive
+296230|Retail/E-handel
+296231|Industri/Tillverkning
+296232|Utvecklare
+296303|Vård/Healthcare
+296304|Logistik
+296305|Bank/Finans
+296306|Mobile Developer
+296307|Engineering Manager
+296308|QA Engineer
+296309|Cleantech/Miljöteknik
+296310|Läkemedel/Life Science
+296339|Offentlig sektor
+296354|Medicinteknik/Life Science
+296355|Data Science/ML
+296356|Testautomation
+296357|Cloud/AI Arkitekt
+296386|Utbildning
+296387|Bygg/Fastighet
+297894|Atlassian
+298749|Slutat
+298808|Smart Society
+298809|Smart Industry
+298810|Smart Things
+298872|Project Management
+298873|System Migration
+298874|Test Management
+298875|Digital Transformation
+298876|SAP Test/QA Management
+298877|SAP Implementation &amp; Governance
+298878|IT Governance
+298879|Gothenburg
+298880|Teamcenter
+298881|PLM
+298882|Torslanda
+298883|Test Strategy
+298884|Fullstack Development
+298885|React/TypeScript
+298886|Test Automation
+298887|Java Development
+298888|Testing
+298889|Lund
+298890|Software Development
+298891|Data Engineering
+298892|C++
+298893|Agentic AI
+298894|Backend Development
+298895|Alingsås
+298896|SAFe
+298897|MLOps
+298898|Cloud Architecture
+298899|Data Warehouse
+298900|Data Architecture
+298929|dbt
+298930|Trollhättan
+298931|Node.js
+298932|Golang
+298933|Full-stack
+298934|Systemarkitektur
+298935|Cloud/DevOps
+298936|Systemförvaltning
+298981|Sundbyberg
+298982|Exploratory Testing
+298984|Karlskrona
+298985|Kravhantering
+298986|SharePoint
+299002|Solution Architecture
+299003|Rydebäck
+299004|C#
+299005|UX/UI Design
+299115|Test & Verifiering
+299116|IoT
+299117|Lösningsarkitektur
+299118|Tableau
+299191|UX Design
+299192|Grafisk design
+299193|Azure Data Engineering
+299194|Databricks
+299195|Android AOSP
+299196|Embedded Software
+299197|Snowflake
+299198|Information Architecture
+299199|SAP GTS
+299228|Product Management
+299229|Business Analysis
+299230|Automotive Industry
+299231|Software Testing
+299232|Medical devices
+299233|Testledning
+299234|Teststrategi
+299235|Harestad
+299236|Data Management
+299237|Java
+299238|Spring Boot
+299239|Software Architecture
+299240|Microservices
+299241|Nacka
+299242|Informationssäkerhet
+299243|GDPR
+299244|AI/LLM
+299245|Information Security
+299451|Lidköping
+299452|SAP PP
+299453|MES
+299454|Supply Chain
+299455|SAP S/4HANA Public Cloud
+299456|Norrköping
+299795|Dynamics 365
+299796|Agile Project Management
+299826|Wireless Communication
+299855|XR
+300105|Innovation
+300134|förändringsledning
+300135|Kommunikationstrateg
+301115|Brämhult
+301116|CFO
+301117|Ekonomistyrning
+301118|Information Compliance
+301119|UX/UI-design
+301120|Produktdesign
+301121|Vårdinformationssystem
+301122|Backend-utveckling
+301123|QA
+301124|Affärsanalys
+301125|Programledning
+301126|IT-styrning
+302964|Power Platform
+302965|EWM/TM
+302967|Microsoft Dynamics 365
+302968|Test Lead
+302969|ServiceNow
+302970|CMDB/CSDM
+302971|Microsoft Fabric
+302972|Azure Databricks
+302973|Digital Strategi
+305298|Ignition
+305299|AI Project Lead
+305300|Change Management
+305301|Project Manager
+305302|Transformation Lead
+305303|Projektledare AI
+306433|Microsoft 365
+306463|Goteborg
+306464|iOS/Android
+306465|Flutter
+306474|Kotlin
+306483|Java/Spring Boot
+306484|Dubai
+306486|Jyvaskyla
+306487|Bengaluru
+306488|AOSP
+306517|Losningsarkitektur
+306518|Kochel am See
+306519|Microsoft Exchange
+306520|Email Security
+306521|Android Automotive
+306977|React/Angular
+306978|Cloud (AWS/Azure)
+306979|Data Administration
+306980|CMDB
+306981|DevSecOps
+306982|Linux
+306983|Observability
+306984|CI/CD
+306985|AI Transformation
+306986|Berlin
+306987|ISO/SAE 21434
+306988|Embedded C/C++
+306989|Software Architect
+306990|AI/ML
+306991|Sävedalen
+306992|Geometrisäkring
+306993|Dataarkitektur
+306994|Kuopio
+306995|London
+306996|Kungsbacka
+306997|Försäljning
+306998|SaaS
+306999|Helsinki
+307000|Frontend
+307001|HV Battery
+307002|Barcelona
+307003|IT-säkerhet
+307004|Penetrationstestning
+307005|Uppsala
+307006|Distribuerade system
+307007|Skövde
+307008|Automation
+307009|Örebro
+307010|Produktionsteknik
+307011|Programledare
+307012|OT/IT-säkerhet
+307168|Sårbarhetshantering
+307169|Funktionell säkerhet
+307170|Engineering Data Management
+307171|Machine Learning
+307172|Helsingborg
+307173|Integrationsarkitektur
+307174|AUTOSAR
+307175|Prague
+307176|SAP Concur
+307177|Rome
+307178|SAP PP-PI
+307179|S/4HANA
+307180|Embedded C
+307181|BI-arkitekt
+307808|smart t
+308513|energy
+310335|Mölnlycke
+310336|OT-säkerhet
+310337|Informationsarkitektur
+310338|Qualys
+310339|Mumbai
+310340|Fordonssäkerhet
+310341|Inbyggda system
+310342|Diagnostik
+310343|Configuration Management
+310344|Release Management
+310345|Master Data Management
+310346|UK
+310347|ADAS
+310348|VMware
+310349|IT-infrastruktur
+310350|Märsta
+310351|Test och verifiering
+310409|SIEM
+310410|Coimbatore
+310411|Go
+310412|Angular
+310413|Frontendutvecklare
+310414|Molnarkitektur
+310415|Danderyd
+310416|Microsoft SQL Server
+310417|FinOps
+310418|Dataanalys
+310419|3D
+310420|Houdini
+310421|IAM
+310422|PKI
+310423|Mekanikkonstruktion
+310424|CAD
+310425|HIL
+310426|Elektronikkonstruktion
+310427|CATIA
+310456|SAP TM
+310457|Nätverk
+310458|Ruby on Rails
+311249|Qlik
+311250|IT-projektledning
+311251|IT-drift
+311252|Produktutveckling
+311450|Business Technologies
+311523|ISO 26262
+311524|Utvecklingschef
+311525|Agil coach
+311526|Slovakien
+311527|Verksamhetsutveckling
+311572|Systemdesign
+311573|Fordonsindustri
+313408|Fordonstest
+313409|Fordonsintegration och test
+313410|Fordonscybersäkerhet
+313411|Älvängen
+313412|IT-arkitektur
+313441|Systemutveckling
+313442|HIL-test
+313443|Testautomatisering
+313444|Mjukvaruverifiering
+313445|Mekatronik
+313446|Elektriska drivlinor
+313447|Kvalitetsledning
+313448|Lead Auditor
+313449|Leverantörskvalitet (PPAP/APQP)
+313450|Source-to-Pay
+313451|Validering
+313452|Kvalitetssäkring (GMP/ISO 13485)
+313453|Signalbehandling
+313454|Radar
+313527|Qt
+313528|Infotainment
+313529|Fullstack-utvecklare
+313531|ISO 27001
