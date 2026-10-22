@@ -25,3 +25,6 @@ __pycache__/
 
 # Per-person output from src/skills.py person (personal data)
 data/out/
+
+# Intermediate batch/decision files from src/buckets.py
+data/work/

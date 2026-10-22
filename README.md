@@ -148,3 +148,29 @@ uv run pytest
   `unique` (custom, no verified counterpart), plus duplicates on the same profile
   and the hot topic. This is personal data: it only prints to the terminal or
   writes to the gitignored `data/out/`.
+
+## Semantic synonym buckets (`src/buckets.py`)
+
+Robert's algorithm: take the keywords one at a time (verified first, then most
+used, so the established name heads each bucket); compare each with the
+keywords already examined; if one is a semantic synonym (same concept, same
+scope, both ways; products never alias a generic skill) it joins that bucket,
+otherwise it opens a new one. Reviewed synonyms from `topic_mapping.csv` and
+`skill_aliases.csv` are seeded first.
+
+The judging is done by Claude Code subagents in a workflow, one batch of 50 at
+a time; `buckets.py` does the deterministic part (order, shortlists, state):
+
+```
+uv run src/buckets.py next --scope pilot   # data/work/batch.json (scope: pilot | used2 | all)
+#   subagent judges the batch -> data/work/decisions.json
+uv run src/buckets.py apply data/work/decisions.json --model sonnet
+uv run src/buckets.py stats --show 10
+```
+
+State is `data/reference/skill_buckets.csv` (keyword names, counts, bucket,
+decision, reason, model), so a stopped run resumes. Limitation: each keyword is
+judged only against a shortlist of up to 15 candidate buckets found by cheap
+signals (normalised name, spelling, sv/en token overlap, abbreviation, shared
+Wikidata item, same hot topic); a synonym with none of these in common can be
+missed.

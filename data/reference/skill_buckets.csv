@@ -1,0 +1,463 @@
+keyword_id,name,verified,users,bucket_id,bucket_head,decision,matched_keyword,reason,batch,model
+107472,Generativ AI,False,3,1,Generativ AI,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+113879,GenAI,False,2,1,Generativ AI,seed,107472,reviewed synonym (topic_mapping / skill_aliases),0,human
+314668,Applied Generative AI,False,1,1,Generativ AI,seed,107472,reviewed synonym (topic_mapping / skill_aliases),0,human
+172056,Generative AI (GenAI),False,1,1,Generativ AI,seed,107472,reviewed synonym (topic_mapping / skill_aliases),0,human
+3823,Machine Learning,True,36,2,Machine Learning,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+27405,NLP,True,3,3,NLP,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+78560,Intelligent Automation,False,2,4,Intelligent Automation,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+289661,Intelligent Automatisering (AI),False,1,4,Intelligent Automation,seed,78560,reviewed synonym (topic_mapping / skill_aliases),0,human
+276899,Intelligent Process Automation (AI),False,1,4,Intelligent Automation,seed,78560,reviewed synonym (topic_mapping / skill_aliases),0,human
+53537,MLOps,False,2,5,MLOps,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+69227,Data Strategy,False,6,6,Data Strategy,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+54461,Datastrategi,False,1,6,Data Strategy,seed,69227,reviewed synonym (topic_mapping / skill_aliases),0,human
+113551,Data lakehouse,False,1,7,Data lakehouse,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+133070,LLM Evaluation,False,1,8,LLM Evaluation,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+108251,Microsoft 365 Copilot,False,2,9,Microsoft 365 Copilot,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+115651,Copilot för Microsoft 365,False,1,9,Microsoft 365 Copilot,seed,108251,reviewed synonym (topic_mapping / skill_aliases),0,human
+139612,M365 Copilot,False,1,9,Microsoft 365 Copilot,seed,108251,reviewed synonym (topic_mapping / skill_aliases),0,human
+319200,Microsoft 365 / Copilot,False,1,9,Microsoft 365 Copilot,seed,108251,reviewed synonym (topic_mapping / skill_aliases),0,human
+169842,Copilot Studio,False,3,10,Copilot Studio,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+102739,OpenAI API,False,2,11,OpenAI API,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+141462,open ai api,False,1,11,OpenAI API,seed,102739,reviewed synonym (topic_mapping / skill_aliases),0,human
+229436,Open AI Integration,False,1,11,OpenAI API,seed,102739,reviewed synonym (topic_mapping / skill_aliases),0,human
+104339,OpenAI APIs,False,1,11,OpenAI API,seed,102739,reviewed synonym (topic_mapping / skill_aliases),0,human
+102571,LLM,False,10,12,LLM,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+99892,Large Language Models (LLMs),False,1,12,LLM,seed,102571,reviewed synonym (topic_mapping / skill_aliases),0,human
+117590,Amazon Bedrock,False,2,13,Amazon Bedrock,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+101756,Langchain,False,1,14,Langchain,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+37583,PyTorch,True,7,15,PyTorch,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+199125,AI-assisted development,False,2,16,AI-assisted development,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+311479,AI Coding (codex & Claude code),False,1,16,AI-assisted development,seed,199125,reviewed synonym (topic_mapping / skill_aliases),0,human
+311493,AI Coding - Codex & Claude Code,False,1,16,AI-assisted development,seed,199125,reviewed synonym (topic_mapping / skill_aliases),0,human
+220145,AI-assisted engineering,False,1,16,AI-assisted development,seed,199125,reviewed synonym (topic_mapping / skill_aliases),0,human
+296821,AI-assisted software development,False,1,16,AI-assisted development,seed,199125,reviewed synonym (topic_mapping / skill_aliases),0,human
+289936,AI-assisterad mjukvaruutveckling,False,1,16,AI-assisted development,seed,199125,reviewed synonym (topic_mapping / skill_aliases),0,human
+145997,AI-driven Development,False,1,16,AI-assisted development,seed,199125,reviewed synonym (topic_mapping / skill_aliases),0,human
+84298,AIOps,False,1,17,AIOps,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+127426,AIOps  Processes & Tools,False,1,17,AIOps,seed,84298,reviewed synonym (topic_mapping / skill_aliases),0,human
+80284,AI Act,False,4,18,AI Act,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+143926,AI Act Compliance,False,3,18,AI Act,seed,80284,reviewed synonym (topic_mapping / skill_aliases),0,human
+275303,AIförordningen (EU AI Act),False,1,18,AI Act,seed,80284,reviewed synonym (topic_mapping / skill_aliases),0,human
+279244,Advisory AI Initiatives alignment with governance frameworks and compliance standards,False,1,19,Advisory AI Initiatives alignment with governance frameworks and compliance standards,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+99974,AI Governance,False,1,19,Advisory AI Initiatives alignment with governance frameworks and compliance standards,seed,279244,reviewed synonym (topic_mapping / skill_aliases),0,human
+255615,Supported organizations in aligning AI initiatives with governance frameworks and compliance standards.,False,1,19,Advisory AI Initiatives alignment with governance frameworks and compliance standards,seed,279244,reviewed synonym (topic_mapping / skill_aliases),0,human
+207619,AI Risk Management,False,1,20,AI Risk Management,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+76000,AI Strategy,False,3,21,AI Strategy,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+284906,AI Use Case Discovery,False,1,22,AI Use Case Discovery,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+118047,AI Use Cases,False,1,22,AI Use Case Discovery,seed,284906,reviewed synonym (topic_mapping / skill_aliases),0,human
+217331,Agentic systems,True,1,23,Agentic systems,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+161642,Agentic AI,False,4,23,Agentic systems,seed,217331,reviewed synonym (topic_mapping / skill_aliases),0,human
+262291,Agentic AI Development,False,1,23,Agentic systems,seed,217331,reviewed synonym (topic_mapping / skill_aliases),0,human
+205771,Agentic development,False,1,23,Agentic systems,seed,217331,reviewed synonym (topic_mapping / skill_aliases),0,human
+278690,Agentisk AI,False,1,23,Agentic systems,seed,217331,reviewed synonym (topic_mapping / skill_aliases),0,human
+266589,Agentisk utveckling,False,1,23,Agentic systems,seed,217331,reviewed synonym (topic_mapping / skill_aliases),0,human
+233425,AI-agentutveckling,False,1,23,Agentic systems,seed,217331,reviewed synonym (topic_mapping / skill_aliases),0,human
+271200,Implementation av AI-agenter,False,1,23,Agentic systems,seed,217331,reviewed synonym (topic_mapping / skill_aliases),0,human
+111737,LLM Agents,False,1,23,Agentic systems,seed,217331,reviewed synonym (topic_mapping / skill_aliases),0,human
+160951,AI Transformation,False,1,24,AI Transformation,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+52787,Multi-agent Systems,False,2,25,Multi-agent Systems,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+272312,Cooperative AI Systems,False,1,25,Multi-agent Systems,seed,52787,reviewed synonym (topic_mapping / skill_aliases),0,human
+106593,RAG (LLM),False,3,26,RAG (LLM),seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+113137,RAG,False,2,26,RAG (LLM),seed,106593,reviewed synonym (topic_mapping / skill_aliases),0,human
+125211,Retrieval-Augmented Generation (RAG),False,2,26,RAG (LLM),seed,106593,reviewed synonym (topic_mapping / skill_aliases),0,human
+117369,Retrieval-Augmented Generation,False,1,26,RAG (LLM),seed,106593,reviewed synonym (topic_mapping / skill_aliases),0,human
+98676,Prompt Engineering,False,4,27,Prompt Engineering,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+267149,AI Prompting,False,1,27,Prompt Engineering,seed,98676,reviewed synonym (topic_mapping / skill_aliases),0,human
+243879,AI promptning,False,1,27,Prompt Engineering,seed,98676,reviewed synonym (topic_mapping / skill_aliases),0,human
+124496,LLM prompting,False,1,27,Prompt Engineering,seed,98676,reviewed synonym (topic_mapping / skill_aliases),0,human
+65733,Embeddings,False,4,28,Embeddings,seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+198626,MCP (Model Context Protocol),False,3,29,MCP (Model Context Protocol),seed,,reviewed synonym (topic_mapping / skill_aliases),0,human
+498,Project Management,True,103,30,Project Management,new,,No synonym in shortlist,1,sonnet
+22070,Python,True,98,31,Python,new,,Language; PyTorch is a framework,1,sonnet
+782,Git,True,71,32,Git,new,,No candidates,1,sonnet
+5782,JIRA,True,69,33,JIRA,new,,No candidates,1,sonnet
+1051,Microsoft Azure,True,69,34,Microsoft Azure,new,,Cloud platform; not Machine Learning,1,sonnet
+502,Agile Methods,True,68,35,Agile Methods,new,,Shortlist unrelated,1,sonnet
+664,SQL,True,60,36,SQL,new,,No candidates,1,sonnet
+342,Project Manager,True,59,37,Project Manager,new,,Role differs from Project Management skill,1,sonnet
+428,Linux,True,55,38,Linux,new,,No candidates,1,sonnet
+797,C#,True,54,39,C#,new,,No candidates,1,sonnet
+703,Java,True,54,40,Java,new,,No candidates,1,sonnet
+37368,Azure DevOps,True,53,41,Azure DevOps,new,,Shortlist unrelated,1,sonnet
+297,JavaScript,True,53,42,JavaScript,new,,No candidates,1,sonnet
+1213,C,True,52,43,C,new,,C differs from C#,1,sonnet
+2719,Change Management,True,52,44,Change Management,new,,Not AI Risk Management or project management,1,sonnet
+2775,DevOps,True,51,45,DevOps,new,,DevOps is broader than Azure DevOps product,1,sonnet
+998,Continuous Integration,True,50,46,Continuous Integration,new,,Shortlist unrelated,1,sonnet
+13773,Data analysis,True,48,47,Data analysis,new,,Not Data Strategy or lakehouse,1,sonnet
+2527,Docker,True,47,48,Docker,new,,No candidates,1,sonnet
+8071,Stakeholder analysis,True,46,49,Stakeholder analysis,new,,Not data analysis,1,sonnet
+1290,System Integration,True,46,50,System Integration,new,,Not Continuous Integration or OpenAI API,1,sonnet
+1050,Requirement Analysis,True,45,51,Requirement Analysis,new,,Not RAG,1,sonnet
+505,Testing,True,44,52,Testing,new,,No candidates,1,sonnet
+2455,Troubleshooting,True,44,53,Troubleshooting,new,,"Neighbouring to Testing, not same",1,sonnet
+6098,Software Development,True,43,54,Software Development,new,,Broader than AI-assisted or agentic development,1,sonnet
+13,Business System,True,41,55,Business System,new,,Not multi-agent systems,1,sonnet
+5693,Automation,True,40,56,Automation,new,,Generic automation; shortlist items narrower or different,1,sonnet
+6256,Backend Development,True,39,57,Backend Development,new,,Sub-skill of software development,1,sonnet
+112,Embedded Systems,True,39,58,Embedded Systems,new,,No candidates,1,sonnet
+38050,.NET,True,38,59,.NET,new,,"Framework, distinct from C#",1,sonnet
+6958,Programming,True,38,60,Programming,new,,Generic programming; not prompt engineering,1,sonnet
+564,System Development,True,38,61,System Development,new,,Uncertain equivalence with Software Development; choose new,1,sonnet
+14171,AI,True,37,62,AI,new,,Broad AI; no equivalent bucket,1,sonnet
+7694,IoT,True,37,63,IoT,new,,Unrelated to Git,1,sonnet
+5754,Sales,True,36,64,Sales,new,,Unrelated to stakeholder analysis,1,sonnet
+5450,API,True,35,65,API,new,,Generic API; not Prompt Engineering or OpenAI API,1,sonnet
+5158,FPGA,True,34,66,FPGA,new,,No candidates,1,sonnet
+283,Integration,True,34,67,Integration,new,,Broader than System Integration,1,sonnet
+804,Microsoft SQL Server,True,34,68,Microsoft SQL Server,new,,"Specific product, not Azure or SQL",1,sonnet
+2944,Architecture,True,32,69,Architecture,new,,No candidates,1,sonnet
+896,Business Development,True,32,70,Business Development,new,,Unrelated to development keywords,1,sonnet
+772,Innovation,True,32,71,Innovation,new,,Not AI Transformation,1,sonnet
+29796,React.js,True,32,72,React.js,new,,"Framework, not JavaScript",1,sonnet
+556,Requirements handling,True,32,73,Requirements handling,new,,Neighbouring to Requirement Analysis,1,sonnet
+7280,Strategic planning,True,32,74,Strategic planning,new,,No candidates,1,sonnet
+3516,System Architecture,True,32,75,System Architecture,new,,Narrower than Architecture,1,sonnet
+847,Cloud,True,31,76,Cloud,new,,No candidates,1,sonnet
+745,CSS,True,31,77,CSS,new,,Unrelated to Copilot Studio,1,sonnet
+2843,Quality Assurance (QA),True,31,78,Quality Assurance (QA),new,,Neighbouring to Testing,1,sonnet
+620,Business Intelligence,True,30,79,Business Intelligence,new,,Neighbouring to Data analysis,1,sonnet
+3705,Leadership,True,30,80,Leadership,new,,No true synonym; distinct scope,2,sonnet
+2716,Budgeting,True,29,81,Budgeting,new,,No true synonym; distinct scope,2,sonnet
+181,Databases,True,29,82,Databases,new,,No true synonym; distinct scope,2,sonnet
+3066,Power BI,True,29,83,Power BI,new,,No true synonym; distinct scope,2,sonnet
+13859,Programming languages,True,29,84,Programming languages,new,,No true synonym; distinct scope,2,sonnet
+938,Amazon Web Services,True,28,85,Amazon Web Services,new,,No true synonym; distinct scope,2,sonnet
+23641,Business Analysis,True,28,86,Business Analysis,new,,No true synonym; distinct scope,2,sonnet
+12430,Team Leadership,True,28,87,Team Leadership,new,,No true synonym; distinct scope,2,sonnet
+610,Test automation,True,28,88,Test automation,new,,No true synonym; distinct scope,2,sonnet
+479,Documentation,True,27,89,Documentation,new,,No true synonym; distinct scope,2,sonnet
+1321,GitHub,True,27,90,GitHub,new,,No true synonym; distinct scope,2,sonnet
+756,Jenkins,True,27,91,Jenkins,new,,No true synonym; distinct scope,2,sonnet
+678,Process Development,True,27,92,Process Development,new,,No true synonym; distinct scope,2,sonnet
+8390,Workshop Facilitation,True,27,93,Workshop Facilitation,new,,No true synonym; distinct scope,2,sonnet
+2680,Procurement,True,26,94,Procurement,new,,No true synonym; distinct scope,2,sonnet
+3320,VHDL,True,26,95,VHDL,new,,No true synonym; distinct scope,2,sonnet
+2850,C/C++,True,25,96,C/C++,new,,No true synonym; distinct scope,2,sonnet
+24704,Data Modeling,True,25,97,Data Modeling,new,,No true synonym; distinct scope,2,sonnet
+2598,Electronics,True,25,98,Electronics,new,,No true synonym; distinct scope,2,sonnet
+295,HTML,True,25,99,HTML,new,,No true synonym; distinct scope,2,sonnet
+801,Microsoft Excel,True,25,100,Microsoft Excel,new,,No true synonym; distinct scope,2,sonnet
+124,Retail,True,25,101,Retail,new,,No true synonym; distinct scope,2,sonnet
+4889,SAFe,True,25,102,SAFe,new,,No true synonym; distinct scope,2,sonnet
+570,Security,True,25,103,Security,new,,No true synonym; distinct scope,2,sonnet
+6939,Digitalization,True,24,104,Digitalization,new,,No true synonym; distinct scope,2,sonnet
+2816,Maintenance,True,24,105,Maintenance,new,,No true synonym; distinct scope,2,sonnet
+3699,Prototyping,True,24,106,Prototyping,new,,No true synonym; distinct scope,2,sonnet
+679,Solution Architect,True,24,107,Solution Architect,new,,No true synonym; distinct scope,2,sonnet
+3970,Team Leading,True,24,87,Team Leadership,synonym,Team Leadership,Team Leading means same as Team Leadership,2,sonnet
+1187,Bash,True,23,108,Bash,new,,No true synonym; distinct scope,2,sonnet
+848,Governance,True,23,109,Governance,new,,No true synonym; distinct scope,2,sonnet
+14932,Kubernetes,True,23,110,Kubernetes,new,,No true synonym; distinct scope,2,sonnet
+118,Logistics,True,23,111,Logistics,new,,No true synonym; distinct scope,2,sonnet
+648,MATLAB,True,23,112,MATLAB,new,,No true synonym; distinct scope,2,sonnet
+13542,MQTT,True,23,113,MQTT,new,,No true synonym; distinct scope,2,sonnet
+14001,UART,True,23,114,UART,new,,No true synonym; distinct scope,2,sonnet
+5402,Data Management,True,22,115,Data Management,new,,No true synonym; distinct scope,2,sonnet
+5157,I2C,True,22,116,I2C,new,,No true synonym; distinct scope,2,sonnet
+3545,Lösningsarkitektur,True,22,117,Lösningsarkitektur,new,,No true synonym; distinct scope,2,sonnet
+196,Oracle,True,22,118,Oracle,new,,No true synonym; distinct scope,2,sonnet
+7199,Product Development,True,22,119,Product Development,new,,No true synonym; distinct scope,2,sonnet
+3967,Regulatory Compliance,True,22,120,Regulatory Compliance,new,,No true synonym; distinct scope,2,sonnet
+4862,System Design,True,22,121,System Design,new,,No true synonym; distinct scope,2,sonnet
+27172,Team Manager,True,22,122,Team Manager,new,,No true synonym; distinct scope,2,sonnet
+15123,GDPR,True,21,123,GDPR,new,,No true synonym; distinct scope,2,sonnet
+3806,IT Security,True,21,124,IT Security,new,,No true synonym; distinct scope,2,sonnet
+35310,Manufacturing,True,21,125,Manufacturing,new,,No true synonym; distinct scope,2,sonnet
+5200,Simulation,True,21,126,Simulation,new,,No true synonym; distinct scope,2,sonnet
+13538,Software Process Improvement,True,21,127,Software Process Improvement,new,,No true synonym; distinct scope,2,sonnet
+5052,TypeScript,True,21,128,TypeScript,new,,No true synonym; distinct scope,2,sonnet
+6190,Windows,True,21,129,Windows,new,,No true alias in shortlist or batch,3,sonnet
+15288,Digital transformation,True,20,130,Digital transformation,new,,No true alias in shortlist or batch,3,sonnet
+11332,Embedded Linux,True,20,131,Embedded Linux,new,,No true alias in shortlist or batch,3,sonnet
+7132,Project planning,True,20,132,Project planning,new,,No true alias in shortlist or batch,3,sonnet
+48,QlikView,True,20,133,QlikView,new,,No true alias in shortlist or batch,3,sonnet
+1294,Unit testing,True,20,134,Unit testing,new,,No true alias in shortlist or batch,3,sonnet
+210,Data Migration,True,19,135,Data Migration,new,,No true alias in shortlist or batch,3,sonnet
+741,Kanban,True,19,136,Kanban,new,,No true alias in shortlist or batch,3,sonnet
+2763,Microsoft Visual Studio 2013,True,19,137,Microsoft Visual Studio 2013,new,,No true alias in shortlist or batch,3,sonnet
+30477,Operations Development,True,19,138,Operations Development,new,,No true alias in shortlist or batch,3,sonnet
+6637,REST API,True,19,139,REST API,new,,No true alias in shortlist or batch,3,sonnet
+3114,Risk Analysis,True,19,140,Risk Analysis,new,,No true alias in shortlist or batch,3,sonnet
+3449,Statistics,True,19,141,Statistics,new,,No true alias in shortlist or batch,3,sonnet
+2768,Web Development,True,19,142,Web Development,new,,No true alias in shortlist or batch,3,sonnet
+14362,Yocto,True,19,143,Yocto,new,,No true alias in shortlist or batch,3,sonnet
+6204,Agile Development,True,18,144,Agile Development,new,,No true alias in shortlist or batch,3,sonnet
+11553,Angular,True,18,145,Angular,new,,No true alias in shortlist or batch,3,sonnet
+115,Automotive Industry,True,18,146,Automotive Industry,new,,No true alias in shortlist or batch,3,sonnet
+214,ETL,True,18,147,ETL,new,,No true alias in shortlist or batch,3,sonnet
+485,ITIL,True,18,148,ITIL,new,,No true alias in shortlist or batch,3,sonnet
+121,Public Sector,True,18,149,Public Sector,new,,No true alias in shortlist or batch,3,sonnet
+6538,Qlik Sense,True,18,150,Qlik Sense,new,,No true alias in shortlist or batch,3,sonnet
+3735,Recruitment,True,18,151,Recruitment,new,,No true alias in shortlist or batch,3,sonnet
+17016,RTOS,True,18,152,RTOS,new,,No true alias in shortlist or batch,3,sonnet
+508,SAP,True,18,153,SAP,new,,No true alias in shortlist or batch,3,sonnet
+3345,Supplier Management,True,18,154,Supplier Management,new,,No true alias in shortlist or batch,3,sonnet
+18372,PostgreSQL,True,17,155,PostgreSQL,new,,No true alias in shortlist or batch,3,sonnet
+8738,Processoptimering,True,17,156,Processoptimering,new,,No true alias in shortlist or batch,3,sonnet
+340,Product Management,True,17,157,Product Management,new,,No true alias in shortlist or batch,3,sonnet
+3874,Requirement Specifications,True,17,158,Requirement Specifications,new,,No true alias in shortlist or batch,3,sonnet
+25093,Xilinx,True,17,159,Xilinx,new,,No true alias in shortlist or batch,3,sonnet
+8019,Datainsamling,True,16,160,Datainsamling,new,,No true alias in shortlist or batch,3,sonnet
+784,HTML5,True,16,161,HTML5,new,,No true alias in shortlist or batch,3,sonnet
+300,Marketing,True,16,162,Marketing,new,,No true alias in shortlist or batch,3,sonnet
+17353,ModelSim,True,16,163,ModelSim,new,,No true alias in shortlist or batch,3,sonnet
+2724,Operational Efficiency,True,16,164,Operational Efficiency,new,,No true alias in shortlist or batch,3,sonnet
+11851,Problem Solving,True,16,165,Problem Solving,new,,No true alias in shortlist or batch,3,sonnet
+5583,Product Owner,True,16,166,Product Owner,new,,No true alias in shortlist or batch,3,sonnet
+791,REST,True,16,139,REST API,synonym,REST API,REST and REST API name the same skill,3,sonnet
+29584,Teamwork,True,16,167,Teamwork,new,,No true alias in shortlist or batch,3,sonnet
+3523,Telecom,True,16,168,Telecom,new,,No true alias in shortlist or batch,3,sonnet
+16438,Vivado,True,16,169,Vivado,new,,No true alias in shortlist or batch,3,sonnet
+20776,.NET Core,True,15,170,.NET Core,new,,No true alias in shortlist or batch,3,sonnet
+617,ASP.NET,True,15,171,ASP.NET,new,,No true alias in shortlist or batch,3,sonnet
+845,Change Manager,True,15,172,Change Manager,new,,No true alias in shortlist or batch,3,sonnet
+28038,Continuous Improvement,True,15,173,Continuous Improvement,new,,No true alias in shortlist or batch,3,sonnet
+9717,Data Governance,True,15,174,Data Governance,new,,No true alias in shortlist or batch,3,sonnet
+771,Decision support,True,15,175,Decision support,new,,No true alias in shortlist or batch,3,sonnet
+39603,Economy,True,15,176,Economy,new,,No true alias in shortlist or batch,3,sonnet
+11005,GitLab,True,15,177,GitLab,new,,No true alias in shortlist or batch,3,sonnet
+195,MySQL,True,15,178,MySQL,new,,No true alias among shortlist or earlier keywords,4,sonnet
+1065,Node.js,True,15,179,Node.js,new,,No true alias among shortlist or earlier keywords,4,sonnet
+653,PHP,True,15,180,PHP,new,,No true alias among shortlist or earlier keywords,4,sonnet
+14263,Robotics,True,15,181,Robotics,new,,No true alias among shortlist or earlier keywords,4,sonnet
+4302,Scripting,True,15,182,Scripting,new,,No true alias among shortlist or earlier keywords,4,sonnet
+9382,Strategiutveckling,True,15,183,Strategiutveckling,new,,No true alias among shortlist or earlier keywords,4,sonnet
+376,TCP/IP,True,15,184,TCP/IP,new,,No true alias among shortlist or earlier keywords,4,sonnet
+14938,Visual Studio Code,True,15,185,Visual Studio Code,new,,No true alias among shortlist or earlier keywords,4,sonnet
+3773,Application management,True,14,186,Application management,new,,No true alias among shortlist or earlier keywords,4,sonnet
+6481,Coaching,True,14,187,Coaching,new,,No true alias among shortlist or earlier keywords,4,sonnet
+5448,Datakvalitet,True,14,188,Datakvalitet,new,,No true alias among shortlist or earlier keywords,4,sonnet
+113,Energy,True,14,189,Energy,new,,No true alias among shortlist or earlier keywords,4,sonnet
+401,Ethernet,True,14,190,Ethernet,new,,No true alias among shortlist or earlier keywords,4,sonnet
+30161,Firmware,True,14,191,Firmware,new,,No true alias among shortlist or earlier keywords,4,sonnet
+24143,Information Security,True,14,192,Information Security,new,,No true alias among shortlist or earlier keywords,4,sonnet
+783,JSON,True,14,193,JSON,new,,No true alias among shortlist or earlier keywords,4,sonnet
+888,Lean,True,14,194,Lean,new,,No true alias among shortlist or earlier keywords,4,sonnet
+901,Microsoft BizTalk,True,14,195,Microsoft BizTalk,new,,No true alias among shortlist or earlier keywords,4,sonnet
+3912,Organizational development,True,14,196,Organizational development,new,,No true alias among shortlist or earlier keywords,4,sonnet
+3466,Qt,True,14,197,Qt,new,,No true alias among shortlist or earlier keywords,4,sonnet
+4712,Requirement Management,True,14,73,Requirements handling,synonym,Requirements handling,Requirement management equals requirements handling,4,sonnet
+2831,Requirements Gathering,True,14,198,Requirements Gathering,new,,No true alias among shortlist or earlier keywords,4,sonnet
+14140,Risk Assessment,True,14,199,Risk Assessment,new,,No true alias among shortlist or earlier keywords,4,sonnet
+4142,System Implementation,True,14,200,System Implementation,new,,No true alias among shortlist or earlier keywords,4,sonnet
+2448,System Testing,True,14,201,System Testing,new,,No true alias among shortlist or earlier keywords,4,sonnet
+3443,Test Management,True,14,202,Test Management,new,,No true alias among shortlist or earlier keywords,4,sonnet
+7813,Artifical Intelligence,True,13,62,AI,synonym,AI,Artificial Intelligence (typo) equals AI,4,sonnet
+4073,Business Analyst,True,13,203,Business Analyst,new,,No true alias among shortlist or earlier keywords,4,sonnet
+3515,Code review,True,13,204,Code review,new,,No true alias among shortlist or earlier keywords,4,sonnet
+7275,Consultant Industry,True,13,205,Consultant Industry,new,,No true alias among shortlist or earlier keywords,4,sonnet
+3346,Data Visualization,True,13,206,Data Visualization,new,,No true alias among shortlist or earlier keywords,4,sonnet
+4030,E-commerce,True,13,207,E-commerce,new,,No true alias among shortlist or earlier keywords,4,sonnet
+934,Entity Framework,True,13,208,Entity Framework,new,,No true alias among shortlist or earlier keywords,4,sonnet
+554,Frontend,True,13,209,Frontend,new,,No true alias among shortlist or earlier keywords,4,sonnet
+14424,Grafana,True,13,210,Grafana,new,,No true alias among shortlist or earlier keywords,4,sonnet
+8,Life Cycle Management,True,13,211,Life Cycle Management,new,,No true alias among shortlist or earlier keywords,4,sonnet
+2778,Microservice Architecture,True,13,212,Microservice Architecture,new,,No true alias among shortlist or earlier keywords,4,sonnet
+14899,Signal Processing,True,13,213,Signal Processing,new,,No true alias among shortlist or earlier keywords,4,sonnet
+3339,Strategy,True,13,214,Strategy,new,,No true alias among shortlist or earlier keywords,4,sonnet
+506,UML,True,13,215,UML,new,,No true alias among shortlist or earlier keywords,4,sonnet
+2759,User experience,True,13,216,User experience,new,,No true alias among shortlist or earlier keywords,4,sonnet
+10386,Verification,True,13,217,Verification,new,,No true alias among shortlist or earlier keywords,4,sonnet
+3186,Web applications,True,13,218,Web applications,new,,No true alias among shortlist or earlier keywords,4,sonnet
+85,WPF,True,13,219,WPF,new,,No true alias among shortlist or earlier keywords,4,sonnet
+4232,Administrative,True,12,220,Administrative,new,,No true alias among shortlist or earlier keywords,4,sonnet
+2855,Application development,True,12,221,Application development,new,,No true alias among shortlist or earlier keywords,4,sonnet
+1219,Business Process,True,12,222,Business Process,new,,No true alias among shortlist or earlier keywords,4,sonnet
+1091,Business Strategy,True,12,223,Business Strategy,new,,No true alias among shortlist or earlier keywords,4,sonnet
+3716,Incident Management,True,12,224,Incident Management,new,,No true alias among shortlist or earlier keywords,4,sonnet
+338,Mentor,True,12,225,Mentor,new,,No true alias among shortlist or earlier keywords,4,sonnet
+2767,Microsoft Internet Information Server,True,12,226,Microsoft Internet Information Server,new,,No strict same-scope alias found,5,sonnet
+15635,Oscilloscope,True,12,227,Oscilloscope,new,,No strict same-scope alias found,5,sonnet
+795,Planning,True,12,228,Planning,new,,No strict same-scope alias found,5,sonnet
+6121,Presentation,True,12,229,Presentation,new,,No strict same-scope alias found,5,sonnet
+4095,Requirements Engineering,True,12,230,Requirements Engineering,new,,No strict same-scope alias found,5,sonnet
+770,SaaS,True,12,231,SaaS,new,,No strict same-scope alias found,5,sonnet
+4248,SCADA,True,12,232,SCADA,new,,No strict same-scope alias found,5,sonnet
+4131,ServiceNow,True,12,233,ServiceNow,new,,No strict same-scope alias found,5,sonnet
+15748,Stakeholder Communication,True,12,234,Stakeholder Communication,new,,No strict same-scope alias found,5,sonnet
+17249,Zynq,True,12,235,Zynq,new,,No strict same-scope alias found,5,sonnet
+1236,Android,True,11,236,Android,new,,No strict same-scope alias found,5,sonnet
+14015,API-utveckling,True,11,237,API-utveckling,new,,No strict same-scope alias found,5,sonnet
+3287,Business Requirements Analysis,True,11,238,Business Requirements Analysis,new,,No strict same-scope alias found,5,sonnet
+28884,Cyber Security,True,11,239,Cyber Security,new,,No strict same-scope alias found,5,sonnet
+8418,Data processing,True,11,240,Data processing,new,,No strict same-scope alias found,5,sonnet
+9615,Data Quality,True,11,188,Datakvalitet,synonym,Datakvalitet,"Data Quality = Datakvalitet, same concept",5,sonnet
+209,Data Warehouse,True,11,241,Data Warehouse,new,,No strict same-scope alias found,5,sonnet
+632,Eclipse,True,11,242,Eclipse,new,,No strict same-scope alias found,5,sonnet
+866,Enterprise Architecture,True,11,243,Enterprise Architecture,new,,No strict same-scope alias found,5,sonnet
+6795,FreeRTOS,True,11,244,FreeRTOS,new,,No strict same-scope alias found,5,sonnet
+7085,IAM,True,11,245,IAM,new,,No strict same-scope alias found,5,sonnet
+725,iOS,True,11,246,iOS,new,,No strict same-scope alias found,5,sonnet
+7472,ISO/IEC 27001,True,11,247,ISO/IEC 27001,new,,No strict same-scope alias found,5,sonnet
+18552,Logic analyzer,True,11,248,Logic analyzer,new,,No strict same-scope alias found,5,sonnet
+14488,Lösningsdesign,True,11,249,Lösningsdesign,new,,No strict same-scope alias found,5,sonnet
+130,Manufacturing industries,True,11,250,Manufacturing industries,new,,No strict same-scope alias found,5,sonnet
+2789,Microsoft Office 365,True,11,251,Microsoft Office 365,new,,No strict same-scope alias found,5,sonnet
+5087,Modbus,True,11,252,Modbus,new,,No strict same-scope alias found,5,sonnet
+462,Outsourcing,True,11,253,Outsourcing,new,,No strict same-scope alias found,5,sonnet
+4260,Performance optimization,True,11,254,Performance optimization,new,,No strict same-scope alias found,5,sonnet
+2830,Pre-studies,True,11,255,Pre-studies,new,,No strict same-scope alias found,5,sonnet
+8085,Problemlösning,True,11,165,Problem Solving,synonym,Problem Solving,Problemlösning = Problem Solving,5,sonnet
+7127,Resource Planning,True,11,256,Resource Planning,new,,No strict same-scope alias found,5,sonnet
+14376,STM32,True,11,257,STM32,new,,No strict same-scope alias found,5,sonnet
+3109,Systemanalys,True,11,258,Systemanalys,new,,No strict same-scope alias found,5,sonnet
+5161,Verilog,True,11,259,Verilog,new,,No strict same-scope alias found,5,sonnet
+686,Version Control System,True,11,260,Version Control System,new,,No strict same-scope alias found,5,sonnet
+2800,Windows PowerShell,True,11,261,Windows PowerShell,new,,No strict same-scope alias found,5,sonnet
+685,Workflow,True,11,262,Workflow,new,,No strict same-scope alias found,5,sonnet
+1004,AngularJS,True,10,263,AngularJS,new,,No strict same-scope alias found,5,sonnet
+183200,Claude,True,10,264,Claude,new,,No strict same-scope alias found,5,sonnet
+15625,Cloud Architecture,True,10,265,Cloud Architecture,new,,No strict same-scope alias found,5,sonnet
+22643,Computer Vision,True,10,266,Computer Vision,new,,No strict same-scope alias found,5,sonnet
+5498,Coordination,True,10,267,Coordination,new,,No strict same-scope alias found,5,sonnet
+11440,Customer Service,True,10,268,Customer Service,new,,No strict same-scope alias found,5,sonnet
+9641,Data Integration,True,10,269,Data Integration,new,,No strict same-scope alias found,5,sonnet
+13362,Datalogi,True,10,270,Datalogi,new,,No strict same-scope alias found,5,sonnet
+6166,Digital design,True,10,271,Digital design,new,,No strict same-scope alias found,5,sonnet
+15542,Fullstack Developer,True,10,272,Fullstack Developer,new,,No strict same-scope alias found,5,sonnet
+716,GPS,True,10,273,GPS,new,,No strict same-scope alias found,5,sonnet
+13810,Hardware design,True,10,274,Hardware design,new,,No strict same-scope synonym among candidates,6,sonnet
+5201,Hardware testing,True,10,275,Hardware testing,new,,No strict same-scope synonym among candidates,6,sonnet
+6185,IT Project Management,True,10,276,IT Project Management,new,,No strict same-scope synonym among candidates,6,sonnet
+807,IT Service Management,True,10,277,IT Service Management,new,,No strict same-scope synonym among candidates,6,sonnet
+7410,Masterdata,True,10,278,Masterdata,new,,No strict same-scope synonym among candidates,6,sonnet
+2605,Microsoft Office,True,10,279,Microsoft Office,new,,No strict same-scope synonym among candidates,6,sonnet
+416,Operating system,True,10,280,Operating system,new,,No strict same-scope synonym among candidates,6,sonnet
+32285,PCB design,True,10,281,PCB design,new,,No strict same-scope synonym among candidates,6,sonnet
+2713,Rapportering,True,10,282,Rapportering,new,,No strict same-scope synonym among candidates,6,sonnet
+4852,Realtidssystem,True,10,283,Realtidssystem,new,,No strict same-scope synonym among candidates,6,sonnet
+3902,Revision,True,10,284,Revision,new,,No strict same-scope synonym among candidates,6,sonnet
+4694,Rådgivning,True,10,285,Rådgivning,new,,No strict same-scope synonym among candidates,6,sonnet
+18654,Safety,True,10,286,Safety,new,,No strict same-scope synonym among candidates,6,sonnet
+10810,Scheduling,True,10,287,Scheduling,new,,No strict same-scope synonym among candidates,6,sonnet
+162,ServiceNow CMS,True,10,288,ServiceNow CMS,new,,No strict same-scope synonym among candidates,6,sonnet
+7174,Software design,True,10,289,Software design,new,,No strict same-scope synonym among candidates,6,sonnet
+3886,Supply Chain,True,10,290,Supply Chain,new,,No strict same-scope synonym among candidates,6,sonnet
+8693,Sustainability,True,10,291,Sustainability,new,,No strict same-scope synonym among candidates,6,sonnet
+5916,System Architect,True,10,292,System Architect,new,,No strict same-scope synonym among candidates,6,sonnet
+22162,Terraform,True,10,293,Terraform,new,,No strict same-scope synonym among candidates,6,sonnet
+3700,UI Design,True,10,294,UI Design,new,,No strict same-scope synonym among candidates,6,sonnet
+8583,Verksamhetssystem,True,10,295,Verksamhetssystem,new,,No strict same-scope synonym among candidates,6,sonnet
+309,Web Services,True,10,296,Web Services,new,,No strict same-scope synonym among candidates,6,sonnet
+4327,Account Manager,True,9,297,Account Manager,new,,No strict same-scope synonym among candidates,6,sonnet
+95661,ChatGPT,True,7,298,ChatGPT,new,,No strict same-scope synonym among candidates,6,sonnet
+18089,Robotic Process Automation,True,7,299,Robotic Process Automation,new,,No strict same-scope synonym among candidates,6,sonnet
+8415,Deep Learning,True,5,300,Deep Learning,new,,No strict same-scope synonym among candidates,6,sonnet
+38849,Snowflake,True,3,301,Snowflake,new,,No strict same-scope synonym among candidates,6,sonnet
+202728,Ollama/ self-host AI,True,2,302,Ollama/ self-host AI,new,,No strict same-scope synonym among candidates,6,sonnet
+48017,C++,False,60,303,C++,new,,No strict same-scope synonym among candidates,6,sonnet
+67695,Scrum,False,54,304,Scrum,new,,No strict same-scope synonym among candidates,6,sonnet
+110806,Risk Management,False,36,305,Risk Management,new,,No strict same-scope synonym among candidates,6,sonnet
+43640,Scrum Master,False,31,306,Scrum Master,new,,No strict same-scope synonym among candidates,6,sonnet
+36212,Atlassian Confluence,False,29,307,Atlassian Confluence,new,,No strict same-scope synonym among candidates,6,sonnet
+50499,Communication,False,29,308,Communication,new,,No strict same-scope synonym among candidates,6,sonnet
+110702,CRM systems,False,29,309,CRM systems,new,,No strict same-scope synonym among candidates,6,sonnet
+50323,Embedded Software Development,False,28,310,Embedded Software Development,new,,No strict same-scope synonym among candidates,6,sonnet
+44585,Process Improvement,False,25,311,Process Improvement,new,,No strict same-scope synonym among candidates,6,sonnet
+110805,Compliance,False,19,312,Compliance,new,,No strict same-scope synonym among candidates,6,sonnet
+105721,Process Mapping,False,19,313,Process Mapping,new,,No strict same-scope synonym among candidates,6,sonnet
+42533,Software Architecture,False,19,314,Software Architecture,new,,No strict same-scope synonym among candidates,6,sonnet
+48670,Banking and Finance,False,17,315,Banking and Finance,new,,No strict same-scope synonym among candidates,6,sonnet
+86402,KPI (Key Performance Indicators),False,17,316,KPI (Key Performance Indicators),new,,No strict same-scope synonym among candidates,6,sonnet
+48972,XML,False,17,317,XML,new,,No strict same-scope synonym among candidates,6,sonnet
+60494,Qlik,False,16,318,Qlik,new,,No strict same-scope synonym among candidates,6,sonnet
+110666,Technical Documentation,False,16,319,Technical Documentation,new,,No strict same-scope synonym among candidates,6,sonnet
+110802,Health Care Industry,False,15,320,Health Care Industry,new,,No strict same-scope synonym among candidates,6,sonnet
+46207,Customer Relationship,False,14,321,Customer Relationship,new,,No strict same-scope synonym among candidates,6,sonnet
+73468,Education,False,14,322,Education,new,,No strict same-scope synonym among candidates,6,sonnet
+56649,API integration,False,13,323,API integration,new,,No strict same-scope synonym among candidates,6,sonnet
+108213,Program Management,False,13,324,Program Management,new,,Distinct concept,7,sonnet
+76280,Stakeholder engagement,False,13,325,Stakeholder engagement,new,,Distinct concept,7,sonnet
+55757,FPGA design,False,12,326,FPGA design,new,,Distinct concept,7,sonnet
+81791,Stakeholders,False,12,327,Stakeholders,new,,Distinct concept,7,sonnet
+186557,.NET Framework,False,10,328,.NET Framework,new,,Distinct concept,7,sonnet
+43872,Azure Functions,False,10,329,Azure Functions,new,,Distinct concept,7,sonnet
+87360,Cross-functional Collaborations,False,10,330,Cross-functional Collaborations,new,,Distinct concept,7,sonnet
+35568,Software integration,False,10,331,Software integration,new,,Distinct concept,7,sonnet
+50638,Databricks,False,8,332,Databricks,new,,Distinct concept,7,sonnet
+71793,GitHub Copilot,False,7,333,GitHub Copilot,new,,Distinct concept,7,sonnet
+269302,Claude Code,False,5,334,Claude Code,new,,Distinct concept,7,sonnet
+109405,Microsoft Fabric,False,4,335,Microsoft Fabric,new,,Distinct concept,7,sonnet
+92251,OpenAI,False,3,336,OpenAI,new,,Distinct concept,7,sonnet
+101314,Azure Openai,False,2,337,Azure Openai,new,,Distinct concept,7,sonnet
+131952,ChatGPT 4,False,2,298,ChatGPT,synonym,ChatGPT,ChatGPT 4 is a variant of ChatGPT,7,sonnet
+172015,Claude AI,False,2,264,Claude,synonym,Claude,Claude AI is the Claude product,7,sonnet
+82219,GPT,False,2,338,GPT,new,,Distinct concept,7,sonnet
+68935,Machine Learning & AI,False,2,339,Machine Learning & AI,new,,Distinct concept,7,sonnet
+165040,Agent Design,False,1,340,Agent Design,new,,Distinct concept,7,sonnet
+291998,Agent Orchestration,False,1,341,Agent Orchestration,new,,Distinct concept,7,sonnet
+294578,Agentic AI Architectures (Single‑ & Multi‑Agent Systems),False,1,342,Agentic AI Architectures (Single‑ & Multi‑Agent Systems),new,,Distinct concept,7,sonnet
+279798,Agentic AI Design,False,1,340,Agent Design,synonym,Agent Design,Agentic AI design equals agent design,7,sonnet
+250092,Agentiska system,False,1,23,Agentic systems,synonym,Agentic systems,Swedish for agentic systems,7,sonnet
+255608,AI & Data Governance,False,1,343,AI & Data Governance,new,,Distinct concept,7,sonnet
+255517,AI & Data governance frameworkds,False,1,344,AI & Data governance frameworkds,new,,Distinct concept,7,sonnet
+314225,AI & Generative AI,False,1,345,AI & Generative AI,new,,Distinct concept,7,sonnet
+304525,AI Adoption & Enablement,False,1,346,AI Adoption & Enablement,new,,Distinct concept,7,sonnet
+255548,AI and Data Gov Frameworks,False,1,344,AI & Data governance frameworkds,synonym,AI & Data governance frameworkds,Abbreviated governance frameworks,7,sonnet
+255611,AI and Data Governance,False,1,343,AI & Data Governance,synonym,AI & Data Governance,"Same wording, and vs och",7,sonnet
+255542,AI and Data Governance Fram,False,1,344,AI & Data governance frameworkds,synonym,AI & Data governance frameworkds,Truncated governance frameworks,7,sonnet
+290317,AI Context Engineering,False,1,347,AI Context Engineering,new,,Distinct concept,7,sonnet
+201853,AI Developer Tools,False,1,348,AI Developer Tools,new,,Distinct concept,7,sonnet
+292270,AI Enablement (Technical & Governance),False,1,349,AI Enablement (Technical & Governance),new,,Distinct concept,7,sonnet
+276982,AI Enablement Lead,False,1,350,AI Enablement Lead,new,,Distinct concept,7,sonnet
+99970,AI Ethics,False,1,351,AI Ethics,new,,Distinct concept,7,sonnet
+313239,AI Governance & Adoption,False,1,352,AI Governance & Adoption,new,,Distinct concept,7,sonnet
+255613,AI Guidelines,False,1,353,AI Guidelines,new,,Distinct concept,7,sonnet
+129432,AI implementation,False,1,354,AI implementation,new,,Distinct concept,7,sonnet
+137572,AI Model Deployment,False,1,355,AI Model Deployment,new,,Distinct concept,7,sonnet
+291819,AI och Generativ AI,False,1,345,AI & Generative AI,synonym,AI & Generative AI,Swedish for AI & Generative AI,7,sonnet
+116996,AI och maskininlärning,False,1,339,Machine Learning & AI,synonym,Machine Learning & AI,Swedish for Machine Learning & AI,7,sonnet
+130475,AI Strategist,False,1,356,AI Strategist,new,,Distinct concept,7,sonnet
+281058,AI-acceleration,False,1,357,AI-acceleration,new,,Distinct concept,7,sonnet
+313930,AI-Assisted Development & Testing,False,1,358,AI-Assisted Development & Testing,new,,Distinct concept,7,sonnet
+290400,AI-driven business strategy,False,1,359,AI-driven business strategy,new,,Distinct concept,7,sonnet
+143153,AI-Strateg,False,1,356,AI Strategist,synonym,AI Strategist,Swedish AI strategist,7,sonnet
+311291,AI-stödd verksamhetsutveckling,False,1,360,AI-stödd verksamhetsutveckling,new,,Distinct concept,7,sonnet
+104409,AI/ML,False,1,339,Machine Learning & AI,synonym,Machine Learning & AI,AI/ML equals ML & AI,7,sonnet
+275926,AI/ML model evaluation,False,1,361,AI/ML model evaluation,new,,Distinct concept,7,sonnet
+82048,Azure AI Engineer Associate,False,1,362,Azure AI Engineer Associate,new,,Distinct concept,7,sonnet
+181039,Azure AI Foundry,False,1,363,Azure AI Foundry,new,,Distinct product,8,sonnet
+232579,Azure AI Foundry / OpenAI / Azure AI,False,1,364,Azure AI Foundry / OpenAI / Azure AI,new,,Combined product list,8,sonnet
+294579,Azure AI Foundry Agents,False,1,365,Azure AI Foundry Agents,new,,Agents sub-feature of Foundry,8,sonnet
+253237,Azure Foundry,False,1,363,Azure AI Foundry,synonym,Azure AI Foundry,"Same product, shortened name",8,sonnet
+306083,Chat GPT & Claude,False,1,366,Chat GPT & Claude,new,,Two tools combined,8,sonnet
+221347,Context Engineering,False,1,347,AI Context Engineering,synonym,AI Context Engineering,Same concept as AI Context Engineering,8,sonnet
+142518,Copilot metrics,False,1,367,Copilot metrics,new,,Specific Copilot metrics topic,8,sonnet
+83706,Cursors,False,1,368,Cursors,new,,Cursor tool,8,sonnet
+312063,Digitalisation & AI,False,1,369,Digitalisation & AI,new,,Digitalisation and AI combined,8,sonnet
+312058,Digitalisering & AI,False,1,369,Digitalisation & AI,synonym,Digitalisation & AI,Swedish spelling of same,8,sonnet
+255516,Ethical & responsible AI practices,False,1,370,Ethical & responsible AI practices,new,,Broader responsible practices,8,sonnet
+88737,Ethical AI,False,1,351,AI Ethics,synonym,AI Ethics,Ethical AI equals AI Ethics,8,sonnet
+233971,FastMCP,False,1,371,FastMCP,new,,Framework product,8,sonnet
+303612,Generative AI & LLM Integration,False,1,372,Generative AI & LLM Integration,new,,Combined GenAI and integration,8,sonnet
+313381,GPT-4o Vision,False,1,373,GPT-4o Vision,new,,Specific model capability,8,sonnet
+79829,Hugging Face,False,1,374,Hugging Face,new,,Vendor/library,8,sonnet
+255614,Introduced ethical AI principles and risk assessment practices in municipal and enterprise projects.,False,1,375,Introduced ethical AI principles and risk assessment practices in municipal and enterprise projects.,new,,"Experience sentence, distinct",8,sonnet
+172022,LangGraph,False,1,376,LangGraph,new,,Framework,8,sonnet
+313499,LangGraph/LangChain,False,1,377,LangGraph/LangChain,new,,Combined frameworks,8,sonnet
+219463,LiteLLM,False,1,378,LiteLLM,new,,Tool,8,sonnet
+311542,LLM Model Inference Optimization,False,1,379,LLM Model Inference Optimization,new,,Distinct optimisation skill,8,sonnet
+285174,LLM-integration,False,1,380,LLM-integration,new,,"Integration skill, distinct",8,sonnet
+138519,Machine Learning Integration,False,1,381,Machine Learning Integration,new,,Distinct integration skill,8,sonnet
+234808,Microsoft Azure AI Foundry,False,1,363,Azure AI Foundry,synonym,Azure AI Foundry,Variant of same product,8,sonnet
+115679,Microsoft Copilot,False,1,382,Microsoft Copilot,new,,Ambiguous Copilot scope,8,sonnet
+82792,ML/AI,False,1,339,Machine Learning & AI,synonym,Machine Learning & AI,Same as AI/ML,8,sonnet
+93038,ML/AI algorithms and tools,False,1,383,ML/AI algorithms and tools,new,,"Algorithms and tools, broader",8,sonnet
+129411,Monitoring and observability,False,1,384,Monitoring and observability,new,,Distinct skill,8,sonnet
+152588,MS Copilot,False,1,382,Microsoft Copilot,synonym,Microsoft Copilot,MS = Microsoft Copilot,8,sonnet
+78251,NLU,False,1,385,NLU,new,,Sub-area of NLP,8,sonnet
+97062,Open AI,False,1,336,OpenAI,synonym,OpenAI,Same vendor name,8,sonnet
+298202,Open AI Codex,False,1,386,Open AI Codex,new,,Codex product,8,sonnet
+274309,OpenAI Agents,False,1,387,OpenAI Agents,new,,Agents product feature,8,sonnet
+144955,OpenAI Assistants API,False,1,388,OpenAI Assistants API,new,,Specific API,8,sonnet
+289479,OpenAI Codex,False,1,386,Open AI Codex,synonym,Open AI Codex,Same product as Open AI Codex,8,sonnet
+221053,OpenAI SDK,False,1,389,OpenAI SDK,new,,SDK distinct,8,sonnet
+110014,Pgvector,False,1,390,Pgvector,new,,Specific extension,8,sonnet
+255594,Regulatory awareness (incl. EU AI Act principles),False,1,391,Regulatory awareness (incl. EU AI Act principles),new,,"Regulatory awareness, distinct",8,sonnet
+279243,Regulatory Compliance: EU AI Act & EU Data Act,False,1,392,Regulatory Compliance: EU AI Act & EU Data Act,new,,Covers two regulations,8,sonnet
+99972,Responsible AI,False,1,393,Responsible AI,new,,Distinct from AI Ethics,8,sonnet
+272352,Secure AI Workflows,False,1,394,Secure AI Workflows,new,,Distinct skill,8,sonnet
+123474,Vector Databases,False,1,395,Vector Databases,new,,Generic vector DB skill,8,sonnet
+201655,Vektordatabaser,False,1,395,Vector Databases,synonym,Vector Databases,Swedish for Vector Databases,8,sonnet
