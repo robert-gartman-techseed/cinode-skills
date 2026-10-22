@@ -18,6 +18,9 @@ data/reference/          hot_topics.csv (30 topics + status), topic_mapping.csv
                          keywords.csv, verified_keywords.csv, skill_drift.csv
                          (generated keyword catalog, aggregate counts only)
 src/load_duckdb.py       rebuilds db/cinode.duckdb from everything above
+src/skills.py            skill synonym tooling (wikidata / refresh / accept / report)
+data/external/wikidata/  cached public Wikidata responses (committed, names only)
+tests/                   offline tests (uv run pytest)
 src/fetch_api.py         direct-API fetcher (token from .env)
 db/cinode.duckdb         generated; safe to delete
 ```
@@ -91,3 +94,34 @@ Two ways to fetch:
   on reruns (`--retry-skipped` to try again).
 
 Then rerun `src/load_duckdb.py`.
+
+## Skill synonyms (`src/skills.py`)
+
+Our own curated list is the reference (`data/reference/canonical_skills.csv`,
+seeded from the 30 hot topics). Cinode keywords are linked to it through
+reviewed aliases. Wikidata is used only as a hint for which keywords mean the
+same thing. ESCO, JobTech and Lightcast were tested and do not cover modern
+AI skills well enough.
+
+```
+uv run src/skills.py wikidata          # keywords used by 2+ people + mapped ones; --all for the rest
+uv run src/skills.py refresh           # writes data/reference/review_queue.csv
+#   fill in decision (synonym/narrower/broader/related/none) and, if not
+#   suggestion 1, canonical_id; then:
+uv run src/skills.py accept            # moves decided rows to skill_aliases.csv
+uv run src/skills.py report            # data/reference/reports/*.csv
+uv run pytest
+```
+
+* `wikidata` searches en/sv/nb labels and aliases (max ~5 requests/s, every
+  response cached under `data/external/wikidata/`, so reruns are free) and keeps
+  only items whose class chain looks like a skill (software, method, field of
+  study, standard, occupation, ...). Papers, books, people, degrees (e.g.
+  "Master of Laws" for LLM) are dropped. Output: `wikidata_links.csv`; two or
+  more keywords with the same `qid` form a synonym group.
+* `refresh` suggests up to three better targets per keyword (verified first),
+  strongest method first: reviewed alias, exact normalised name, Cinode synonym
+  list, shared Wikidata item, spelling (rapidfuzz >= 93). Decided keywords are
+  never re-queued, and decisions typed into the queue survive a refresh.
+* `report` answers: AI-related verified keywords, custom keywords that are
+  synonyms of a verified keyword, and custom keywords with no verified match.
