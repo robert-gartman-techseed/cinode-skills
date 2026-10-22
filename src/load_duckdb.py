@@ -107,16 +107,24 @@ def main() -> None:
         con.execute(f"CREATE TABLE {name} AS SELECT * FROM _df")
         con.unregister("_df")
 
-    # Mapped topic skills (synonym ids) resolved to keyword ids, by synonym name or master id.
+    # Mapped topic skills (synonym ids) resolved to keyword ids. A keyword counts for a
+    # topic only when its own (master) name or id is in that topic's mapping: matching
+    # through any synonym let the generic keyword "AI" (which lists "AI in Business
+    # Development" as a synonym) inflate topic 29.
     con.execute("""
         CREATE VIEW topic_keywords AS
-        SELECT DISTINCT m.topic_id, m.cinode_id AS synonym_id, k.keyword_id, m.match
-        FROM topic_mapping m JOIN keyword_names k ON lower(k.name) = lower(m.cinode_name)
-        WHERE m.kind = 'skill'
-        UNION
-        SELECT DISTINCT m.topic_id, m.cinode_id, p.keyword_id, m.match
-        FROM topic_mapping m JOIN profile_skills p ON p.synonym_id = m.cinode_id
-        WHERE m.kind = 'skill'
+        WITH m AS (SELECT * FROM topic_mapping WHERE kind = 'skill'),
+        kw AS (SELECT DISTINCT keyword_id, synonym_id AS master_id, name FROM profile_skills),
+        cand AS (
+            SELECT DISTINCT m.topic_id, m.cinode_id AS synonym_id, k.keyword_id, m.match
+            FROM m JOIN keyword_names k ON lower(k.name) = lower(m.cinode_name)
+            UNION
+            SELECT DISTINCT m.topic_id, m.cinode_id, kw.keyword_id, m.match
+            FROM m JOIN kw ON kw.master_id = m.cinode_id
+        )
+        SELECT c.* FROM cand c JOIN kw USING (keyword_id)
+        WHERE EXISTS (SELECT 1 FROM m WHERE m.topic_id = c.topic_id
+                      AND (m.cinode_id = kw.master_id OR lower(m.cinode_name) = lower(kw.name)))
     """)
 
     # Best self-assessed level per employee and keyword, from full profiles.

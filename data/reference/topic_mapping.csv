@@ -140,3 +140,7 @@ topic_id,kind,cinode_id,cinode_name,match
 30,tag,305300,Change Management,close
 30,tag,300134,förändringsledning,close
 30,tag,305302,Transformation Lead,close
+2,skill,121456,LLM,exact
+11,skill,90746,NLU,close
+17,skill,138130,Copilot för Microsoft 365,exact
+23,skill,97294,Cursors,close
