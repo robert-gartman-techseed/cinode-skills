@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=UiPath&type=item&uselang=en", "search": [{"description": "robotics process automation company", "id": "Q55080120", "label": "UiPath", "match": {"language": "en", "text": "UiPath", "type": "label"}}]}

@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Signalbehandling&type=item&uselang=en", "search": [{"description": "models and analyzes data representations of physical events", "id": "Q208163", "label": "signal processing", "match": {"language": "nb", "text": "signalbehandling", "type": "label"}}]}

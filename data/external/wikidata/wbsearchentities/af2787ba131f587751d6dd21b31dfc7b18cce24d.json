@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=DBeaver&type=item&uselang=en", "search": [{"description": "multi-platform database administration software", "id": "Q28956992", "label": "DBeaver", "match": {"language": "en", "text": "DBeaver", "type": "label"}}]}

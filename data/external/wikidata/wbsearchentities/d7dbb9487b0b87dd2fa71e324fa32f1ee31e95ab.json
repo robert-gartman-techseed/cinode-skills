@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Visuell+design&type=item&uselang=en", "search": [{"description": "design area of operation", "id": "Q4014843", "label": "visual design", "match": {"language": "nb", "text": "visuell design", "type": "label"}}]}

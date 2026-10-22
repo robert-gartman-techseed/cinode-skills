@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Pre+sales&type=item&uselang=nb", "search": [{"description": "ingeniør driver med salg av tekniske produkter som krever forklaring til bedrifter", "id": "Q1383502", "label": "salgsingeniør", "match": {"language": "en", "text": "pre-sales consultant", "type": "alias"}}]}

@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Nordic+Semiconductor&type=item&uselang=en", "search": [{"description": "Norwegian multinational semiconductors manufacturer", "id": "Q3425637", "label": "Nordic Semiconductor", "match": {"language": "en", "text": "Nordic Semiconductor", "type": "label"}}]}

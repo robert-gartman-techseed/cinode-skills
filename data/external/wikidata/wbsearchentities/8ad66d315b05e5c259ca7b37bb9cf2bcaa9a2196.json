@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Azure+Data+Factory&type=item&uselang=en", "search": [{"description": "", "id": "Q119454396", "label": "Azure Data Factory", "match": {"language": "en", "text": "Azure Data Factory", "type": "label"}}]}

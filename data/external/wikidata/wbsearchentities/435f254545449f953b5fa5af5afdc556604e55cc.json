@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=ITIL+Foundation&type=item&uselang=sv", "search": [{"description": "book 2012", "id": "Q136234420", "label": "ITIL Foundation Essentials: The exam facts you need", "match": {"language": "mul", "text": "ITIL Foundation Essentials: The exam facts you need", "type": "label"}}]}

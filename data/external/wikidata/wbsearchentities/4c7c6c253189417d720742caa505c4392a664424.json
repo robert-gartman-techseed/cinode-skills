@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Energioptimering&type=item&uselang=en", "search": [{"description": "reducing energy consumption", "id": "Q380170", "label": "energy conservation", "match": {"language": "sv", "text": "Energioptimering", "type": "alias"}}]}

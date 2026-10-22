@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Docker+Compose&type=item&uselang=en", "search": [{"description": "software", "id": "Q66317867", "label": "Docker Compose", "match": {"language": "en", "text": "Docker Compose", "type": "label"}}]}

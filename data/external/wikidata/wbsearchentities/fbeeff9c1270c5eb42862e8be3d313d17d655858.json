@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Rational+DOORS&type=item&uselang=en", "search": [{"description": "requirements management tool", "id": "Q1154767", "label": "IBM Rational DOORS", "match": {"language": "en", "text": "Rational DOORS", "type": "alias"}}]}

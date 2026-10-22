@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=Material+UI&type=item&uselang=sv", "search": [{"description": "React component library", "id": "Q118628169", "label": "MUI", "match": {"language": "en", "text": "material-ui @mui/material", "type": "alias"}}]}

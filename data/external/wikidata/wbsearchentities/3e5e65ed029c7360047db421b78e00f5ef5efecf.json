@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Buildroot&type=item&uselang=en", "search": [{"description": "free software", "id": "Q1003023", "label": "Buildroot", "match": {"language": "en", "text": "Buildroot", "type": "label"}}]}

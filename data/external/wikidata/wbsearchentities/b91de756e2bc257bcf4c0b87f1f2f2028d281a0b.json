@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=AI+Risk+Management&type=item&uselang=sv", "search": [{"description": "risk management framework for artificial intelligence published by NIST in 2023", "id": "Q140048487", "label": "AI Risk Management Framework", "match": {"language": "en", "text": "AI Risk Management Framework", "type": "label"}}]}

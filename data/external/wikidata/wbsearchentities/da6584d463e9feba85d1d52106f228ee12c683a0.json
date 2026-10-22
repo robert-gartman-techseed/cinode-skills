@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=E-invoicing&type=item&uselang=en", "search": [{"description": "form of electronic billing", "id": "Q10481245", "label": "electronic invoicing", "match": {"language": "en", "text": "e-invoicing", "type": "alias"}}]}

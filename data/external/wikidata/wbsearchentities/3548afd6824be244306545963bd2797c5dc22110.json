@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Upphandlingskrav&type=item&uselang=en", "search": [{"description": "motion by Leif Nysmed 2021", "id": "Q110562469", "label": "Upphandlingskrav inom kollektivtrafiken", "match": {"language": "sv", "text": "Upphandlingskrav inom kollektivtrafiken", "type": "label"}}]}

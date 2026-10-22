@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Azure+Openai&type=item&uselang=en", "search": [{"description": "Microsoft Azure service providing access to OpenAI models", "id": "Q141613818", "label": "Azure OpenAI Service", "match": {"language": "en", "text": "Azure OpenAI Service", "type": "label"}}]}

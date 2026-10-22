@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Qlik+Sense&type=item&uselang=en", "search": [{"description": "data analytics platform developed by Qlik", "id": "Q58194319", "label": "Qlik Sense", "match": {"language": "en", "text": "Qlik Sense", "type": "label"}}]}

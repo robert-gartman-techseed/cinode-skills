@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=L%C3%B6sningsf%C3%B6rslag&type=item&uselang=nb", "search": [{"description": "dokument eller melding som foreslår en bestemt fremgangsmåte, eller prosessen som fører til et tiltak som vurderes", "id": "Q3918409", "label": "forslag", "match": {"language": "nb", "text": "løsningsforslag", "type": "alias"}}]}

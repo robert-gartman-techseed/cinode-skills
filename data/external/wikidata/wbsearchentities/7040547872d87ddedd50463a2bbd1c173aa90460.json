@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Azure+Key+Vault&type=item&uselang=en", "search": [{"description": "managed key management system offered as a service by Microsoft Azure", "id": "Q133457903", "label": "Azure Key Vault", "match": {"language": "en", "text": "Azure Key Vault", "type": "label"}}]}

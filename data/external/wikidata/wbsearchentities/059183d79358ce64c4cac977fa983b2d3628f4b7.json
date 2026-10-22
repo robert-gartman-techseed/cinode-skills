@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Cyber+Resilience+Act&type=item&uselang=en", "search": [{"description": "cybersecurity regulation in the EU", "id": "Q118945294", "label": "Cyber Resilience Act", "match": {"language": "en", "text": "Cyber Resilience Act", "type": "label"}}]}

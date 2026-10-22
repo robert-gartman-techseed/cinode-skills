@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=AI+Guidelines&type=item&uselang=nb", "search": [{"description": "dataset from the Basel-Stadt data portal", "id": "Q136809062", "label": "AI guidelines FAQ", "match": {"language": "en", "text": "AI guidelines FAQ", "type": "label"}}]}

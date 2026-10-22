@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Problemanalys&type=item&uselang=en", "search": [{"description": "system design process focusing on analysing, documenting, validating and managing system requirements", "id": "Q187147", "label": "requirements analysis", "match": {"language": "nb", "text": "problemanalyse", "type": "alias"}}]}

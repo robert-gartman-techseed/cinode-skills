@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Korrekturl%C3%A4sning&type=item&uselang=en", "search": [{"description": "process by which a written or printed material is proofread", "id": "Q834191", "label": "proofreading", "match": {"language": "sv", "text": "korrekturläsning", "type": "alias"}}]}

@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Kamerasystem&type=item&uselang=en", "search": [{"description": "combination of a photographic camera, camera system, and compatible system accessories", "id": "Q1667269", "label": "camera system", "match": {"language": "de", "text": "Kamerasystem", "type": "label"}}]}

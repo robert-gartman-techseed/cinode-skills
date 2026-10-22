@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=IBM+WebSphere+MQ&type=item&uselang=nb", "search": [{"description": "family of message-oriented middleware products", "id": "Q528294", "label": "IBM WebSphere MQ", "match": {"language": "en", "text": "IBM WebSphere MQ", "type": "label"}}]}

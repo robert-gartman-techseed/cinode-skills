@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Business+Analyst%E2%80%8B&type=item&uselang=en", "search": [{"description": "someone who analyses the existing or ideal organization and design of systems", "id": "Q1017553", "label": "business analyst", "match": {"language": "en", "text": "business analyst", "type": "label"}}]}

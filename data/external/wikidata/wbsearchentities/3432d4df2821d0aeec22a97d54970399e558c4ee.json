@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Regression+tests&type=item&uselang=nb", "search": [{"description": "scientific article published on 01 June 1950", "id": "Q80734356", "label": "Regression tests for several samples", "match": {"language": "en", "text": "Regression tests for several samples", "type": "label"}}]}

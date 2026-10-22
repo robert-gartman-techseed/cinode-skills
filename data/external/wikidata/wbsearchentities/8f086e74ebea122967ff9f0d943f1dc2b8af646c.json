@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Mikrotjenester&type=item&uselang=en", "search": [{"description": "collection of loosely coupled services used to build computer applications", "id": "Q18344624", "label": "microservices", "match": {"language": "nb", "text": "mikrotjenester", "type": "label"}}]}

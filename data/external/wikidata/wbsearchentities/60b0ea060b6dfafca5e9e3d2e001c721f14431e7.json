@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=Secure+development&type=item&uselang=sv", "search": [{"description": "vetenskaplig artikel", "id": "Q129150883", "label": "SECURE DEVELOPMENT OF PUBLIC ADMINISTRATION", "match": {"language": "en", "text": "SECURE DEVELOPMENT OF PUBLIC ADMINISTRATION", "type": "label"}}]}

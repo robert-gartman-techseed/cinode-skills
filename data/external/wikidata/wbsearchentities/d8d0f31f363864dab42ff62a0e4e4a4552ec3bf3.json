@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=CRM+systems&type=item&uselang=en", "search": [{"description": "scholarly article", "id": "Q128915042", "label": "CRM Systems in the Area of Eastern Macedonia and Thrace", "match": {"language": "en", "text": "CRM Systems in the Area of Eastern Macedonia and Thrace", "type": "label"}}]}

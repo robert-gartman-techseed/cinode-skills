@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=BitBake&type=item&uselang=en", "search": [{"description": "free software", "id": "Q4918679", "label": "BitBake", "match": {"language": "en", "text": "BitBake", "type": "label"}}]}

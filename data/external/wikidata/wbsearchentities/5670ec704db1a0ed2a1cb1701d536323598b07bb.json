@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=ISO+21434&type=item&uselang=en", "search": [{"description": "international standard for cybersecurity engineering of road vehicles", "id": "Q60982695", "label": "ISO/SAE 21434", "match": {"language": "ru", "text": "ISO 21434", "type": "label"}}]}

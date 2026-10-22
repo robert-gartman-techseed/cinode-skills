@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=product+operations&type=item&uselang=nb", "search": [{"description": "vitenskapelig artikkel", "id": "Q127968949", "label": "Product Operations on q-Rung Orthopair Fuzzy Graphs", "match": {"language": "en", "text": "Product Operations on q-Rung Orthopair Fuzzy Graphs", "type": "label"}}]}

@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Android+Studio&type=item&uselang=en", "search": [{"description": "integrated development environment for the Android platform", "id": "Q13233410", "label": "Android Studio", "match": {"language": "mul", "text": "Android Studio", "type": "label"}}]}

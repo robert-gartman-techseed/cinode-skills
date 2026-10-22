@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=N%C3%A4tverksbyggande&type=item&uselang=en", "search": [{"description": "making advantageous personal and professional contacts", "id": "Q15836559", "label": "interpersonal networking", "match": {"language": "sv", "text": "nätverksbyggande", "type": "label"}}]}

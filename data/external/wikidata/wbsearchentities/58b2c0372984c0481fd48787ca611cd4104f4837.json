@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Linux+distributions&type=item&uselang=en", "search": [{"description": "Wikimedia category", "id": "Q6222164", "label": "Category:GNU/Linux distributions of Russia", "match": {"language": "en", "text": "Linux distributions of Russia", "type": "alias"}}]}

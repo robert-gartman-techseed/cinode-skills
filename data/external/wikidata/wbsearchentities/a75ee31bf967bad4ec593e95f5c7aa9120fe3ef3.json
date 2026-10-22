@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=Program+Governance&type=item&uselang=sv", "search": [{"description": "vetenskaplig artikel", "id": "Q129882005", "label": "Program Governance Maturity Models", "match": {"language": "en", "text": "Program Governance Maturity Models", "type": "label"}}]}

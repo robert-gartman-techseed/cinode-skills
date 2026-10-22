@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Test+Planning&type=item&uselang=nb", "search": [{"description": "", "id": "Q59611946", "label": "Test Planning for Core-based Integrated Circuits under Power Constraints", "match": {"language": "en", "text": "Test Planning for Core-based Integrated Circuits under Power Constraints", "type": "label"}}]}

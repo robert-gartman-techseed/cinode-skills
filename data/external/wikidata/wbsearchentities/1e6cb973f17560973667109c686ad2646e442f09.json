@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Payment+Solutions&type=item&uselang=en", "search": [{"description": "scientific article published on 01 August 1997", "id": "Q74354427", "label": "Payment solutions", "match": {"language": "en", "text": "Payment solutions", "type": "label"}}]}

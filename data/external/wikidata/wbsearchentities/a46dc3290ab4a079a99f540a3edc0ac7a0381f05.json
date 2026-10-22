@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=CosmosDB&type=item&uselang=en", "search": [{"description": "cloud hosted document-oriented database", "id": "Q20707889", "label": "Azure Cosmos DB", "match": {"language": "en", "text": "CosmosDB", "type": "alias"}}]}

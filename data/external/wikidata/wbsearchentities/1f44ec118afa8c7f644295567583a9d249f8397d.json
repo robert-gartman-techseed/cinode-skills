@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Servrar&type=item&uselang=en", "search": [{"description": "computer program or device that provides access to a central resource or other functionality for clients", "id": "Q44127", "label": "server", "match": {"language": "sv", "text": "servrar", "type": "alias"}}]}

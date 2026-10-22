@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Teknisk+analys&type=item&uselang=en", "search": [{"description": "financial security analysis methodology based on historical price patterns", "id": "Q235038", "label": "technical analysis", "match": {"language": "sv", "text": "teknisk analys", "type": "label"}}]}

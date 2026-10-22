@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=AI+Engineering&type=item&uselang=nb", "search": [{"description": "vitenskapelig artikkel", "id": "Q125303065", "label": "AI Engineering Research in Software Engineering Venues", "match": {"language": "en", "text": "AI Engineering Research in Software Engineering Venues", "type": "label"}}]}

@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=AWS+CloudFormation&type=item&uselang=en", "search": [{"description": "computing service", "id": "Q117272797", "label": "AWS CloudFormation", "match": {"language": "en", "text": "AWS CloudFormation", "type": "label"}}]}

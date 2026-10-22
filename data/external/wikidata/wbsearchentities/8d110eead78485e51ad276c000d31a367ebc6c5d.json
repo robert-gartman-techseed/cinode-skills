@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Integrationsarkitektur&type=item&uselang=en", "search": [{"description": "", "id": "Q12318480", "label": "Integrationsarkitektur", "match": {"language": "da", "text": "Integrationsarkitektur", "type": "label"}}]}

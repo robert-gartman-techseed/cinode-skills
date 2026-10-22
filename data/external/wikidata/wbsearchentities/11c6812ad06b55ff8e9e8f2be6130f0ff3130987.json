@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Project+Administrator&type=item&uselang=en", "search": [{"description": "professional in the field of project management", "id": "Q816432", "label": "project manager", "match": {"language": "tl", "text": "Project administrator", "type": "alias"}}]}

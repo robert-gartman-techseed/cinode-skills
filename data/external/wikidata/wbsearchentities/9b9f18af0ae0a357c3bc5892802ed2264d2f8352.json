@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Project+coordination&type=item&uselang=nb", "search": [{"description": "", "id": "Q118373424", "label": "Project coordination system for concurrent engineering", "match": {"language": "en", "text": "Project coordination system for concurrent engineering", "type": "label"}}]}

@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Windows+Forms&type=item&uselang=en", "search": [{"description": "graphical user interface software library", "id": "Q613361", "label": "Windows Forms", "match": {"language": "mul", "text": "Windows Forms", "type": "label"}}]}

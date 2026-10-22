@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=ISO+14971&type=item&uselang=en", "search": [{"description": "ISO standard for the application of risk management to medical devices", "id": "Q1459101", "label": "ISO 14971", "match": {"language": "en", "text": "ISO 14971", "type": "label"}}]}

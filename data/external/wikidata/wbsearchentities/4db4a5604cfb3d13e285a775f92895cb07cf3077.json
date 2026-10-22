@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Episerver+CMS&type=item&uselang=en", "search": [{"description": "global software company offering CMS/WCM, digital commerce, and digital marketing", "id": "Q3433657", "label": "EPiServer", "match": {"language": "nb", "text": "EPiServer CMS", "type": "label"}}]}

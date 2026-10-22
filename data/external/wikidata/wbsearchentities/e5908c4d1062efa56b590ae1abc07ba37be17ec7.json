@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Kundresa&type=item&uselang=en", "search": [{"description": "the product of an interaction between an organization and a customer over the duration of their relationship", "id": "Q984142", "label": "customer experience", "match": {"language": "sv", "text": "kundresa", "type": "label"}}]}

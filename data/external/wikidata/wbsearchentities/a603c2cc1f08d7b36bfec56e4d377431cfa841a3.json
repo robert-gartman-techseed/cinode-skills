@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=Test+Manager&type=item&uselang=sv", "search": [{"description": "", "id": "Q56689240", "label": "Test Manager: A regression testing tool", "match": {"language": "en", "text": "Test Manager: A regression testing tool", "type": "label"}}]}

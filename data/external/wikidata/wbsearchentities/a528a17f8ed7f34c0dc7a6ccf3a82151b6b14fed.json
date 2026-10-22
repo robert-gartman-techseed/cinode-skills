@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Testing+and+Quality+Assurance&type=item&uselang=nb", "search": [{"description": "vitenskapelig artikkel", "id": "Q123282072", "label": "Testing and quality assurance — the future", "match": {"language": "en", "text": "Testing and quality assurance — the future", "type": "label"}}]}

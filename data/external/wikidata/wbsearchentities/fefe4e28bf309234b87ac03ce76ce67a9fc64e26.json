@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=AI-assisted+software+development&type=item&uselang=en", "search": [{"description": "use of generative AI in software development", "id": "Q135423070", "label": "AI-assisted software development", "match": {"language": "en", "text": "AI-assisted software development", "type": "label"}}]}

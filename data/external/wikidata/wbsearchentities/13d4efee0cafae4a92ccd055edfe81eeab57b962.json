@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Medtech+Industry&type=item&uselang=en", "search": [{"description": "economic branch and concept", "id": "Q63383285", "label": "medical technology industry", "match": {"language": "en", "text": "medtech industry", "type": "alias"}}]}

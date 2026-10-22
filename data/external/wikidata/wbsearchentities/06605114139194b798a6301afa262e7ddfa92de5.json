@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Patientdatalagen&type=item&uselang=en", "search": [{"description": "Swedish law from 2008", "id": "Q10621684", "label": "patients data law (2008)", "match": {"language": "sv", "text": "Patientdatalagen", "type": "alias"}}]}

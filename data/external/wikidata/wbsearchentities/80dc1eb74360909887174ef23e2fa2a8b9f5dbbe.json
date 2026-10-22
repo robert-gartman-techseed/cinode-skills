@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Testing+Frameworks&type=item&uselang=nb", "search": [{"description": "vitenskapelig artikkel", "id": "Q47553002", "label": "Testing frameworks for personalizing bipolar disorder", "match": {"language": "en", "text": "Testing frameworks for personalizing bipolar disorder", "type": "label"}}]}

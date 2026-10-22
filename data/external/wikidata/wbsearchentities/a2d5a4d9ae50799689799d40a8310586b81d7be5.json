@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=IEC61508&type=item&uselang=en", "search": [{"description": "international standard for electronic safety-related systems", "id": "Q1060017", "label": "IEC 61508", "match": {"language": "en", "text": "IEC61508", "type": "alias"}}]}

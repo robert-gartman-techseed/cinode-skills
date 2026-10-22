@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=H%C3%A5rdvara&type=item&uselang=en", "search": [{"description": "physical components of a computer", "id": "Q3966", "label": "computer hardware", "match": {"language": "sv", "text": "hårdvara", "type": "alias"}}]}

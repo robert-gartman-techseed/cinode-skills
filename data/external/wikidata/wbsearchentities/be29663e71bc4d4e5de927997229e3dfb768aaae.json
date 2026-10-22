@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=IFS+Applications&type=item&uselang=en", "search": [{"description": "", "id": "Q4041027", "label": "IFS Applications", "match": {"language": "ru", "text": "IFS Applications", "type": "label"}}]}

@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=ASP.NET+Web+Forms&type=item&uselang=en", "search": [{"description": "web application framework", "id": "Q55602973", "label": "ASP.NET Web Forms", "match": {"language": "en", "text": "ASP.NET Web Forms", "type": "label"}}]}

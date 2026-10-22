@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=.NET+Core&type=item&uselang=en", "search": [{"description": "Free and open source cross-platform software platform developed by Microsoft", "id": "Q21622213", "label": ".NET", "match": {"language": "en", "text": ".NET Core", "type": "alias"}}]}

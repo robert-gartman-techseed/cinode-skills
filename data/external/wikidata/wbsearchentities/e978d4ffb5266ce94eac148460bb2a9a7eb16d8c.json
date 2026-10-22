@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Finanssystem&type=item&uselang=en", "search": [{"description": "system that allows the transfer of money between savers (and investors) and borrowers", "id": "Q1416617", "label": "financial system", "match": {"language": "nn", "text": "finanssystem", "type": "alias"}}]}

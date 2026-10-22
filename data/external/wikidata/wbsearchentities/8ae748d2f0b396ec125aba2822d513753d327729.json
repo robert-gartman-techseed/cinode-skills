@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=Digitaliseringsstrateg&type=item&uselang=sv", "search": [{"description": "plan för att införa digitala teknologier i en organisation", "id": "Q108919252", "label": "digitaliseringsstrategi", "match": {"language": "sv", "text": "digitaliseringsstrategi", "type": "label"}}]}

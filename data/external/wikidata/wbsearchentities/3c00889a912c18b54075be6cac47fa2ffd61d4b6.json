@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Fullstack&type=item&uselang=nb", "search": [{"description": "company", "id": "Q24040096", "label": "Fullstack Academy", "match": {"language": "en", "text": "Fullstack Academy", "type": "label"}}]}

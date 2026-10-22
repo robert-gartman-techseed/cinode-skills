@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Linux+System+Administration&type=item&uselang=en", "search": [{"description": "", "id": "Q19368462", "label": "Linux system administration", "match": {"language": "en", "text": "Linux system administration", "type": "label"}}]}

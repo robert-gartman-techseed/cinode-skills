@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Scrum+Product+Owner&type=item&uselang=en", "search": [{"description": "role that represents the stakeholders in scrum", "id": "Q15618669", "label": "product owner", "match": {"language": "de", "text": "Scrum Product Owner", "type": "alias"}}]}

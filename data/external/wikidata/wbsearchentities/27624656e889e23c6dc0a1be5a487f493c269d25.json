@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=MVVM&type=item&uselang=en", "search": [{"description": "software architectural pattern", "id": "Q1247905", "label": "model–view–viewmodel", "match": {"language": "en", "text": "MVVM", "type": "alias"}}]}

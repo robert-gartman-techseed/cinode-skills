@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Staff+responsible&type=item&uselang=en", "search": [{"description": "", "id": "Q105543925", "label": "Staff Responsible", "match": {"language": "de", "text": "Staff Responsible", "type": "label"}}]}

@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Amazon+Bedrock&type=item&uselang=en", "search": [{"description": "foundation model hosting service offered by Amazon Web Services", "id": "Q124052638", "label": "Amazon Bedrock", "match": {"language": "en", "text": "Amazon Bedrock", "type": "label"}}]}

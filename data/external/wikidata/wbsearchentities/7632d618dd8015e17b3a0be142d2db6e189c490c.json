@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Realtidssystem&type=item&uselang=en", "search": [{"description": "study of hardware and software systems that have a \"real-time constraint\"", "id": "Q3988", "label": "real-time computing", "match": {"language": "sv", "text": "realtidssystem", "type": "label"}}]}

@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Change+Planning&type=item&uselang=nb", "search": [{"description": "scientific article published on 01 February 1990", "id": "Q68700255", "label": "Change planning and implementation at Oregon", "match": {"language": "en", "text": "Change planning and implementation at Oregon", "type": "label"}}]}

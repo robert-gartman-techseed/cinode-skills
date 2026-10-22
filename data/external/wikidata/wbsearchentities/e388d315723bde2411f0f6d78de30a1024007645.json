@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Funktionella+krav&type=item&uselang=nb", "search": [{"description": "datamodell for bibliografiske opplysninger og relasjoner mellom dem", "id": "Q16388", "label": "FRBR", "match": {"language": "sv", "text": "Funktionella krav till bibliografiska poster", "type": "alias"}}]}

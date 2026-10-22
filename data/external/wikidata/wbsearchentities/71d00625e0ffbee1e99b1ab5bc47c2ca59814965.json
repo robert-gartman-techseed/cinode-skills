@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=Project+Administrator&type=item&uselang=sv", "search": [{"description": "sysselsättning inom ledarskap", "id": "Q816432", "label": "projektledare", "match": {"language": "tl", "text": "Project administrator", "type": "alias"}}]}

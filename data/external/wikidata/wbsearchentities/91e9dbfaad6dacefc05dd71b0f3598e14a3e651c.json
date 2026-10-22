@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Funktionella+krav&type=item&uselang=en", "search": [{"description": "approach to cataloging", "id": "Q16388", "label": "Functional Requirements for Bibliographic Records", "match": {"language": "sv", "text": "Funktionella krav till bibliografiska poster", "type": "alias"}}]}

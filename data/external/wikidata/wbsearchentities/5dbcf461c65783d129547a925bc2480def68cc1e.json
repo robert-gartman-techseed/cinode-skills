@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Blazor&type=item&uselang=en", "search": [{"description": "web programming framework for C# and HTML", "id": "Q60749742", "label": "Blazor", "match": {"language": "en", "text": "Blazor", "type": "label"}}]}

@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Fleetmanagement&type=item&uselang=en", "search": [{"description": "strategies for managing commercial vehicles", "id": "Q1430291", "label": "fleet management", "match": {"language": "de", "text": "Fleetmanagement", "type": "alias"}}]}

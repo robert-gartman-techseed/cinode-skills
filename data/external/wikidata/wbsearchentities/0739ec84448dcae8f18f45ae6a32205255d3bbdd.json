@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Nul%C3%A4gesanalys&type=item&uselang=en", "search": [{"description": "", "id": "Q10604094", "label": "nulägesanalys", "match": {"language": "sv", "text": "nulägesanalys", "type": "label"}}]}

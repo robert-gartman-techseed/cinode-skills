@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Dataintegritet&type=item&uselang=en", "search": [{"description": "maintenance of, and the assurance of the accuracy and consistency of, data over its entire life-cycle", "id": "Q461671", "label": "data integrity", "match": {"language": "nb", "text": "dataintegritet", "type": "label"}}]}

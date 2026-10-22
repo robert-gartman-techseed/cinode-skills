@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=MS+Copilot&type=item&uselang=en", "search": [{"description": "AI chatbot by Microsoft", "id": "Q116793893", "label": "Microsoft Copilot", "match": {"language": "en", "text": "MS Copilot", "type": "alias"}}]}

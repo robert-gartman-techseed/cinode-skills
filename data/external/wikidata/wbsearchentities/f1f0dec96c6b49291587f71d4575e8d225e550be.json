@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=PL+SQL&type=item&uselang=en", "search": [{"description": "One of the technologies in Oracle Database, a programming language that combines SQL syntax", "id": "Q41574", "label": "PL/SQL", "match": {"language": "en", "text": "PL-SQL", "type": "alias"}}]}

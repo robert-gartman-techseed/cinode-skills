@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Microsoft+Intune&type=item&uselang=en", "search": [{"description": "cloud based computer software", "id": "Q1931640", "label": "Microsoft Intune", "match": {"language": "en", "text": "Microsoft Intune", "type": "label"}}]}

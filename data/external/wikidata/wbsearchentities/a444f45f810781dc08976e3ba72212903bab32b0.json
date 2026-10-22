@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Sprint+Planning&type=item&uselang=nb", "search": [{"description": "", "id": "Q59374440", "label": "Sprint Planning Optimization in Agile Data Warehouse Design", "match": {"language": "en", "text": "Sprint Planning Optimization in Agile Data Warehouse Design", "type": "label"}}]}

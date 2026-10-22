@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Digitaliseringsstrateg&type=item&uselang=en", "search": [{"description": "plan for implementing digital technologies in an organization", "id": "Q108919252", "label": "digitization strategy", "match": {"language": "sv", "text": "digitaliseringsstrategi", "type": "label"}}]}

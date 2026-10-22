@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Microsoft+Analysis+Services&type=item&uselang=nb", "search": [{"description": "online analytical processing (OLAP) and data mining tool in Microsoft SQL Server", "id": "Q2067216", "label": "Microsoft Analysis Services", "match": {"language": "nb", "text": "Microsoft Analysis Services", "type": "label"}}]}

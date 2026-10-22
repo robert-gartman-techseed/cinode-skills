@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=L%C3%B6sningsarkitektur&type=item&uselang=nb", "search": [{"description": "term used in information technology", "id": "Q7558977", "label": "Løsningsarkitektur", "match": {"language": "nb", "text": "Løsningsarkitektur", "type": "label"}}]}

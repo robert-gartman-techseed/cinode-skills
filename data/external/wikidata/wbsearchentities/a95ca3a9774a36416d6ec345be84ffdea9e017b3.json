@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Kvalitetstestning&type=item&uselang=en", "search": [{"description": "the process of systematic examination of a quality system by an internal or external quality auditor", "id": "Q2288714", "label": "quality audit", "match": {"language": "da", "text": "kvalitetstestning", "type": "label"}}]}

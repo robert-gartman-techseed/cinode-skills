@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Open+AI+Codex&type=item&uselang=en", "search": [{"description": "scientific article published in 2023", "id": "Q117047697", "label": "Open AI Codex: An Inevitable Future?", "match": {"language": "en", "text": "Open AI Codex: An Inevitable Future?", "type": "label"}}]}

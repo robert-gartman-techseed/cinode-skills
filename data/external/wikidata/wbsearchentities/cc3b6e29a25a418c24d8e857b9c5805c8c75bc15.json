@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Realtidsprogrammering&type=item&uselang=en", "search": [{"description": "form of computing in which several computations logically execute during overlapping time periods", "id": "Q128392", "label": "concurrent computing", "match": {"language": "sv", "text": "realtidsprogrammering", "type": "label"}}]}

@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=Pre+sales&type=item&uselang=sv", "search": [{"description": "engineer who deals with sale of technical products that require explanation to companies", "id": "Q1383502", "label": "systemsäljare", "match": {"language": "en", "text": "pre-sales consultant", "type": "alias"}}]}

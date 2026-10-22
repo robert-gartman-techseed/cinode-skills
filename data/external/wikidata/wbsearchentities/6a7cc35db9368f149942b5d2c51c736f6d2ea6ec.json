@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Retrieval-Augmented+Generation+%28RAG%29&type=item&uselang=en", "search": [{"description": "Type of information retrieval using LLMs", "id": "Q121362277", "label": "retrieval-augmented generation", "match": {"language": "en", "text": "retrieval augmented generation (RAG)", "type": "alias"}}]}

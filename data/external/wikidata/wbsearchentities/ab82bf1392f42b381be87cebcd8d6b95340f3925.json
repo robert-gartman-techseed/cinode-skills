@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Eclipse+IDE&type=item&uselang=en", "search": [{"description": "software development environment", "id": "Q82268", "label": "Eclipse", "match": {"language": "en", "text": "Eclipse IDE", "type": "alias"}}]}

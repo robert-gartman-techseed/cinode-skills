@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=Produktstrategi&type=item&uselang=sv", "search": [{"description": "strategy which defines what an product should achieve and how that supports the organisation", "id": "Q2111845", "label": "product strategy", "match": {"language": "de", "text": "Produktstrategie", "type": "label"}}]}

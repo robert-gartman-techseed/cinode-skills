@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Prediktiv+analys&type=item&uselang=en", "search": [{"description": "variety of statistical techniques to make predictions about future or otherwise unknown events", "id": "Q1053367", "label": "predictive analytics", "match": {"language": "nb", "text": "prediktiv analyse", "type": "alias"}}]}

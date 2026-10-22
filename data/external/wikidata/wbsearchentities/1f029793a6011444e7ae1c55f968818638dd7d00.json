@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=Rational+Unified+Process&type=item&uselang=sv", "search": [{"description": "systemutvecklingsprocess för design och implementering av IT-system", "id": "Q478019", "label": "Rational Unified Process", "match": {"language": "sv", "text": "Rational Unified Process", "type": "label"}}]}

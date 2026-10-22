@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Single-page+application&type=item&uselang=en", "search": [{"description": "web application based on a single web page and client-side logics", "id": "Q1990286", "label": "single-page application", "match": {"language": "en", "text": "single-page application", "type": "label"}}]}

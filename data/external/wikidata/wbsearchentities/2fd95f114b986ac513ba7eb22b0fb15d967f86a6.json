@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Project+initiation&type=item&uselang=nb", "search": [{"description": "samledokument for styringsinformasjon som utgjør kontrakten mellom prosjekteier og prosjektleder", "id": "Q2695047", "label": "styringsdokument", "match": {"language": "en", "text": "project initiation document", "type": "label"}}]}

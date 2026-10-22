@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Code+Composer&type=item&uselang=nb", "search": [{"description": "integrated development environment", "id": "Q2981424", "label": "Code Composer Studio", "match": {"language": "en", "text": "Code Composer Studio", "type": "label"}}]}

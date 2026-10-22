@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Arkitekturdesign&type=item&uselang=en", "search": [{"description": "person that is involved in the design of buildings or urban landscapes", "id": "Q4787044", "label": "architectural designer", "match": {"language": "nb", "text": "arkitekturdesigner", "type": "label"}}]}

@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Anv%C3%A4ndarupplevelse&type=item&uselang=en", "search": [{"description": "discipline focused on improving a person’s interaction and experience with a product, system or service", "id": "Q1047808", "label": "user experience", "match": {"language": "sv", "text": "användarupplevelse", "type": "label"}}]}

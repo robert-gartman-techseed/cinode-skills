@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=Product+Ownership&type=item&uselang=sv", "search": [{"description": "vetenskaplig artikel", "id": "Q108611933", "label": "Product Ownership of a Legacy Institutional Repository:", "match": {"language": "en", "text": "Product Ownership of a Legacy Institutional Repository:", "type": "label"}}]}

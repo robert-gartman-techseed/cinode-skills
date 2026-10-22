@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=CANalyzer&type=item&uselang=en", "search": [{"description": "software", "id": "Q1022805", "label": "CANalyzer", "match": {"language": "en", "text": "CANalyzer", "type": "label"}}]}

@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Sparx+Enterprise+Architect&type=item&uselang=en", "search": [{"description": "visual modeling and design tool based on the OMG UML", "id": "Q837012", "label": "Enterprise Architect", "match": {"language": "sv", "text": "Sparx Enterprise Architect", "type": "alias"}}]}

@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=PowerApps&type=item&uselang=en", "search": [{"description": "Microsoft software", "id": "Q97333182", "label": "Microsoft Power Apps", "match": {"language": "en", "text": "PowerApps", "type": "alias"}}]}

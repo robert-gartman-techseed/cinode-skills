@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Kritisk+infrastruktur&type=item&uselang=en", "search": [{"description": "infrastructure important to national security", "id": "Q373338", "label": "critical infrastructure", "match": {"language": "nb", "text": "Kritisk infrastruktur", "type": "label"}}]}

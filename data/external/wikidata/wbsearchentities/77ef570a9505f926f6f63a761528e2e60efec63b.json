@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Mobilapplikationer&type=item&uselang=en", "search": [{"description": "software application designed to run on mobile devices", "id": "Q620615", "label": "mobile app", "match": {"language": "sv", "text": "mobilapplikationer", "type": "alias"}}]}

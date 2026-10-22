@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Refaktorering&type=item&uselang=en", "search": [{"description": "process of restructuring existing computer code without changing its external behavior", "id": "Q116877", "label": "software refactoring", "match": {"language": "nb", "text": "refaktorering", "type": "label"}}]}

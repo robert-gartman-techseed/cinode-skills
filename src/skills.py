@@ -29,9 +29,7 @@ import re
 import subprocess
 import sys
 import time
-import urllib.error
 import urllib.parse
-import urllib.request
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
@@ -148,24 +146,36 @@ def load_keywords() -> dict[str, dict]:
 
 # ---------- wikidata ----------
 
+_session = None
+
+
 def wd_get(params: dict) -> dict:
-    """GET the Wikidata API, caching a trimmed response under data/external/wikidata/."""
+    """GET the Wikidata API, caching a trimmed response under data/external/wikidata/.
+
+    Uses one keep-alive session: opening a new connection per request led to
+    frequent dropped connections through the proxy.
+    """
+    global _session
+    import requests
+
     query = urllib.parse.urlencode(sorted(params.items()))
     path = CACHE / params["action"] / f"{hashlib.sha1(query.encode()).hexdigest()}.json"
     if path.exists():
         return json.loads(path.read_text(encoding="utf-8"))
-    req = urllib.request.Request(f"{API}?{query}", headers={"User-Agent": UA})
-    waits = (10, 30, 60, 120)  # back off on throttling or dropped connections
+    if _session is None:
+        _session = requests.Session()
+        _session.headers["User-Agent"] = UA
+    waits = (5, 15)  # back off on throttling or dropped connections
     for attempt in range(len(waits) + 1):
         try:
-            with urllib.request.urlopen(req, timeout=30) as r:
-                data = json.load(r)
+            r = _session.get(API, params=params, timeout=30)
+            if r.status_code in (429, 500, 502, 503, 504) and attempt < len(waits):
+                time.sleep(int(r.headers.get("Retry-After") or waits[attempt]))
+                continue
+            r.raise_for_status()
+            data = r.json()
             break
-        except urllib.error.HTTPError as e:
-            if e.code not in (429, 500, 502, 503, 504) or attempt == len(waits):
-                raise
-            time.sleep(int(e.headers.get("Retry-After") or waits[attempt]))
-        except (urllib.error.URLError, ConnectionError, TimeoutError):
+        except requests.ConnectionError:
             if attempt == len(waits):
                 raise
             time.sleep(waits[attempt])
@@ -173,7 +183,7 @@ def wd_get(params: dict) -> dict:
     data["_query"] = query
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, sort_keys=True), encoding="utf-8")
-    time.sleep(0.3)  # about 3 requests per second, under Wikidata's ~5/s guidance
+    time.sleep(0.2)  # at most ~5 requests per second
     return data
 
 
@@ -240,11 +250,18 @@ def cmd_wikidata(args) -> None:
     print(f"Searching Wikidata for {len(scope)} keywords ({'all' if args.all else 'used by 2+ people or mapped'})")
 
     found: dict[str, list[tuple[str, str, str, int]]] = {}
+    failed: set[str] = set()
     for n, k in enumerate(scope, 1):
         wanted, hits = forms(k["master_synonym"]), []
         for lang in LANGS:
-            res = wd_get({"action": "wbsearchentities", "search": k["master_synonym"][:250], "language": lang,
-                          "uselang": lang, "type": "item", "limit": "10", "format": "json"})
+            try:
+                res = wd_get({"action": "wbsearchentities", "search": k["master_synonym"][:250], "language": lang,
+                              "uselang": lang, "type": "item", "limit": "10", "format": "json"})
+            except Exception as e:  # network trouble for one term; the rest of the run continues
+                print(f"  lookup failed for {k['master_synonym']!r} ({lang}): {type(e).__name__}; skipped, rerun to retry",
+                      flush=True)
+                failed.add(k["keyword_id"])
+                break
             for rank, h in enumerate(res["search"]):
                 if forms(h["match"].get("text", "")) & wanted:
                     hits.append((h["id"], h["match"].get("type", ""), lang, rank))
@@ -252,7 +269,7 @@ def cmd_wikidata(args) -> None:
                 break
         found[k["keyword_id"]] = hits
         if n % 200 == 0:
-            print(f"  {n} searched")
+            print(f"  {n} searched", flush=True)
 
     cand = {q for hits in found.values() for q, *_ in hits}
     ents = wd_entities(cand)
@@ -264,6 +281,8 @@ def cmd_wikidata(args) -> None:
 
     rows = {r["keyword_id"]: r for r in read_csv(LINKS)}
     for kid, hits in found.items():
+        if kid in failed and not hits:
+            continue  # leave any earlier row; retried on the next run
         best = None
         for qid, mtype, lang, rank in sorted(set(hits), key=lambda h: (h[1] != "label", LANGS.index(h[2]), h[3])):
             keep, conf, reason = classify(qid, ents)

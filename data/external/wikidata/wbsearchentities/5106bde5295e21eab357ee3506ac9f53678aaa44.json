@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=Oracle+SOA&type=item&uselang=sv", "search": [{"description": "", "id": "Q7099294", "label": "Oracle SOA Suite", "match": {"language": "en", "text": "Oracle SOA Suite", "type": "label"}}]}

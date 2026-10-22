@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=KnockoutJS&type=item&uselang=en", "search": [{"description": "JavaScript library", "id": "Q1100240", "label": "Knockout.js", "match": {"language": "en", "text": "KnockoutJS", "type": "alias"}}]}

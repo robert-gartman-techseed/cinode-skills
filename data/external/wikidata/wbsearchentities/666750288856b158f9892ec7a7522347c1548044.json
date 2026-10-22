@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=ISTQB&type=item&uselang=sv", "search": [{"description": "software testing certification board", "id": "Q1260939", "label": "International Software Testing Qualifications Board", "match": {"language": "en", "text": "ISTQB", "type": "alias"}}]}

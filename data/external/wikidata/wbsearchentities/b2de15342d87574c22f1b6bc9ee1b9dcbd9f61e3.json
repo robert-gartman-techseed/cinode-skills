@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=FastAPI&type=item&uselang=en", "search": [{"description": "software framework for developing web applications in Python", "id": "Q101119404", "label": "FastAPI", "match": {"language": "en", "text": "FastAPI", "type": "label"}}]}

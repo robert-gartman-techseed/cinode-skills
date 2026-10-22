@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Strukturkapital&type=item&uselang=en", "search": [{"description": "", "id": "Q2357345", "label": "Strukturkapital", "match": {"language": "nb", "text": "Strukturkapital", "type": "label"}}]}

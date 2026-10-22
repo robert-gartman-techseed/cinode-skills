@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Problemanalys&type=item&uselang=nb", "search": [{"description": "systemdesignprosess med fokus på å analysere, dokumentere, validere og administrere systemkrav", "id": "Q187147", "label": "kravspesifikasjon", "match": {"language": "nb", "text": "problemanalyse", "type": "alias"}}]}

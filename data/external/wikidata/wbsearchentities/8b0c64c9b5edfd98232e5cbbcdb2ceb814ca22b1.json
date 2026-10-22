@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Kylsystem&type=item&uselang=en", "search": [{"description": "process of moving heat energy from one location to another in controlled conditions", "id": "Q747713", "label": "refrigeration", "match": {"language": "sv", "text": "kylsystem", "type": "alias"}}]}

@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Strategisk+utveckling&type=item&uselang=nb", "search": [{"description": "", "id": "Q116979948", "label": "Strategisk utveckling av sjukvårdsstödjande applikationer", "match": {"language": "sv", "text": "Strategisk utveckling av sjukvårdsstödjande applikationer", "type": "alias"}}]}

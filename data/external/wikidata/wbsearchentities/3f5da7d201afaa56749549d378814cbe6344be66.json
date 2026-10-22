@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=OpenAI+API&type=item&uselang=en", "search": [{"description": "various AI APIs, products of OpenAI", "id": "Q96237091", "label": "OpenAI API", "match": {"language": "en", "text": "OpenAI API", "type": "label"}}]}

@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Google+Kubernetes+Engine&type=item&uselang=en", "search": [{"description": "cloud-based platform for running containerized applications", "id": "Q59848767", "label": "Google Kubernetes Engine", "match": {"language": "en", "text": "Google Kubernetes Engine", "type": "label"}}]}

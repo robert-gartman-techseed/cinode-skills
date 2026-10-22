@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=B%C3%A4rbara+datorer&type=item&uselang=sv", "search": [{"description": "motion av Per Bill  m.fl. 1999", "id": "Q97966328", "label": "Bärbara datorer i riksdagsarbetet", "match": {"language": "sv", "text": "Bärbara datorer i riksdagsarbetet", "type": "label"}}]}

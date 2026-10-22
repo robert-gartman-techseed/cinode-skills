@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Claude+Code&type=item&uselang=en", "search": [{"description": "AI-based tool made by Anthropic", "id": "Q138457287", "label": "Claude Code", "match": {"language": "en", "text": "Claude Code", "type": "label"}}]}

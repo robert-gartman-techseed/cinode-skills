@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Versionshantering&type=item&uselang=nb", "search": [{"description": "activity of managing the versions of one or more files", "id": "Q189439", "label": "versjonskontroll", "match": {"language": "sv", "text": "versionshantering", "type": "label"}}]}

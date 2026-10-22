@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Bug+fixes&type=item&uselang=nb", "search": [{"description": "vitenskapelig artikkel", "id": "Q115013860", "label": "Bug fixes attacked by MPs", "match": {"language": "en", "text": "Bug fixes attacked by MPs", "type": "label"}}]}

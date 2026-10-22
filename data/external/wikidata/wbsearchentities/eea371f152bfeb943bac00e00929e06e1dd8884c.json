@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Operating+Models&type=item&uselang=en", "search": [{"description": "scientific article published in 2023", "id": "Q125260766", "label": "Operating Models of Construction Businesses", "match": {"language": "en", "text": "Operating Models of Construction Businesses", "type": "label"}}]}

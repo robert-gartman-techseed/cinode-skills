@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Vivado&type=item&uselang=en", "search": [{"description": "Xilinx software suite for synthesis and analysis of HDL designs", "id": "Q25220741", "label": "Xilinx Vivado", "match": {"language": "en", "text": "Vivado", "type": "alias"}}]}

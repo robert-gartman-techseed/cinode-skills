@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Masterdata&type=item&uselang=en", "search": [{"description": "permanent or slowly changing data in an information system with basic information or details, such as address or customer category", "id": "Q384093", "label": "master data", "match": {"language": "en", "text": "masterdata", "type": "alias"}}]}

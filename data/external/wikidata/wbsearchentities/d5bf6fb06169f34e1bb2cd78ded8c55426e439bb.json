@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=DORA-f%C3%B6rordningen&type=item&uselang=en", "search": [{"description": "Digital Operational Resilience Act", "id": "Q126368073", "label": "Digital Operational Resilience Act", "match": {"language": "sv", "text": "Dora-förordningen", "type": "alias"}}]}

@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Microsoft+SQL+Server+Reporting+Services&type=item&uselang=en", "search": [{"description": "server-based report generation software system", "id": "Q846897", "label": "SQL Server Reporting Services", "match": {"language": "de", "text": "Microsoft SQL Server Reporting Services", "type": "alias"}}]}

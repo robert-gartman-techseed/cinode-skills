@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=Utbildningsplanering&type=item&uselang=sv", "search": [{"description": "motion av INGRID ANDERSSON 1985", "id": "Q98033501", "label": "Utbildningsplaneringen inom vårdområdet", "match": {"language": "sv", "text": "Utbildningsplaneringen inom vårdområdet", "type": "label"}}]}

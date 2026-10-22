@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Agile+Coach&type=item&uselang=nb", "search": [{"description": "", "id": "Q110570417", "label": "Agile coaching for global software development", "match": {"language": "en", "text": "Agile coaching for global software development", "type": "label"}}]}

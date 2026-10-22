@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Model+Quantization&type=item&uselang=en", "search": [{"description": "machine learning technique", "id": "Q133503025", "label": "model quantization", "match": {"language": "en", "text": "model quantization", "type": "label"}}]}

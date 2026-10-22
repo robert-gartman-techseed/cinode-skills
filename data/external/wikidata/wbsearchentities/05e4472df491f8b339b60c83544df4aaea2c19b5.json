@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Shellscript&type=item&uselang=en", "search": [{"description": "script written for the shell, or command line interpreter, of an operating system", "id": "Q959549", "label": "shell script", "match": {"language": "nl", "text": "shellscript", "type": "label"}}]}

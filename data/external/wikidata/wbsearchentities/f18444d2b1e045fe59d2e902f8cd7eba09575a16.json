@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=POS+system&type=item&uselang=sv", "search": [{"description": "independent comparison website for point-of-sale systems", "id": "Q139551510", "label": "Posbull", "match": {"language": "en", "text": "POS Systems Comparison", "type": "alias"}}]}

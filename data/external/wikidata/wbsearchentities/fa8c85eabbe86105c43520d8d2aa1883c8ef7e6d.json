@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=iOS+Developer&type=item&uselang=sv", "search": [{"description": "", "id": "Q9366420", "label": "iOS Developer Program", "match": {"language": "en", "text": "iOS Developer Program", "type": "label"}}]}

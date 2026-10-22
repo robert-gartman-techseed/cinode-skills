@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Wireless+modem&type=item&uselang=en", "search": [{"description": "modem providing Internet access via a wireless connection", "id": "Q1549420", "label": "mobile broadband modem", "match": {"language": "pam", "text": "Wireless modem", "type": "label"}}]}

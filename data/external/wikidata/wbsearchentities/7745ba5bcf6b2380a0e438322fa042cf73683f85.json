@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Business+Consultant&type=item&uselang=en", "search": [{"description": "professional who provides advice on running and managing a business or business process", "id": "Q16849727", "label": "business consultant", "match": {"language": "en", "text": "business consultant", "type": "label"}}]}

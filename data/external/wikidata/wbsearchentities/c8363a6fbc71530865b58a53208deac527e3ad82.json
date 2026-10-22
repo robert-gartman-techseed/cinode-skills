@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=GitHub+Actions&type=item&uselang=en", "search": [{"description": "software workflow automation from GitHub", "id": "Q97185096", "label": "GitHub Actions", "match": {"language": "en", "text": "GitHub Actions", "type": "label"}}]}

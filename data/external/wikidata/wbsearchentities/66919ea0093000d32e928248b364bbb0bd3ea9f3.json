@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=Systemdokumentation&type=item&uselang=en", "search": [{"description": "", "id": "Q19978422", "label": "Systemdokumentation", "match": {"language": "sv", "text": "Systemdokumentation", "type": "label"}}]}

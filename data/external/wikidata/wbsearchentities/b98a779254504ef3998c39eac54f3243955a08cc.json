@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=nb&limit=10&search=Data+Pipelines&type=item&uselang=nb", "search": [{"description": "", "id": "Q134419610", "label": "Data Pipelines: The Hammer for Every Nail", "match": {"language": "en", "text": "Data Pipelines: The Hammer for Every Nail", "type": "label"}}]}

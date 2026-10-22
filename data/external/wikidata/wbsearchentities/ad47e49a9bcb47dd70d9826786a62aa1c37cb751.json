@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=sv&limit=10&search=Scalability+Planning&type=item&uselang=sv", "search": [{"description": "vetenskaplig artikel", "id": "Q28315718", "label": "Scalability Planning for Cloud-Based Manufacturing Systems", "match": {"language": "en", "text": "Scalability Planning for Cloud-Based Manufacturing Systems", "type": "label"}}]}

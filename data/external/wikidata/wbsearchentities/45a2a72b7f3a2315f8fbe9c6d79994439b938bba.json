@@ -1,0 +1,1 @@
+{"_query": "action=wbsearchentities&format=json&language=en&limit=10&search=ISO+13849&type=item&uselang=en", "search": [{"description": "International standard on safety of machinery", "id": "Q1275552", "label": "ISO 13849", "match": {"language": "en", "text": "ISO 13849", "type": "label"}}]}
