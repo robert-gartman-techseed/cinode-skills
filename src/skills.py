@@ -6,6 +6,7 @@
     uv run src/skills.py report             # AI-related verified / custom synonyms / custom unmatched
     uv run src/skills.py person <id|name>   # one person's skills: verified / synonym / unique / duplicate
     uv run src/skills.py person --all       # team summary, counts only
+    uv run src/skills.py view               # data/reference/canonical_skills_view.json (catalogue page data)
 
 `person` reads the gitignored profile files; its output is personal data and
 only goes to the terminal or the gitignored data/out/.
@@ -56,7 +57,10 @@ API = "https://www.wikidata.org/w/api.php"
 UA = "cinode-skills-analysis/0.1 (TechSeed internal skill taxonomy; https://www.techseed.se)"
 LANGS = ("en", "sv", "nb")
 METHOD_RANK = {"alias": 0, "exact": 1, "cinode": 2, "wikidata": 3, "fuzzy": 4, "cinode_list": 5}
-DECISIONS = {"synonym", "narrower", "broader", "related", "none"}
+DECISIONS = {"synonym", "product", "narrower", "broader", "related", "none"}
+# Relation of a keyword to a canonical skill. Only "synonym" (same skill: spelling, language,
+# abbreviation, word order) is an alias; products, models, vendors and tools never are.
+RELATIONS = ("synonym", "product", "narrower", "related")
 FUZZY_MIN = 93
 
 # Wikidata classes. An item is kept when it, or a class it is an instance/subclass of
@@ -413,7 +417,8 @@ def candidates(kws: dict[str, dict], aliases: list[dict], links: list[dict]) -> 
     names = [max(forms(kws[i]["master_synonym"]), key=len) for i in ids]
     scores = process.cdist(names, names, scorer=fuzz.ratio, score_cutoff=FUZZY_MIN, dtype="uint8", workers=-1)
     for i, j in zip(*scores.nonzero()):
-        if i != j:
+        # a spelling variant, not one name inside the other ("AI Transformation" is not "Transformation")
+        if i != j and names[i] not in names[j] and names[j] not in names[i]:
             add(ids[i], ids[j], "fuzzy", float(scores[i, j]))
     return out
 
@@ -542,11 +547,13 @@ def cmd_report(args) -> None:
 # ---------- person ----------
 
 def topic_index() -> tuple[dict[str, str], dict[str, str]]:
-    """Hot-topic id by mapped synonym id and by lowercase name (skill rows only)."""
+    """Hot topic by mapped synonym id and by lowercase name (skill rows only), as "T05" for a
+    synonym of the topic's skill or "T05 product" / "T05 narrower" / "T05 related" otherwise."""
     by_id, by_name = {}, {}
     for m in read_csv(REF / "topic_mapping.csv"):
         if m["kind"] == "skill":
-            t = f"T{int(m['topic_id']):02d}"
+            rel = m.get("relation") or "related"
+            t = f"T{int(m['topic_id']):02d}" + ("" if rel == "synonym" else f" {rel}")
             by_id.setdefault(m["cinode_id"], t)
             by_name.setdefault(m["cinode_name"].lower(), t)
     return by_id, by_name
@@ -658,6 +665,65 @@ def cmd_person(args) -> None:
         print(f"Wrote {path.relative_to(ROOT)}")
 
 
+# ---------- catalogue view ----------
+
+def cmd_view(args) -> None:
+    """Build the catalogue page data: one record per canonical skill with its proposed keyword,
+    definition and every other keyword that belongs to it, split by relation."""
+    kws = load_keywords()
+    by_syn = {k["master_synonym_id"]: kid for kid, k in kws.items()}
+    by_name = defaultdict(list)
+    for kid, k in kws.items():
+        by_name[k["master_synonym"].lower()].append(kid)
+    hot = {f"T{int(t['topic_id']):02d}": t["topic"] for t in read_csv(REF / "hot_topics.csv")}
+    prop = {p["topic_id"]: p for p in read_csv(REF / "ai_skillset_proposal.csv")}
+    rel_table = json.loads((REF / "skill_relations.json").read_text(encoding="utf-8"))
+
+    members: dict[str, dict[str, tuple]] = defaultdict(dict)  # topic -> keyword -> (source, match, relation)
+    for m in read_csv(REF / "topic_mapping.csv"):
+        if m["kind"] != "skill":
+            continue
+        t = f"T{int(m['topic_id']):02d}"
+        for kid in ([by_syn[m["cinode_id"]]] if m["cinode_id"] in by_syn else []) + by_name.get(m["cinode_name"].lower(), []):
+            if kid not in members[t] or m["match"] == "exact":
+                members[t][kid] = ("mapping", m["match"], m.get("relation") or "related")
+    for a in read_csv(ALIASES):
+        for t, ks in members.items():
+            if a["relation"] in RELATIONS and a["canonical_id"] in ks:
+                ks.setdefault(a["keyword_id"], ("alias", "reviewed", a["relation"]))
+    for q in read_csv(QUEUE):  # strong unreviewed suggestions to a keyword of the topic
+        for n in (1, 2, 3):
+            target, method = q.get(f"s{n}_id"), q.get(f"s{n}_method")
+            if not target or method not in {"alias", "exact", "cinode", "wikidata"}:
+                continue
+            for t, ks in members.items():
+                if target in ks and ks[target][0] == "mapping":
+                    rel = rel_table.get(t, {}).get(q["keyword_name"], "related")
+                    ks.setdefault(q["keyword_id"], ("suggested", method, rel))
+
+    out = []
+    for c in read_csv(CANONICAL):
+        tid, p = c["id"], prop.get(c["id"], {})
+        chosen = p.get("keyword_id", "")
+        syn = [{"name": kws[k]["master_synonym"], "verified": kws[k]["is_verified"], "users": kws[k]["users"],
+                "source": src, "match": match, "relation": rel}
+               for k, (src, match, rel) in members[tid].items() if k != chosen and k in kws]
+        syn.sort(key=lambda x: (RELATIONS.index(x["relation"]), -x["users"], x["name"].lower()))
+        out.append({"topic_id": tid, "topic": hot.get(tid, c["name"]), "canonical": p.get("proposed_keyword", c["name"]),
+                    "canonical_verified": p.get("status") == "verified",
+                    "canonical_users": int(p.get("users_on_profiles") or 0),
+                    "needs_new_keyword": p.get("status") == "needs new keyword", "hot": tid in hot,
+                    "ai_related": c["ai_related"] == "True", "domain": c["domain"], "definition": c["definition"],
+                    "synonyms": syn})
+    path = REF / "canonical_skills_view.json"
+    path.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    counts = defaultdict(int)
+    for r in out:
+        for x in r["synonyms"]:
+            counts[x["relation"]] += 1
+    print(f"Wrote {path.relative_to(ROOT)}: {len(out)} skills; " + ", ".join(f"{counts[r]} {r}" for r in RELATIONS))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -671,11 +737,12 @@ def main() -> int:
     p.add_argument("who", nargs="?", default="", help="company user id or part of the name")
     p.add_argument("--all", action="store_true", help="team summary (counts per person) to data/out/")
     p.add_argument("--csv", action="store_true", help="also write data/out/person_<id>.csv")
+    sub.add_parser("view", help="build data/reference/canonical_skills_view.json for the catalogue page")
     args = ap.parse_args()
     if args.cmd == "person" and not (args.all or args.who):
         ap.error("person needs an id, a name or --all")
     {"wikidata": cmd_wikidata, "refresh": cmd_refresh, "accept": cmd_accept, "report": cmd_report,
-     "person": cmd_person}[args.cmd](args)
+     "person": cmd_person, "view": cmd_view}[args.cmd](args)
     return 0
 
 

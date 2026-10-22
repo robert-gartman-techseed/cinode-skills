@@ -116,3 +116,21 @@ def test_bracket_split_only_for_real_abbreviations():
     assert "cms" in skills.forms("Content Management System (CMS)")
     assert "mlop" in skills.forms("MLOps (Machine Learning Operations)")
     assert "machinelearningoperation" in skills.forms("MLOps (Machine Learning Operations)")
+
+
+def test_topic_mapping_relations():
+    """Every mapped skill has a relation; products and models are never synonyms."""
+    rows = [r for r in skills.read_csv(skills.REF / "topic_mapping.csv") if r["kind"] == "skill"]
+    assert rows and all(r["relation"] in skills.RELATIONS for r in rows)
+    rel = {(r["topic_id"], r["cinode_name"]): r["relation"] for r in rows}
+    assert rel[("19", "ChatGPT 4")] == "product"
+    assert rel[("18", "Azure AI Foundry")] == "product"
+    assert rel[("23", "GitHub Copilot")] == "product"
+    assert rel[("5", "RAG")] == "synonym"
+    assert rel[("1", "Generativ AI")] == "synonym"
+
+
+def test_profile_status_shows_topic_relation():
+    kws = {"1": _kw("1", "ChatGPT", True, 7, "95")}
+    rows = skills.profile_status([{"keyword_id": "1", "level": 3}], kws, {}, [], ({"95": "T19 product"}, {}))
+    assert rows[0]["topic"] == "T19 product"

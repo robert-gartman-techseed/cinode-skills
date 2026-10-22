@@ -1,0 +1,217 @@
+{
+ "T01": {
+  "AI & Generative AI": "related",
+  "AI och Generativ AI": "related",
+  "Applied Generative AI": "narrower",
+  "GenAI": "synonym",
+  "Generativ AI": "synonym",
+  "Generative AI": "synonym",
+  "Generative AI & LLM Integration": "related",
+  "Generative AI (GenAI)": "synonym"
+ },
+ "T02": {
+  "LLM": "synonym",
+  "LLM-integration": "narrower",
+  "Large Language Models": "synonym",
+  "Large Language Models (LLM)": "synonym",
+  "Large Language Models (LLMs)": "synonym",
+  "LiteLLM": "product",
+  "Ollama/ self-host AI": "product"
+ },
+ "T03": {
+  "AI-agentutveckling": "narrower",
+  "Agent Design": "narrower",
+  "Agentic AI": "synonym",
+  "Agentic AI Design": "narrower",
+  "Agentic AI Development": "narrower",
+  "Agentic development": "narrower",
+  "Agentic systems": "related",
+  "Agentisk AI": "synonym",
+  "Agentisk utveckling": "narrower",
+  "Implementation av AI-agenter": "narrower",
+  "LLM Agents": "related",
+  "OpenAI Agents": "product"
+ },
+ "T04": {
+  "Agent Orchestration": "related",
+  "Agentic AI Architectures (Single- & Multi-Agent Systems)": "related",
+  "Agentic AI Architectures (Single‑ & Multi‑Agent Systems)": "related",
+  "Agentiska system": "related",
+  "Cooperative AI Systems": "related",
+  "Multi-agent Systems": "synonym"
+ },
+ "T05": {
+  "RAG": "synonym",
+  "RAG (LLM)": "synonym",
+  "Retrieval-Augmented Generation": "synonym",
+  "Retrieval-Augmented Generation (RAG)": "synonym"
+ },
+ "T06": {
+  "AI Context Engineering": "related",
+  "AI Prompting": "synonym",
+  "AI promptning": "synonym",
+  "Context Engineering": "related",
+  "LLM prompting": "synonym",
+  "Prompt Engineering": "synonym"
+ },
+ "T07": {
+  "Embeddings": "synonym",
+  "Pgvector": "product",
+  "Vector Databases": "related",
+  "Vektordatabaser": "related"
+ },
+ "T09": {
+  "FastMCP": "product",
+  "MCP (Model Context Protocol)": "synonym"
+ },
+ "T10": {
+  "AI och maskininlärning": "related",
+  "AI/ML": "related",
+  "Deep Learning": "narrower",
+  "Deep Learning:": "narrower",
+  "ML/AI": "related",
+  "ML/AI algorithms and tools": "related",
+  "Machine Learning": "synonym",
+  "Machine Learning & AI": "related",
+  "Machine Learning Integration": "narrower",
+  "Maskininlärning": "synonym",
+  "Maskinlæring": "synonym"
+ },
+ "T11": {
+  "NLP": "synonym",
+  "NLU": "narrower",
+  "Natural Language Processing (NLP)": "synonym",
+  "Natural language understanding": "narrower"
+ },
+ "T12": {
+  "Intelligent Automation": "synonym",
+  "Intelligent Automatisering (AI)": "synonym",
+  "Intelligent Process Automation (AI)": "narrower",
+  "RPA": "related",
+  "RPA (Robotic Process Automation)": "related",
+  "Robotic Process Automation": "related",
+  "Robotics Process Automation": "related"
+ },
+ "T13": {
+  "AI Model Deployment": "narrower",
+  "LLM Model Inference Optimization": "narrower",
+  "MLOps": "synonym"
+ },
+ "T14": {
+  "Data Strategi": "synonym",
+  "Data Strategy": "synonym",
+  "Datastrategi": "synonym"
+ },
+ "T15": {
+  "Data lakehouse": "synonym",
+  "Databricks": "product",
+  "Microsoft Fabric": "product",
+  "Snowflake": "product"
+ },
+ "T16": {
+  "AI/ML model evaluation": "related",
+  "LLM Evaluation": "synonym",
+  "Monitoring and observability": "related"
+ },
+ "T17": {
+  "Copilot for Microsoft 365": "synonym",
+  "Copilot för Microsoft 365": "synonym",
+  "Copilot metrics": "narrower",
+  "M365 Copilot": "synonym",
+  "MS Copilot": "related",
+  "Microsoft 365 / Copilot": "synonym",
+  "Microsoft 365 Copilot": "synonym",
+  "Microsoft Copilot": "related"
+ },
+ "T18": {
+  "Azure AI Engineer Associate": "related",
+  "Azure AI Foundry": "product",
+  "Azure AI Foundry / OpenAI / Azure AI": "product",
+  "Azure AI Foundry Agents": "product",
+  "Azure Foundry": "product",
+  "Copilot Studio": "synonym",
+  "Microsoft Azure AI Foundry": "product"
+ },
+ "T19": {
+  "Azure OpenAI": "product",
+  "Azure Openai": "product",
+  "Chat GPT & Claude": "product",
+  "ChatGPT": "product",
+  "ChatGPT 4": "product",
+  "GPT": "product",
+  "GPT-4o Vision": "product",
+  "Open AI": "product",
+  "Open AI Integration": "narrower",
+  "OpenAI": "product",
+  "OpenAI API": "synonym",
+  "OpenAI APIs": "synonym",
+  "OpenAI Assistants API": "narrower",
+  "OpenAI SDK": "narrower",
+  "open ai api": "synonym"
+ },
+ "T20": {
+  "Amazon Bedrock": "synonym"
+ },
+ "T21": {
+  "LangChain": "synonym",
+  "LangGraph": "product",
+  "LangGraph/LangChain": "product",
+  "Langchain": "synonym"
+ },
+ "T22": {
+  "Hugging Face": "product",
+  "PyTorch": "synonym",
+  "Python": "related",
+  "Python programming language": "related"
+ },
+ "T23": {
+  "AI Coding (codex & Claude code)": "narrower",
+  "AI Coding - Codex & Claude Code": "narrower",
+  "AI Developer Tools": "related",
+  "AI-Assisted Development & Testing": "related",
+  "AI-assisted development": "synonym",
+  "AI-assisted engineering": "related",
+  "AI-assisted software development": "synonym",
+  "AI-assisterad mjukvaruutveckling": "synonym",
+  "AI-driven Development": "related",
+  "Claude": "product",
+  "Claude AI": "product",
+  "Claude Code": "product",
+  "Cursor": "product",
+  "Cursors": "product",
+  "GitHub Copilot": "product",
+  "Open AI Codex": "product",
+  "OpenAI Codex": "product"
+ },
+ "T24": {
+  "AIOps": "synonym",
+  "AIOps  Processes & Tools": "narrower",
+  "Service Now": "product",
+  "ServiceNow": "product"
+ },
+ "T25": {
+  "AI Act": "synonym",
+  "AI Act Compliance": "narrower",
+  "AI-förordningen (AI Act)": "synonym",
+  "AIförordningen (EU AI Act)": "synonym",
+  "Regulatory Compliance: EU AI Act & EU Data Act": "related",
+  "Regulatory awareness (incl. EU AI Act principles)": "related"
+ },
+ "T26": {
+  "AI Governance": "synonym",
+  "AI Guidelines": "narrower"
+ },
+ "T27": {
+  "AI Risk Management": "synonym",
+  "Secure AI Workflows": "related"
+ },
+ "T28": {
+  "AI Strategy": "synonym"
+ },
+ "T29": {
+  "AI Use Case Discovery": "synonym"
+ },
+ "T30": {
+  "AI Transformation": "synonym"
+ }
+}
