@@ -16,7 +16,7 @@ data/raw/skill_search/   search-employees-by-skill results, one file per batch
 data/raw/profile_skills/ (later) full skill list per employee, one file per person
 data/reference/          hot_topics.csv (30 topics + status), topic_mapping.csv
 src/load_duckdb.py       rebuilds db/cinode.duckdb from everything above
-src/fetch_api.py         optional direct-API fetcher (untested, needs a token)
+src/fetch_api.py         direct-API fetcher (token from .env)
 db/cinode.duckdb         generated; safe to delete
 ```
 
@@ -62,8 +62,12 @@ Two ways to fetch:
   `{"_fetched", "company_user_id", "skills": [{keywordSynonymId, keywordId, name, level}]}`,
   skipping ids already on disk. About 241 calls for all employees, plus one
   `search type:employees` page per 50 people for the id list.
-* **Direct API (`src/fetch_api.py`):** faster and scriptable, but needs a
-  company integration token and a machine that can reach api.cinode.com
-  (the cloud sandbox cannot). Untested; endpoint version may need adjusting.
+* **Direct API (`src/fetch_api.py`):** faster and scriptable. Put the company
+  integration token in a gitignored `.env` as `CINODE_API_TOKEN=...` (used
+  directly as a Bearer token; `CINODE_COMPANY_ID` defaults to 4041) and run
+  `python src/fetch_api.py --max-calls 300`. Uses `/v0.1/companies/{id}/users`
+  (filtered to `companyUserType` 0) and `/users/{companyUserId}/skills`.
+  Needs a machine that can reach api.cinode.com; some proxies truncate large
+  skill responses, so it asks for gzip and retries cut-short reads.
 
 Then rerun `src/load_duckdb.py`.
