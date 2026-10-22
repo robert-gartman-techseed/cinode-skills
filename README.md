@@ -15,6 +15,8 @@ data/raw/catalog/        tags.txt (476 tags), tagTypes.json (4), skillSets.json 
 data/raw/skill_search/   search-employees-by-skill results, one file per batch
 data/raw/profile_skills/ (later) full skill list per employee, one file per person
 data/reference/          hot_topics.csv (30 topics + status), topic_mapping.csv
+                         keywords.csv, verified_keywords.csv, skill_drift.csv
+                         (generated keyword catalog, aggregate counts only)
 src/load_duckdb.py       rebuilds db/cinode.duckdb from everything above
 src/fetch_api.py         direct-API fetcher (token from .env)
 db/cinode.duckdb         generated; safe to delete
@@ -37,6 +39,12 @@ Tables: `tags`, `tag_types`, `skill_sets`, `skill_set_skills`,
 resolved to keyword ids by name), `employee_skills` (best level per person and
 keyword from profiles), `topic_coverage` (employees per topic and level; search
 hits fill in for people without a fetched profile).
+`keyword_usage` (every keyword seen with Cinode's `verified` flag and TechSeed
+user counts) and `skill_drift` (each unverified/custom keyword with its closest
+verified keyword: same_name > synonym > similar > contains) are exported to
+`data/reference/` on every load. Cinode's API only offers
+`GET /keywords/search/{term}` (no listing or paging), so the catalog covers the
+keywords TechSeed employees use, not Cinode's full verified list.
 
 The REST API returns `keywordSynonymId: null` on profile skills, so profiles
 are matched by keyword id. A keyword counts for a topic only when its own
