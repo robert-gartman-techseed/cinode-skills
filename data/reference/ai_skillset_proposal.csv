@@ -1,0 +1,31 @@
+topic_id,topic,proposed_keyword,keyword_id,keyword_synonym_id,verified,users_on_profiles,status,current_pick,reason,alternatives
+T01,Generativ AI (GenAI),Generative AI (GenAI),172056,200981,False,1,custom,Generativ AI,English full name with abbreviation; current pick is the Swedish spelling,"Generativ AI (3 users), GenAI (2)"
+T02,LLM (Large Language Models),Large Language Models (LLMs),99892,117969,False,1,custom,LLM,Clear full name; 'LLM' (10 users) is the common short form and should be an alias,"LLM (10), LLM-integration (1); Ollama is verified but a product"
+T03,Agentisk AI / AI-agenter,Agentic AI,161642,189396,False,4,custom,,"Standard term, most used; verified 'Agentic systems' is close but not the same","Agentic systems (verified, 1), Agentisk AI (1), LLM Agents (1)"
+T04,Multi-agent-system / orkestrering,Multi-agent Systems,52787,61303,False,2,custom,,Only clear exact match,"Agent Orchestration (1), Agentiska system (1)"
+T05,RAG (Retrieval-Augmented Generation),Retrieval-Augmented Generation (RAG),125211,149341,False,2,custom,RAG (LLM),Full name with abbreviation; current pick 'RAG (LLM)' is unclear,"RAG (LLM) (3), RAG (2), Retrieval-Augmented Generation (1)"
+T06,Prompt engineering / context engineering,Prompt Engineering,98676,116239,False,4,custom,,"Established term, most used","Context Engineering (1), AI Prompting (1), LLM prompting (1)"
+T07,Vektordatabaser / embeddings,Embeddings,65733,76763,False,4,custom,,Most used; covers the concept behind vector search,"Vector Databases (1), Vektordatabaser (1), Pgvector (product)"
+T08,Fine-tuning,Fine-tuning (LLM),,,,0,needs new keyword,,No keyword in use at TechSeed; search Cinode's catalog for a verified one before creating,only a long one-off phrase mentions fine-tuning
+T09,MCP (Model Context Protocol),MCP (Model Context Protocol),198626,229030,False,3,custom,,Only clear match; full name with abbreviation,FastMCP (product)
+T10,Machine Learning / Deep Learning,Machine Learning,3823,4931,True,36,verified,,Verified and most used (36),"Deep Learning (verified, 5)"
+T11,NLP / Conversational AI / chatbotar,NLP,27405,31274,True,3,verified,,Verified; conversational AI/chatbots have no keyword yet,NLU (1)
+T12,Intelligent automation / Agentic process automation,Intelligent Automation,78560,91074,False,2,custom,,Exact term; verified RPA is narrower (rule-based automation),"Robotic Process Automation (verified, 7), Intelligent Process Automation (AI) (1)"
+T13,MLOps / LLMOps,MLOps,53537,62181,False,2,custom,,Only exact match; LLMOps has no keyword,AI Model Deployment (1)
+T14,AI-ready data / datastrategi,Data Strategy,69227,80719,False,6,custom,,"English, most used",Datastrategi (1)
+T15,Data lakehouse / Data platform,Data lakehouse,113551,135509,False,1,custom,Snowflake,"Concept instead of a product; topic is not AI-related, consider leaving it out of the AI Skillset","Databricks (8), Microsoft Fabric (4), Snowflake (verified, 3) are products"
+T16,Evaluering / observability,LLM Evaluation,133070,157638,False,1,custom,,Most specific to AI; generic observability keywords are not AI,"AI/ML model evaluation (1), Observability (2)"
+T17,Microsoft Copilot / M365 Copilot,Microsoft 365 Copilot,108251,128659,False,2,custom,,Official product name (topic is a product),"M365 Copilot (1), Microsoft Copilot (1), MS Copilot (1), Copilot för Microsoft 365 (1)"
+T18,Copilot Studio / Azure AI Foundry,Copilot Studio,169842,198457,False,3,custom,,"Most used; topic bundles two products, consider adding Azure AI Foundry as a second entry","Azure AI Foundry (1), Microsoft Azure AI Foundry (1)"
+T19,Azure OpenAI / OpenAI API,OpenAI API,102739,121665,False,2,custom,OpenAI,Names the developer API (topic is API use); ChatGPT is a consumer product,"OpenAI (3), Azure Openai (2), ChatGPT (verified, 7)"
+T20,AWS Bedrock / Google Vertex AI,Amazon Bedrock,117590,140518,False,2,custom,,Only match; Google Vertex AI has no keyword yet,-
+T21,LangChain / LangGraph / Semantic Kernel,Langchain,101756,120381,False,1,custom,,Framework most named in the topic; spelled 'Langchain' in Cinode,"LangGraph (1), LangGraph/LangChain (1)"
+T22,Python / PyTorch / Hugging Face,PyTorch,37583,43517,True,7,verified,Python,Verified and AI-specific; 'Python' is far broader than the topic,"Python (verified, 98), Hugging Face (1)"
+T23,GitHub Copilot / AI-assisterad utveckling,AI-assisted development,199125,229624,False,2,custom,GitHub Copilot,"Broad topic gets the concept, not a product","GitHub Copilot (7), Claude Code (5), Claude (verified, 10)"
+T24,ServiceNow Now Assist / AIOps,AIOps,84298,98133,False,1,custom,,"Concept keyword; ServiceNow (verified) is the whole platform, Now Assist has no keyword","ServiceNow (verified, 12), AIOps  Processes & Tools (1)"
+T25,EU AI Act / AI-förordningen,AI Act,80284,92917,False,4,custom,,Most used; full name 'EU AI Act' would be clearer,"AI Act Compliance (3), AIförordningen (EU AI Act) (1)"
+T26,AI governance / Responsible AI / AI-etik,AI Governance,99974,118076,False,1,custom,,Umbrella term for the topic,"Responsible AI (1), AI Ethics (1), Ethical AI (1), 6 governance-framework variants"
+T27,AI-risk och säkerhet,AI Risk Management,207619,238711,False,1,custom,,Closest existing keyword (close match); consider a new 'AI Security' keyword,Secure AI Workflows (1)
+T28,AI-strategi / AI-roadmap / AI-mognad,AI Strategy,76000,88359,False,3,custom,,"Exact, most used","AI-Strateg (1), AI Strategist (role)"
+T29,Use case-identifiering / AI-värdeskapande / ROI,AI Use Case Discovery,284906,320245,False,1,custom,,Clearest name for use case identification,AI Use Cases (1)
+T30,AI-transformation / förändringsledning / AI-adoption,AI Transformation,160951,188676,False,1,custom,,Exact term,"AI Adoption & Enablement (1), AI implementation (1)"
