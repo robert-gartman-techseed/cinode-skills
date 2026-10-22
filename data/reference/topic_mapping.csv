@@ -144,3 +144,69 @@ topic_id,kind,cinode_id,cinode_name,match
 11,skill,90746,NLU,close
 17,skill,138130,Copilot för Microsoft 365,exact
 23,skill,97294,Cursors,close
+1,skill,351204,AI & Generative AI,close
+1,skill,327469,AI och Generativ AI,close
+1,skill,351664,Applied Generative AI,exact
+1,skill,339990,Generative AI & LLM Integration,exact
+2,skill,320523,LLM-integration,exact
+2,skill,233678,Ollama/ self-host AI,close
+2,skill,251338,LiteLLM,close
+3,skill,193165,Agent Design,exact
+3,skill,315062,Agentic AI Design,exact
+3,skill,301280,Agentisk utveckling,exact
+3,skill,133124,LLM Agents,exact
+3,skill,309299,OpenAI Agents,close
+4,skill,327651,Agent Orchestration,exact
+4,skill,307208,Cooperative AI Systems,close
+5,skill,126552,RAG (LLM),exact
+6,skill,325814,AI Context Engineering,exact
+6,skill,301856,AI Prompting,exact
+6,skill,277103,AI promptning,exact
+6,skill,148552,LLM prompting,exact
+10,skill,80363,Machine Learning & AI,close
+10,skill,123693,AI/ML,close
+10,skill,95762,ML/AI,close
+10,skill,108651,ML/AI algorithms and tools,close
+10,skill,164268,Machine Learning Integration,close
+10,skill,139804,AI och maskininlärning,close
+13,skill,163171,AI Model Deployment,close
+13,skill,348349,LLM Model Inference Optimization,close
+16,skill,310964,AI/ML model evaluation,exact
+17,skill,168588,Copilot metrics,close
+18,skill,265102,Azure AI Foundry / OpenAI / Azure AI,exact
+18,skill,94875,Azure AI Engineer Associate,close
+19,skill,113978,Open AI,exact
+19,skill,167444,open ai api,exact
+19,skill,261813,Open AI Integration,exact
+19,skill,111965,ChatGPT,close
+19,skill,156439,ChatGPT 4,close
+19,skill,95052,GPT,close
+19,skill,350323,GPT-4o Vision,close
+19,skill,342653,Chat GPT & Claude,close
+23,skill,348274,AI Coding (codex & Claude code),exact
+23,skill,348288,AI Coding - Codex & Claude Code,exact
+23,skill,334199,Open AI Codex,exact
+23,skill,324918,OpenAI Codex,exact
+23,skill,350894,AI-Assisted Development & Testing,exact
+23,skill,172566,AI-driven Development,exact
+23,skill,232676,AI Developer Tools,exact
+23,skill,200940,Claude AI,close
+25,skill,310309,AIförordningen (EU AI Act),exact
+25,skill,314494,Regulatory Compliance: EU AI Act & EU Data Act,exact
+25,skill,289441,Regulatory awareness (incl. EU AI Act principles),close
+26,skill,289364,AI & Data governance frameworkds,exact
+26,skill,289395,AI and Data Gov Frameworks,exact
+26,skill,289458,AI and Data Governance,exact
+26,skill,289389,AI and Data Governance Fram,exact
+26,skill,289460,AI Guidelines,exact
+26,skill,289461,Introduced ethical AI principles and risk assessment practices in municipal and enterprise projects.,exact
+26,skill,314495,Advisory AI Initiatives alignment with governance frameworks and compliance standards,exact
+26,skill,289462,Supported organizations in aligning AI initiatives with governance frameworks and compliance standards.,exact
+27,skill,307248,Secure AI Workflows,close
+28,skill,325904,AI-driven business strategy,exact
+29,skill,348080,AI-stödd verksamhetsutveckling,close
+30,skill,327938,AI Enablement (Technical & Governance),close
+30,skill,312071,AI Enablement Lead,close
+30,skill,316363,AI-acceleration,close
+30,skill,348897,Digitalisation & AI,close
+30,skill,348892,Digitalisering & AI,close
