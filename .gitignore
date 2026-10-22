@@ -22,3 +22,6 @@ __pycache__/
 .claude/.cc-writes/
 
 .DS_Store
+
+# Per-person output from src/skills.py person (personal data)
+data/out/

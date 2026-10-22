@@ -76,3 +76,43 @@ def test_ai_and_hot_topic_skills_have_definitions():
                if (r["ai_related"] == "True" or r["id"].startswith("T")) and not r["definition"].strip()]
     assert not missing, f"no definition for {missing}"
     assert all(len(r["definition"].split()) <= 30 for r in rows), "keep definitions to one short sentence"
+
+
+def _kw(kid, name, verified, users=1, syn_id=None):
+    return {"keyword_id": kid, "master_synonym": name, "master_synonym_id": syn_id or f"s{kid}",
+            "is_verified": verified, "users": users, "syn_list": []}
+
+
+def test_profile_status_synthetic_person():
+    kws = {k["keyword_id"]: k for k in [
+        _kw("1", "Generativ AI", True, 5, "107"), _kw("2", "GenAI", False, 2), _kw("3", "Banana", False, 1),
+        _kw("4", "Projekt management", False, 8), _kw("5", "Project Management", True, 100),
+        _kw("6", "Kubernetes", False, 20), _kw("7", "Process Improvment", True, 1), _kw("8", "Process Improvement", False, 25)]}
+    cands = {"2": {"1": ("wikidata", 100)}, "6": {"5": ("cinode_list", 10)}, "8": {"7": ("fuzzy", 97)}}
+    aliases = [{"keyword_id": "4", "canonical_id": "5", "relation": "synonym", "reviewed_by": "tester"}]
+    topics = ({"107": "T01"}, {})
+    person = [{"keyword_id": k, "level": 3} for k in ("1", "2", "3", "4", "6", "8")]
+    rows = {r["skill"]: r for r in skills.profile_status(person, kws, cands, aliases, topics)}
+
+    assert rows["Generativ AI"]["status"] == "verified" and rows["Generativ AI"]["topic"] == "T01"
+    assert rows["GenAI"]["status"] == "synonym (suggested)" and rows["GenAI"]["target"] == "Generativ AI"
+    assert rows["GenAI"]["topic"] == "T01"  # topic inherited from the target
+    assert rows["GenAI"]["duplicate"] and rows["Generativ AI"]["duplicate"]  # both on one profile
+    assert rows["Projekt management"]["status"] == "synonym (accepted)"
+    assert rows["Kubernetes"]["status"] == "unique"  # weak cinode_list hint does not count
+    assert rows["Banana"]["status"] == "unique" and not rows["Banana"]["duplicate"]
+    assert rows["Process Improvement"]["status"] == "synonym (suggested)"
+    s = skills.summarise(list(rows.values()))
+    assert (s["verified"], s["synonym (accepted)"], s["synonym (suggested)"], s["unique"], s["duplicates"]) == (1, 1, 2, 2, 2)
+
+
+def test_profile_status_unknown_keyword_is_unique():
+    rows = skills.profile_status([{"keyword_id": 99, "level": None}], {}, {}, [], ({}, {}))
+    assert rows[0]["status"] == "unique" and rows[0]["skill"] == "keyword 99"
+
+
+def test_bracket_split_only_for_real_abbreviations():
+    assert "llm" not in skills.forms("RAG (LLM)")
+    assert "cms" in skills.forms("Content Management System (CMS)")
+    assert "mlop" in skills.forms("MLOps (Machine Learning Operations)")
+    assert "machinelearningoperation" in skills.forms("MLOps (Machine Learning Operations)")

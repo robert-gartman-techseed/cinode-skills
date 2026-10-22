@@ -4,6 +4,11 @@
     uv run src/skills.py refresh            # build data/reference/review_queue.csv
     uv run src/skills.py accept [--by NAME] # move reviewed queue rows into skill_aliases.csv
     uv run src/skills.py report             # AI-related verified / custom synonyms / custom unmatched
+    uv run src/skills.py person <id|name>   # one person's skills: verified / synonym / unique / duplicate
+    uv run src/skills.py person --all       # team summary, counts only
+
+`person` reads the gitignored profile files; its output is personal data and
+only goes to the terminal or the gitignored data/out/.
 
 Input is data/reference/keywords.csv (written by load_duckdb.py from the fetched
 profiles; keyword names and aggregate counts only). Everything this script writes
@@ -43,6 +48,9 @@ ALIASES = REF / "skill_aliases.csv"
 LINKS = REF / "wikidata_links.csv"
 CANONICAL = REF / "canonical_skills.csv"
 REPORTS = REF / "reports"
+RAW = ROOT / "data" / "raw"
+OUT = ROOT / "data" / "out"  # gitignored: per-person output
+STRONG = {"alias", "exact", "cinode", "wikidata", "fuzzy"}  # methods that count as a suggested synonym
 
 API = "https://www.wikidata.org/w/api.php"
 UA = "cinode-skills-analysis/0.1 (TechSeed internal skill taxonomy; https://www.techseed.se)"
@@ -96,6 +104,18 @@ def _singular(word: str) -> str:
     return word
 
 
+def _abbreviates(a: str, b: str) -> bool:
+    """Is one part an abbreviation of the other ("Large Language Models" / "LLM",
+    "MLOps" / "Machine Learning Operations")? Not "RAG" / "LLM"."""
+    for long, short in ((a, b), (b, a)):
+        initials = "".join(w[0] for w in re.findall(r"[A-Za-z0-9]+", long)).lower()
+        letters = re.sub(r"[^a-z0-9]", "", short.lower()).removesuffix("s")
+        if len(initials) >= 2 and len(letters) >= 2 and (letters == initials or letters.startswith(initials)
+                                                         or initials.startswith(letters)):
+            return True
+    return False
+
+
 def forms(name: str) -> set[str]:
     """Normalised forms of a skill name: whole name, and for "Name (ABBR)" both parts.
 
@@ -105,7 +125,7 @@ def forms(name: str) -> set[str]:
     out = set()
     parts = [name]
     m = re.fullmatch(r"\s*(.+?)\s*\(([^()]+)\)\s*", name)
-    if m:
+    if m and _abbreviates(m.group(1), m.group(2)):
         parts += [m.group(1), m.group(2)]
     for p in parts:
         words = re.findall(r"[A-Za-z0-9åäöæøüÅÄÖÆØÜ+#]+", p)
@@ -519,6 +539,125 @@ def cmd_report(args) -> None:
     print(f"Wrote {REPORTS.relative_to(ROOT)}/")
 
 
+# ---------- person ----------
+
+def topic_index() -> tuple[dict[str, str], dict[str, str]]:
+    """Hot-topic id by mapped synonym id and by lowercase name (skill rows only)."""
+    by_id, by_name = {}, {}
+    for m in read_csv(REF / "topic_mapping.csv"):
+        if m["kind"] == "skill":
+            t = f"T{int(m['topic_id']):02d}"
+            by_id.setdefault(m["cinode_id"], t)
+            by_name.setdefault(m["cinode_name"].lower(), t)
+    return by_id, by_name
+
+
+def profile_status(skills_on_profile: list[dict], kws: dict[str, dict], cands: dict[str, dict[str, tuple]],
+                   aliases: list[dict], topics: tuple[dict, dict]) -> list[dict]:
+    """Classify one person's skills.
+
+    skills_on_profile: [{"keyword_id", "level"}]. Status per skill:
+      verified             the keyword is Cinode-verified
+      synonym (accepted)   custom, reviewed alias (skill_aliases.csv) to another keyword
+      synonym (suggested)  custom, strong unreviewed suggestion to a verified keyword
+      unique               custom with no verified counterpart
+    duplicate is set when two skills on the profile resolve to the same target.
+    """
+    accepted = {a["keyword_id"]: a for a in aliases if a["relation"] == "synonym"}
+    by_id, by_name = topics
+    rows = []
+    for s in skills_on_profile:
+        kid = str(s["keyword_id"])
+        k = kws.get(kid, {"master_synonym": f"keyword {kid}", "is_verified": False, "master_synonym_id": ""})
+        strong = sorted(((t, m) for t, m in cands.get(kid, {}).items() if m[0] in STRONG),
+                        key=lambda tm: (not kws[tm[0]]["is_verified"], METHOD_RANK[tm[1][0]], -tm[1][1]))
+        if k["is_verified"]:
+            status, target, evidence = "verified", kid, ""
+        elif kid in accepted:
+            target = accepted[kid]["canonical_id"]
+            status, evidence = "synonym (accepted)", f"reviewed alias ({accepted[kid]['reviewed_by']})"
+        elif strong and kws[strong[0][0]]["is_verified"]:
+            target, (method, score) = strong[0]
+            status, evidence = "synonym (suggested)", f"{method} {round(score)}"
+        else:
+            status, evidence = "unique", ""
+            target = strong[0][0] if strong else kid  # still used to spot duplicates between custom skills
+        t = kws.get(target, {})
+        topic = (by_id.get(k["master_synonym_id"]) or by_name.get(k["master_synonym"].lower())
+                 or by_id.get(t.get("master_synonym_id", "")) or by_name.get(t.get("master_synonym", "").lower(), ""))
+        rows.append({"keyword_id": kid, "skill": k["master_synonym"], "level": s.get("level"),
+                     "verified": k["is_verified"], "status": status,
+                     "target_id": "" if target == kid else target,
+                     "target": "" if target == kid else t.get("master_synonym", target),
+                     "evidence": evidence, "topic": topic, "_key": target})
+    seen = defaultdict(list)
+    for r in rows:
+        seen[r["_key"]].append(r["skill"])
+    for r in rows:
+        others = [n for n in seen[r.pop("_key")] if n != r["skill"]]
+        r["duplicate"] = "duplicate of " + ", ".join(others) if others else ""
+    order = ["verified", "synonym (accepted)", "synonym (suggested)", "unique"]
+    return sorted(rows, key=lambda r: (order.index(r["status"]), -(r["level"] or 0), r["skill"].lower()))
+
+
+def summarise(rows: list[dict]) -> dict:
+    out = {st: sum(r["status"] == st for r in rows)
+           for st in ("verified", "synonym (accepted)", "synonym (suggested)", "unique")}
+    out["duplicates"] = sum(bool(r["duplicate"]) for r in rows)
+    out["skills"] = len(rows)
+    return out
+
+
+def load_profile(uid: str) -> list[dict]:
+    data = json.loads((RAW / "profile_skills" / f"{uid}.json").read_text(encoding="utf-8"))
+    return [{"keyword_id": s.get("keywordId") or (s.get("keyword") or {}).get("id"), "level": s.get("level")}
+            for s in data["skills"]]
+
+
+def cmd_person(args) -> None:
+    t0 = time.time()
+    kws = load_keywords()
+    aliases = read_csv(ALIASES)
+    cands = candidates(kws, aliases, read_csv(LINKS))
+    topics = topic_index()
+    have = {p.stem for p in (RAW / "profile_skills").glob("*.json")}
+
+    if args.all:
+        rows = []
+        for uid in sorted(have, key=int):
+            rows.append({"company_user_id": uid, **summarise(profile_status(load_profile(uid), kws, cands, aliases, topics))})
+        write_csv(OUT / "team_summary.csv", rows, list(rows[0].keys()))
+        print(f"Wrote {len(rows)} people to {(OUT / 'team_summary.csv').relative_to(ROOT)} (counts only)")
+        return
+
+    users = {str(u["companyUserId"]): u for u in json.loads((RAW / "catalog" / "users.json").read_text(encoding="utf-8"))}
+    q = args.who.strip()
+    matches = [q] if q in users else [uid for uid, u in users.items()
+                                      if q.lower() in f"{u.get('firstName', '')} {u.get('lastName', '')}".lower()]
+    if len(matches) != 1:
+        sys.exit("No match." if not matches else "Several matches, use the id:\n" + "\n".join(
+            f"  {m}  {users[m].get('firstName', '')} {users[m].get('lastName', '')}" for m in matches))
+    uid = matches[0]
+    if uid not in have:
+        sys.exit(f"No fetched profile for {uid} (skipped or not fetched yet).")
+    rows = profile_status(load_profile(uid), kws, cands, aliases, topics)
+    u = users[uid]
+    print(f"{u.get('firstName', '')} {u.get('lastName', '')} ({uid}): {len(rows)} skills\n")
+    w = max([len(r["skill"]) for r in rows] + [5])
+    for r in rows:
+        extra = " ".join(x for x in (f"-> {r['target']}" if r["target"] else "", f"[{r['evidence']}]" if r["evidence"] else "",
+                                     r["topic"], f"({r['duplicate']})" if r["duplicate"] else "") if x)
+        print(f"  {r['skill'][:60]:<{min(w, 60)}}  {r['level'] if r['level'] is not None else '-':>1}  {r['status']:<19}  {extra}")
+    sm = summarise(rows)
+    print(f"\n{sm['verified']} verified, {sm['synonym (accepted)']} synonym (accepted), "
+          f"{sm['synonym (suggested)']} synonym (suggested), {sm['unique']} unique; "
+          f"{sm['duplicates']} on the profile are duplicates. ({time.time() - t0:.1f}s)")
+    if args.csv:
+        path = OUT / f"person_{uid}.csv"
+        write_csv(path, rows, list(rows[0].keys()))
+        print(f"Wrote {path.relative_to(ROOT)}")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -528,8 +667,15 @@ def main() -> int:
     a = sub.add_parser("accept", help="move reviewed queue rows into skill_aliases.csv")
     a.add_argument("--by", help="reviewer name (default: git user.name)")
     sub.add_parser("report", help="write the three reports")
+    p = sub.add_parser("person", help="one person's skills: verified / synonym / unique / duplicate")
+    p.add_argument("who", nargs="?", default="", help="company user id or part of the name")
+    p.add_argument("--all", action="store_true", help="team summary (counts per person) to data/out/")
+    p.add_argument("--csv", action="store_true", help="also write data/out/person_<id>.csv")
     args = ap.parse_args()
-    {"wikidata": cmd_wikidata, "refresh": cmd_refresh, "accept": cmd_accept, "report": cmd_report}[args.cmd](args)
+    if args.cmd == "person" and not (args.all or args.who):
+        ap.error("person needs an id, a name or --all")
+    {"wikidata": cmd_wikidata, "refresh": cmd_refresh, "accept": cmd_accept, "report": cmd_report,
+     "person": cmd_person}[args.cmd](args)
     return 0
 
 

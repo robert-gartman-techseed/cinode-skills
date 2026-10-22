@@ -113,6 +113,8 @@ uv run src/skills.py refresh           # writes data/reference/review_queue.csv
 #   suggestion 1, canonical_id; then:
 uv run src/skills.py accept            # moves decided rows to skill_aliases.csv
 uv run src/skills.py report            # data/reference/reports/*.csv
+uv run src/skills.py person 152386     # one person (id or part of name), --csv to save
+uv run src/skills.py person --all      # team summary, counts per person
 uv run pytest
 ```
 
@@ -128,3 +130,10 @@ uv run pytest
   never re-queued, and decisions typed into the queue survive a refresh.
 * `report` answers: AI-related verified keywords, custom keywords that are
   synonyms of a verified keyword, and custom keywords with no verified match.
+* `person` lists every skill on one profile with level and status: `verified`
+  (Cinode-verified keyword), `synonym (accepted)` (reviewed alias),
+  `synonym (suggested)` (strong unreviewed match to a verified keyword: exact
+  name, corroborated Cinode synonym, shared Wikidata item or spelling) or
+  `unique` (custom, no verified counterpart), plus duplicates on the same profile
+  and the hot topic. This is personal data: it only prints to the terminal or
+  writes to the gitignored `data/out/`.
