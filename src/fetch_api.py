@@ -18,8 +18,11 @@ Behaviour:
     requests left (x-daily-requests-left), or on HTTP 429. Rerun the next day
     to resume where it stopped.
   * A 403/404 on one employee's skills is logged to
-    data/raw/profile_skills/_skipped.jsonl and the run continues; reruns skip
-    those ids unless --retry-skipped is given. Five in a row stops the run.
+    data/raw/profile_skills/_skipped.jsonl (id, status, Cinode's error message)
+    and the run continues; reruns skip those ids unless --retry-skipped is
+    given. Five in a row stops the run. Every skipped profile is printed with
+    name and reason, both when it fails and when a rerun passes over it, and
+    listed again in the final summary.
   * Read-only: only GET requests (plus the token call).
 """
 from __future__ import annotations
@@ -67,9 +70,9 @@ class QuotaStop(Exception):
 
 
 class Skip(Exception):
-    def __init__(self, code: int):
+    def __init__(self, code: int, reason: str = ""):
         super().__init__(f"HTTP {code}")
-        self.code = code
+        self.code, self.reason = code, reason
 
 
 class Client:
@@ -108,7 +111,7 @@ class Client:
                 if e.code == 429:
                     raise QuotaStop("HTTP 429 from Cinode (quota or rate limit)") from e
                 if e.code in SKIP_CODES:
-                    raise Skip(e.code) from e
+                    raise Skip(e.code, e.read().decode("utf-8", "replace").strip()[:300]) from e
                 raise
             except http.client.IncompleteRead:  # large bodies are sometimes cut short
                 if attempt == 2:
@@ -130,18 +133,26 @@ def cached(path: Path, fetch):
     return data
 
 
-def read_skipped() -> set[int]:
+def read_skipped() -> dict[int, dict]:
+    """Latest _skipped.jsonl entry per company user id."""
     if not SKIPPED.exists():
-        return set()
-    return {json.loads(line)["company_user_id"]
-            for line in SKIPPED.read_text(encoding="utf-8").splitlines() if line.strip()}
+        return {}
+    entries = (json.loads(line) for line in SKIPPED.read_text(encoding="utf-8").splitlines() if line.strip())
+    return {e["company_user_id"]: e for e in entries}
 
 
-def log_skipped(uid: int, code: int) -> None:
+def log_skipped(uid: int, code: int, reason: str) -> None:
     SKIPPED.parent.mkdir(parents=True, exist_ok=True)
     with SKIPPED.open("a", encoding="utf-8") as f:
-        f.write(json.dumps({"company_user_id": uid, "status": code,
-                            "at": datetime.now(timezone.utc).isoformat(timespec="seconds")}) + "\n")
+        f.write(json.dumps({"company_user_id": uid, "status": code, "reason": reason,
+                            "at": datetime.now(timezone.utc).isoformat(timespec="seconds")},
+                           ensure_ascii=False) + "\n")
+
+
+def who(u: dict) -> str:
+    """Terminal-only label for a user; names are never written to files."""
+    name = f"{u.get('firstName') or ''} {u.get('lastName') or ''}".strip()
+    return f"{u['companyUserId']} ({name})" if name else str(u["companyUserId"])
 
 
 def skill_row(s: dict) -> dict:
@@ -165,8 +176,9 @@ def main() -> int:
     load_env()
     client = Client(args.max_calls, args.reserve)
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
-    skip_ids = set() if args.retry_skipped else read_skipped()
+    skip_log = {} if args.retry_skipped else read_skipped()
     saved, skipped, in_a_row = 0, Counter(), 0
+    skipped_now, passed_over = [], []
     stop, employees = None, []
 
     try:
@@ -176,16 +188,22 @@ def main() -> int:
         for u in employees:
             uid = u["companyUserId"]
             out = RAW / "profile_skills" / f"{uid}.json"
-            if out.exists() or uid in skip_ids:
+            if out.exists():
+                continue
+            if uid in skip_log:
+                e = skip_log[uid]
+                passed_over.append((u, e))
+                print(f"SKIP {who(u)}: HTTP {e['status']} on {e['at']} (logged; --retry-skipped to try again)")
                 continue
             try:
                 cached(out, lambda: {"_fetched": now, "company_user_id": uid,
                                      "skills": [skill_row(s) for s in client.get(f"users/{uid}/skills")]})
             except Skip as e:
-                log_skipped(uid, e.code)
+                log_skipped(uid, e.code, e.reason)
                 skipped[e.code] += 1
+                skipped_now.append((u, e))
                 in_a_row += 1
-                print(f"skipped {uid}: HTTP {e.code}")
+                print(f"SKIP {who(u)}: HTTP {e.code} {e.reason or ''}".rstrip())
                 if in_a_row >= 5:
                     raise QuotaStop(f"{in_a_row} skipped users in a row; check the token's permissions")
                 continue
@@ -198,6 +216,14 @@ def main() -> int:
     codes = ", ".join(f"{n} x HTTP {c}" for c, n in sorted(skipped.items())) or "none"
     print(f"Saved {saved} this run ({on_disk} of {len(employees)} on disk); skipped {sum(skipped.values())} ({codes});"
           f" {client.calls} calls used; {client.left} daily requests left.")
+    if skipped_now:
+        print("Skipped this run:")
+        for u, e in skipped_now:
+            print(f"  {who(u)}: HTTP {e.code} {e.reason or ''}".rstrip())
+    if passed_over:
+        print(f"Not retried ({len(passed_over)}, logged in {SKIPPED.relative_to(ROOT)}):")
+        for u, e in passed_over:
+            print(f"  {who(u)}: HTTP {e['status']} {e.get('reason') or ''}".rstrip())
     if stop:
         print(f"Stopped early: {stop}. Rerun later to resume.")
     return 0
