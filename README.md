@@ -39,8 +39,9 @@ keyword from profiles), `topic_coverage` (employees per topic and level; search
 hits fill in for people without a fetched profile).
 
 The REST API returns `keywordSynonymId: null` on profile skills, so profiles
-are matched by keyword id; a topic's synonym is resolved through any keyword
-that lists that name among its synonyms.
+are matched by keyword id. A keyword counts for a topic only when its own
+(master) name or id is in `topic_mapping.csv`; sharing a synonym is not enough
+(the generic keyword "AI" lists "AI in Business Development" as a synonym).
 
 ## Skills vs tags in Cinode
 
