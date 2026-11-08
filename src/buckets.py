@@ -54,7 +54,7 @@ ROOT = skills.ROOT
 REF = skills.REF
 STATE = REF / "skill_buckets.csv"
 FIELDS = ["keyword_id", "name", "verified", "users", "bucket_id", "bucket_head", "decision",
-          "matched_keyword", "reason", "batch", "model"]
+          "matched_keyword", "reason", "batch", "model", "skill_id", "skill_name"]
 SHORTLIST = 15
 
 JUDGE_RULES = """\
@@ -465,7 +465,213 @@ def cmd_pairs(args) -> None:
 
 
 def cmd_rules(args) -> None:
-    print(JUDGE_RULES)
+    print(JUDGE_RULES if args.level == 1 else JUDGE_RULES_L2)
+
+
+# ---------- level 2: marketable skills ----------
+#
+# Level-1 buckets stay as they are (aliases of one skill). Level 2 groups buckets into the
+# skill a consultant buyer reads as one CV headline. Same workflow: `l2next` writes a batch of
+# unassigned buckets (most used first) with a shortlist and the full list of level-2 skills,
+# a subagent decides join/new, `l2apply` records it; `l2merge` consolidates near-duplicate
+# level-2 skills afterwards.
+
+JUDGE_RULES_L2 = """\
+Level 2 groups level-1 buckets (each already a set of aliases) into MARKETABLE SKILLS: the
+headline a consultant buyer reads on a CV or searches for. Merge aggressively.
+
+Join an existing marketable skill when a buyer would treat the bucket as the same headline:
+- close neighbours and families: SQL / T-SQL / PL/SQL; CSS / SCSS / Sass; Cloud / Cloud Computing;
+  Containers / Docker / containerization; Infrastructure / IT Infrastructure; Governance / IT Governance
+- product variants with their product: GitLab / GitLab CI; Angular / AngularJS; Bluetooth / BLE;
+  Azure DevOps Pipelines -> Azure DevOps; Microsoft Office 365 / Microsoft Office
+- sub-skills under their headline (Agile Project Management -> Project Management, Unit testing /
+  Integration testing -> Testing), unless buyers specifically search for the sub-skill as its own
+  headline (Test Automation, Cyber Security, Machine Learning, DevOps stay their own skill)
+- roles with their discipline, language variants, certifications with their skill (ITIL Foundation -> ITIL)
+
+Keep apart skills a buyer chooses between: C / C++ / C#, Java / JavaScript, TypeScript vs
+JavaScript is a family (merge), AWS / Azure / GCP, React / Angular / Vue, SAP / Dynamics / Agresso,
+Python / R, Scrum / Kanban are a family (merge into Agile only if the bucket is generic agile).
+A product never stands as a generic skill and is never merged into one: ChatGPT is not
+"Generative AI", Jira is not "Project Management"; it joins its own product family instead.
+Industries and domains (Automotive, Medtech, Public sector) are their own skills.
+
+Name a NEW skill as the buyer-facing headline in English (e.g. "Project Management",
+"SQL", "Azure DevOps"), not a role title unless the skill is a role (e.g. "Scrum Master").
+"""
+
+
+def l2_state(state: list[dict]):
+    """Level-1 buckets (id -> rows) and level-2 skills (id -> name, bucket ids)."""
+    buckets_ = defaultdict(list)
+    for r in state:
+        buckets_[str(r["bucket_id"])].append(r)
+    skills_ = {}
+    for b, rows in buckets_.items():
+        sid = rows[0].get("skill_id") or ""
+        if sid:
+            skills_.setdefault(sid, {"name": rows[0]["skill_name"], "buckets": []})["buckets"].append(b)
+    return buckets_, skills_
+
+
+def bucket_users(rows: list[dict]) -> int:
+    return sum(int(r["users"] or 0) for r in rows)
+
+
+def l2_shortlist(kws, sig: Signals, rows: list[dict], skills_, buckets_, limit: int = 20) -> list[dict]:
+    mine = [r["keyword_id"] for r in rows]
+    mw = set().union(*(sig.words[k] for k in mine))
+    mtype = {kws[k]["type_name"] for k in mine} - {"Uncategorized"}
+    scored = []
+    for sid, s in skills_.items():
+        theirs = [r["keyword_id"] for b in s["buckets"] for r in buckets_[b]]
+        tw = set().union(*(sig.words[k] for k in theirs)) | words(s["name"])
+        score = 0
+        if mw and tw:
+            score = int(100 * len(mw & tw) / min(len(mw), len(tw)))
+        for a in mine:
+            for b in theirs[:12]:
+                if sig.qid.get(a) and sig.qid.get(a) == sig.qid.get(b):
+                    score = max(score, 95)
+                fa, fb = max(sig.forms[a] or {""}, key=len), max(sig.forms[b] or {""}, key=len)
+                if fa and fb and (fa in fb or fb in fa) and min(len(fa), len(fb)) >= 3:
+                    score = max(score, 85)
+        if mtype and mtype & {kws[k]["type_name"] for k in theirs}:
+            score += 5
+        if score >= 40:
+            scored.append((score, sid, s, theirs))
+    scored.sort(key=lambda x: -x[0])
+    return [{"skill_id": sid, "name": s["name"], "signal": sc,
+             "members": [kws[k]["master_synonym"] for k in theirs[:6]]} for sc, sid, s, theirs in scored[:limit]]
+
+
+def cmd_l2next(args) -> None:
+    kws = skills.load_keywords()
+    state = read_state()
+    buckets_, skills_ = l2_state(state)
+    todo = sorted((b for b, rows in buckets_.items() if not rows[0].get("skill_id")),
+                  key=lambda b: (-bucket_users(buckets_[b]), int(b)))[:args.size]
+    sig = Signals(kws)
+    items = []
+    for b in todo:
+        rows = buckets_[b]
+        items.append({"bucket_id": int(b), "head": rows[0]["bucket_head"], "users": bucket_users(rows),
+                      "members": [r["name"] for r in rows][:8],
+                      "cinode_type": sorted({kws[r["keyword_id"]]["type_name"] for r in rows}),
+                      "cinode_synonyms": [s for r in rows[:2] for s in kws[r["keyword_id"]]["syn_list"][:5]],
+                      "shortlist": l2_shortlist(kws, sig, rows, skills_, buckets_)})
+    out = {"items": items, "all_skills": [{"skill_id": sid, "name": s["name"]} for sid, s in
+                                          sorted(skills_.items(), key=lambda x: int(x[0]))]}
+    Path(args.out).parent.mkdir(parents=True, exist_ok=True)
+    Path(args.out).write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    left = sum(1 for rows in buckets_.values() if not rows[0].get("skill_id")) - len(items)
+    print(f"{len(items)} buckets written to {args.out}; {left} more after this; {len(skills_)} level-2 skills so far")
+
+
+def l2_apply(state: list[dict], decisions: list[dict]) -> tuple[int, int]:
+    """decisions: {"bucket_id", "decision": "join"|"new", "skill_id" (join), "new_key" (new, or
+    join to a skill created earlier in the same batch), "skill_name" (new)}."""
+    buckets_, skills_ = l2_state(state)
+    next_id = max([int(s) for s in skills_] + [0]) + 1
+    names = {sid: s["name"] for sid, s in skills_.items()}
+    new_keys, joined, created = {}, 0, 0
+    for d in decisions:
+        b = str(d["bucket_id"])
+        if b not in buckets_ or buckets_[b][0].get("skill_id"):
+            raise ValueError(f"bucket {b} unknown or already assigned")
+        if d["decision"] == "new":
+            sid = str(next_id)
+            next_id += 1
+            names[sid] = d["skill_name"].strip()
+            if d.get("new_key"):
+                new_keys[str(d["new_key"])] = sid
+            created += 1
+        elif d["decision"] == "join":
+            sid = new_keys.get(str(d.get("new_key") or "")) or str(d.get("skill_id") or "")
+            if sid not in names:
+                raise ValueError(f"bucket {b}: no skill {d.get('skill_id')!r} / {d.get('new_key')!r}")
+            joined += 1
+        else:
+            raise ValueError(f"bucket {b}: decision must be join or new")
+        for r in buckets_[b]:
+            r["skill_id"], r["skill_name"] = sid, names[sid]
+    return joined, created
+
+
+def cmd_l2apply(args) -> None:
+    state = read_state()
+    decisions = json.loads(Path(args.decisions).read_text(encoding="utf-8"))["decisions"]
+    batch = json.loads(Path(args.batch).read_text(encoding="utf-8"))
+    if [str(d["bucket_id"]) for d in decisions] != [str(i["bucket_id"]) for i in batch["items"]]:
+        sys.exit("Decisions must cover the batch buckets in the same order; nothing applied.")
+    try:
+        joined, created = l2_apply(state, decisions)
+    except ValueError as e:
+        sys.exit(f"{e}; nothing applied.")
+    write_state(state)
+    print(f"Applied {len(decisions)} buckets: {joined} joined a skill, {created} new skills")
+
+
+def l2_merge(state: list[dict], ops: list[dict]) -> list[str]:
+    """ops: {"keep": skill_id, "drop": skill_id, "name": optional new name for the kept skill},
+    {"move_bucket": bucket_id, "to": skill_id} or {"move_bucket": bucket_id, "to_name": "New skill"},
+    or {"rename": skill_id, "name": "..."}."""
+    log = []
+    for op in ops:
+        if "rename" in op:
+            for r in state:
+                if r.get("skill_id") == str(op["rename"]):
+                    r["skill_name"] = op["name"]
+            log.append(f"renamed skill {op['rename']} -> {op['name']}")
+            continue
+        if "move_bucket" in op:
+            rows = [r for r in state if str(r["bucket_id"]) == str(op["move_bucket"])]
+            if op.get("to_name"):
+                sid, name = str(max(int(r["skill_id"]) for r in state if r.get("skill_id")) + 1), op["to_name"]
+            else:
+                sid = str(op["to"])
+                name = next(r["skill_name"] for r in state if r.get("skill_id") == sid)
+            for r in rows:
+                r["skill_id"], r["skill_name"] = sid, name
+            log.append(f"moved {rows[0]['bucket_head']} -> {name}")
+            continue
+        keep, drop = str(op["keep"]), str(op["drop"])
+        kept = [r for r in state if r.get("skill_id") == keep]
+        if not kept or keep == drop:
+            continue
+        name = op.get("name") or kept[0]["skill_name"]
+        old = next((r["skill_name"] for r in state if r.get("skill_id") == drop), None)
+        if old is None:
+            continue
+        for r in state:
+            if r.get("skill_id") in (keep, drop):
+                r["skill_id"], r["skill_name"] = keep, name
+        log.append(f"{old} -> {name}")
+    return log
+
+
+def cmd_l2merge(args) -> None:
+    state = read_state()
+    for line in l2_merge(state, json.loads(Path(args.ops).read_text(encoding="utf-8"))["ops"]):
+        print(line)
+    write_state(state)
+
+
+def cmd_l2stats(args) -> None:
+    state = read_state()
+    by = defaultdict(list)
+    for r in state:
+        if r.get("skill_id"):
+            by[r["skill_id"]].append(r)
+    sizes = {s: len(v) for s, v in by.items()}
+    total = sum(int(r["users"] or 0) for r in state)
+    multi = sum(int(r["users"] or 0) for v in by.values() if len(v) > 1 for r in v)
+    print(f"{len(by)} marketable skills over {sum(sizes.values())} of {len(state)} keywords; "
+          + ", ".join(f"{n}+ keywords: {sum(v >= n for v in sizes.values())}" for n in (2, 5, 10))
+          + f"; usages in multi-keyword skills: {multi}/{total} ({100 * multi / max(total, 1):.0f}%)")
+    for s, v in sorted(by.items(), key=lambda x: -len(x[1]))[:args.show]:
+        print(f"  {v[0]['skill_name']} ({len(v)}): " + " / ".join(r["name"] for r in v[:8]))
 
 
 def cmd_stats(args) -> None:
@@ -505,10 +711,22 @@ def main() -> int:
     p = sub.add_parser("pairs", help="candidate bucket pairs for a missed-merge pass")
     p.add_argument("--min-score", type=int, default=80)
     p.add_argument("--out", default=str(ROOT / "data" / "work" / "pairs.json"))
-    sub.add_parser("rules", help="print the judging rules given to the subagents")
+    ru = sub.add_parser("rules", help="print the judging rules given to the subagents")
+    ru.add_argument("--level", type=int, choices=[1, 2], default=1)
+    n2 = sub.add_parser("l2next", help="next batch of level-1 buckets to group into marketable skills")
+    n2.add_argument("--size", type=int, default=100)
+    n2.add_argument("--out", default=str(ROOT / "data" / "work" / "l2batch.json"))
+    a2 = sub.add_parser("l2apply", help="apply level-2 decisions for a batch")
+    a2.add_argument("decisions")
+    a2.add_argument("--batch", default=str(ROOT / "data" / "work" / "l2batch.json"))
+    m2 = sub.add_parser("l2merge", help='merge level-2 skills: {"ops": [{"keep": id, "drop": id, "name": ...}]}')
+    m2.add_argument("ops")
+    s2 = sub.add_parser("l2stats", help="level-2 counts")
+    s2.add_argument("--show", type=int, default=0)
     args = ap.parse_args()
     {"next": cmd_next, "apply": cmd_apply, "stats": cmd_stats, "compare": cmd_compare, "revise": cmd_revise,
-     "pairs": cmd_pairs, "rules": cmd_rules}[args.cmd](args)
+     "pairs": cmd_pairs, "rules": cmd_rules, "l2next": cmd_l2next, "l2apply": cmd_l2apply,
+     "l2merge": cmd_l2merge, "l2stats": cmd_l2stats}[args.cmd](args)
     return 0
 
 

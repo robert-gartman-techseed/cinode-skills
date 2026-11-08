@@ -181,6 +181,28 @@ uv run src/buckets.py pairs                # candidate bucket pairs for a missed
 uv run src/buckets.py revise ops.json      # merge/split buckets: {"ops": [{"op": "merge", "a": kid, "b": kid}]}
 ```
 
+### Level 2: marketable skills
+
+Level-1 buckets stay as they are (aliases of one skill, nothing lost). Level 2
+(`skill_id`, `skill_name` in `skill_buckets.csv`) groups buckets into the
+headline a consultant buyer reads on a CV, merging aggressively: close
+neighbours and families (SQL / T-SQL / PL/SQL, HTML & CSS, Cloud / Cloud
+Computing, GitLab / GitLab CI), sub-skills under their headline unless buyers
+search them separately (Test Automation, Cyber Security, Machine Learning stay
+their own), frameworks under their language (Spring Boot -> Java). Kept apart:
+skills a buyer chooses between (C / C++ / C#, Java / JavaScript, AWS / Azure /
+GCP, React / Angular, SAP / Dynamics), and a product never stands as a generic
+skill (ChatGPT, OpenAI API & Platform, Azure AI Foundry, Microsoft Copilot are
+separate skills). Rules: `uv run src/buckets.py rules --level 2`.
+
+```
+uv run src/buckets.py l2next --size 100    # unassigned buckets, most used first, with shortlist + all skills
+#   subagent judges join/new -> decisions.json
+uv run src/buckets.py l2apply decisions.json --batch data/work/l2batch.json
+uv run src/buckets.py l2merge ops.json      # consolidate: merge skills, move a bucket, rename
+uv run src/buckets.py l2stats --show 20
+```
+
 State is `data/reference/skill_buckets.csv` (keyword names, counts, bucket,
 decision, reason, model), so a stopped run resumes. Limitation: each keyword is
 judged only against a shortlist of up to 15 candidate buckets found by cheap

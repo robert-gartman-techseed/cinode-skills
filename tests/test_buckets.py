@@ -44,3 +44,42 @@ def test_role_words_map_roles_to_their_discipline():
 
 def test_rules_state_the_buyer_test():
     assert "buyer" in buckets.JUDGE_RULES and "Python3" in buckets.JUDGE_RULES
+
+
+def _l2_state():
+    rows = [("1", "SQL", "1"), ("2", "T-SQL", "2"), ("3", "PL/SQL", "3"), ("4", "C#", "4")]
+    return [{"keyword_id": k, "name": n, "users": 1, "bucket_id": b, "bucket_head": n, "skill_id": "", "skill_name": ""}
+            for k, n, b in rows]
+
+
+def test_l2_apply_creates_and_joins_marketable_skills():
+    state = _l2_state()
+    joined, created = buckets.l2_apply(state, [
+        {"bucket_id": 1, "decision": "new", "new_key": "n1", "skill_name": "SQL"},
+        {"bucket_id": 2, "decision": "join", "new_key": "n1"},  # joins a skill created in this batch
+        {"bucket_id": 4, "decision": "new", "skill_name": "C#"},
+    ])
+    assert (joined, created) == (1, 2)
+    buckets.l2_apply(state, [{"bucket_id": 3, "decision": "join", "skill_id": state[0]["skill_id"]}])
+    by = {r["name"]: r["skill_id"] for r in state}
+    assert by["SQL"] == by["T-SQL"] == by["PL/SQL"] != by["C#"]
+
+
+def test_l2_merge_consolidates_and_renames():
+    state = _l2_state()
+    buckets.l2_apply(state, [{"bucket_id": 1, "decision": "new", "skill_name": "SQL"},
+                             {"bucket_id": 2, "decision": "new", "skill_name": "Transact-SQL"}])
+    buckets.l2_merge(state, [{"keep": state[0]["skill_id"], "drop": state[1]["skill_id"], "name": "SQL"}])
+    assert state[0]["skill_id"] == state[1]["skill_id"] and state[1]["skill_name"] == "SQL"
+
+
+def test_level2_rules_keep_buyer_choices_apart():
+    assert "C#" in buckets.JUDGE_RULES_L2 and "AWS / Azure / GCP" in buckets.JUDGE_RULES_L2
+
+
+def test_l2_merge_moves_a_bucket_to_a_new_skill():
+    state = _l2_state()
+    buckets.l2_apply(state, [{"bucket_id": 1, "decision": "new", "new_key": "n", "skill_name": "SQL"},
+                             {"bucket_id": 2, "decision": "join", "new_key": "n"}])
+    buckets.l2_merge(state, [{"move_bucket": 2, "to_name": "T-SQL"}])
+    assert state[1]["skill_name"] == "T-SQL" and state[0]["skill_id"] != state[1]["skill_id"]
