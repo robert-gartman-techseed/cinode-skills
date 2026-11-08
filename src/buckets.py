@@ -22,11 +22,18 @@ Limitation: each keyword is judged only against a shortlist of up to 15 candidat
 shared Wikidata item, same hot topic). A synonym with nothing in common on any of those
 signals ("Datavetenskap" / "Computer science" without a Wikidata link) can be missed.
 
-Synonym rule: a semantic alias, the same concept in any wording, tested both ways (someone
-listing either keyword has exactly the same skill). Sub-skills, supersets and neighbouring
-skills are not synonyms; a product, model, vendor or tool is never a synonym of a generic
-skill (product variants can be synonyms of each other: "Azure AI Foundry" = "Microsoft
-Azure AI Foundry").
+Merge rule (buyer test, see JUDGE_RULES): skills are a sales tool for consultant buyers, so
+two keywords share a bucket when a buyer searching for one would consider a consultant
+listing the other to have the same marketable skill. Versions, editions, spelling and
+language variants, "X compliance" / "X development" / "X pipelines" variants and a role
+with its discipline merge ("Python3" = "Python", "Mentor" = "Mentoring"). Genuinely
+different skills stay apart ("C" / "C#", "TypeScript" / "JavaScript"), and a specific
+product never merges with a generic skill or another vendor's product ("ChatGPT" /
+"OpenAI API", "Azure AI Foundry" / "Copilot Studio").
+
+Revisions after a run (undo a merge, merge two buckets) go through `revise`; `pairs`
+lists candidate bucket pairs (near-identical normalised names, shared Wikidata item, role
+vs discipline) for a cheap missed-merge pass.
 """
 from __future__ import annotations
 
@@ -49,6 +56,29 @@ STATE = REF / "skill_buckets.csv"
 FIELDS = ["keyword_id", "name", "verified", "users", "bucket_id", "bucket_head", "decision",
           "matched_keyword", "reason", "batch", "model"]
 SHORTLIST = 15
+
+JUDGE_RULES = """\
+Skill keywords are a sales tool: consultant buyers search them to find consultants. Two
+keywords belong in the same bucket when a buyer searching for one would consider a consultant
+listing the other to have the same marketable skill (the buyer test).
+
+Merge:
+- spelling, abbreviation, inflection and language variants ("Kvalitetskontroll" = "Quality Control")
+- versions and editions ("Python3" = "Python", "CSS3" = "CSS", "PostgreSQL 9.5" = "PostgreSQL")
+- "X compliance", "X development", "X pipelines", "X knowledge" variants of X ("GDPR Compliance" = "GDPR")
+- a role and its discipline ("Mentor" = "Mentoring", "Product Owner" = "Product Ownership")
+- product renames and vendor-prefixed names ("Azure AD" = "Microsoft Entra ID", "Logic Apps" = "Azure Logic Apps")
+
+Keep apart:
+- genuinely different skills a buyer would distinguish ("C" / "C#", "TypeScript" / "JavaScript",
+  "Machine learning" / "Deep learning", "Scrum" / "Agile", "Project Manager" / "Linux")
+- a specific product, model, vendor or tool vs a generic skill ("ChatGPT" / "Generative AI",
+  "Jira" / "Issue tracking") or vs another vendor's product ("ChatGPT" / "OpenAI API",
+  "Azure AI Foundry" / "Copilot Studio")
+- a letters-only match: "ARM" (processor) is not "AI Risk Management"; read the Cinode synonyms.
+
+When in doubt, keep apart.
+"""
 PILOT_EXTRA = 300
 
 # Swedish/Norwegian -> English words common in skill names, for token overlap only.
@@ -293,6 +323,151 @@ def cmd_compare(args) -> None:
         print(f"  {kws[k]['master_synonym']}: {Path(args.a).stem} {fa} | {Path(args.b).stem} {fb}")
 
 
+def renumber_heads(state: list[dict], kws: dict[str, dict]) -> None:
+    """Each bucket's head is its most established member (verified, most used, name)."""
+    members = defaultdict(list)
+    for r in state:
+        members[str(r["bucket_id"])].append(r)
+    for rows in members.values():
+        head = min(rows, key=lambda r: order_key(kws[r["keyword_id"]]))["name"]
+        for r in rows:
+            r["bucket_head"] = head
+
+
+def revise(state: list[dict], kws: dict[str, dict], ops: list[dict], batch_no: int, model: str) -> list[str]:
+    """Apply merge/split operations in place; returns a log line per operation.
+
+    merge: {"op": "merge", "a": kid, "b": kid} moves every keyword of b's bucket into a's
+    (the bucket with the lower id survives). split: {"op": "split", "keyword_id": kid} gives
+    the keyword a bucket of its own.
+    """
+    where = {r["keyword_id"]: r for r in state}
+    next_id = max(int(r["bucket_id"]) for r in state) + 1
+    log = []
+    for op in ops:
+        reason = op.get("reason", "")[:300]
+        if op["op"] == "merge":
+            a, b = where[str(op["a"])], where[str(op["b"])]
+            ba, bb = str(a["bucket_id"]), str(b["bucket_id"])
+            if ba == bb:
+                continue
+            keep, drop = sorted((ba, bb), key=int)
+            other = b if keep == ba else a
+            for r in state:
+                if str(r["bucket_id"]) == drop:
+                    r.update(bucket_id=keep, decision="revised", batch=batch_no, model=model, reason=reason,
+                             matched_keyword=(a if other is b else b)["name"])
+            log.append(f"merged {b['name']} -> {a['name']}")
+        elif op["op"] == "split":
+            r = where[str(op["keyword_id"])]
+            r.update(bucket_id=next_id, decision="revised", batch=batch_no, model=model, reason=reason,
+                     matched_keyword="")
+            next_id += 1
+            log.append(f"split {r['name']}")
+        else:
+            raise ValueError(f"unknown op {op['op']!r}")
+    renumber_heads(state, kws)
+    return log
+
+
+def cmd_revise(args) -> None:
+    kws = skills.load_keywords()
+    state = read_state()
+    ops = json.loads(Path(args.ops).read_text(encoding="utf-8"))["ops"]
+    batch_no = max(int(r["batch"]) for r in state) + 1
+    for line in revise(state, kws, ops, batch_no, args.model):
+        print(line)
+    write_state(state)
+
+
+ROLE_TO_DISCIPLINE = {
+    "manager": "management", "owner": "ownership", "architect": "architecture", "developer": "development",
+    "engineer": "engineering", "tester": "testing", "designer": "design", "analyst": "analysis",
+    "lead": "leadership", "leader": "leadership", "mentor": "mentoring", "coach": "coaching",
+    "consultant": "consulting", "administrator": "administration", "admin": "administration",
+    "utvecklare": "development", "utvikler": "development", "arkitekt": "architecture",
+    "projektledare": "project management", "testare": "testing", "ledare": "leadership",
+}
+
+
+def role_words(name: str) -> frozenset[str]:
+    out = set()
+    for w in words(name):
+        out.update(ROLE_TO_DISCIPLINE.get(w, w).split())
+    return frozenset(skills._singular(w) for w in out)
+
+
+def pair_score(sig: Signals, a: str, b: str) -> int:
+    """Like Signals.score but stricter on abbreviations (an all-caps short name that spells
+    the other's initials exactly), since this pass compares every bucket with every other."""
+    if sig.forms[a] & sig.forms[b]:
+        return 100
+    if sig.qid.get(a) and sig.qid.get(a) == sig.qid.get(b):
+        return 95
+    na, nb = sig.kws[a]["master_synonym"], sig.kws[b]["master_synonym"]
+    for long, short in ((na, nb), (nb, na)):
+        letters = re.sub(r"[^A-Za-z0-9]", "", short)
+        initials = "".join(w[0] for w in re.findall(r"[A-Za-z0-9]+", long))
+        if 2 <= len(letters) <= 6 and letters.isupper() and len(initials) >= 2 and letters.lower() == initials.lower():
+            return 90
+    wa, wb = sig.words[a], sig.words[b]
+    s = int(100 * len(wa & wb) / len(wa | wb)) if wa and wb else 0
+    fa, fb = max(sig.forms[a] or {""}, key=len), max(sig.forms[b] or {""}, key=len)
+    return max(s, int(fuzz.ratio(fa, fb)) - 5)
+
+
+def candidate_pairs(state: list[dict], kws: dict[str, dict], min_score: int = 80) -> list[tuple]:
+    """Bucket pairs worth a second look: high name similarity, shared Wikidata item, or the
+    same words once roles are mapped to their discipline."""
+    sig = Signals(kws)
+    members = defaultdict(list)
+    for r in state:
+        members[str(r["bucket_id"])].append(r["keyword_id"])
+    by_role = defaultdict(set)
+    for b, ms in members.items():
+        for m in ms:
+            rw = role_words(kws[m]["master_synonym"])
+            if rw:
+                by_role[rw].add(b)
+    pairs = {}
+    for bs in by_role.values():
+        bs = sorted(bs, key=int)
+        for i, x in enumerate(bs):
+            for y in bs[i + 1:]:
+                pairs[(x, y)] = 99
+    ids = sorted(members, key=int)
+    for i, x in enumerate(ids):
+        for y in ids[i + 1:]:
+            if (x, y) in pairs:
+                continue
+            s = max(pair_score(sig, p, q) for p in members[x] for q in members[y])
+            if s >= min_score:
+                pairs[(x, y)] = s
+    return sorted(((s, x, y) for (x, y), s in pairs.items()), key=lambda t: (-t[0], int(t[1]), int(t[2])))
+
+
+def cmd_pairs(args) -> None:
+    kws = skills.load_keywords()
+    state = read_state()
+    members = defaultdict(list)
+    for r in state:
+        members[str(r["bucket_id"])].append(r["keyword_id"])
+    out = []
+    for s, x, y in candidate_pairs(state, kws, args.min_score):
+        desc = lambda b: {"bucket_id": int(b), "members": [
+            {"keyword_id": m, "name": kws[m]["master_synonym"], "cinode_synonyms": kws[m]["syn_list"][:5]}
+            for m in members[b][:5]]}
+        out.append({"signal": s, "a": desc(x), "b": desc(y)})
+    Path(args.out).parent.mkdir(parents=True, exist_ok=True)
+    Path(args.out).write_text(json.dumps({"rules": JUDGE_RULES, "pairs": out}, ensure_ascii=False, indent=1),
+                              encoding="utf-8")
+    print(f"{len(out)} candidate pairs written to {args.out}")
+
+
+def cmd_rules(args) -> None:
+    print(JUDGE_RULES)
+
+
 def cmd_stats(args) -> None:
     state = read_state()
     sizes = defaultdict(list)
@@ -300,7 +475,7 @@ def cmd_stats(args) -> None:
         sizes[r["bucket_id"]].append(r["name"])
     multi = {b: v for b, v in sizes.items() if len(v) > 1}
     print(f"{len(state)} keywords in {len(sizes)} buckets; {len(multi)} buckets with 2+ keywords; "
-          f"decisions: " + ", ".join(f"{d} {sum(r['decision'] == d for r in state)}" for d in ("seed", "synonym", "new")))
+          f"decisions: " + ", ".join(f"{d} {sum(r['decision'] == d for r in state)}" for d in ("seed", "synonym", "new", "revised")))
     if args.show:
         for b, v in sorted(multi.items(), key=lambda x: -len(x[1]))[:args.show]:
             print(f"  {b}: " + " / ".join(v))
@@ -324,8 +499,16 @@ def main() -> int:
     c.add_argument("--before", type=int, default=0, help="batch number the decisions answer")
     s = sub.add_parser("stats", help="bucket counts")
     s.add_argument("--show", type=int, default=0, help="also list the N largest buckets")
+    r = sub.add_parser("revise", help="apply merge/split operations to the buckets")
+    r.add_argument("ops", help='JSON {"ops": [{"op": "merge", "a": kid, "b": kid} | {"op": "split", "keyword_id": kid}]}')
+    r.add_argument("--model", default="", help="who decided (recorded per changed row)")
+    p = sub.add_parser("pairs", help="candidate bucket pairs for a missed-merge pass")
+    p.add_argument("--min-score", type=int, default=80)
+    p.add_argument("--out", default=str(ROOT / "data" / "work" / "pairs.json"))
+    sub.add_parser("rules", help="print the judging rules given to the subagents")
     args = ap.parse_args()
-    {"next": cmd_next, "apply": cmd_apply, "stats": cmd_stats, "compare": cmd_compare}[args.cmd](args)
+    {"next": cmd_next, "apply": cmd_apply, "stats": cmd_stats, "compare": cmd_compare, "revise": cmd_revise,
+     "pairs": cmd_pairs, "rules": cmd_rules}[args.cmd](args)
     return 0
 
 

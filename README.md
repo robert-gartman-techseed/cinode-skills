@@ -154,10 +154,20 @@ uv run pytest
 
 Robert's algorithm: take the keywords one at a time (verified first, then most
 used, so the established name heads each bucket); compare each with the
-keywords already examined; if one is a semantic synonym (same concept, same
-scope, both ways; products never alias a generic skill) it joins that bucket,
-otherwise it opens a new one. Reviewed synonyms from `topic_mapping.csv` and
-`skill_aliases.csv` are seeded first.
+keywords already examined; if one belongs with it under the merge rule it joins
+that bucket, otherwise it opens a new one. Reviewed synonyms from
+`topic_mapping.csv` and `skill_aliases.csv` are seeded first.
+
+Merge rule (the buyer test): skills are a sales tool for consultant buyers, so
+two keywords share a bucket when a buyer searching for one would consider a
+consultant listing the other to have the same marketable skill. Versions,
+editions, spelling and language variants, "X compliance" / "X development" /
+"X pipelines" variants and a role with its discipline merge ("Python3" =
+"Python", "Mentor" = "Mentoring"). Genuinely different skills stay apart ("C" /
+"C#", "TypeScript" / "JavaScript"), and a specific product never merges with a
+generic skill or another vendor's product ("ChatGPT" / "OpenAI API", "Azure AI
+Foundry" / "Copilot Studio"). The full text given to the judges is printed by
+`uv run src/buckets.py rules`.
 
 The judging is done by Claude Code subagents in a workflow, one batch of 50 at
 a time; `buckets.py` does the deterministic part (order, shortlists, state):
@@ -167,6 +177,8 @@ uv run src/buckets.py next --scope pilot   # data/work/batch.json (scope: pilot 
 #   subagent judges the batch -> data/work/decisions.json
 uv run src/buckets.py apply data/work/decisions.json --model sonnet
 uv run src/buckets.py stats --show 10
+uv run src/buckets.py pairs                # candidate bucket pairs for a missed-merge pass
+uv run src/buckets.py revise ops.json      # merge/split buckets: {"ops": [{"op": "merge", "a": kid, "b": kid}]}
 ```
 
 State is `data/reference/skill_buckets.csv` (keyword names, counts, bucket,
