@@ -20,6 +20,7 @@ data/reference/          hot_topics.csv (30 topics + status), topic_mapping.csv
 src/load_duckdb.py       rebuilds db/cinode.duckdb from everything above
 src/skills.py            skill synonym tooling (wikidata / refresh / accept / report)
 data/external/wikidata/  cached public Wikidata responses (committed, names only)
+data/external/techseed_web/ what_we_build.md: the 6 expertise areas from techseed.se
 tests/                   offline tests (uv run pytest)
 src/fetch_api.py         direct-API fetcher (token from .env)
 db/cinode.duckdb         generated; safe to delete
