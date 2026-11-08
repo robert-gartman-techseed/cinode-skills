@@ -1,17 +1,20 @@
-"""Skill synonym tooling: our own curated list is the reference, Wikidata helps find synonyms.
+"""Skill taxonomy core: keyword catalog, synonym review and Wikidata hints (AI-neutral).
 
-    uv run src/skills.py wikidata [--all]   # link keywords to Wikidata items (public API, cached)
-    uv run src/skills.py refresh            # build data/reference/review_queue.csv
+    uv run src/skills.py wikidata [--all] [--include CSV]  # link keywords to Wikidata items (public API, cached)
+    uv run src/skills.py refresh            # build data/taxonomy/review_queue.csv
     uv run src/skills.py accept [--by NAME] # move reviewed queue rows into skill_aliases.csv
-    uv run src/skills.py report             # AI-related verified / custom synonyms / custom unmatched
+    uv run src/skills.py report             # custom synonyms of verified / custom unmatched
     uv run src/skills.py person <id|name>   # one person's skills: verified / synonym / unique / duplicate
     uv run src/skills.py person --all       # team summary, counts only
-    uv run src/skills.py view               # data/reference/canonical_skills_view.json (catalogue page data)
+
+The AI hot-topic layer (canonical AI skills, topic mapping, catalogue view) is
+src/ai_topics.py; it reads this taxonomy, never the other way round (except the
+optional hot-topic column in `person`).
 
 `person` reads the gitignored profile files; its output is personal data and
 only goes to the terminal or the gitignored data/out/.
 
-Input is data/reference/keywords.csv (written by load_duckdb.py from the fetched
+Input is data/taxonomy/keywords.csv (written by load_duckdb.py from the fetched
 profiles; keyword names and aggregate counts only). Everything this script writes
 is keyword-level reference data and is meant to be committed; no per-employee rows.
 
@@ -41,14 +44,14 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-REF = ROOT / "data" / "reference"
+TAX = ROOT / "data" / "taxonomy"  # general skill taxonomy (all skills)
+AI = ROOT / "data" / "ai"  # AI hot-topic layer on top of the taxonomy (src/ai_topics.py)
 CACHE = ROOT / "data" / "external" / "wikidata"
-KEYWORDS = REF / "keywords.csv"
-QUEUE = REF / "review_queue.csv"
-ALIASES = REF / "skill_aliases.csv"
-LINKS = REF / "wikidata_links.csv"
-CANONICAL = REF / "canonical_skills.csv"
-REPORTS = REF / "reports"
+KEYWORDS = TAX / "keywords.csv"
+QUEUE = TAX / "review_queue.csv"
+ALIASES = TAX / "skill_aliases.csv"
+LINKS = TAX / "wikidata_links.csv"
+REPORTS = TAX / "reports"
 RAW = ROOT / "data" / "raw"
 OUT = ROOT / "data" / "out"  # gitignored: per-person output
 STRONG = {"alias", "exact", "cinode", "wikidata", "fuzzy"}  # methods that count as a suggested synonym
@@ -271,9 +274,9 @@ def is_ai(qid: str, ents: dict[str, dict]) -> bool:
 
 def cmd_wikidata(args) -> None:
     kws = load_keywords()
-    mapped = {r["cinode_id"] for r in read_csv(REF / "topic_mapping.csv") if r["kind"] == "skill"}
-    scope = [k for k in kws.values() if args.all or k["users"] >= 2 or k["master_synonym_id"] in mapped]
-    print(f"Searching Wikidata for {len(scope)} keywords ({'all' if args.all else 'used by 2+ people or mapped'})")
+    extra = {r.get("cinode_id") or r.get("master_synonym_id") for r in read_csv(Path(args.include))} if args.include else set()
+    scope = [k for k in kws.values() if args.all or k["users"] >= 2 or k["master_synonym_id"] in extra]
+    print(f"Searching Wikidata for {len(scope)} keywords ({'all' if args.all else 'used by 2+ people or included'})")
 
     found: dict[str, list[tuple[str, str, str, int]]] = {}
     failed: set[str] = set()
@@ -336,28 +339,6 @@ def cmd_wikidata(args) -> None:
     multi = {q: v for q, v in groups.items() if len(v) > 1}
     print(f"Linked {len(linked)} of {len(rows)} keywords to Wikidata; {len(multi)} synonym groups "
           f"(2+ keywords sharing an item). Wrote {LINKS.relative_to(ROOT)}")
-
-
-# ---------- canonical list ----------
-
-def seed_canonical(kws: dict[str, dict]) -> None:
-    """Seed canonical_skills.csv from the 30 hot topics (only when the file does not exist)."""
-    if CANONICAL.exists():
-        return
-    by_syn = {k["master_synonym_id"]: k for k in kws.values()}
-    mapping = read_csv(REF / "topic_mapping.csv")
-    rows = []
-    for t in read_csv(REF / "hot_topics.csv"):
-        ks = [by_syn[m["cinode_id"]] for m in mapping
-              if m["topic_id"] == t["topic_id"] and m["kind"] == "skill" and m["match"] == "exact"
-              and m["cinode_id"] in by_syn]
-        best = max(ks, key=lambda k: (k["is_verified"], k["users"]), default=None)
-        rows.append({"id": f"T{int(t['topic_id']):02d}", "name": t["topic"], "definition": "",
-                     "domain": t["category"], "ai_related": t["topic_id"] not in {"15", "22"},
-                     "preferred_keyword_id": best["keyword_id"] if best else "", "wikidata_qid": ""})
-    write_csv(CANONICAL, rows, ["id", "name", "definition", "domain", "ai_related",
-                                "preferred_keyword_id", "wikidata_qid"])
-    print(f"Seeded {CANONICAL.relative_to(ROOT)} with {len(rows)} skills from hot_topics.csv")
 
 
 # ---------- refresh ----------
@@ -427,7 +408,6 @@ def candidates(kws: dict[str, dict], aliases: list[dict], links: list[dict]) -> 
 
 def cmd_refresh(args) -> None:
     kws = load_keywords()
-    seed_canonical(kws)
     aliases = read_csv(ALIASES)
     decided = {a["keyword_id"] for a in aliases}
     old = {r["keyword_id"]: r for r in read_csv(QUEUE)}
@@ -498,23 +478,18 @@ def cmd_accept(args) -> None:
 # ---------- report ----------
 
 def cmd_report(args) -> None:
+    """Custom keywords that are synonyms of a verified keyword, and custom keywords with no verified match."""
     kws = load_keywords()
     links = {r["keyword_id"]: r for r in read_csv(LINKS) if r["qid"]}
-    aliases = read_csv(ALIASES)
-    canon = read_csv(CANONICAL)
-    mapping = read_csv(REF / "topic_mapping.csv")
-    ai_topics = {c["id"] for c in canon if c["ai_related"] == "True"}
-    syn_to_kw = {k["master_synonym_id"]: kid for kid, k in kws.items()}
-    ai_kw = {syn_to_kw[m["cinode_id"]]: f"topic T{int(m['topic_id']):02d}" for m in mapping
-             if m["kind"] == "skill" and f"T{int(m['topic_id']):02d}" in ai_topics and m["cinode_id"] in syn_to_kw}
-    for kid, r in links.items():
-        if r["ai_related"] == "True":
-            ai_kw.setdefault(kid, f"wikidata {r['qid']}")
+    out_b, out_c = custom_reports(kws, links, read_csv(ALIASES))
+    for name, rows in {"custom_synonyms_of_verified": out_b, "custom_without_verified": out_c}.items():
+        rows.sort(key=lambda r: (-r["techseed_users"], int(r["keyword_id"])))
+        write_csv(REPORTS / f"{name}.csv", rows, list(rows[0].keys()) if rows else ["keyword_id"])
+        print(f"{name:30} {len(rows):>5} keywords")
+    print(f"Wrote {REPORTS.relative_to(ROOT)}/")
 
-    out_a = [{"keyword_id": kid, "name": k["master_synonym"], "techseed_users": k["users"],
-              "ai_source": ai_kw[kid], "qid": links.get(kid, {}).get("qid", "")}
-             for kid, k in kws.items() if k["is_verified"] and kid in ai_kw]
 
+def custom_reports(kws: dict[str, dict], links: dict[str, dict], aliases: list[dict]) -> tuple[list, list]:
     verified_by_qid = defaultdict(list)
     for kid, r in links.items():
         if kws.get(kid, {}).get("is_verified"):
@@ -535,31 +510,21 @@ def cmd_report(args) -> None:
                           "via": f"wikidata {r['qid']}"})
             matched.add(kid)
     out_c = [{"keyword_id": kid, "name": k["master_synonym"], "techseed_users": k["users"],
-              "qid": links.get(kid, {}).get("qid", ""), "ai_related": kid in ai_kw}
+              "qid": links.get(kid, {}).get("qid", "")}
              for kid, k in kws.items() if not k["is_verified"] and kid not in matched]
+    return out_b, out_c
 
-    for name, rows in {"ai_verified_keywords": out_a, "custom_synonyms_of_verified": out_b,
-                       "custom_without_verified": out_c}.items():
-        rows.sort(key=lambda r: (-r["techseed_users"], int(r["keyword_id"])))
-        write_csv(REPORTS / f"{name}.csv", rows, list(rows[0].keys()) if rows else ["keyword_id"])
-        print(f"{name:30} {len(rows):>5} keywords")
-    print(f"Wrote {REPORTS.relative_to(ROOT)}/")
+
+def optional_topics() -> tuple[dict[str, str], dict[str, str]]:
+    """Hot-topic labels for `person`, from the AI layer when it is present (else none)."""
+    try:
+        import ai_topics
+    except ImportError:
+        return {}, {}
+    return ai_topics.topic_index()
 
 
 # ---------- person ----------
-
-def topic_index() -> tuple[dict[str, str], dict[str, str]]:
-    """Hot topic by mapped synonym id and by lowercase name (skill rows only), as "T05" for a
-    synonym of the topic's skill or "T05 product" / "T05 narrower" / "T05 related" otherwise."""
-    by_id, by_name = {}, {}
-    for m in read_csv(REF / "topic_mapping.csv"):
-        if m["kind"] == "skill":
-            rel = m.get("relation") or "related"
-            t = f"T{int(m['topic_id']):02d}" + ("" if rel == "synonym" else f" {rel}")
-            by_id.setdefault(m["cinode_id"], t)
-            by_name.setdefault(m["cinode_name"].lower(), t)
-    return by_id, by_name
-
 
 def profile_status(skills_on_profile: list[dict], kws: dict[str, dict], cands: dict[str, dict[str, tuple]],
                    aliases: list[dict], topics: tuple[dict, dict]) -> list[dict]:
@@ -628,7 +593,7 @@ def cmd_person(args) -> None:
     kws = load_keywords()
     aliases = read_csv(ALIASES)
     cands = candidates(kws, aliases, read_csv(LINKS))
-    topics = topic_index()
+    topics = optional_topics()
     have = {p.stem for p in (RAW / "profile_skills").glob("*.json")}
 
     if args.all:
@@ -667,84 +632,26 @@ def cmd_person(args) -> None:
         print(f"Wrote {path.relative_to(ROOT)}")
 
 
-# ---------- catalogue view ----------
-
-def cmd_view(args) -> None:
-    """Build the catalogue page data: one record per canonical skill with its proposed keyword,
-    definition and every other keyword that belongs to it, split by relation."""
-    kws = load_keywords()
-    by_syn = {k["master_synonym_id"]: kid for kid, k in kws.items()}
-    by_name = defaultdict(list)
-    for kid, k in kws.items():
-        by_name[k["master_synonym"].lower()].append(kid)
-    hot = {f"T{int(t['topic_id']):02d}": t["topic"] for t in read_csv(REF / "hot_topics.csv")}
-    prop = {p["topic_id"]: p for p in read_csv(REF / "ai_skillset_proposal.csv")}
-    rel_table = json.loads((REF / "skill_relations.json").read_text(encoding="utf-8"))
-
-    members: dict[str, dict[str, tuple]] = defaultdict(dict)  # topic -> keyword -> (source, match, relation)
-    for m in read_csv(REF / "topic_mapping.csv"):
-        if m["kind"] != "skill":
-            continue
-        t = f"T{int(m['topic_id']):02d}"
-        for kid in ([by_syn[m["cinode_id"]]] if m["cinode_id"] in by_syn else []) + by_name.get(m["cinode_name"].lower(), []):
-            if kid not in members[t] or m["match"] == "exact":
-                members[t][kid] = ("mapping", m["match"], m.get("relation") or "related")
-    for a in read_csv(ALIASES):
-        for t, ks in members.items():
-            if a["relation"] in RELATIONS and a["canonical_id"] in ks:
-                ks.setdefault(a["keyword_id"], ("alias", "reviewed", a["relation"]))
-    for q in read_csv(QUEUE):  # strong unreviewed suggestions to a keyword of the topic
-        for n in (1, 2, 3):
-            target, method = q.get(f"s{n}_id"), q.get(f"s{n}_method")
-            if not target or method not in {"alias", "exact", "cinode", "wikidata"}:
-                continue
-            for t, ks in members.items():
-                if target in ks and ks[target][0] == "mapping":
-                    rel = rel_table.get(t, {}).get(q["keyword_name"], "related")
-                    ks.setdefault(q["keyword_id"], ("suggested", method, rel))
-
-    out = []
-    for c in read_csv(CANONICAL):
-        tid, p = c["id"], prop.get(c["id"], {})
-        chosen = p.get("keyword_id", "")
-        syn = [{"name": kws[k]["master_synonym"], "verified": kws[k]["is_verified"], "users": kws[k]["users"],
-                "source": src, "match": match, "relation": rel}
-               for k, (src, match, rel) in members[tid].items() if k != chosen and k in kws]
-        syn.sort(key=lambda x: (RELATIONS.index(x["relation"]), -x["users"], x["name"].lower()))
-        out.append({"topic_id": tid, "topic": hot.get(tid, c["name"]), "canonical": p.get("proposed_keyword", c["name"]),
-                    "canonical_verified": p.get("status") == "verified",
-                    "canonical_users": int(p.get("users_on_profiles") or 0),
-                    "needs_new_keyword": p.get("status") == "needs new keyword", "hot": tid in hot,
-                    "ai_related": c["ai_related"] == "True", "domain": c["domain"], "definition": c["definition"],
-                    "synonyms": syn})
-    path = REF / "canonical_skills_view.json"
-    path.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    counts = defaultdict(int)
-    for r in out:
-        for x in r["synonyms"]:
-            counts[x["relation"]] += 1
-    print(f"Wrote {path.relative_to(ROOT)}: {len(out)} skills; " + ", ".join(f"{counts[r]} {r}" for r in RELATIONS))
-
-
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     w = sub.add_parser("wikidata", help="link keywords to Wikidata items (public API, cached)")
-    w.add_argument("--all", action="store_true", help="every keyword, not only those used by 2+ people or mapped")
+    w.add_argument("--all", action="store_true", help="every keyword, not only those used by 2+ people")
+    w.add_argument("--include", help="CSV with cinode_id (master synonym id) of extra keywords to link, "
+                                      "e.g. data/ai/topic_mapping.csv")
     sub.add_parser("refresh", help="build the review queue")
     a = sub.add_parser("accept", help="move reviewed queue rows into skill_aliases.csv")
     a.add_argument("--by", help="reviewer name (default: git user.name)")
-    sub.add_parser("report", help="write the three reports")
+    sub.add_parser("report", help="write the two taxonomy reports")
     p = sub.add_parser("person", help="one person's skills: verified / synonym / unique / duplicate")
     p.add_argument("who", nargs="?", default="", help="company user id or part of the name")
     p.add_argument("--all", action="store_true", help="team summary (counts per person) to data/out/")
     p.add_argument("--csv", action="store_true", help="also write data/out/person_<id>.csv")
-    sub.add_parser("view", help="build data/reference/canonical_skills_view.json for the catalogue page")
     args = ap.parse_args()
     if args.cmd == "person" and not (args.all or args.who):
         ap.error("person needs an id, a name or --all")
     {"wikidata": cmd_wikidata, "refresh": cmd_refresh, "accept": cmd_accept, "report": cmd_report,
-     "person": cmd_person, "view": cmd_view}[args.cmd](args)
+     "person": cmd_person}[args.cmd](args)
     return 0
 
 

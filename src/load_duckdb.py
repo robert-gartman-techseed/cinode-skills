@@ -15,7 +15,8 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw"
-REF = ROOT / "data" / "reference"
+TAX = ROOT / "data" / "taxonomy"  # keyword catalog exports (general taxonomy)
+AI = ROOT / "data" / "ai"  # AI hot-topic layer (hot_topics, topic_mapping)
 DB = ROOT / "db" / "cinode.duckdb"
 
 
@@ -101,8 +102,8 @@ def main() -> None:
     skill_sets, skill_set_skills = load_skill_sets()
     skill_hits, skill_synonyms = load_skill_search()
     profile_skills, keyword_names, keywords = load_profile_skills()
-    hot_topics = pd.read_csv(REF / "hot_topics.csv")
-    topic_mapping = pd.read_csv(REF / "topic_mapping.csv")
+    hot_topics = pd.read_csv(AI / "hot_topics.csv")
+    topic_mapping = pd.read_csv(AI / "topic_mapping.csv")
 
     for name, df in {
         "tags": tags, "tag_types": tag_types, "skill_sets": skill_sets,
@@ -228,7 +229,7 @@ def main() -> None:
         df = con.execute(query).df()
         if "synonyms" in df:
             df["synonyms"] = df["synonyms"].map(lambda xs: "; ".join(xs))
-        df.to_csv(REF / f"{name}.csv", index=False)
+        df.to_csv(TAX / f"{name}.csv", index=False)
 
     # Per topic: how many employees hold a mapped skill, and at what self-assessed level.
     # Profile holders are matched by keyword; everyone else falls back to search hits.

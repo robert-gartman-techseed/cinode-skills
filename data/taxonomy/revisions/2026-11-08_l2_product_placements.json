@@ -1,0 +1,85 @@
+{
+ "note": "Level 2, 2026-11-08: product placements decided by hand (product skills kept apart from generic skills and other vendors' products). Applied in order with buckets.py l2merge; bucket ids are level-1 ids, 'to' skill ids are as they were at the time.",
+ "ops": [
+  {
+   "move_bucket": 11,
+   "to_name": "OpenAI API & Platform"
+  },
+  {
+   "move_bucket": 336,
+   "to": "473"
+  },
+  {
+   "move_bucket": 387,
+   "to": "473"
+  },
+  {
+   "move_bucket": 388,
+   "to": "473"
+  },
+  {
+   "move_bucket": 389,
+   "to": "473"
+  },
+  {
+   "move_bucket": 373,
+   "to": "473"
+  },
+  {
+   "move_bucket": 363,
+   "to_name": "Azure AI Foundry"
+  },
+  {
+   "move_bucket": 337,
+   "to": "474"
+  },
+  {
+   "move_bucket": 364,
+   "to": "474"
+  },
+  {
+   "move_bucket": 365,
+   "to": "474"
+  },
+  {
+   "move_bucket": 16,
+   "to_name": "AI-assisted Development"
+  },
+  {
+   "move_bucket": 18,
+   "to_name": "AI Governance & EU AI Act"
+  },
+  {
+   "move_bucket": 9,
+   "to": "261"
+  },
+  {
+   "move_bucket": 19,
+   "to": "476"
+  },
+  {
+   "move_bucket": 352,
+   "to": "476"
+  },
+  {
+   "move_bucket": 391,
+   "to": "476"
+  },
+  {
+   "move_bucket": 392,
+   "to": "476"
+  },
+  {
+   "move_bucket": 343,
+   "to": "476"
+  },
+  {
+   "move_bucket": "23",
+   "to": "450"
+  },
+  {
+   "rename": "450",
+   "name": "AI Agents & Agentic AI"
+  }
+ ]
+}

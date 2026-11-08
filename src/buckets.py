@@ -10,16 +10,23 @@ workflow); this script does everything deterministic around it:
     uv run src/buckets.py apply data/work/decisions.json
     uv run src/buckets.py stats
 
-State lives in data/reference/skill_buckets.csv (keyword names and counts only), so a
-stopped run continues where it left off.
+State lives in data/taxonomy/skill_buckets.csv (keyword names and counts only), so a
+stopped run continues where it left off; level 2 is also exported to
+data/taxonomy/marketable_skills.csv. Revisions applied by hand (revise / l2merge ops) are
+kept in data/taxonomy/revisions/.
+
+The taxonomy is domain-neutral. An extra layer (e.g. the AI hot topics in data/ai/) can feed
+in reviewed groups with --groups PATH: a CSV in the topic_mapping format (cinode_id,
+cinode_name, topic_id, kind, relation) whose keywords are added to the scope, used as a
+shortlist signal and, for relation=synonym, seeded as buckets.
 
 Order: verified keywords first, then by number of TechSeed users, then name, so the most
-established name becomes each bucket's head. Reviewed synonyms (topic_mapping.csv
-relation=synonym, skill_aliases.csv) are seeded as buckets before the first batch.
+established name becomes each bucket's head. Reviewed synonyms (skill_aliases.csv, and
+relation=synonym rows of a --groups file) are seeded as buckets before the first batch.
 
 Limitation: each keyword is judged only against a shortlist of up to 15 candidate buckets
 (normalised name, spelling, token overlap incl. a small sv/en word list, abbreviation,
-shared Wikidata item, same hot topic). A synonym with nothing in common on any of those
+shared Wikidata item, same group in a --groups file). A synonym with nothing in common on any of those
 signals ("Datavetenskap" / "Computer science" without a Wikidata link) can be missed.
 
 Merge rule (buyer test, see JUDGE_RULES): skills are a sales tool for consultant buyers, so
@@ -28,8 +35,8 @@ listing the other to have the same marketable skill. Versions, editions, spellin
 language variants, "X compliance" / "X development" / "X pipelines" variants and a role
 with its discipline merge ("Python3" = "Python", "Mentor" = "Mentoring"). Genuinely
 different skills stay apart ("C" / "C#", "TypeScript" / "JavaScript"), and a specific
-product never merges with a generic skill or another vendor's product ("ChatGPT" /
-"OpenAI API", "Azure AI Foundry" / "Copilot Studio").
+product never merges with a generic skill or another vendor's product ("Jira" /
+"Issue tracking", "Power BI" / "Tableau").
 
 Revisions after a run (undo a merge, merge two buckets) go through `revise`; `pairs`
 lists candidate bucket pairs (near-identical normalised names, shared Wikidata item, role
@@ -51,8 +58,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skills  # noqa: E402
 
 ROOT = skills.ROOT
-REF = skills.REF
-STATE = REF / "skill_buckets.csv"
+TAX = skills.TAX
+STATE = TAX / "skill_buckets.csv"
+MARKETABLE = TAX / "marketable_skills.csv"
+GROUPS: list[dict] = []  # optional reviewed groups (--groups), e.g. data/ai/topic_mapping.csv
 FIELDS = ["keyword_id", "name", "verified", "users", "bucket_id", "bucket_head", "decision",
           "matched_keyword", "reason", "batch", "model", "skill_id", "skill_name"]
 SHORTLIST = 15
@@ -71,10 +80,10 @@ Merge:
 
 Keep apart:
 - genuinely different skills a buyer would distinguish ("C" / "C#", "TypeScript" / "JavaScript",
-  "Machine learning" / "Deep learning", "Scrum" / "Agile", "Project Manager" / "Linux")
-- a specific product, model, vendor or tool vs a generic skill ("ChatGPT" / "Generative AI",
-  "Jira" / "Issue tracking") or vs another vendor's product ("ChatGPT" / "OpenAI API",
-  "Azure AI Foundry" / "Copilot Studio")
+  "Scrum" / "Agile", "Project Manager" / "Linux")
+- a specific product, model, vendor or tool vs a generic skill ("Jira" / "Issue tracking",
+  "Excel" / "Spreadsheets") or vs another vendor's product ("Jira" / "Azure DevOps Boards",
+  "Power BI" / "Tableau")
 - a letters-only match: "ARM" (processor) is not "AI Risk Management"; read the Cinode synonyms.
 
 When in doubt, keep apart.
@@ -122,7 +131,7 @@ def scope_keywords(kws: dict[str, dict], scope: str) -> list[dict]:
     by_name = defaultdict(list)
     for kid, k in kws.items():
         by_name[k["master_synonym"].lower()].append(kid)
-    for m in skills.read_csv(REF / "topic_mapping.csv"):
+    for m in GROUPS:
         if m["kind"] == "skill":
             mapped_ids.update(([by_syn[m["cinode_id"]]] if m["cinode_id"] in by_syn else [])
                               + by_name.get(m["cinode_name"].lower(), []))
@@ -130,7 +139,7 @@ def scope_keywords(kws: dict[str, dict], scope: str) -> list[dict]:
         chosen = list(kws.values())
     elif scope == "used2":
         chosen = [k for kid, k in kws.items() if k["users"] >= 2 or kid in mapped_ids]
-    else:  # pilot: every AI-mapped keyword plus the next most-used ones
+    else:  # pilot: every keyword in the --groups file plus the next most-used ones
         rest = sorted((k for kid, k in kws.items() if kid not in mapped_ids), key=lambda k: (-k["users"], order_key(k)))
         chosen = [kws[i] for i in mapped_ids] + rest[:PILOT_EXTRA]
     return sorted(chosen, key=order_key)
@@ -146,7 +155,7 @@ class Signals:
         self.qid = {r["keyword_id"]: r["qid"] for r in skills.read_csv(skills.LINKS) if r["qid"]}
         self.topics = defaultdict(set)
         by_syn = {k["master_synonym_id"]: kid for kid, k in kws.items()}
-        for m in skills.read_csv(REF / "topic_mapping.csv"):
+        for m in GROUPS:
             if m["kind"] == "skill" and m["cinode_id"] in by_syn:
                 self.topics[by_syn[m["cinode_id"]]].add(m["topic_id"])
 
@@ -169,13 +178,13 @@ class Signals:
 
 
 def seed(kws: dict[str, dict], scope_ids: set[str]) -> list[dict]:
-    """Buckets from reviewed synonyms: each topic's synonym keywords, plus accepted aliases."""
+    """Buckets from reviewed synonyms: accepted aliases, plus each --groups group's synonym keywords."""
     by_syn = {k["master_synonym_id"]: kid for kid, k in kws.items()}
     by_name = defaultdict(list)
     for kid, k in kws.items():
         by_name[k["master_synonym"].lower()].append(kid)
     groups = defaultdict(set)
-    for m in skills.read_csv(REF / "topic_mapping.csv"):
+    for m in GROUPS:
         if m["kind"] == "skill" and m.get("relation") == "synonym":
             for kid in ([by_syn[m["cinode_id"]]] if m["cinode_id"] in by_syn else []) + by_name.get(m["cinode_name"].lower(), []):
                 groups[f"T{m['topic_id']}"].add(kid)
@@ -193,7 +202,7 @@ def seed(kws: dict[str, dict], scope_ids: set[str]) -> list[dict]:
             rows.append({"keyword_id": m, "name": kws[m]["master_synonym"], "verified": kws[m]["is_verified"],
                          "users": kws[m]["users"], "bucket_id": len({r["bucket_id"] for r in rows}) + (m == members[0]),
                          "bucket_head": head, "decision": "seed", "matched_keyword": "" if m == members[0] else members[0],
-                         "reason": "reviewed synonym (topic_mapping / skill_aliases)", "batch": 0, "model": "human"})
+                         "reason": "reviewed synonym (skill_aliases / groups)", "batch": 0, "model": "human"})
     # renumber bucket ids 1..n in order of appearance
     ids, out = {}, []
     for r in rows:
@@ -487,14 +496,14 @@ Join an existing marketable skill when a buyer would treat the bucket as the sam
   Azure DevOps Pipelines -> Azure DevOps; Microsoft Office 365 / Microsoft Office
 - sub-skills under their headline (Agile Project Management -> Project Management, Unit testing /
   Integration testing -> Testing), unless buyers specifically search for the sub-skill as its own
-  headline (Test Automation, Cyber Security, Machine Learning, DevOps stay their own skill)
+  headline (Test Automation, Cyber Security, DevOps stay their own skill)
 - roles with their discipline, language variants, certifications with their skill (ITIL Foundation -> ITIL)
 
 Keep apart skills a buyer chooses between: C / C++ / C#, Java / JavaScript, TypeScript vs
 JavaScript is a family (merge), AWS / Azure / GCP, React / Angular / Vue, SAP / Dynamics / Agresso,
 Python / R, Scrum / Kanban are a family (merge into Agile only if the bucket is generic agile).
-A product never stands as a generic skill and is never merged into one: ChatGPT is not
-"Generative AI", Jira is not "Project Management"; it joins its own product family instead.
+A product never stands as a generic skill and is never merged into one: Jira is not
+"Project Management", Power BI is not "Business Intelligence"; it joins its own product family.
 Industries and domains (Automotive, Medtech, Public sector) are their own skills.
 
 Name a NEW skill as the buyer-facing headline in English (e.g. "Project Management",
@@ -599,6 +608,30 @@ def l2_apply(state: list[dict], decisions: list[dict]) -> tuple[int, int]:
     return joined, created
 
 
+def export_marketable(state: list[dict]) -> None:
+    """data/taxonomy/marketable_skills.csv: one row per level-2 skill with its member buckets."""
+    by = defaultdict(list)
+    for r in state:
+        if r.get("skill_id"):
+            by[r["skill_id"]].append(r)
+    rows = []
+    for sid, v in sorted(by.items(), key=lambda x: int(x[0])):
+        heads = []
+        for r in sorted(v, key=lambda r: -int(r["users"] or 0)):
+            if r["bucket_head"] not in heads:
+                heads.append(r["bucket_head"])
+        rows.append({"skill_id": sid, "skill_name": v[0]["skill_name"], "keywords": len(v), "buckets": len(heads),
+                     "users": sum(int(r["users"] or 0) for r in v), "bucket_ids": "; ".join(
+                         sorted({str(r["bucket_id"]) for r in v}, key=int)), "member_buckets": "; ".join(heads)})
+    skills.write_csv(MARKETABLE, rows, ["skill_id", "skill_name", "keywords", "buckets", "users", "bucket_ids",
+                                        "member_buckets"])
+
+
+def cmd_l2export(args) -> None:
+    export_marketable(read_state())
+    print(f"Wrote {MARKETABLE.relative_to(ROOT)}")
+
+
 def cmd_l2apply(args) -> None:
     state = read_state()
     decisions = json.loads(Path(args.decisions).read_text(encoding="utf-8"))["decisions"]
@@ -610,6 +643,7 @@ def cmd_l2apply(args) -> None:
     except ValueError as e:
         sys.exit(f"{e}; nothing applied.")
     write_state(state)
+    export_marketable(state)
     print(f"Applied {len(decisions)} buckets: {joined} joined a skill, {created} new skills")
 
 
@@ -656,6 +690,7 @@ def cmd_l2merge(args) -> None:
     for line in l2_merge(state, json.loads(Path(args.ops).read_text(encoding="utf-8"))["ops"]):
         print(line)
     write_state(state)
+    export_marketable(state)
 
 
 def cmd_l2stats(args) -> None:
@@ -721,12 +756,16 @@ def main() -> int:
     a2.add_argument("--batch", default=str(ROOT / "data" / "work" / "l2batch.json"))
     m2 = sub.add_parser("l2merge", help='merge level-2 skills: {"ops": [{"keep": id, "drop": id, "name": ...}]}')
     m2.add_argument("ops")
+    sub.add_parser("l2export", help="write data/taxonomy/marketable_skills.csv")
     s2 = sub.add_parser("l2stats", help="level-2 counts")
     s2.add_argument("--show", type=int, default=0)
+    ap.add_argument("--groups", help="optional reviewed groups CSV (topic_mapping format), e.g. data/ai/topic_mapping.csv")
     args = ap.parse_args()
+    if args.groups:
+        GROUPS.extend(skills.read_csv(Path(args.groups)))
     {"next": cmd_next, "apply": cmd_apply, "stats": cmd_stats, "compare": cmd_compare, "revise": cmd_revise,
      "pairs": cmd_pairs, "rules": cmd_rules, "l2next": cmd_l2next, "l2apply": cmd_l2apply,
-     "l2merge": cmd_l2merge, "l2stats": cmd_l2stats}[args.cmd](args)
+     "l2merge": cmd_l2merge, "l2stats": cmd_l2stats, "l2export": cmd_l2export}[args.cmd](args)
     return 0
 
 

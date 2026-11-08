@@ -1,0 +1,281 @@
+{
+ "ops": [
+  {
+   "keep": "246",
+   "drop": "290",
+   "name": "Negotiation",
+   "reason": "Duplicate Negotiation skill"
+  },
+  {
+   "keep": "289",
+   "drop": "350",
+   "name": "Mobile Development",
+   "reason": "Duplicate Mobile Development skill"
+  },
+  {
+   "keep": "367",
+   "drop": "381",
+   "name": "Ruby",
+   "reason": "Ruby on Rails is Ruby family"
+  },
+  {
+   "keep": "379",
+   "drop": "366",
+   "name": "Reliability Engineering",
+   "reason": "Duplicate Reliability Engineering skill"
+  },
+  {
+   "keep": "422",
+   "drop": "392",
+   "name": "Graphic Design",
+   "reason": "Duplicate Graphic Design skill"
+  },
+  {
+   "keep": "71",
+   "drop": "412",
+   "name": "Procurement & Contract Management",
+   "reason": "Contract Management already a Procurement bucket"
+  },
+  {
+   "keep": "71",
+   "drop": "178",
+   "name": "Procurement & Contract Management",
+   "reason": "Outsourcing/insourcing is a sourcing sub-skill"
+  },
+  {
+   "keep": "17",
+   "drop": "235",
+   "name": "Java",
+   "reason": "Spring Boot joins its language family"
+  },
+  {
+   "keep": "45",
+   "drop": "37",
+   "name": "HTML & CSS",
+   "reason": "HTML/CSS is sold as one headline"
+  },
+  {
+   "keep": "40",
+   "drop": "16",
+   "name": "C# / .NET",
+   "reason": "C# and .NET framework are the same buyer headline"
+  },
+  {
+   "keep": "19",
+   "drop": "46",
+   "name": "Scrum & Kanban",
+   "reason": "Scrum Master role/cert joins Scrum; Kanban already inside"
+  },
+  {
+   "keep": "94",
+   "drop": "305",
+   "name": "UART & Serial Communication",
+   "reason": "UART/RS-232 are serial communication"
+  },
+  {
+   "keep": "327",
+   "drop": "354",
+   "name": "Wireless & Radio Communication",
+   "reason": "Radio/RF and wireless are close neighbours"
+  },
+  {
+   "keep": "76",
+   "drop": "193",
+   "name": "Electronics & Electrical Engineering",
+   "reason": "Close discipline neighbours"
+  },
+  {
+   "keep": "76",
+   "drop": "247",
+   "name": "Electronics & Electrical Engineering",
+   "reason": "Hardware development is electronics design"
+  },
+  {
+   "keep": "144",
+   "drop": "363",
+   "name": "Microcontrollers",
+   "reason": "nRF52/nRF9160 SoCs sit with STM32/ESP32 family"
+  },
+  {
+   "keep": "34",
+   "drop": "341",
+   "name": "FPGA",
+   "reason": "Altera/Quartus already inside FPGA"
+  },
+  {
+   "keep": "150",
+   "drop": "331",
+   "name": "Test & Measurement Equipment",
+   "reason": "Calibration belongs with measurement equipment"
+  },
+  {
+   "keep": "256",
+   "drop": "464",
+   "name": "Optics & Laser Technology",
+   "reason": "Optics and laser are one photonics headline"
+  },
+  {
+   "keep": "435",
+   "drop": "443",
+   "name": "Thermal Management & Cooling",
+   "reason": "Thermal management and cooling systems overlap"
+  },
+  {
+   "keep": "169",
+   "drop": "330",
+   "name": "SCADA",
+   "reason": "Ignition SCADA already a SCADA bucket"
+  },
+  {
+   "keep": "209",
+   "drop": "427",
+   "name": "Medtech",
+   "reason": "MDR/IEC 62304/ISO 14971 are medtech compliance"
+  },
+  {
+   "keep": "115",
+   "drop": "431",
+   "name": "Recruitment",
+   "reason": "Interviewing is a recruitment sub-skill"
+  },
+  {
+   "keep": "152",
+   "drop": "335",
+   "name": "Education & Training",
+   "reason": "Training and education are one headline"
+  },
+  {
+   "keep": "388",
+   "drop": "439",
+   "name": "Translation & Localization",
+   "reason": "Localization is a translation family member"
+  },
+  {
+   "keep": "388",
+   "drop": "370",
+   "name": "Translation & Localization",
+   "reason": "Subtitling is a language-service variant"
+  },
+  {
+   "keep": "67",
+   "drop": "434",
+   "name": "Documentation",
+   "reason": "Proofreading belongs with technical writing"
+  },
+  {
+   "keep": "328",
+   "drop": "284",
+   "name": "Digital Workplace & Collaboration",
+   "reason": "Intranet is part of digital workplace"
+  },
+  {
+   "keep": "308",
+   "drop": "319",
+   "name": "Technical Support",
+   "reason": "IT/system support is technical support"
+  },
+  {
+   "keep": "122",
+   "drop": "303",
+   "name": "KPI & Performance Management",
+   "reason": "Performance management is KPI follow-up family"
+  },
+  {
+   "keep": "122",
+   "drop": "245",
+   "name": "KPI & Performance Management",
+   "reason": "Evaluation/follow-up matches Resultatuppfoljning in KPI"
+  },
+  {
+   "keep": "216",
+   "drop": "172",
+   "name": "Quality Management",
+   "reason": "Management systems are QMS/ISO systems"
+  },
+  {
+   "keep": "213",
+   "drop": "166",
+   "name": "Business Administration",
+   "reason": "Administration is a Business Administration neighbour"
+  },
+  {
+   "keep": "163",
+   "drop": "299",
+   "name": "IT & Computer Science",
+   "reason": "Generic IT/Information Systems with Computer Science"
+  },
+  {
+   "keep": "96",
+   "drop": "255",
+   "name": "Data Management",
+   "reason": "Data architect is a data management role"
+  },
+  {
+   "keep": "219",
+   "drop": "307",
+   "name": "Data Engineering",
+   "reason": "Data Streaming already inside Data Engineering"
+  },
+  {
+   "keep": "219",
+   "drop": "344",
+   "name": "Data Engineering",
+   "reason": "Big Data is a data engineering family member"
+  },
+  {
+   "keep": "48",
+   "drop": "352",
+   "name": "Business Development",
+   "reason": "Business networking supports business development"
+  },
+  {
+   "keep": "301",
+   "drop": "374",
+   "name": "Migration & Legacy Modernization",
+   "reason": "Legacy modernization already in Migration"
+  },
+  {
+   "keep": "186",
+   "drop": "264",
+   "name": "Operating Systems",
+   "reason": "AIX alongside Solaris/OpenVMS in Operating Systems"
+  },
+  {
+   "keep": "342",
+   "drop": "421",
+   "name": "GIS & Mapping",
+   "reason": "Web mapping is a GIS family member"
+  },
+  {
+   "keep": "171",
+   "drop": "372",
+   "name": "Computer Vision & Imaging",
+   "reason": "Imaging software/camera systems with image processing"
+  },
+  {
+   "keep": "120",
+   "drop": "77",
+   "name": "Microsoft 365",
+   "reason": "Excel is Office; Word/PowerPoint already inside"
+  },
+  {
+   "keep": "126",
+   "drop": "371",
+   "name": "Marketing",
+   "reason": "Event management already a Marketing bucket"
+  },
+  {
+   "keep": "275",
+   "drop": "340",
+   "name": "Adobe Creative Cloud",
+   "reason": "Generic Adobe joins Adobe Creative Cloud"
+  },
+  {
+   "keep": "293",
+   "drop": "441",
+   "name": "Mathematics & Engineering Calculations",
+   "reason": "Mathematics and calculation are close neighbours"
+  }
+ ],
+ "note": "Level 2, 2026-11-08: consolidation of near-duplicate / family skills (Sonnet pass). Apply with: buckets.py l2merge. Operands are skill ids at the time."
+}

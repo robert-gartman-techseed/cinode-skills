@@ -1,0 +1,509 @@
+{
+ "ops": [
+  {
+   "op": "merge",
+   "a": "15431",
+   "b": "125395",
+   "reason": "missed merge: Entra ID is the rename of Azure Active Directory"
+  },
+  {
+   "op": "merge",
+   "a": "110805",
+   "b": "129338",
+   "reason": "missed merge: Efterlevnad is Swedish for Compliance"
+  },
+  {
+   "op": "merge",
+   "a": "107472",
+   "b": "314225",
+   "reason": "missed-merge pass (buyer test): AI & Generative AI listing is the same marketable Generative AI skill"
+  },
+  {
+   "op": "merge",
+   "a": "498",
+   "b": "342",
+   "reason": "missed-merge pass (buyer test): Role and its discipline: Project Management / Project Manager"
+  },
+  {
+   "op": "merge",
+   "a": "2719",
+   "b": "845",
+   "reason": "missed-merge pass (buyer test): Role and discipline: Change Management / Change Manager"
+  },
+  {
+   "op": "merge",
+   "a": "13773",
+   "b": "22624",
+   "reason": "missed-merge pass (buyer test): Data analysis/analytics and Data Analyst are role and discipline"
+  },
+  {
+   "op": "merge",
+   "a": "1050",
+   "b": "3908",
+   "reason": "missed-merge pass (buyer test): Requirement Analysis / Requirement Analyst role and discipline"
+  },
+  {
+   "op": "merge",
+   "a": "505",
+   "b": "565",
+   "reason": "missed-merge pass (buyer test): Testing / Tester role and discipline"
+  },
+  {
+   "op": "merge",
+   "a": "6098",
+   "b": "13769",
+   "reason": "missed-merge pass (buyer test): Software Development / Software Developer role and discipline"
+  },
+  {
+   "op": "merge",
+   "a": "6256",
+   "b": "279263",
+   "reason": "missed-merge pass (buyer test): Backend Development / Backend Developer"
+  },
+  {
+   "op": "merge",
+   "a": "564",
+   "b": "279269",
+   "reason": "missed-merge pass (buyer test): System Development / System Developer"
+  },
+  {
+   "op": "merge",
+   "a": "2944",
+   "b": "4299",
+   "reason": "missed-merge pass (buyer test): Architecture / Architect role and discipline"
+  },
+  {
+   "op": "merge",
+   "a": "896",
+   "b": "44975",
+   "reason": "missed-merge pass (buyer test): Business Development / Business Developer"
+  },
+  {
+   "op": "merge",
+   "a": "3516",
+   "b": "5916",
+   "reason": "missed-merge pass (buyer test): System Architecture / System Architect"
+  },
+  {
+   "op": "merge",
+   "a": "23641",
+   "b": "4073",
+   "reason": "missed-merge pass (buyer test): Business Analysis / Business Analyst"
+  },
+  {
+   "op": "merge",
+   "a": "2850",
+   "b": "48017",
+   "reason": "missed-merge pass (buyer test): C/C++ listing covers C++; C++ buyer would accept it"
+  },
+  {
+   "op": "merge",
+   "a": "679",
+   "b": "239209",
+   "reason": "missed-merge pass (buyer test): Solution Architect / Solutions Architecture"
+  },
+  {
+   "op": "merge",
+   "a": "4862",
+   "b": "5526",
+   "reason": "missed-merge pass (buyer test): System Design / System Designer"
+  },
+  {
+   "op": "merge",
+   "a": "30477",
+   "b": "84710",
+   "reason": "missed-merge pass (buyer test): Operations Development / Verksamhetsutvecklare role and discipline"
+  },
+  {
+   "op": "merge",
+   "a": "2768",
+   "b": "569",
+   "reason": "missed-merge pass (buyer test): Web Development / Web Developer"
+  },
+  {
+   "op": "merge",
+   "a": "340",
+   "b": "5652",
+   "reason": "missed-merge pass (buyer test): Product Management / Product Manager"
+  },
+  {
+   "op": "merge",
+   "a": "3773",
+   "b": "5581",
+   "reason": "missed-merge pass (buyer test): Application management / Application Manager"
+  },
+  {
+   "op": "merge",
+   "a": "6481",
+   "b": "861",
+   "reason": "missed-merge pass (buyer test): Coaching / Coach role and discipline"
+  },
+  {
+   "op": "merge",
+   "a": "3443",
+   "b": "345",
+   "reason": "missed-merge pass (buyer test): Test Management / Test Manager"
+  },
+  {
+   "op": "merge",
+   "a": "866",
+   "b": "553",
+   "reason": "missed-merge pass (buyer test): Enterprise Architecture / Enterprise Architect"
+  },
+  {
+   "op": "merge",
+   "a": "15625",
+   "b": "39683",
+   "reason": "missed-merge pass (buyer test): Cloud Architecture / Cloud Architect"
+  },
+  {
+   "op": "merge",
+   "a": "15542",
+   "b": "32982",
+   "reason": "missed-merge pass (buyer test): Fullstack Developer / Fullstack Development"
+  },
+  {
+   "op": "merge",
+   "a": "6185",
+   "b": "19968",
+   "reason": "missed-merge pass (buyer test): IT Project Management / IT Project Manager"
+  },
+  {
+   "op": "merge",
+   "a": "3700",
+   "b": "17067",
+   "reason": "missed-merge pass (buyer test): UI Design / UI Designer"
+  },
+  {
+   "op": "merge",
+   "a": "4327",
+   "b": "8871",
+   "reason": "missed-merge pass (buyer test): Account Manager / Account Management"
+  },
+  {
+   "op": "merge",
+   "a": "42533",
+   "b": "557",
+   "reason": "missed-merge pass (buyer test): Software Architecture / Software Architect"
+  },
+  {
+   "op": "merge",
+   "a": "108213",
+   "b": "5020",
+   "reason": "missed-merge pass (buyer test): Program Management / Program Manager"
+  },
+  {
+   "op": "merge",
+   "a": "26739",
+   "b": "11006",
+   "reason": "missed-merge pass (buyer test): Front-End Development / Frontend Developer"
+  },
+  {
+   "op": "merge",
+   "a": "26739",
+   "b": "98115",
+   "reason": "missed-merge pass (buyer test): Front-End Development / Frontend utvecklare"
+  },
+  {
+   "op": "merge",
+   "a": "3341",
+   "b": "3674",
+   "reason": "missed-merge pass (buyer test): UX Design / UX Designer"
+  },
+  {
+   "op": "merge",
+   "a": "337",
+   "b": "11918",
+   "reason": "missed-merge pass (buyer test): Management Consulting / Management Consultant"
+  },
+  {
+   "op": "merge",
+   "a": "8469",
+   "b": "762",
+   "reason": "missed-merge pass (buyer test): Pre-study management / Pre-study Manager"
+  },
+  {
+   "op": "merge",
+   "a": "37175",
+   "b": "12032",
+   "reason": "missed-merge pass (buyer test): Technical Leadership / Technical Lead role and discipline"
+  },
+  {
+   "op": "merge",
+   "a": "5984",
+   "b": "228642",
+   "reason": "missed-merge pass (buyer test): Agile Coach / Agile Coaching"
+  },
+  {
+   "op": "merge",
+   "a": "11006",
+   "b": "98115",
+   "reason": "missed-merge pass (buyer test): Frontend Developer / Frontend utvecklare (Swedish variant)"
+  },
+  {
+   "op": "merge",
+   "a": "722",
+   "b": "2931",
+   "reason": "missed-merge pass (buyer test): Visual Basic / Visual Basic 6 version variant"
+  },
+  {
+   "op": "merge",
+   "a": "5733",
+   "b": "10075",
+   "reason": "missed-merge pass (buyer test): Business Consulting / Business Consultant"
+  },
+  {
+   "op": "merge",
+   "a": "21518",
+   "b": "27879",
+   "reason": "missed-merge pass (buyer test): Data architect / Data Architecture role and discipline"
+  },
+  {
+   "op": "merge",
+   "a": "18215",
+   "b": "62942",
+   "reason": "missed-merge pass (buyer test): Embedded C/C++ covers Embedded C++"
+  },
+  {
+   "op": "merge",
+   "a": "5164",
+   "b": "35016",
+   "reason": "missed-merge pass (buyer test): P-FMEA (process FMEA) is the same FMEA skill to a buyer"
+  },
+  {
+   "op": "merge",
+   "a": "5811",
+   "b": "6611",
+   "reason": "missed-merge pass (buyer test): Process Manager / Process management"
+  },
+  {
+   "op": "merge",
+   "a": "27435",
+   "b": "51622",
+   "reason": "missed-merge pass (buyer test): Data Engineer / Data Engineering"
+  },
+  {
+   "op": "merge",
+   "a": "18568",
+   "b": "85010",
+   "reason": "missed-merge pass (buyer test): Embedded Systems Developer / Development"
+  },
+  {
+   "op": "merge",
+   "a": "6203",
+   "b": "341",
+   "reason": "missed-merge pass (buyer test): Project Administration / Project Administrator"
+  },
+  {
+   "op": "merge",
+   "a": "562",
+   "b": "40735",
+   "reason": "missed-merge pass (buyer test): System Engineer / Systems Engineering"
+  },
+  {
+   "op": "merge",
+   "a": "3967",
+   "b": "45721",
+   "reason": "missed-merge pass (buyer test): Regulatory compliance and legal compliance are the same skill"
+  },
+  {
+   "op": "merge",
+   "a": "3806",
+   "b": "28884",
+   "reason": "missed-merge pass (buyer test): IT Security and Cyber Security are interchangeable to buyers"
+  },
+  {
+   "op": "merge",
+   "a": "5583",
+   "b": "3282",
+   "reason": "missed-merge pass (buyer test): Scrum Product Owner is the Product Owner role/skill"
+  },
+  {
+   "op": "merge",
+   "a": "3559",
+   "b": "66401",
+   "reason": "missed-merge pass (buyer test): Agresso is Unit4's ERP (Unit4 Agresso); vendor-prefixed/renamed product"
+  },
+  {
+   "op": "merge",
+   "a": "22294",
+   "b": "60099",
+   "reason": "missed-merge pass (buyer test): Consultancy / Konsultation (consulting) variants"
+  },
+  {
+   "op": "merge",
+   "a": "59433",
+   "b": "115437",
+   "reason": "missed-merge pass (buyer test): Medtech Industry is a listed synonym of Medical Device/Med Tech Industry"
+  },
+  {
+   "op": "merge",
+   "a": "57243",
+   "b": "132122",
+   "reason": "missed-merge pass (buyer test): Digitalisation strategy and strategist: role and its discipline"
+  },
+  {
+   "op": "merge",
+   "a": "43640",
+   "b": "104517",
+   "reason": "missed-merge pass (buyer test): Scrum Master role and Scrum Mastery/Mastering discipline"
+  },
+  {
+   "op": "merge",
+   "a": "1307",
+   "b": "4424",
+   "reason": "missed-merge pass (buyer test): Integration architecture and integration architect: discipline and role"
+  },
+  {
+   "op": "merge",
+   "a": "76000",
+   "b": "130475",
+   "reason": "missed-merge pass (buyer test): AI Strategy and AI Strategist/AI-Strateg: discipline and role"
+  },
+  {
+   "op": "merge",
+   "a": "276",
+   "b": "3833",
+   "reason": "missed-merge pass (buyer test): Infrastructure synonyms are all IT; same marketable skill as IT Infrastructure"
+  },
+  {
+   "op": "merge",
+   "a": "3892",
+   "b": "13178",
+   "reason": "missed-merge pass (buyer test): Advisor role and Advisory discipline"
+  },
+  {
+   "op": "merge",
+   "a": "8390",
+   "b": "3248",
+   "reason": "missed-merge pass (buyer test): Workshop facilitation and workshop facilitator: discipline and role"
+  },
+  {
+   "op": "merge",
+   "a": "2763",
+   "b": "3160",
+   "reason": "missed-merge pass (buyer test): Visual Studio 2013 is a version of Microsoft Visual Studio"
+  },
+  {
+   "op": "merge",
+   "a": "8090",
+   "b": "43945",
+   "reason": "missed-merge pass (buyer test): Project coordination and project coordinator: discipline and role"
+  },
+  {
+   "op": "merge",
+   "a": "76280",
+   "b": "32920",
+   "reason": "missed-merge pass (buyer test): Stakeholder engagement and stakeholder management are the same marketable skill"
+  },
+  {
+   "op": "merge",
+   "a": "255608",
+   "b": "255517",
+   "reason": "missed-merge pass (buyer test): AI & Data governance vs its frameworks; same skill, abbreviation variants"
+  },
+  {
+   "op": "merge",
+   "a": "11332",
+   "b": "277242",
+   "reason": "missed-merge pass (buyer test): Embedded Linux (ARM) is Embedded Linux with a platform qualifier"
+  },
+  {
+   "op": "merge",
+   "a": "295",
+   "b": "784",
+   "reason": "missed-merge pass (buyer test): HTML and HTML5 are version variants"
+  },
+  {
+   "op": "merge",
+   "a": "570",
+   "b": "3806",
+   "reason": "missed-merge pass (buyer test): Security and IT Security are the same buyer skill in IT consulting"
+  },
+  {
+   "op": "merge",
+   "a": "50323",
+   "b": "76865",
+   "reason": "missed-merge pass (buyer test): Embedded software and embedded firmware development are the same skill"
+  },
+  {
+   "op": "merge",
+   "a": "3246",
+   "b": "17318",
+   "reason": "missed-merge pass (buyer test): ISO 27000 series covers ISO 27001/27002; same buyer skill"
+  },
+  {
+   "op": "merge",
+   "a": "2918",
+   "b": "3855",
+   "reason": "missed-merge pass (buyer test): UAT is acceptance testing; same buyer skill"
+  },
+  {
+   "op": "merge",
+   "a": "297",
+   "b": "28651",
+   "reason": "missed-merge pass (buyer test): JavaScript ES6 is a version of JavaScript"
+  },
+  {
+   "op": "merge",
+   "a": "3346",
+   "b": "694",
+   "reason": "missed-merge pass (buyer test): Data visualization = visualization/visualisation (synonyms include data visualization)"
+  },
+  {
+   "op": "merge",
+   "a": "5498",
+   "b": "2518",
+   "reason": "missed-merge pass (buyer test): Coordination and Coordinator: discipline and role"
+  },
+  {
+   "op": "merge",
+   "a": "9968",
+   "b": "17297",
+   "reason": "missed-merge pass (buyer test): Integration development and integration developer: discipline and role"
+  },
+  {
+   "op": "merge",
+   "a": "9890",
+   "b": "7",
+   "reason": "missed-merge pass (buyer test): Warehouse management and WMS: same marketable skill"
+  },
+  {
+   "op": "merge",
+   "a": "4013",
+   "b": "5582",
+   "reason": "missed-merge pass (buyer test): Facilitation and Facilitator: discipline and role"
+  },
+  {
+   "op": "merge",
+   "a": "199125",
+   "b": "313930",
+   "reason": "missed-merge pass (buyer test): AI-assisted development with and without testing: same skill"
+  },
+  {
+   "op": "merge",
+   "a": "1290",
+   "b": "563",
+   "reason": "missed-merge pass (buyer test): System integration and System integrator: discipline and role"
+  },
+  {
+   "op": "merge",
+   "a": "617",
+   "b": "10559",
+   "reason": "missed-merge pass (buyer test): ASP.NET and C# ASP.NET: same skill"
+  },
+  {
+   "op": "merge",
+   "a": "16607",
+   "b": "49003",
+   "reason": "missed-merge pass (buyer test): ROS and ROS2: version variant"
+  },
+  {
+   "op": "merge",
+   "a": "22294",
+   "b": "8421",
+   "reason": "missed-merge pass (buyer test): Consultancy and Consultant: discipline and role"
+  }
+ ],
+ "note": "Level 1, 2026-11-08: missed merges (manual + Sonnet pair pass under the buyer test). Apply with: buckets.py revise. Operands are keyword ids."
+}

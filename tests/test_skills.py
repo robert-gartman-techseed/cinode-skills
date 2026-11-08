@@ -4,6 +4,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import skills  # noqa: E402
+import ai_topics  # noqa: E402
 
 
 def test_forms_case_punctuation_plural():
@@ -70,7 +71,7 @@ def test_ancestors_stops_after_hops():
 
 def test_ai_and_hot_topic_skills_have_definitions():
     """Definitions are required for AI-related and hot-topic (T..) canonical skills only."""
-    rows = skills.read_csv(skills.CANONICAL)
+    rows = skills.read_csv(ai_topics.CANONICAL)
     assert rows, "canonical_skills.csv is missing"
     missing = [r["id"] for r in rows
                if (r["ai_related"] == "True" or r["id"].startswith("T")) and not r["definition"].strip()]
@@ -120,7 +121,7 @@ def test_bracket_split_only_for_real_abbreviations():
 
 def test_topic_mapping_relations():
     """Every mapped skill has a relation; products and models are never synonyms."""
-    rows = [r for r in skills.read_csv(skills.REF / "topic_mapping.csv") if r["kind"] == "skill"]
+    rows = [r for r in skills.read_csv(skills.AI / "topic_mapping.csv") if r["kind"] == "skill"]
     assert rows and all(r["relation"] in skills.RELATIONS for r in rows)
     rel = {(r["topic_id"], r["cinode_name"]): r["relation"] for r in rows}
     assert rel[("19", "ChatGPT 4")] == "product"
@@ -139,7 +140,7 @@ def test_profile_status_shows_topic_relation():
 def test_semantic_synonyms_and_scope():
     """Synonyms are semantic aliases with the same scope; sub-skills and neighbours are not."""
     rel = {(r["topic_id"], r["cinode_name"]): r["relation"]
-           for r in skills.read_csv(skills.REF / "topic_mapping.csv") if r["kind"] == "skill"}
+           for r in skills.read_csv(skills.AI / "topic_mapping.csv") if r["kind"] == "skill"}
     assert rel[("2", "LLM")] == "synonym"  # abbreviation of the same concept
     assert rel[("3", "LLM Agents")] == "synonym"  # other words, same concept
     assert rel[("3", "Agent Design")] == "narrower"  # part of the skill

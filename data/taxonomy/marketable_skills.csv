@@ -1,0 +1,431 @@
+skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
+1,Project Management,65,54,436,30; 132; 228; 256; 267; 276; 287; 324; 455; 498; 499; 517; 539; 573; 652; 679; 681; 819; 838; 883; 884; 974; 979; 981; 989; 1031; 1032; 1048; 1168; 1370; 1392; 1394; 1395; 1396; 1397; 1398; 1399; 1408; 1488; 1564; 1573; 1693; 1787; 1840; 1854; 1861; 1878; 1938; 1945; 1963; 1987; 1988; 2049; 2077,Project Management; Project planning; Program Manager; Planning; Resource Planning; Coordination; IT Project Management; Scheduling; Resource Management; PMO; Portfolio Management; Teknisk projektledning; Delivery management; Project coordination; Team koordinering; Launch planning; Resursallokering; Samordning; Cross-Functional Coordination; Technical Project Manager; Agile Project Management; Delivery Lead; Delivery Responsible; Pilotprojekt; PPS Practical Project Steering; PRINCE2; Project Governance; Tidsestimering; Time Planning; XLPM; Project portfolio; Earned Value Management; PMP – Project Management Professional; Project Administration; Project Delivery; Project initiation; Project methodology; Project Portfolio Management; Project Scoping; Projektmodell; RACI; Technical Planning; Delivery Oversight; Handlingsplanering; Industrial projects; International Project Coordination; Komplex Projekt och Programledning; Planning and Prioritization; Prioritering av åtgärder; RAID log management; Scope Definition; Scope Management & Planning; Tvärfunktionell samordning; Åtgärdsplan
+2,Python,11,10,130,31; 666; 676; 788; 890; 956; 1405; 1608; 1875; 1876,Python; NumPy; PySpark; Pandas; FastAPI; Django; Matplotlib; Python unittest; Jupyter; Jython Programming
+3,C++,6,3,94,96; 895; 1100,C/C++; Embedded C/C++; C/C++&OOP
+4,Git,2,2,73,32; 1206,Git; Gerrit
+5,Jira,5,5,80,33; 705; 1262; 1873; 1874,JIRA; Zephyr; Jira Agile; Jira administration; Jira Service Management
+6,Microsoft Azure,27,24,153,34; 329; 362; 558; 611; 612; 852; 853; 854; 1074; 1075; 1076; 1077; 1078; 1139; 1567; 1569; 1637; 1639; 1742; 1747; 1907; 1908; 2019,Microsoft Azure; Azure Functions; Microsoft Azure Service Bus; Azure Blob Storage; Azure Logic Apps; Azure cloud; Bicep; Azure API Management; Azure Event Grid; Azure Web Apps; Azure Development; Azure Integration Services; Azure Data Factory; Azure Key Vault; Azure Storage; Azure Table Storage; Azure Web Jobs; CosmosDB; Azure Application Insights; Bicep/ARM; Microsoft Azure Synapse Analytics; Microsoft Bicep; Synapse Analytics; Azure AI Engineer Associate
+7,Agile,12,11,114,35; 144; 709; 935; 1049; 1053; 1183; 1632; 1722; 1723; 1724,Agile Methods; Agile Development; Agile Coach; Iterativt arbetssätt; XP; Agil leverans; Agila arbetssätt; Extreme Programming; Agila metoder och SAFe; Agile/Scrum; Agilt förhållningssätt
+8,Change Management,10,9,93,44; 616; 753; 1106; 1107; 1533; 1545; 1753; 1836,Change Management; ADKAR / Change Management; Change Projects; Förändringskommunikation; Change Control; Change- & Transformation Lead; Ändringshantering; Change Planning; Förändringsledning och verksamhetsutveckling
+9,Data Analysis,12,9,86,47; 569; 608; 1636; 1766; 1775; 1784; 1954; 1981,Data analysis; Prediktiv analys; Analysis; Application Analysis; CRM Data Analysis; Data Collection and Analysis; Datadriven analys; Production Data Analysis; Sales data analysis
+10,Azure DevOps,8,4,81,41; 457; 1568; 1638,Azure DevOps; Team Foundation Server; Azure DevOps CI/CD; Azure DevOps Boards
+11,SQL,8,6,87,36; 568; 786; 1458; 1462; 1537,SQL; T-SQL; PL/SQL; Oracle SQL; SQL Database; Stored procedures
+12,System Integration,34,23,193,50; 67; 331; 438; 439; 479; 762; 888; 898; 927; 958; 1169; 1551; 1555; 1557; 1704; 1716; 1777; 1858; 1910; 1940; 2043; 2068,System Integration; Integration; Software integration; Integrationsarkitektur; Integrationsdesign; Integrationsutveckling; Affärssystem/ERP integration; Hardware-Software Integration; Integration Technologies; Integration Platform; Device integration; ESB; Integrationsstrategi; Middleware; Senior Integrations Developer; Tool Integration; EDIFACT; Data Exchange; Integrationshantering; Middleware development; Platform Integration; Third-party integrations; Workflow Integration
+13,Linux,16,14,100,38; 418; 653; 802; 1033; 1040; 1154; 1475; 1767; 1891; 1892; 1893; 1894; 1920,Linux; Unix; Linux kernel; RHEL; Ubuntu; Vim; Debian Linux; systemd; Cron; Linux device drivers; Linux distributions; Linux System Administration; Linux UIO; Nix
+14,Cyber Security,45,40,176,103; 192; 394; 672; 737; 744; 759; 783; 866; 909; 970; 1000; 1030; 1105; 1109; 1121; 1143; 1233; 1333; 1444; 1479; 1480; 1481; 1580; 1613; 1703; 1712; 1757; 1770; 1774; 1850; 1913; 1952; 1991; 1992; 2008; 2025; 2026; 2028; 2044,Security; Information Security; PKI; NIS2; Datasäkerhet; Encryption; Information Classification; Network Security; ISO 21434; Cloud Security; Firewall; OWASP; Security Management; Threat modeling; Secure development; Säkerhetshantering; Certifikathantering; CISSP; Communication Security; Cryptography; Incident Responce; NIST; Security Assessment; Säkerhetsanalytiker; Säkerhetsarkitektur; Säkerhetsskydd; CIS Controls; Crypto; Cyber Security Project Manager; IEC62443; MSB metodstöd för informationssäkerhet; Product Security; Security best practices; Security Governance; SSDLC; säkerhetsstrategier; Säkerhetssystem; TARA; Threat Analysis; Secure AI Workflows
+15,JavaScript,12,10,110,42; 128; 406; 710; 941; 1062; 1069; 1550; 1872; 2059,JavaScript; TypeScript; jQuery; Mithriljs; Ajax; KnockoutJS; Apache Cordova; Aurelia; JavaScript/TypeScript; Vite
+17,Java,9,9,80,40; 512; 814; 938; 939; 962; 1217; 1259; 1264,Java; Spring Boot; Spring; JBoss; JMS; NetBeans; Hibernate; Java EE application servers; JUnit
+18,Testing,56,41,297,52; 78; 134; 201; 202; 217; 275; 420; 478; 511; 695; 724; 751; 797; 823; 896; 914; 933; 990; 1019; 1027; 1028; 1116; 1273; 1377; 1438; 1492; 1493; 1494; 1495; 1596; 1610; 1646; 1676; 1803; 1842; 1953; 2038; 2039; 2040; 2055,Testing; Quality Assurance (QA); Unit testing; System Testing; Test Management; Verification; Hardware testing; Acceptance Test; Integration testing; Software Testing; Test Driven Development; Bugg-rapportering; Function Test; Regression testing; Test plan; Code quality testing; Hardware testing and validation; End-to-end testning; Formal verification; ISTQB; Prototype Testing; System Validation; Testcase; Testdesign; Compatibility testing; Kodanalys; Code Coverage; Kvalitetstestning; Prestandatest; SAT; Test Development; Test Execution; Test Specification; Teststrategier; Dry runs; Hardware-in-the-Loop (HIL) Testing; Product Testing; Test System development; Testing and QA; Testing and Validation; Verification & Validation of Deliverables
+19,Scrum & Kanban,9,7,120,136; 304; 306; 726; 1012; 1440; 1989,Scrum; Scrum Master; Kanban; Certified Scrum Master; Sprint Planning; Scrumban; Scrum team
+20,C,4,4,64,43; 433; 1322; 1744,C; Embedded C; MISRA C; Bare metal C programming
+21,System Architecture,41,29,305,69; 75; 107; 117; 121; 212; 249; 289; 314; 437; 562; 582; 628; 649; 693; 739; 846; 902; 1064; 1067; 1123; 1294; 1325; 1553; 1669; 1700; 1734; 1799; 2030,Architecture; System Architecture; Solution Architect; Lösningsarkitektur; System Design; Software Architect; Microservice Architecture; Lösningsdesign; Software design; Information  Architecture; MVC; Rådgivare/ IT-Arkitekt; Arkitekturdesign; Distribuerat_system; IT architecture; Teknisk arkitektur; Design; Architecture Analasys; Event Driven Architecture; Framework design; Scalable System Design; Application design; Arkitekturdokumentation; Computer Architecture; Lösningsförslag; Modularisering; Architectural design; Distributed Systems Architecture; Technical Design
+22,Leadership,28,22,184,80; 87; 122; 537; 592; 687; 774; 777; 869; 929; 946; 954; 1054; 1104; 1145; 1278; 1364; 1548; 1589; 1856; 2031; 2036,Leadership; Team Leadership; Team Manager; Decision making; Cross-functional Leadership; Technical Leadership; Staff responsible; Technology Lead; Leadership team; Management and Control; Consultant Manager; Interim Manager; Leadership development; Manager; Agile Leadership; CEO; CTO; Ledningsgruppsarbete; People Management; Initiativledare; Technical Oversight; Teknisk ledning
+23,DevOps,8,6,71,45; 551; 889; 1654; 1838; 1939,DevOps; Infrastructure as Code; DevOps-tekniker; DevSecOps; GitOps; Platform Engineer
+24,Requirements Analysis,28,21,227,51; 73; 158; 198; 230; 238; 534; 591; 598; 636; 674; 696; 771; 1199; 1257; 1420; 1510; 1535; 1880; 1970; 2052,Requirement Analysis; Requirements handling; Requirement Specifications; Requirements Gathering; Requirements Engineering; Business Requirements Analysis; Requirements; Business Requirements; System requirements; Verksamhetsbehov; GAP-analys; Prioritization; User Stories; Kundbehovsanalys; Funktionella krav; IT Requirements; Requirements documentation; Use Case; Kravhantering och Kravställning; Requirements Gathering and Analysis; User Story Writing
+25,CI/CD,9,6,74,46; 714; 870; 1571; 1788; 2074,Continuous Integration; CI/CD pipeline; Application deployment; Continuous Delivery; Deployment Processes; YAML pipeline
+26,Artificial Intelligence,24,17,80,21; 22; 25; 62; 346; 349; 350; 351; 354; 357; 359; 1633; 1725; 1726; 1810; 2078; 2079,AI; AI Strategy; AI Integration; Multi-agent Systems; AI Engineering; AI workflows; Edge AI; AI Use Case Discovery; AI Adoption & Enablement; AI Enablement (Technical & Governance); AI Enablement Lead; AI Ethics; AI implementation; AI-acceleration; AI-driven business strategy; AI-based Decision Support; Beslutsstöd baserat på AI och dataanalys
+27,Software Development,40,34,278,54; 60; 61; 84; 204; 221; 494; 572; 578; 810; 885; 886; 887; 1002; 1117; 1156; 1197; 1198; 1369; 1442; 1446; 1455; 1601; 1642; 1643; 1645; 1653; 1834; 1914; 1972; 1999; 2003; 2005; 2057,Software Development; Programming; System Development; Programming languages; Code review; Application development; Object Oriented Programming; Programvaruutvecklare; Refactoring; Software Engineering; Desktop Application; Developer; Development; Development tools; Service Development; Business logic; Business Logic Development; Code Generation; Development environment; Platform Development; Coding Standards; Design patterns; Framework Development; Functional Programming; SDK; Senior Utvecklare; Solution Development; Funktionsutveckling; Multithreading; Reusable Components; Skräddarsydda lösningar; Software Development Processes; Software solutions; Verktygsutveckling
+28,Docker,5,4,64,48; 432; 741; 1165,Docker; Containerization; Docker container; Docker Compose
+29,Stakeholder Management,16,12,119,49; 234; 325; 327; 928; 1434; 1560; 1706; 1707; 1708; 1862; 2009,Stakeholder analysis; Stakeholders management; Stakeholder Communication; Stakeholders; Stakeholder Coordination; Interface management; Stakeholder alignment; Stakeholder collaboration; Stakeholder Management & Collaboration; Samverkansledning; Intressentdialog; Stakeholder interviews
+30,Cloud Computing,17,13,108,76; 231; 265; 398; 617; 1001; 1113; 1224; 1447; 1572; 1758; 1759; 1760,Cloud; SaaS; Cloud Architecture; Cloud Services; Cloud infrastructure; Cloud migration; Serverless; Cloud Engineer; Hybrid Cloud; Serverless Architecture; Cloud development; Cloud Platforms; Cloud-Native
+31,Business Analysis,14,11,99,86; 258; 430; 465; 482; 708; 821; 861; 1336; 1474; 1685,Business Analysis; Systemanalys; Business analytics; Beslutsunderlag; Kartläggning; Affärsnytta; Teknisk analys; Business case; Needs assessment; Nulägesanalys; System mapping
+32,Troubleshooting,15,13,112,53; 165; 428; 755; 803; 983; 1089; 1379; 1576; 1594; 1714; 1823; 1898,Troubleshooting; Problem Solving; Bug Handling; Debugging and Troubleshooting; Hardware Troubleshooting; Root Cause Analysis; Bug fixes; Problemidentifiering; Technical Problem Solving; Bug Triage; Problemanalys; Error correction; Low-Level Debugging
+33,Backend Development,2,1,44,57,Backend Development
+34,FPGA,11,10,79,66; 326; 575; 730; 841; 922; 1831; 1832; 1889; 1916,FPGA; FPGA design; Quartus; CPLD; Altera; HDL; FPGA Development; FPGA Hardware; Libero SoC; Nanoxplore FPGA
+35,IoT,10,8,68,63; 547; 775; 1291; 1604; 1612; 1864; 1865,IoT; Industrial Internet of Things; LoRaWAN; Edge computing; IoT Platforms; LoRa; IoT projects; IoT Specialist
+36,ERP Systems,8,8,65,55; 295; 908; 1092; 1171; 1180; 1662; 1822,Business System; Verksamhetssystem; Finanssystem; ERP Transformation; Business application; Ekonomisystem; ERP solutions; ERP implementations
+38,Automation,12,7,73,4; 56; 529; 546; 571; 1071; 1090,Automation; Automate; Industrial automation; Processautomatisering; Intelligent Automation; Automationssystem; Building Automation
+39,Embedded Systems,41,31,227,58; 152; 191; 244; 283; 310; 470; 625; 720; 722; 748; 831; 892; 910; 921; 1173; 1174; 1193; 1211; 1263; 1415; 1578; 1641; 1668; 1718; 1749; 1829; 1841; 1849; 1853; 1935,Embedded Systems; Embedded Software Development; RTOS; Firmware; FreeRTOS; Realtidssystem; Driver development; Device Drivers; Developer: Embedded; Bare Metal; Bootloader; Firmware Development and Testing; VxWorks; Embedded Systems Developer; EEPROM; Firmware Programming; Hardware bring-up; Board Bring-up; Firmware Debugging; Zephyr (RTOS); Embedded Systems Software; Firmware design; GPIO; JTAG; Realtidsprogrammering; Bootloader Development; Firmware Updates; Hardware Abstraction; Hårdvarunära mjukvaruutveckling; Inbäddad programvara; Over-the-Air (OTA) Updates
+40,C# / .NET,36,30,277,39; 59; 170; 171; 208; 219; 328; 419; 425; 426; 447; 685; 694; 701; 704; 718; 732; 833; 849; 863; 912; 1068; 1284; 1326; 1335; 1337; 1529; 1530; 1570; 1719,C#; .NET; .NET Core; ASP.NET; Entity Framework; WPF; .NET Framework 4.5; Windows Communication Foundation; ASP.NET MVC; Blazor; MVVM; SignalR; Telerik; Windows Forms; Xamarin; C#.NET; ASP.NET WebAPI; Dapper; xUnit; ASP.NET Web Forms; C# Application Development; Fluent NHibernate; ASP.NET Core 1.0; LINQ; Moq; NServiceBus; NUnit; Xamarin.Forms; XAML; ABP Framework
+41,Microsoft SQL Server,9,7,70,68; 463; 490; 661; 662; 779; 1302,Microsoft SQL Server; Azure SQL; Microsoft SQL Server Integration Services; Microsoft Analysis Services; Microsoft SQL Server Management Studio; Microsoft SQL Server Reporting Services; MDX
+42,Risk Management,13,11,92,20; 140; 199; 305; 913; 1141; 1427; 1428; 1621; 1677; 1974,Risk Management; Risk Analysis; Risk Assessment; Risk Mitigation; FMEA; Konsekvensbedömning; Crisis Management; Risk Management Analysis; Riskidentifiering; Risk management 14971; AI Risk Management
+43,Machine Learning,19,13,77,2; 300; 339; 355; 361; 381; 383; 683; 784; 906; 1376; 1912; 2016,Machine Learning; Deep Learning; Scikit-learn; Neurala nätverk; Feature engineering; Model deployment; Model Evaluation; Predictive Modelling; Machine Learning & AI; Model Quantization; Supervised Learning; Machine Learning Integration; ML/AI algorithms and tools
+44,Sales,10,10,61,64; 464; 980; 1079; 1080; 1130; 1378; 1482; 1713; 1835,Sales; B2B; Pre sales; Säljstrategi; B2B sales; B2C; Consultative selling; Prissättning; Säljprocess; Försäljning och markandsföring
+45,HTML & CSS,11,8,102,77; 99; 435; 466; 1280; 1441; 1483; 1845,CSS; HTML; HTML/CSS; Bootstrap; LESS; SCSS; Tailwind CSS; HTML/CSS/JS
+47,API,18,16,145,65; 139; 237; 296; 323; 475; 524; 809; 1063; 1213; 1470; 1591; 1635; 1732; 1971; 2064,API; REST API; API-integration; API-utveckling; Web Services; GraphQL; Web API; SOAP; APIs (REST and/or GraphQL); API-design; API Gateway; gRPC; Swagger; API Strategy; REST APIs & Backend Services; Webhooks
+48,Business Development,13,10,80,70; 138; 931; 965; 971; 1014; 1038; 1179; 1338; 1809,Business Development; Operations Development; International expansion; Nätverksbyggande; Partnership management; Strategic partnerships; Value realization; Erbjudandeutveckling; Nya affärsmöjligheter; Ecosystem development
+49,Innovation,6,4,54,71; 477; 619; 1556,Innovation; Innovation Management; Innovative; Concept Development
+50,Databases,13,10,73,82; 395; 401; 563; 623; 735; 880; 882; 2011; 2048,Databases; Database Management; NoSQL; Database design; Databasadministration; Databasutveckling; DBeaver; Store data; Transaction management; Vector Databases
+51,Workshop Facilitation,9,7,55,93; 903; 1330; 1544; 2071; 2072; 2073,Workshop Facilitation; Workshops; Facilitation; Möteshantering; Workshopfacilitering & mötesstruktur; Workshopledning och facilitering på lednings- och verksamhetsnivå; workshopplanering
+52,React,5,5,47,72; 577; 796; 1299; 1686,React.js; React Native; Redux; Next.js; Material UI
+53,Strategic Planning,19,17,118,74; 183; 214; 223; 422; 555; 816; 1024; 1052; 1091; 1094; 1463; 1464; 1631; 1751; 2012; 2033,Strategic planning; Strategiutveckling; Strategy; Business Strategy; Affärsplanering; IT Strategy; Strategisk rådgivning; Technology strategy; Affärsstrategier; Affärsmodeller; Business alignment; Business model; Strategic Thinking; Strategy execution; Business Strategy Development; Strategic Roadmapping; Technical Strategy
+54,Communication,12,9,80,229; 308; 467; 535; 646; 1119; 1120; 1236; 1403,Communication; Presentation; Communication management; Client Communication; Internal communication; Communication and Information; Communication Plans; Informationsflöde; Public speaking
+55,Power BI,4,3,37,83; 738; 1372,Power BI; DAX; Power Query
+56,Confluence,2,1,31,307,Atlassian Confluence
+57,Business Intelligence,5,5,53,79; 175; 733; 1311; 1746,Business Intelligence; Decision support; Dashboards; Microsoft Business Intelligence; BI-utveckling
+58,Amazon Web Services,10,9,57,13; 85; 424; 607; 719; 1058; 1072; 1073; 1459,Amazon Web Services; Amazon S3; Amazon DynamoDB; AWS IoT; Amazon Bedrock; Amazon SageMaker; AWS CloudFormation; AWS Lambda; SQS
+59,Budgeting,12,11,67,81; 634; 723; 858; 872; 873; 874; 944; 1190; 1391; 1538,Budgeting; Budget Management; Forecasting; Budget responsibility; Budget control; Cost calculation; Cost Management; Cost Optimization; Kostnadsbesparingar; Financial Forecasting; Prognos
+60,Jenkins,2,1,29,91,Jenkins
+61,Process Improvement,23,20,186,92; 127; 156; 164; 173; 311; 313; 449; 533; 893; 943; 1114; 1232; 1380; 1384; 1659; 1709; 1765; 1811; 2070,Process Development; Process Improvement; Software Process Improvement; Process Mapping; Processoptimering; Operational Efficiency; Continuous Improvement; Operational Excellence; Business Process Improvement; Effektivitet; Kontinuerliga förbättringar; Efficiency Improvement; Streamline; CMMI; Improvements; Process development management; Processeffektivisering; Cost efficiency; Effektivitetsoptimering; Workflow optimization
+62,Fullstack Development,5,1,29,272,Fullstack Developer
+63,CRM,3,3,34,309; 947; 1112,CRM systems; Lime CRM; Client Management
+64,Test Automation,4,4,34,88; 1445; 1738; 2041,Test automation; Selenium; Automatiserte tester; Testing Frameworks
+65,SAFe,4,3,32,102; 1885; 1977,SAFe; Lean portfolio management; RTE
+66,Coaching & Mentoring,10,7,63,187; 225; 483; 618; 1460; 1485; 2029,Coaching; Mentor; Knowledge transfer; Competence Development; Staff Development; Team Coaching; Technical Coaching
+67,Documentation,8,8,57,89; 319; 988; 1023; 1269; 1381; 1476; 1489,Documentation; Technical Documentation; Project Documentation; Technical specifications; Korrekturläsning; Process documentation; Systemdokumentation; Technical Writing
+68,GitHub,4,3,44,90; 333; 1539,GitHub; GitHub Actions; GitHub Copilot
+69,Data Modeling,6,4,42,97; 550; 663; 1800,Data Modeling; Informationsmodellering; Modellering; Domain Modeling
+70,Product Owner,6,4,37,166; 790; 1055; 1593,Product Owner; Prioritera backlogg; Backlog management; Agilt produktägarskap
+71,Procurement & Contract Management,23,22,127,94; 154; 253; 411; 448; 645; 654; 793; 812; 871; 1035; 1039; 1135; 1238; 1425; 1507; 1508; 1516; 1647; 1741; 1764; 1949,Procurement; Supplier Management; Outsourcing; Purchase; Offshore; Inköpsprocesser; LOU; Public procurement; Sourcing; Contract Management; Upphandlingar; Vendor Selection; Contract negotiation; Contracts; Insourcing; RFP; Upphandlingskrav; Upphandlingsstöd; Vendor coordination; Avtal; Contract Drafting; Procurement Strategy
+72,VHDL,2,2,34,95; 1543,VHDL; UVVM
+73,Web Development,9,7,52,142; 218; 1045; 1046; 1047; 1522; 1524,Web Development; Web applications; Web; Web Design; Webbapputveckling; Web scraping; Webserver
+74,Data Visualization,5,3,32,206; 761; 1965,Data Visualization; Informationsvisualisering; Real-time data visualization
+75,Sensors,7,3,37,414; 1456; 1585,Sensors; Sensor Integration; Sonar
+76,Electronics & Electrical Engineering,45,41,212,98; 116; 271; 274; 460; 468; 471; 541; 565; 639; 640; 641; 650; 655; 711; 717; 811; 894; 1098; 1131; 1149; 1215; 1371; 1373; 1546; 1583; 1587; 1603; 1605; 1630; 1670; 1729; 1792; 1813; 1814; 1848; 1857; 1906; 1927; 1934; 1990,Electronics; I2C; Digital design; Hardware design; ASIC; Digital Electronics; Electrical Engineering; AXI; Electronics design; PCIe; HW development; Hårdvara; Hårdvarureparation; Kretsdesign; LTSpice; Schematics; Signal Integrity; Analog design; ASIC Design; Soldering; Digital systems; Electronics engineering; Electrical systems; ADC; Hardware acceleration; Bärbara datorer; Consumer electronics; DAC; Hardware Architecture; Power electronics; Power systems; Analog circuit; Digital logic; Electronic design automation; Electronic systems; Hårdvaruintegration; Integrated circuits; Microelectronic Engineering; NVMe; Oscillator; SD
+78,Retail,2,2,27,101; 1942,Retail; POS system
+79,Microsoft Visual Studio,2,1,25,137,Microsoft Visual Studio 2013
+80,Teamwork,14,11,83,167; 330; 431; 450; 516; 691; 911; 1590; 1768; 1982; 1983,Teamwork; Cross-functional Collaborations; Collaboration; Personal Relationship Building in Team; Teambuilding; Teamutveckling; Tvärfunktionellt samarbete; Flexibility; Cross-Cultural Collaboration; Samarbete med utvecklingsteam; Samverkan
+81,Data Quality,5,4,33,188; 1153; 1600; 1782,Datakvalitet; Dataintegritet; Data Validation; Data Quality Assurance
+82,Digital Transformation,15,13,72,24; 104; 130; 360; 369; 627; 1162; 1497; 1498; 1499; 1595; 1656; 1793,Digitalization; Digital transformation; Digital strategy; Business transformation; Digitaliseringsstrategi; Digital utveckling; Transformation; Transformation Programme Management; Transformationsledning; Digital Platforms; AI Transformation; AI-stödd verksamhetsutveckling; Digitalisation & AI
+83,Maintenance,4,4,32,105; 952; 1189; 1692,Maintenance; Maintenance plan; Predictive maintenance; Field Service
+84,Prototyping,5,5,33,106; 1400; 1411; 1694; 1959,Prototyping; Proof of Concept Development; Proof of concept; Rapid Prototyping; Prototypframtagning och verifiering
+85,Regulatory Compliance,29,26,104,120; 312; 353; 670; 798; 901; 1122; 1188; 1360; 1457; 1649; 1655; 1663; 1665; 1752; 1763; 1773; 1801; 1802; 1826; 1844; 1890; 1966; 1967; 1968; 2050,Regulatory Compliance; Compliance; PCI DSS; Regulatoriska krav; EU Directives; Data Act; Digitala Produktpass (DPP); EU-regelverk; FDA; Compliance Management; FDA regulations; Patientdatalagen; SOX; Certification Processes; Compliance processes; Cyber Resilience Act; DORA; DORA-förordningen; FDA Compliance; Homologation; Life Cycle management IEC 62304 & Design Control FDA 820:30; Regelverksanalys; Regelverkshantering; Regulatory knowledge; UNECE R155; AI Guidelines
+86,GDPR,8,6,47,123; 538; 879; 891; 982; 1205,GDPR; Dataskydd; Data processing agreements; DPIA; Privacy by Design; GDPR Risk Assessment
+87,Product Management,12,8,77,119; 157; 505; 509; 1622; 1794; 1950; 1951,Product Development; Product Management; Produktstrategi; Roadmap; Roadmap Development; Digital produktutveckling; product operations; Product Roadmap
+88,Bash,4,2,32,108; 806,Bash; Shell Script
+89,Governance,14,14,63,109; 476; 689; 919; 977; 1015; 1329; 1579; 1888; 1941; 1955; 2013; 2014; 2037,Governance; GRC; Styrning; IT Governance; Governance model; Policyutveckling; Styrgrupp; Målstyrning; Leveransstyrning; Policyutformning; Program Governance; Styrgruppsmedlem; Styrning och Governance; Teknisk styrning
+90,Kubernetes,4,4,29,110; 1216; 1344; 1839,Kubernetes; Helm; OpenShift; Google Kubernetes Engine
+91,Logistics & Supply Chain,18,16,96,111; 290; 440; 522; 523; 787; 955; 998; 1164; 1248; 1289; 1353; 1616; 1629; 1896; 2017,Logistics; Supply Chain; Inventory management; Warehouse; Warehouse Management; Order Management; Lagerhantering; Value chain; Material handling; S&OP; Distribution; Inventory; Logistikledare; Order Management System; Logistics Coordination; Supply Chain Coordination
+92,MATLAB,3,3,32,112; 487; 1901,MATLAB; MATLAB/Simulink; MathWorks
+93,MQTT,2,2,25,113; 1327,MQTT; Mosquitto
+94,UART & Serial Communication,4,4,39,114; 580; 583; 1628,UART; RS-232; Serial Communication; UART Communication
+95,Simulation,8,7,38,126; 743; 1011; 1756; 1796; 1996; 2021,Simulation; Emulator; Spice; Circuit simulation; Digital Twin; Simuleringsverktyg; System Simulation
+96,Data Management,29,25,153,6; 115; 135; 174; 240; 278; 404; 557; 877; 881; 975; 1065; 1144; 1235; 1237; 1343; 1625; 1650; 1651; 1776; 1778; 1779; 1780; 1783; 1900,Data Management; Data Migration; Data Governance; Data processing; Masterdata; Information management; Data Strategy; Metadata Hantering; Stammdaten; Data architect; Datalagring; PIM; Data lineage; Data Ownership; Archiving; CSV; Information Governance; Informationsförvaltning; Open data; Data Control; Data files; Data Governance specialist; Data Lifecycle Management; Data transfer; Master Data Governance
+97,Oracle,4,4,32,118; 669; 1351; 1688,Oracle; Oracle Database; Oracle SOA; Oracle WebLogic
+98,Embedded Linux,11,9,67,131; 143; 520; 721; 859; 1346; 1602; 1933; 1936,Embedded Linux; Yocto; U-Boot; BitBake; Device tree; Buildroot; OpenWRT; OpenEmbedded; Petalinux
+99,Qlik,12,9,79,133; 150; 318; 992; 1695; 1696; 1697; 1961; 1962,QlikView; Qlik Sense; Qlik; Qlik NPrinting; Qlik Cloud; Qlik Sense Developer; Qlik Sense Enterprise; Qlik Application Automation; Qlik Sense / QlikView
+100,Public Sector,7,4,32,149; 960; 991; 1210,Public Sector; Municipalities; Public Administration; Government Agencies
+101,Identity and Access Management,13,8,51,245; 493; 855; 1082; 1414; 1592; 1997; 2024,IAM; OAuth 2.0; Autentisering; Behörighetshantering; Behörighetssystem; RBAC; Single sign-on; Säker autentisering
+102,Frontend Development,7,3,37,209; 434; 1451,Frontend; Front-End Development; Single-page application
+103,Manufacturing,21,19,102,125; 250; 451; 461; 504; 556; 643; 644; 987; 1234; 1342; 1382; 1386; 1387; 1388; 1389; 1657; 1735; 2000,Manufacturing; Manufacturing industries; Production planning; Assembly; Production; Manufacturing Processes; Industry; Industry 4.0; Production systems; Disassembling; Industrialization; OEE; Process industri; Production design; Production Engineering; Production management; Production planning and control; ASSEMBLY LINES; Smart Factory
+104,Windows,5,5,34,129; 491; 1318; 1319; 1526,Windows; Microsoft Windows Server; Microsoft Windows 7; Microsoft Windows XP; Win32
+105,Application Management,8,6,48,186; 407; 485; 586; 1025; 1871,Application management; Management; Maintenance Management; Software Maintenance; Teknisk förvaltning; IT-förvaltning
+106,Automotive,5,4,26,146; 1126; 1375; 1855,Automotive Industry; Connected Vehicles; Powertrain; Infotainment system
+107,Data Acquisition,2,1,20,160,Datainsamling
+108,Statistics,5,5,34,141; 595; 688; 1755; 2010,Statistics; Time Series Analysis; Statistical analysis; Chemometrics; Statistiska modeller
+109,PostgreSQL,4,3,22,155; 390; 1366,PostgreSQL; pgAdmin; Pgvector
+110,Networking,28,27,108,184; 190; 587; 603; 604; 626; 734; 740; 949; 963; 966; 1006; 1043; 1249; 1250; 1293; 1331; 1332; 1339; 1345; 1519; 1673; 1837; 1903; 1917; 1918; 1919,TCP/IP; Ethernet; SSH; Wireless network; Wireshark; DHCP; Data communication; DNS; Load Balancing; Network; Nätverkskonfiguration; SNMP; VPN; Industrial Networking; IPv4; IPv6; LWIP; Network architecture; Networking; Nätverksutrustning; OpenVPN; VLAN; Gigabit Ethernet; Mesh Networking; Network Building; Network card; Network Reliability
+111,Customer Service,6,5,32,268; 945; 1448; 1574; 1679,Customer Service; Customer Experience and Loyalty; Kundresa; Kunddialog; Service
+112,Angular,2,2,28,145; 263,Angular; AngularJS
+113,ETL,5,4,40,147; 269; 900; 1575,ETL; Data Integration; Data Transformation; ETL-utvecklare
+114,ITIL,15,14,95,148; 224; 277; 441; 508; 510; 570; 579; 584; 808; 936; 1443; 1449; 1868,ITIL; Incident Management; IT Service Management; Issue Management; Release Management; Service delivery; Problem Management; Releaseplanering; Service Management; SLA; ITIL Foundation; SDM; Service Level Management; Issue tracking
+115,Recruitment,4,4,25,151; 1021; 1246; 1247,Recruitment; Talent Acquisition; Interview technique; Intervjuer
+116,SAP,10,9,44,153; 682; 804; 1095; 1435; 1436; 1437; 1623; 1672,SAP; SAP ECC; SAP ERP; SAP S/4HANA; Implementation of SAP; Business Objects; SAP Integration; SAP Quality Management; SAP WM
+117,Enterprise Architecture,9,8,45,243; 519; 532; 847; 860; 916; 925; 2047,Enterprise Architecture; TOGAF; Business Design; Architecture Governance; Business Architect; Förmågeanalys; Informationsarkitekt; TOGAF 9 Certified
+118,UI/UX Design,29,22,101,216; 294; 458; 596; 826; 827; 842; 920; 926; 1036; 1061; 1158; 1214; 1243; 1365; 1503; 1511; 1512; 1515; 1523; 1552; 1789,User experience; UI Design; UX Design; User Interface; Användarupplevelse; User Research; User testing; Användarcentrerad design; Graphic design; Informationsdesign; Usability; Användbarhetsanalytiker; Designsystem; GUI; Interaction design; Personas; UI prototyping; User Interviews; User Journeys; UX/UI Design; Webbgränssnitt; Design Process
+119,Xilinx,5,4,51,159; 169; 235; 832,Xilinx; Vivado; Zynq; Xilinx FPGA
+120,Microsoft 365,12,10,90,100; 251; 279; 446; 492; 559; 660; 1314; 1316; 1588,Microsoft Excel; Microsoft Office 365; Microsoft Office; Microsoft Visio; Microsoft Word; Microsoft PowerPoint; Microsoft Access; Teams; Microsoft Graph API; Microsoft Outlook
+121,Banking & Finance,6,6,32,315; 656; 746; 1192; 1194; 1830,Banking and Finance; Lån; Financial Services; FinTech; FIX; Foreign exchange
+122,KPI & Performance Management,11,11,49,316; 567; 631; 633; 1138; 1310; 1422; 1678; 1699; 1928; 1931,KPI (Key Performance Indicators); Performance Management; Evaluation; Follow-up; KPI's; Resultatuppföljning; Corporate Management; Metrics; Resultatutvärdering; Nyckeltalsanalys; OKR
+123,XML,2,2,19,317; 1531,XML; XML Schema
+124,IT Infrastructure,13,12,52,405; 481; 736; 756; 934; 1003; 1018; 1041; 1268; 1409; 1790; 1791,Infrastructure; IT Operation; Datacenter; High Availability; IT Operations Management; Servrar; System administrator; Virtualization; Klusterhantering; RAID; Device Management; Digital infrastruktur
+125,Microsoft Entra ID,6,2,23,462; 527,Azure Active Directory; Active Directory
+126,Marketing,12,11,42,162; 785; 1087; 1088; 1133; 1182; 1208; 1265; 1298; 1617; 1824,Marketing; Omvärldsanalys; Market analysis; Brand & Identity; Branding; Content Strategy; Event management; Go-to-Market; Kampanjer; Marketing Automation; Eventplanering
+127,ModelSim,2,2,18,163; 1407,ModelSim; Questasim
+128,Telecom,10,8,41,168; 605; 822; 950; 1050; 1323; 1357; 1984,Telecom; 4G/LTE; Telecommunication; LTE-M; 5G; Mobile Communications; OSS; Satellite Communication
+129,Lean,4,3,21,194; 1044; 1277,Lean; Värdeflödesanalys; LEAN Six Sigma Black Belt
+130,System Implementation,7,6,30,200; 624; 1007; 1385; 1477; 1937,System Implementation; Deployment; Software Implementation; Production Deployment; Systeminförande; Pilot Implementation
+131,Algorithms,3,2,19,423; 840,Algorithms; Algorithm Development
+132,CAN Bus,5,2,18,725; 1102,CAN; CANalyzer
+133,Finance & Economics,21,18,79,176; 474; 614; 632; 647; 745; 907; 932; 968; 1136; 1170; 1191; 1286; 1648; 1658; 1667; 1690; 1828,Economy; Financial Management; Business economics; Financing; Investments; Financial analysis; Finansiella processer; Investeringsanalys; OPEX; Cost-benefit; Economy and Budget; Financial data; P&L; Controlling; Ekonomistyrning; Financial modelling; Livscykelkostnadsanalys; Finance and accounting
+134,GitLab,3,2,23,177; 1609,GitLab; GitLab CI
+135,MySQL,2,2,17,178; 1297,MySQL; MariaDB
+136,Node.js,2,2,18,179; 964,Node.js; npm
+137,PHP,1,1,15,180,PHP
+138,Robotics,5,4,24,181; 996; 1410; 1975,Robotics; ROS; Rapid; Robot Programming
+139,Scripting,3,3,19,182; 1111; 2001,Scripting; CLI; smartBasic Scripting
+140,Visual Studio Code,1,1,15,185,Visual Studio Code
+141,Signal Processing,5,3,30,213; 469; 664,Signal Processing; Digital signal processing; Modulation
+142,Account Management,12,11,60,297; 321; 400; 731; 772; 940; 1270; 1417; 1644; 1772; 1883,Customer Relationship; Account Manager; Customer Management; Customer Satisfaction; Kundnöjdhet; Key Account Management; Business relations; Kundbehov; Relationsbyggande; Customer collaboration; Kundrelationshantering
+143,Healthcare,4,4,22,320; 1004; 2027; 2060,Health Care Industry; Sjukvårdssystem; Tandvård; Välfärdsteknik
+144,Microcontrollers,17,15,57,257; 409; 778; 851; 868; 899; 1066; 1328; 1368; 1426; 1740; 1904; 1905; 1924; 1925,STM32; Microcontrollers; Microchip; Atmel Studio; Code Composer; ESP32; Arduino; MPLAB X; PIC; RISC; AVR Microcontrollers; Microchip ASF; Microcontroller programming; nRF52; Nrf9160
+145,Energy,13,13,44,189; 897; 978; 1009; 1172; 1177; 1178; 1201; 1607; 1660; 1819; 1846; 1943,Energy; Energioptimering; Energieffektivisering; Power Management; Solar; energihantering; Electrification; Energianalys; Energy Management Systems; Förnybar energi; Energy management; HVDC systems; Power distribution
+146,JSON,1,1,14,193,JSON
+147,Microsoft BizTalk,1,1,14,195,Microsoft BizTalk
+148,Organizational Development,8,7,30,196; 969; 1347; 1354; 1355; 1421; 1689,Organizational development; Organisering; Organizational structure; Operating model; Organisationsförändring; Organizational transformation; Restructuring
+149,Qt,3,3,18,197; 1404; 1406,Qt; PyQt; QML
+150,Test & Measurement Equipment,9,8,43,227; 248; 1010; 1424; 1614; 1674; 1681; 1715,Oscilloscope; Logic analyzer; Kalibration; Spectrum Analyzer; Instrumentation; Measurements; Test Equipment; RF Network Analyzer
+151,ServiceNow,5,4,29,233; 288; 1450; 1705,ServiceNow; ServiceNow CMS; ServiceNow ITSM; ServiceNow CMDB
+152,Education & Training,10,9,50,322; 456; 484; 566; 843; 1513; 1627; 1748; 1860,Education; Teaching; Kursutveckling; Pedagogy; Trainer; Användarutbildning; Utbildningsplanering; Bootcamp; Intern utbildning
+153,Accounting,12,11,40,421; 713; 747; 764; 1086; 1186; 1187; 1271; 1281; 1808; 1863,Accounting; Annual accounts; Finansiell rapportering; Invoicing; Bookkeeping; Fakturahantering; Faktureringsprocessen; Kundfordringar; Leverantörsrekontra; E-invoicing; Invoicing Systems
+154,Generative AI,28,14,52,1; 8; 12; 26; 27; 28; 29; 340; 347; 348; 372; 378; 379; 380,LLM; Prompt Engineering; Embeddings; Generativ AI; RAG (LLM); MCP (Model Context Protocol); LLM Evaluation; Agent Design; AI Context Engineering; AI Developer Tools; Generative AI & LLM Integration; LiteLLM; LLM Model Inference Optimization; LLM-integration
+155,Consulting,14,9,59,205; 285; 486; 836; 862; 1026; 1128; 1869; 2056,Consultant Industry; Rådgivning; Management Consulting; Advisor; Business Consulting; Teknisk rådgivning; Consultancy; IT consulting; Verksamhetsrådgivning
+156,E-commerce,4,4,19,207; 1805; 1806; 1807,E-commerce; E-commerce Integration; E-commerce Platforms; E-handelslösningar
+157,Grafana,1,1,13,210,Grafana
+158,Lifecycle Management,4,4,23,211; 673; 1008; 2020,Life Cycle Management; PLM; Software Life Cycle; System Lifecycle Management
+159,UML,1,1,13,215,UML
+160,Data Warehouse,5,3,19,7; 241; 878,Data Warehouse; Data lake; Data lakehouse
+161,Eclipse,2,1,13,242,Eclipse
+162,Feasibility Studies,6,4,28,255; 501; 1827; 1944,Pre-studies; Pre-study management; Feasibility studies; Pre-Study Analysis
+163,IT & Computer Science,12,10,45,270; 549; 552; 760; 1124; 1486; 1598; 1795; 1797; 1870,Datalogi; Informatik; IT; Information Systems; Computer Engineering; Computer Systems; Tech company; Digital teknik; Digitala verktyg/system; IT Systems
+164,Bluetooth,4,2,21,427; 531,Bluetooth; Bluetooth LE
+165,MES,4,2,15,1295; 1308,MES System; Manufacturing IT (MES/MOM)
+167,Business Process Management,16,15,69,222; 262; 502; 698; 715; 791; 857; 984; 985; 986; 1096; 1527; 1620; 1948; 2069,Business Process; Workflow; Processmodellering; Verksamhetsprocesser; Arbetsflöden; Processledning; Process implementation; BPMN; Process analysis; Process Manager; Processhantering; Business Process Management; Workflow analysis; Processdesign; Workflow Mapping
+168,Microsoft IIS,1,1,12,226,Microsoft Internet Information Server
+169,SCADA,3,3,19,232; 923; 1611,SCADA; Ignition; Ignition SCADA
+170,Claude,3,2,17,264; 334,Claude; Claude Code
+171,Computer Vision & Imaging,9,8,33,266; 545; 668; 1852; 1877; 1929; 2075; 2076,Computer Vision; Image processing; OpenCV; Imaging Software; Kamerasystem; Object detection; Yolo; YOLOv8
+173,Google Cloud Platform,3,1,12,637,Google Cloud
+174,Android,4,4,19,236; 712; 1060; 1731,Android; Android Development; Android Studio; Android App
+175,iOS,2,2,16,246; 648,iOS; iOS Developer
+176,ISO 27001,6,4,24,247; 767; 948; 1866,ISO/IEC 27001; ISO 27000; LIS; ISO 27701
+177,Modbus,2,2,13,252; 1911,Modbus; Modbus TCP/IP
+179,Performance Optimization,8,8,33,254; 972; 1350; 1536; 1897; 1985; 1998; 2004,Performance optimization; Scalability; Performance analysis; Optimization; Low latency; Scalability Planning; Skalbarhet; Software Optimization
+180,Verilog,2,2,20,259; 416,Verilog; SystemVerilog
+181,Version Control,5,5,28,260; 589; 690; 828; 2058,Version Control System; Subversion; SVN Tortoise; Versionshantering; Versioning
+182,PowerShell,1,1,11,261,Windows PowerShell
+183,Go,2,1,11,403,Go
+184,Microsoft Dynamics 365,6,5,20,445; 1312; 1313; 1683; 1804,Microsoft Dynamics 365; MS Dynamics; Microsoft Dynamics CRM; Microsoft Dynamics NAV; Dynamics AX
+185,GPS,2,2,13,273; 917,GPS; GNSS
+186,Operating Systems,9,7,29,280; 967; 1056; 1468; 1666; 1675; 1859,Operating system; OpenVMS; File systems; Kernel debugging; AIX; Sun Solaris; Inter-process communication
+187,PCB Design,5,5,28,281; 496; 1267; 1559; 1701,PCB design; PCB Layout; PCB; Schematic capture; KiCad
+188,Reporting,8,8,30,282; 703; 795; 1412; 1419; 1461; 1710; 2051,Rapportering; Writing Reports; Rapportgenerering; Styrgruppsrapportering; Rapportutveckling; Reporting systems; Statusrapportering; Uppföljning och rapportering
+189,Auditing,6,5,21,284; 930; 1244; 1255; 1258,Revision; Internal Audit; Internal controls; IT Audit; ITGC
+190,Safety,10,9,35,286; 544; 766; 1251; 1341; 1433; 1671; 1979; 1980,Safety; Functional Safety; ISO 26262; IEC61508; ISO 13849; Occupational health; Safety critical systems; Safety Assessment; Safety Critical
+191,Sustainability,14,13,38,291; 765; 1108; 1181; 1321; 1469; 1739; 1771; 1820; 1821; 1847; 1884; 2018,Sustainability; ISO 14001; Cirkulär ekonomi; ESG; Miljöledningssystem; Sustainability Reporting; Avfallsminskning; CSRD/ESRS; Environmental Management; Environmental monitoring; Hållbarhetsarbete; LCA; Sustainability Initiatives
+192,Terraform,1,1,10,293,Terraform
+194,Altium Designer,2,1,10,528,Altium Designer
+195,Control Systems,6,4,22,621; 1541; 1947; 1994,Motor Control; Control systems; Process control; Servo
+196,Microsoft Power Platform,8,5,27,10; 1317; 1581; 1691; 1786,Microsoft PowerApps; Power Automate; Copilot Studio; Power Platform; Dataverse
+197,ChatGPT,4,3,12,298; 338; 366,ChatGPT; GPT; Chat GPT & Claude
+198,ARM,4,4,23,396; 397; 848; 1816,ARM; ARM Cortex; Arm architecture; Embedded ARM development
+199,CMake,3,3,14,399; 953; 1899,CMake; Make; Makefile
+200,Entrepreneurship,2,2,12,402; 1013,Entreprenurship; Start-up
+201,MongoDB,1,1,9,410,MongoDB
+202,Research & Development,6,5,27,412; 480; 800; 1487; 1491,Research & Development; Investigation; Researching; Technical investigation; Teknisk utveckling
+203,Salesforce,1,1,9,413,Salesforce
+204,Traceability,2,2,12,415; 1698,Spårbarhet; Requirement Traceability
+205,Tcl,1,1,9,417,TCL
+206,Open Source,2,1,9,495,Open Source
+207,Visual Basic,5,3,20,597; 697; 829,VB.NET; VBA; Visual Basic
+208,Communication Protocols,17,16,54,665; 667; 675; 700; 997; 1140; 1221; 1283; 1402; 1453; 1509; 1534; 1843; 1902; 1958; 2007,Communication Protocols; Network protocols; OPC UA; Protocol Design; WebSockets; RS485; CRC; HTTP; LIN; Protocol Testing; SMTP; USB; HDLC Protocol; Mavlink; Protocol stack; SpaceWire
+209,Medtech,7,6,22,658; 1229; 1252; 1301; 1304; 1558,Medical Device Industry; Medical device; IEC 62304; ISO 14971; MDR; Medical equipment
+210,Monitoring & Logging,8,7,29,384; 443; 781; 1016; 1288; 1562; 1930,Logging; System monitoring; Monitoring; Surveillance; Log Management; Observability; Monitoring and observability
+211,Technical Expertise,7,5,17,1490; 1626; 2032; 2034; 2035,Technical Expertise; Teknik; TECHNICAL SKILLS; Technology solutions; Teknisk förståelse
+212,Databricks,2,2,10,332; 1743,Databricks; Azure/Databricks
+213,Business Administration,4,4,27,220; 429; 615; 1097,Administrative; Business Administration; Business Management; Business support
+214,Human Resources,10,10,32,436; 638; 942; 973; 1022; 1159; 1176; 1220; 1223; 1362,Human Resources; HR-system; Kompetensförsörjning; Personnel; Talent Management; Development Dialogues; Employee Engagement; HR Processes; Human resource management; Payroll
+215,Maritime,2,2,10,444; 1995,Maritime; Shipping Industry
+216,Quality Management,11,8,52,408; 453; 514; 574; 677; 768; 1103; 1160,Management systems; Quality Management; Standardization; Quality Control; Quality Management System; ISO 9001; CAPA; Deviation Management
+217,Real Estate,8,8,29,454; 543; 904; 905; 1664; 1825; 1957; 2053,Real estate industry; Fastighetsförvaltning; Facility Management; Fastighetssystem; Fastighetsdata; Fastighetsutveckling; Property development; Uthyrning
+218,Agresso,3,1,8,839,Agresso
+219,Data Engineering,8,7,26,588; 856; 1151; 1652; 1781; 1964; 1986,Streaming; Data Engineer; Big Data; Data Streaming; Data Pipelines; Real-time data processing; Scalable Data Platforms
+220,Systems Engineering,3,2,11,957; 1473,System Engineer; MBSE
+221,Miro,1,1,8,1540,Miro
+222,Transportation,2,2,10,1484; 1542,Transportation Industry; TCMS
+223,Ultrasound,3,2,10,1565; 2006,Ultrasound; Sonography
+224,Siemens Insights Hub,2,1,8,1586,Siemens Insights Hub
+225,PyTorch,1,1,7,15,PyTorch
+226,Robotic Process Automation,1,1,7,299,Robotic Process Automation
+227,Apache Kafka,1,1,7,459,Apache Kafka
+228,Figma,1,1,7,473,Figma
+229,Microsoft Project,1,1,7,488,Microsoft Project Professional
+230,Microsoft SharePoint,2,2,9,489; 1909,Microsoft SharePoint; Micrsoft SharePoint Online
+231,Perl,1,1,7,497,Perl
+232,Postman,1,1,7,500,Postman
+233,PyTest,2,2,9,506; 1960,PyTest; PyTest (Python Testing Framework)
+234,RabbitMQ,1,1,7,507,RabbitMQ
+236,SQLite,1,1,7,513,SQLite
+237,Tableau,1,1,7,515,Tableau
+238,TensorFlow,2,2,9,518; 1266,TensorFlow; Keras
+239,RFID,2,1,7,680,RFID
+240,Sparx Enterprise Architect,2,1,7,813,Sparx Enterprise Architect
+241,Construction,5,5,13,620; 1127; 1762; 1769; 1867,Construction; Construction Industry; CoClass; Crossing; ISO19650
+242,Data Science,2,2,7,622; 1152,Data Science; Data Scientist
+243,Elasticsearch,1,1,5,629,Elasticsearch
+244,Episerver (Optimizely),1,1,5,630,Episerver CMS
+246,Negotiation,2,2,9,635; 782,Förhandling; Negotiation
+248,IBM Db2,1,1,5,642,IBM DB2
+249,LaTeX,1,1,5,651,LaTeX
+250,Microsoft Platform,1,1,5,659,Microsoft
+251,Physics,1,1,5,671,Physics
+252,Radar,1,1,5,678,Radar
+253,Service Design,3,3,9,684; 1147; 1157,Service Design; Customer Journey Mapping; Design thinking
+254,WordPress,1,1,5,702,WordPress
+256,Optics & Laser Technology,2,2,5,1349; 1680,Laser; Optik
+257,n8n,2,2,5,1684; 1915,n8n; n8n Automations
+258,Supabase,1,1,3,1711,Supabase
+259,MLOps & AIOps,3,2,4,5; 17,MLOps; AIOps
+260,Ollama,2,2,4,302; 1932,Ollama/ self-host AI; Ollama
+261,Microsoft Copilot,7,3,8,9; 367; 382,Microsoft 365 Copilot; Copilot metrics; Microsoft Copilot
+262,OpenAI Codex,2,1,2,386,Open AI Codex
+263,Ada,1,1,2,1051,Ada
+265,Alteryx,1,1,2,1057,Alteryx
+266,Amplitude,1,1,2,1059,Amplitude
+267,Autodesk 3ds Max,1,1,2,1070,Autodesk 3ds Max
+268,BankID,1,1,2,1081,BankID
+269,Blockchain,2,2,4,1083; 1142,Blockchain; Cryptocurrency
+270,Space & Satellite,1,1,5,1582,Satellite
+271,Semiconductors,2,2,7,1584; 1922,Semiconductors; Nordic Semiconductor
+272,Battery Systems,4,3,9,1640; 1745; 1754,Battery Management; Batteries; Charging system
+273,Microsoft Fabric,2,2,6,335; 1184,Microsoft Fabric; Fabric
+274,Attention to Detail,1,1,4,706,Accuracy
+275,Adobe Creative Cloud,4,4,13,707; 749; 835; 1720,Adobe InDesign; Flash; Adobe; Adobe Illustrator / Photoshop
+276,Asana,1,1,4,716,Asana
+277,Cisco,1,1,4,727,Cisco
+278,Citrix,2,2,6,728; 1110,Citrix; Citrix Server
+279,Drones,1,1,4,742,Drone
+280,Fundraising,1,1,4,752,Fundraising
+281,Google Gemini,1,1,4,754,Gemini
+282,IFS,3,3,8,757; 1230; 1851,IFS; IFS Applications; IFS Cloud
+283,Infor M3,1,1,4,758,Infor M3
+285,Capacity Planning,1,1,4,769,Kapacitetsplanering
+286,Knowledge Management,3,3,8,770; 1272; 1466,Knowledge Management; Kunskapsdelning; Strukturkapital
+287,LabVIEW,1,1,4,773,LabVIEW
+288,Mainframe,1,1,4,776,Mainframe
+289,Mobile Development,2,2,7,780; 959,Mobilapplikationer; Mobile Application Development
+291,Projectplace,1,1,4,792,Projectplace
+292,Raindance,1,1,4,794,Raindance
+293,Mathematics & Engineering Calculations,2,2,9,1300; 1547,Beräkning; Mathematics
+294,Aerospace & Aviation,1,1,6,530,Aviation industry
+295,Configuration Management,3,3,10,536; 1125; 1478,Configuration Management; Configuration; Systemkonfiguration
+296,Document Management,2,2,8,540; 1166,Document Management; Dokumenthanteringssystem
+297,Electromagnetic Compatibility (EMC),2,2,8,542; 1175,EMC; EMC testing
+298,Informatica,1,1,6,548,Informatica
+300,IT Management,2,2,8,553; 1256,IT Management; IT Delivery Management
+301,Migration & Legacy Modernization,5,5,14,561; 1279; 1320; 1886; 2022,Migration; Legacy Systems Modernization; Migration Manager; Legacysystem; Systemmigration
+302,Software Packaging,1,1,6,564,Paketering
+304,Raspberry Pi,1,1,6,576,Raspberry Pi
+306,Rust,1,1,6,581,Rust
+308,Technical Support,7,6,22,590; 817; 820; 1275; 1390; 2023,Support; Systemsupport; Technical support; Labbsupport; Production support; Systemstöd
+309,Time Management,2,2,8,594; 2046,Time Management; Tidsstyrning
+310,Video Streaming,2,2,8,599; 1431,Video streaming; RTSP
+311,Visma,1,1,6,600,Visma
+312,Vue.js,1,1,6,601,Vue.js
+313,Accessibility,2,2,11,602; 606,WCAG; Accessibility
+314,Apache HTTP Server,1,1,5,609,Apache
+315,Bitbucket,1,1,5,613,Bitbucket
+316,Responsibility,1,1,4,801,Responsibility
+317,SAS,1,1,4,805,SAS
+318,Shopify,1,1,4,807,Shopify
+320,TeamCity,1,1,4,818,TeamCity
+321,Case Management Systems,1,1,4,825,The Case Management System
+322,VMware,2,2,6,830; 1520,VMware vSphere Hypervisor (ESXi); VMware
+323,YAML,1,1,4,834,YAML
+324,IBM i (AS/400),2,1,4,1225,IBM AS/400
+325,IBM MQ,2,1,4,1226,IBM MQ
+326,Robot Framework,2,1,4,1429,Robot Framework
+327,Wireless & Radio Communication,6,5,13,993; 1502; 1973; 2066; 2067,Radio; Trådlös kommunikation; RF; Wi-Fi; Wireless modem
+328,Digital Workplace & Collaboration,3,3,10,763; 1163; 1597,Intranet; Collaboration platform; Digital Workplace
+329,dbt,1,1,4,1599,Data Build Tool
+332,Kotlin,1,1,4,1615,Kotlin
+333,Operations Management,2,2,6,1517; 1618,Operations Management; Verksamhetsstöd
+334,Playwright,1,1,4,1619,Playwright
+336,Apache Airflow,2,1,4,1727,Airflow
+337,Analytical Skills,3,2,6,1730; 1882,Analytical Skills; Kritiskt tänkande
+338,Natural Language Processing,2,2,4,3; 385,NLP; NLU
+339,Snowflake,1,1,3,301,Snowflake
+342,GIS & Mapping,4,4,9,845; 1207; 1209; 1296,ArcGIS; GIS; Google Maps; Mapbox
+343,Asset Management,2,2,5,850; 1254,Asset Management; IT Asset Management
+345,Cadence,3,3,8,864; 865; 1352,Cadence; Cadence Virtuoso; Orcad
+346,Crystal Reports,1,1,3,875,Crystal Reports
+347,Google Analytics,1,1,3,918,Google Analytics
+348,InfluxDB,1,1,3,924,InfluxDB
+349,macOS,1,1,3,951,macOS
+351,Neo4j,2,2,5,961; 1148,Neo4j; Cypher
+353,PLC Programming,1,1,3,976,PLC
+355,IBM DOORS,1,1,3,994,Rational DOORS
+356,Redis,1,1,3,995,Redis
+357,Scala,1,1,3,999,Scala
+358,Smart City,1,1,3,1005,Smart City
+359,Swift,1,1,3,1017,Swift
+360,ThingsBoard,1,1,3,1029,ThingsBoard IoT Platform
+361,UiPath,1,1,3,1034,UiPath
+362,Ansible,1,1,3,1634,Ansible (Playbooks)
+364,NVIDIA Jetson,1,1,2,1926,Nvidia Jetson
+365,PRMS,1,1,2,1946,PRMS
+367,Ruby,2,2,4,1432; 1978,Ruby on Rails; Ruby
+368,Seismic,1,1,2,1993,Seismic
+369,SoapUI,1,1,2,2002,SOAP UI
+373,Critical Infrastructure,1,1,2,1881,Kritisk infrastruktur
+375,Liquid,1,1,2,1895,Liquid
+376,Nodinite,1,1,2,1921,Nodinite
+377,Notion,1,1,2,1923,Notion
+378,Regular Expressions,1,1,2,1416,Regular Expression
+379,Reliability Engineering,3,3,6,1418; 1430; 1969,Reliability; Robusthet; Reliability Engineering
+380,Reverse Engineering,1,1,2,1423,Reverse Engineering
+382,Smartsheet,1,1,2,1452,Smartsheet
+383,Solace,1,1,2,1454,Solace
+384,Stripe,1,1,2,1465,Stripe
+385,Radiation Protection,1,1,2,1467,Strålskydd
+386,Sympa HR,1,1,2,1471,Sympa HR
+387,TIBCO,1,1,2,1496,Tibco
+388,Translation & Localization,3,3,6,1287; 1500; 2015,Localization; Translation; Subtitling
+389,Trello,1,1,2,1501,Trello
+390,Umbraco,1,1,2,1505,Umbraco
+391,Unreal Engine,1,1,2,1506,Unreal Engine
+393,Building Management Systems,1,1,2,1084,BMS
+394,Booking Systems,1,1,2,1085,Booking system
+395,CAD,1,1,2,1101,CAD
+396,COBOL,1,1,2,1115,COBOL
+397,IBM Cognos,1,1,2,1118,Cognos
+398,Content Management,1,1,2,1132,Content Management
+399,Contentful,1,1,2,1134,Contentful
+400,CUDA,1,1,2,1146,CUDA
+401,Delphi,1,1,2,1155,Delphi
+402,Digital Signage,1,1,2,1161,Digital Signage
+403,Draw.io,1,1,2,1167,Draw.io
+404,IBM WebSphere,1,1,2,1525,WebSphere
+405,Wrike,1,1,2,1528,Wrike
+406,Zendesk,1,1,2,1532,Zendesk
+407,ADS,1,1,2,1721,ADS
+408,Aldec Riviera-PRO,1,1,2,1728,Aldec Riviera Pro
+409,Apptus,1,1,2,1733,Apptus
+410,Atlassian,1,1,2,1736,Atlassian
+411,Audio Recording,1,1,2,1737,Audio Recording
+413,Cobra,1,1,2,1761,Cobra
+414,DataHub,1,1,2,1785,DataHub
+415,ElevenLabs,1,1,2,1815,ElevenLabs
+416,Fleet Management,1,1,2,1195,Fleetmanagement
+417,Flutter,1,1,2,1196,Flutter
+418,Furniture,1,1,2,1200,Furniture
+419,Gamification,1,1,2,1202,Gamification
+420,Compilers & Debuggers,2,2,4,1203; 1204,GCC; GDB
+422,Graphic Design,4,4,8,1212; 1231; 1290; 1518,Graphics; Illustrator; Logo design; Visuell design
+423,Hotjar,1,1,2,1218,Hotjar
+424,HP ALM / Quality Center,1,1,2,1219,HP Quality Center
+425,HubSpot,1,1,2,1222,HubSpot
+426,IBM Rational ClearCase / ClearQuest,2,2,4,1227; 1228,IBM Rational ClearCase; IBM Rational ClearQuest
+428,Insurance,1,1,2,1239,Insurance Industry
+429,Intel,1,1,2,1242,Intel
+430,International Relations,1,1,2,1245,International Relations
+432,JD Edwards,1,1,2,1260,JD Edwards
+433,JetBrains IDEs,1,1,2,1261,JetBrains IntelliJ IDEA
+435,Thermal Management & Cooling,2,2,4,1274; 2042,Kylsystem; Thermal management
+436,Labour Law,1,1,2,1276,Labour Law
+437,Life Science,1,1,2,1282,Life Science
+438,Lisp,1,1,2,1285,LISP
+440,Lua,1,1,2,1292,Lua
+442,Mechatronics,1,1,2,1303,Mechatronics
+444,Siemens TIA Portal,1,1,2,2045,TIA
+445,Pumps,1,1,2,2054,Vattenpumpar
+446,Waste Management,2,2,4,2061; 2062,Waste Disposal Industry; Waste Management
+447,WATS,1,1,2,2063,WATS
+448,Whimsical,1,1,2,2065,Whimsical
+449,LangChain,3,3,3,14; 376; 377,Langchain; LangGraph; LangGraph/LangChain
+450,AI Agents & Agentic AI,12,3,15,23; 341; 342,Agentic systems; Agent Orchestration; Agentic AI Architectures (Single‑ & Multi‑Agent Systems)
+451,Cursor,1,1,1,368,Cursors
+452,Responsible AI,3,3,3,370; 375; 393,Ethical & responsible AI practices; Introduced ethical AI principles and risk assessment practices in municipal and enterprise projects.; Responsible AI
+453,Model Context Protocol (MCP),1,1,1,371,FastMCP
+454,Hugging Face,1,1,1,374,Hugging Face
+455,Melior,1,1,2,1305,Melior
+456,Mender,1,1,2,1306,Mender
+457,Mergers & Acquisitions,1,1,2,1307,Mergers and Acquisitions (M&A)
+458,Message Queues,1,1,2,1309,Message Queues
+459,Microsoft Intune,1,1,2,1315,Microsoft Intune
+460,Mobility,1,1,2,1324,Mobility
+461,Node-RED,1,1,2,1334,Node-RED
+462,Objective-C,1,1,2,1340,Objective-C
+463,Operations Research,1,1,2,1348,Operations Research
+465,OSL,1,1,2,1356,OSL
+466,OTA Updates,1,1,2,1358,OTA
+467,Payments,1,1,2,1361,Payment Solutions
+468,Pega,1,1,2,1363,Pega
+469,Physical Security,1,1,2,1367,Physical security
+470,PowerPC,1,1,2,1374,PowerPC
+471,Protocol Buffers,1,1,2,1401,Protocol Buffers
+472,Rational Unified Process,1,1,2,1413,Rational Unified Process
+473,OpenAI API & Platform,10,6,13,11; 336; 373; 387; 388; 389,OpenAI; OpenAI API; GPT-4o Vision; OpenAI Agents; OpenAI Assistants API; OpenAI SDK
+474,Azure AI Foundry,6,4,7,337; 363; 364; 365,Azure Openai; Azure AI Foundry; Azure AI Foundry / OpenAI / Azure AI; Azure AI Foundry Agents
+475,AI-assisted Development,8,1,9,16,AI-assisted development
+476,AI Governance & EU AI Act,14,6,19,18; 19; 343; 352; 391; 392,AI Act; Advisory AI Initiatives alignment with governance frameworks and compliance standards; AI & Data Governance; AI Governance & Adoption; Regulatory awareness (incl. EU AI Act principles); Regulatory Compliance: EU AI Act & EU Data Act
