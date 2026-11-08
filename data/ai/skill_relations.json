@@ -61,8 +61,11 @@
   "Vektordatabaser": "related"
  },
  "T09": {
+  "Azure AI Foundry Agents": "product",
   "FastMCP": "product",
-  "MCP (Model Context Protocol)": "synonym"
+  "MCP (Model Context Protocol)": "synonym",
+  "OpenAI Agents": "product",
+  "n8n Automations": "product"
  },
  "T10": {
   "AI och maskininlärning": "related",
@@ -81,7 +84,11 @@
   "NLP": "synonym",
   "NLU": "narrower",
   "Natural Language Processing (NLP)": "synonym",
-  "Natural language understanding": "narrower"
+  "Natural language understanding": "narrower",
+  "OpenAI Whisper": "product",
+  "Speech Recognition": "narrower",
+  "Speech-to-text": "narrower",
+  "Text to speech": "narrower"
  },
  "T12": {
   "Intelligent Automation": "synonym",
@@ -94,8 +101,10 @@
  },
  "T13": {
   "AI Model Deployment": "narrower",
+  "Cost Optimization": "related",
   "LLM Model Inference Optimization": "narrower",
-  "MLOps": "synonym"
+  "MLOps": "synonym",
+  "MLflow": "product"
  },
  "T14": {
   "Data Strategi": "synonym",
@@ -110,7 +119,9 @@
  },
  "T16": {
   "AI/ML model evaluation": "related",
+  "Evaluation": "related",
   "LLM Evaluation": "synonym",
+  "Model Evaluation": "synonym",
   "Monitoring and observability": "related"
  },
  "T17": {
@@ -177,6 +188,7 @@
   "Claude": "product",
   "Claude AI": "product",
   "Claude Code": "product",
+  "Codex": "product",
   "Cursor": "product",
   "Cursors": "product",
   "GitHub Copilot": "product",
@@ -210,7 +222,10 @@
  },
  "T27": {
   "AI Risk Management": "synonym",
-  "Secure AI Workflows": "related"
+  "OWASP": "related",
+  "Red teaming": "narrower",
+  "Secure AI Workflows": "related",
+  "Zero-Trust Security": "related"
  },
  "T28": {
   "AI Strategy": "synonym",
@@ -229,5 +244,107 @@
   "AI-based Decision Support": "related",
   "AI-baserat beslutsstöd": "related",
   "Beslutsstöd baserat på AI och dataanalys": "related"
+ },
+ "T32": {
+  "Computer Vision": "synonym",
+  "Computer Vision (CV)": "synonym",
+  "GPT-4o Vision": "product",
+  "Image processing": "narrower",
+  "Object detection": "narrower",
+  "OpenCV": "product",
+  "Vision Language Models (VLM)": "narrower"
+ },
+ "T33": {
+  "CUDA": "related",
+  "Edge AI": "synonym",
+  "Edge computing": "related",
+  "LLM Model Inference Optimization": "narrower",
+  "Model Quantization": "narrower",
+  "Nvidia JetPack": "product",
+  "Nvidia Jetson": "product",
+  "Real-time Inference": "narrower",
+  "Siemens Industrial Edge": "product",
+  "TinyML": "narrower"
+ },
+ "T34": {
+  "Condition Monitoring": "related",
+  "Demand forecasting": "related",
+  "Forecast": "related",
+  "Forecasting": "related",
+  "Predictive Modelling": "related",
+  "Predictive maintenance": "synonym",
+  "Predictive modeling": "related",
+  "Time Series Analysis": "narrower",
+  "Time Series Analysis & Forecasting": "narrower"
+ },
+ "T35": {
+  "Digital Twin": "synonym",
+  "Simulation": "related",
+  "Simulations": "related",
+  "System Simulation": "related",
+  "Unity": "product",
+  "Unreal Engine": "product"
+ },
+ "T36": {
+  "ABB RobotStudio": "product",
+  "Autonomous Operations": "related",
+  "Autonomous flight systems": "related",
+  "Autonomous navigation": "narrower",
+  "Autonomous systems": "related",
+  "Autonomous vehicles": "related",
+  "Collaborative Robotics": "narrower",
+  "Collaborative Robots": "narrower",
+  "Drone": "related",
+  "Drone Systems": "related",
+  "Industrial Robotics": "narrower",
+  "Industriella robotar": "narrower",
+  "LIDAR": "related",
+  "MAVROS": "product",
+  "ROS": "product",
+  "ROS Nodes": "product",
+  "Robot Programming": "narrower",
+  "Robotic Control Systems": "narrower",
+  "Robotic Systems Integration": "narrower",
+  "Robotics": "synonym",
+  "Robotkontrollsystem": "narrower",
+  "Robotprogrammering ABB": "product",
+  "Sensor fusion": "narrower",
+  "Swarm Robotics": "narrower"
+ },
+ "T37": {
+  "IIoT (Industrial Internet of Things)": "related",
+  "Ignition": "product",
+  "Ignition SCADA": "product",
+  "Inductive Automation Ignition SCADA": "product",
+  "Industrial Internet of Things": "related",
+  "Industrial IoT": "related",
+  "Industrial IoT (IIoT)": "related",
+  "MES": "related",
+  "MES System": "related",
+  "Manufacturing IT (MES/MOM)": "related",
+  "Manufacturing execution system": "related",
+  "OPC UA": "related",
+  "SCADA": "related",
+  "SCADA system": "related",
+  "Siemens Industrial Edge": "product",
+  "Siemens Insight Hub": "product",
+  "Siemens Insights Hub": "product"
+ },
+ "T38": {
+  "Hugging Face": "product",
+  "Model Quantization": "related",
+  "Ollama": "product"
+ },
+ "T39": {
+  "CRA-direktivet": "narrower",
+  "Cyber Resiliance Act": "narrower",
+  "Cyber Resilience Act": "narrower",
+  "Cybersecurity Standards (IEC62443-4-2)": "narrower",
+  "DPP (digitala produktpass)": "narrower",
+  "Digitala Produktpass (DPP)": "narrower",
+  "IEC 62443": "narrower",
+  "NIS2": "narrower",
+  "NIS2 directive": "narrower",
+  "NIS2-direktivet": "narrower"
  }
 }

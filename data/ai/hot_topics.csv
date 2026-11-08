@@ -1,32 +1,40 @@
 topic_id,category,topic,status,gap_note
-1,Koncept och tekniker,Generativ AI (GenAI),exact,"Skill exists in 4 spellings; no dedicated tag (AI/LLM is close)"
-2,Koncept och tekniker,LLM (Large Language Models),exact,"3 near-duplicate skill spellings; tag AI/LLM"
-3,Koncept och tekniker,Agentisk AI / AI-agenter,exact,"Skill and tag both exist (Agentic AI)"
-4,Koncept och tekniker,Multi-agent-system / orkestrering,exact,"Skill Multi-agent Systems exists; nothing for orchestration"
-5,Koncept och tekniker,RAG (Retrieval-Augmented Generation),exact,"Skill exists; no tag"
-6,Koncept och tekniker,Prompt engineering / context engineering,exact,"Both skills exist; no tag"
+1,Koncept och tekniker,Generativ AI (GenAI),exact,Skill exists in 4 spellings; no dedicated tag (AI/LLM is close)
+2,Koncept och tekniker,LLM (Large Language Models),exact,3 near-duplicate skill spellings; tag AI/LLM
+3,Koncept och tekniker,Agentisk AI / AI-agenter,exact,Skill and tag both exist (Agentic AI)
+4,Koncept och tekniker,Multi-agent-system / orkestrering,exact,Skill Multi-agent Systems exists; nothing for orchestration
+5,Koncept och tekniker,RAG (Retrieval-Augmented Generation),exact,Skill exists; no tag
+6,Koncept och tekniker,Prompt engineering / context engineering,exact,Both skills exist; no tag
 7,Koncept och tekniker,Vektordatabaser / embeddings,exact,"Vector Databases, Vektordatabaser, Embeddings, Pgvector; Pinecone/Weaviate not checked"
-8,Koncept och tekniker,Fine-tuning,none,"No skill used by any employee and no tag"
-9,Koncept och tekniker,MCP (Model Context Protocol),exact,"Use 'MCP (Model Context Protocol)'; bare 'MCP' (2464) is ambiguous (Microsoft Certified Professional)"
+8,Koncept och tekniker,Fine-tuning,none,No skill used by any employee and no tag
+9,Koncept och tekniker,MCP / A2A / agentplattformar,exact,"MCP (Model Context Protocol) exists; OpenAI Agents, Azure AI Foundry Agents, n8n as products; no A2A keyword. Widened 2026-11: the marketable skill is the agent platform layer, not one protocol"
 10,Koncept och tekniker,Machine Learning / Deep Learning,exact,"Skills in EN/SV/NO; tags Machine Learning, AI/ML, Data Science/ML"
-11,Koncept och tekniker,NLP / Conversational AI / chatbotar,close,"NLP skill exists; no Conversational AI or Chatbot skill in use"
+11,Koncept och tekniker,NLP / Conversational AI / chatbotar / röstagenter,close,"NLP skill exists; Whisper, Speech Recognition, Speech-to-text, Text to speech cover voice; no Conversational AI, Chatbot or Voice Agent keyword"
 12,Koncept och tekniker,Intelligent automation / Agentic process automation,exact,"Intelligent Automation + RPA skills; tags Hyperautomation, Automation are close; nothing for 'agentic process automation'"
-13,Drift plattform och data,MLOps / LLMOps,close,"MLOps skill and tag exist; no LLMOps"
-14,Drift plattform och data,AI-ready data / datastrategi,close,"Data Strategy skill (3 spellings); nothing for 'AI-ready data'"
+13,Drift plattform och data,MLOps / LLMOps / AI FinOps,close,MLOps skill and tag exist; MLflow as product; Cost Optimization is generic; no LLMOps or AI FinOps keyword (Gartner 2026 adds FinOps to the agentic hype cycle)
+14,Drift plattform och data,AI-ready data / datastrategi,close,Data Strategy skill (3 spellings); nothing for 'AI-ready data'
 15,Drift plattform och data,Data lakehouse / Data platform,exact,"Databricks, Snowflake, Microsoft Fabric exist as both skills and tags"
-16,Drift plattform och data,Evaluering / observability,close,"Only 'LLM Evaluation' (1 person) and generic observability; LangSmith/Langfuse not found"
-17,Verktyg och plattformar,Microsoft Copilot / M365 Copilot,exact,"5 near-duplicate spellings; tag Microsoft 365 is close"
-18,Verktyg och plattformar,Copilot Studio / Azure AI Foundry,exact,"Both skills exist; Power Platform tag/tag type is close"
-19,Verktyg och plattformar,Azure OpenAI / OpenAI API,exact,"Skills exist; tag Azure is close"
-20,Verktyg och plattformar,AWS Bedrock / Google Vertex AI,close,"Amazon Bedrock exists; Vertex AI not in use"
+16,Drift plattform och data,Evaluering / guardrails / agent-observability,close,"LLM Evaluation (1), Model Evaluation (3), generic Evaluation/observability; no Guardrails, LangSmith or Langfuse keyword"
+17,Verktyg och plattformar,Microsoft Copilot / M365 Copilot,exact,5 near-duplicate spellings; tag Microsoft 365 is close
+18,Verktyg och plattformar,Copilot Studio / Azure AI Foundry,exact,Both skills exist; Power Platform tag/tag type is close
+19,Verktyg och plattformar,Azure OpenAI / OpenAI API,exact,Skills exist; tag Azure is close
+20,Verktyg och plattformar,AWS Bedrock / Google Vertex AI,close,Amazon Bedrock exists; Vertex AI not in use
 21,Verktyg och plattformar,LangChain / LangGraph / Semantic Kernel,close,"LangChain, LangGraph exist (1 person); Semantic Kernel not in use"
-22,Verktyg och plattformar,Python / PyTorch / Hugging Face,exact,"All three skills exist; tag Python"
-23,Verktyg och plattformar,GitHub Copilot / AI-assisterad utveckling,exact,"GitHub Copilot, AI-assisted development, Cursor, Claude Code skills; no tag"
-24,Verktyg och plattformar,ServiceNow Now Assist / AIOps,close,"AIOps skill exists; Now Assist not in use (ServiceNow is close)"
+22,Verktyg och plattformar,Python / PyTorch / Hugging Face,exact,All three skills exist; tag Python
+23,Verktyg och plattformar,GitHub Copilot / AI-assisterad utveckling,exact,"GitHub Copilot, AI-assisted development, Cursor, Claude Code, Codex skills; no spec-driven development keyword; no tag"
+24,Verktyg och plattformar,ServiceNow Now Assist / AIOps,close,AIOps skill exists; Now Assist not in use (ServiceNow is close)
 25,Styrning risk och verksamhet,EU AI Act / AI-förordningen,exact,"AI Act, AI-förordningen (AI Act), AI Act Compliance; no tag"
 26,Styrning risk och verksamhet,AI governance / Responsible AI / AI-etik,exact,"AI Governance, Responsible AI, AI Ethics; tags IT Governance/Data Governance are close"
-27,Styrning risk och verksamhet,AI-risk och säkerhet,close,"AI Risk Management only; no AI Security, Prompt injection or ISO/IEC 42001; tags GDPR, Information Security are close"
-28,Styrning risk och verksamhet,AI-strategi / AI-roadmap / AI-mognad,exact,"AI Strategy skill; tag 'AI strategi'"
+27,Styrning risk och verksamhet,AI- och agentsäkerhet,close,"AI Risk Management, Red teaming (1), OWASP (3), Zero-Trust (1); no AI Security, Prompt injection or ISO/IEC 42001 keyword; tags GDPR, Information Security are close"
+28,Styrning risk och verksamhet,AI-strategi / AI-roadmap / AI-mognad,exact,AI Strategy skill; tag 'AI strategi'
 29,Styrning risk och verksamhet,Use case-identifiering / AI-värdeskapande / ROI,exact,"AI Use Case Discovery, AI Use Cases; no tag"
 30,Styrning risk och verksamhet,AI-transformation / förändringsledning / AI-adoption,exact,"AI Transformation skill+tag, AI Adoption & Enablement; no AI literacy"
 31,Koncept och tekniker,Decision models / beslutsmodeller,close,No keyword yet; AI-based decision support variants are related. Source: neubird.ai/blog/decision-models-vs-llms
+32,Industriell AI och fysiska system,Computer vision / visuell inspektion / VLM,exact,"Computer Vision (verified, 10), OpenCV, Image processing, Object detection, VLM (1); no visual inspection keyword. Site lists Computer Vision; no hot topic covered it"
+33,Industriell AI och fysiska system,Edge AI / on-device inference,exact,"Edge AI (2), Edge computing (4), Nvidia Jetson, TinyML, Model Quantization, Real-time Inference; case 'Power-Efficient Edge AI for Smart Products'"
+34,Industriell AI och fysiska system,Prediktivt underhåll / anomalidetektion / tidsserie-AI,exact,"Predictive maintenance (3), Condition Monitoring (1), Time Series Analysis (verified, 6), Forecasting (verified, 5); no Anomaly Detection keyword"
+35,Industriell AI och fysiska system,Digitala tvillingar / simulering / syntetisk data,exact,"Digital Twin (2), Simulation (verified, 21), Unity, Unreal Engine; no Omniverse, Isaac Sim or Synthetic Data keyword. Site lists Digital Twins"
+36,Industriell AI och fysiska system,Robotik / physical AI / autonomi,exact,"Robotics (verified, 15), ROS (verified, 3), Drone (verified, 4), autonomous systems/navigation/vehicles (1 each), Sensor fusion; no Physical AI keyword"
+37,Industriell AI och fysiska system,"AI på OT-data (MES/SCADA/UNS, industriella copiloter)",none,"No AI keyword; mapped OT skills (SCADA 12, MES 9, Ignition, OPC UA, Siemens Insights Hub) show the platform base, not AI on it. No Siemens Industrial Copilot or Unified Namespace keyword. Siemens + Inductive Automation partnerships"
+38,Drift plattform och data,Små/öppna modeller / självhostad (suverän) AI,none,"Ollama (2, product) only; no Small Language Models, Local LLM, vLLM or Sovereign AI keyword; gives T08 Fine-tuning a reason to exist"
+39,Styrning risk och verksamhet,"Produktregelverk för uppkopplade/AI-produkter: CRA, NIS2, maskinförordningen, DPP",close,"NIS2 (5+5), Cyber Resilience Act (2+2), IEC 62443 (1+1), Digitala Produktpass (3+1); no Machinery Regulation keyword. Case 'Digital Product Passport Readiness'"

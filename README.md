@@ -218,8 +218,10 @@ missed.
 
 ## AI hot topics (`src/ai_topics.py`, `data/ai/`)
 
-The sales team's hot AI topics (`hot_topics.csv`) and the curated canonical AI
-skills (`canonical_skills.csv`, seeded from the hot topics, ids `T01`...). Every
+The hot AI topics (`hot_topics.csv`, 39 topics: T01-T31 from the sales team,
+T32-T39 added from techseed.se and the 12-month outlook in
+`data/ai/ai_skills_outlook.md`, mainly industrial AI) and the curated canonical
+AI skills (`canonical_skills.csv`, seeded from the hot topics, ids `T01`-`T39`). Every
 AI-related or hot-topic skill needs a one-sentence `definition` (about 25 words,
 plain English, so an employee can tell whether they have the skill;
 vendor-neutral unless the skill is a product); a test checks this. Taxonomy
