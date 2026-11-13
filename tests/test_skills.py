@@ -146,3 +146,15 @@ def test_semantic_synonyms_and_scope():
     assert rel[("3", "Agent Design")] == "narrower"  # part of the skill
     assert rel[("6", "Context Engineering")] == "related"  # neighbouring skill
     assert rel[("10", "AI/ML")] == "related"  # superset
+
+
+def test_loader_handles_missing_private_raw_folders(tmp_path, monkeypatch):
+    """A fresh clone has no raw/skill_search or raw/profile_skills; the loader still gets typed tables."""
+    import sys
+    sys.path.insert(0, str(skills.ROOT / "src"))
+    import load_duckdb
+    monkeypatch.setattr(load_duckdb, "RAW", tmp_path)
+    hits, syn = load_duckdb.load_skill_search()
+    profiles, names, kws = load_duckdb.load_profile_skills()
+    for df in (hits, syn, profiles, names, kws):
+        assert df.empty and len(df.columns) > 0

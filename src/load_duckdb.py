@@ -44,7 +44,8 @@ def load_skill_sets() -> tuple[pd.DataFrame, pd.DataFrame]:
 def load_skill_search() -> tuple[pd.DataFrame, pd.DataFrame]:
     """Every file in raw/skill_search/ is one batch of search-employees-by-skill calls."""
     hits, synonyms = [], {}
-    for path in sorted((RAW / "skill_search").glob("*.json")):
+    folder = RAW / "skill_search"  # private and gitignored, so absent on a fresh clone
+    for path in sorted(folder.glob("*.json")) if folder.exists() else []:
         data = json.loads(path.read_text(encoding="utf-8"))
         for q in data["queries"]:
             for syn_id, name in q["syn"].items():
@@ -53,8 +54,10 @@ def load_skill_search() -> tuple[pd.DataFrame, pd.DataFrame]:
                 hits.append({"source_file": path.name, "query": q["q"], "min_score": q["min"],
                              "company_user_id": user_id, "synonym_id": syn_id,
                              "level": level, "score": score})
-    syn_df = pd.DataFrame([{"synonym_id": k, "name": v} for k, v in synonyms.items()])
-    return pd.DataFrame(hits), syn_df
+    syn_df = pd.DataFrame([{"synonym_id": k, "name": v} for k, v in synonyms.items()],
+                          columns=["synonym_id", "name"])
+    return pd.DataFrame(hits, columns=["source_file", "query", "min_score", "company_user_id",
+                                       "synonym_id", "level", "score"]), syn_df
 
 
 def load_profile_skills() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
@@ -220,12 +223,16 @@ def main() -> None:
         WHERE NOT u.verified
     """)
 
-    # Keyword catalog exports (aggregate only, tracked in git).
-    for name, query in {
+    # Keyword catalog exports (aggregate only, tracked in git). Without profiles they would
+    # come out empty and wipe the committed catalog, so keep the existing files then.
+    exports = {} if profile_skills.empty else {
         "keywords": "FROM keyword_usage ORDER BY keyword_id",
         "verified_keywords": "FROM keyword_usage WHERE verified ORDER BY techseed_users DESC, keyword_id",
         "skill_drift": "FROM skill_drift ORDER BY custom_users DESC, custom_keyword_id",
-    }.items():
+    }
+    if not exports:
+        print(f"No profiles in {RAW / 'profile_skills'}: kept the committed {TAX.name}/*.csv exports")
+    for name, query in exports.items():
         df = con.execute(query).df()
         if "synonyms" in df:
             df["synonyms"] = df["synonyms"].map(lambda xs: "; ".join(xs))
