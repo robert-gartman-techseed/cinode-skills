@@ -308,3 +308,4 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 13,skill,34481,Amazon SageMaker,close,product
 13,skill,260071,Model Quantization,close,narrower
 20,skill,21829,Gemini,close,product
+33,skill,87092,Embedded AI,close,related

@@ -274,6 +274,7 @@
   "CUDA": "related",
   "Edge AI": "synonym",
   "Edge computing": "related",
+  "Embedded AI": "related",
   "LLM Model Inference Optimization": "narrower",
   "Model Quantization": "narrower",
   "Nvidia JetPack": "product",
