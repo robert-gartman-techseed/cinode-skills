@@ -149,7 +149,6 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 1,skill,351664,Applied Generative AI,exact,synonym
 1,skill,339990,Generative AI & LLM Integration,exact,related
 2,skill,320523,LLM-integration,exact,narrower
-2,skill,233678,Ollama/ self-host AI,close,product
 2,skill,251338,LiteLLM,close,product
 3,skill,193165,Agent Design,exact,narrower
 3,skill,315062,Agentic AI Design,exact,narrower
@@ -234,14 +233,9 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 34,skill,66225,Condition Monitoring,close,related
 34,skill,26777,Time Series Analysis,close,narrower
 34,skill,66338,Time Series Analysis & Forecasting,close,narrower
-34,skill,13825,Forecasting,close,related
-34,skill,14006,Forecast,close,related
-34,skill,18157,Demand forecasting,close,related
 34,skill,74382,Predictive modeling,close,related
 34,skill,43520,Predictive Modelling,close,related
 35,skill,134145,Digital Twin,exact,synonym
-35,skill,8258,Simulation,close,related
-35,skill,51333,Simulations,close,related
 35,skill,106950,System Simulation,close,related
 35,skill,3444,Unity,close,product
 35,skill,13031,Unreal Engine,close,product
@@ -269,26 +263,7 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 36,skill,213340,Drone Systems,close,related
 36,skill,19987,Sensor fusion,close,narrower
 36,skill,50234,LIDAR,close,related
-37,skill,5348,SCADA,close,related
-37,skill,47740,SCADA system,close,related
-37,skill,64539,MES,close,related
-37,skill,27241,MES System,close,related
-37,skill,19749,Manufacturing IT (MES/MOM),close,related
-37,skill,97110,Manufacturing execution system,close,related
-37,skill,104621,Ignition,close,product
-37,skill,222086,Ignition SCADA,close,product
-37,skill,84812,Inductive Automation Ignition SCADA,close,product
-37,skill,34165,OPC UA,close,related
-37,skill,176966,Siemens Insights Hub,close,product
-37,skill,239848,Siemens Insight Hub,close,product
-37,skill,155815,Siemens Industrial Edge,close,product
-37,skill,29493,Industrial Internet of Things,close,related
-37,skill,26838,Industrial IoT,close,related
-37,skill,232386,IIoT (Industrial Internet of Things),close,related
-37,skill,153192,Industrial IoT (IIoT),close,related
 38,skill,157430,Ollama,close,product
-38,skill,92384,Hugging Face,close,product
-38,skill,260071,Model Quantization,close,related
 39,skill,133333,NIS2,close,narrower
 39,skill,136804,NIS2 directive,close,narrower
 39,skill,112063,NIS2-direktivet,close,narrower
@@ -314,3 +289,22 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 27,skill,115765,Red teaming,close,narrower
 27,skill,5219,OWASP,close,related
 27,skill,264640,Zero-Trust Security,close,related
+38,skill,233678,Ollama/ self-host AI,close,product
+38,skill,154934,llama.cpp,close,product
+22,skill,27842,TensorFlow,exact,product
+22,skill,17603,Scikit-learn,exact,product
+22,skill,35639,Keras,exact,product
+22,skill,13803,NumPy,exact,product
+22,skill,24759,Pandas,exact,product
+22,skill,28541,Matplotlib,exact,product
+22,skill,63162,Jupyter,exact,product
+22,skill,31180,Jupyter Notebook,exact,product
+22,skill,23985,PySpark,close,product
+22,skill,121195,Polars,close,product
+22,skill,76511,Streamlit,close,product
+22,skill,9889,Data Science,close,related
+13,skill,41378,Airflow,close,product
+13,skill,49079,Apache Airflow,close,product
+13,skill,34481,Amazon SageMaker,close,product
+13,skill,260071,Model Quantization,close,narrower
+20,skill,21829,Gemini,close,product

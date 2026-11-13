@@ -15,8 +15,7 @@
   "Large Language Models": "synonym",
   "Large Language Models (LLM)": "synonym",
   "Large Language Models (LLMs)": "synonym",
-  "LiteLLM": "product",
-  "Ollama/ self-host AI": "product"
+  "LiteLLM": "product"
  },
  "T03": {
   "AI-agentutveckling": "synonym",
@@ -101,10 +100,14 @@
  },
  "T13": {
   "AI Model Deployment": "narrower",
+  "Airflow": "product",
+  "Amazon SageMaker": "product",
+  "Apache Airflow": "product",
   "Cost Optimization": "related",
   "LLM Model Inference Optimization": "narrower",
   "MLOps": "synonym",
-  "MLflow": "product"
+  "MLflow": "product",
+  "Model Quantization": "narrower"
  },
  "T14": {
   "Data Strategi": "synonym",
@@ -161,7 +164,8 @@
   "open ai api": "synonym"
  },
  "T20": {
-  "Amazon Bedrock": "synonym"
+  "Amazon Bedrock": "synonym",
+  "Gemini": "product"
  },
  "T21": {
   "LangChain": "synonym",
@@ -170,10 +174,22 @@
   "Langchain": "synonym"
  },
  "T22": {
+  "Data Science": "related",
   "Hugging Face": "product",
+  "Jupyter": "product",
+  "Jupyter Notebook": "product",
+  "Keras": "product",
+  "Matplotlib": "product",
+  "NumPy": "product",
+  "Pandas": "product",
+  "Polars": "product",
+  "PySpark": "product",
   "PyTorch": "synonym",
   "Python": "related",
-  "Python programming language": "related"
+  "Python programming language": "related",
+  "Scikit-learn": "product",
+  "Streamlit": "product",
+  "TensorFlow": "product"
  },
  "T23": {
   "AI Coding (codex & Claude code)": "synonym",
@@ -268,9 +284,6 @@
  },
  "T34": {
   "Condition Monitoring": "related",
-  "Demand forecasting": "related",
-  "Forecast": "related",
-  "Forecasting": "related",
   "Predictive Modelling": "related",
   "Predictive maintenance": "synonym",
   "Predictive modeling": "related",
@@ -279,8 +292,6 @@
  },
  "T35": {
   "Digital Twin": "synonym",
-  "Simulation": "related",
-  "Simulations": "related",
   "System Simulation": "related",
   "Unity": "product",
   "Unreal Engine": "product"
@@ -311,29 +322,11 @@
   "Sensor fusion": "narrower",
   "Swarm Robotics": "narrower"
  },
- "T37": {
-  "IIoT (Industrial Internet of Things)": "related",
-  "Ignition": "product",
-  "Ignition SCADA": "product",
-  "Inductive Automation Ignition SCADA": "product",
-  "Industrial Internet of Things": "related",
-  "Industrial IoT": "related",
-  "Industrial IoT (IIoT)": "related",
-  "MES": "related",
-  "MES System": "related",
-  "Manufacturing IT (MES/MOM)": "related",
-  "Manufacturing execution system": "related",
-  "OPC UA": "related",
-  "SCADA": "related",
-  "SCADA system": "related",
-  "Siemens Industrial Edge": "product",
-  "Siemens Insight Hub": "product",
-  "Siemens Insights Hub": "product"
- },
+ "T37": {},
  "T38": {
-  "Hugging Face": "product",
-  "Model Quantization": "related",
-  "Ollama": "product"
+  "Ollama": "product",
+  "Ollama/ self-host AI": "product",
+  "llama.cpp": "product"
  },
  "T39": {
   "CRA-direktivet": "narrower",
