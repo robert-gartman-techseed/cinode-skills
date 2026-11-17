@@ -38,9 +38,9 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 10,tag,307171,Machine Learning,exact,
 10,tag,306990,AI/ML,exact,
 10,tag,296355,Data Science/ML,close,
-11,skill,81226,Natural Language Processing (NLP),exact,synonym
-11,skill,31274,NLP,exact,synonym
-11,skill,130603,Natural language understanding,close,narrower
+11,skill,81226,Natural Language Processing (NLP),exact,related
+11,skill,31274,NLP,exact,related
+11,skill,130603,Natural language understanding,close,related
 12,skill,91074,Intelligent Automation,exact,synonym
 12,skill,311988,Intelligent Process Automation (AI),exact,synonym
 12,skill,325105,Intelligent Automatisering (AI),exact,synonym
@@ -141,7 +141,7 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 30,tag,300134,förändringsledning,close,
 30,tag,305302,Transformation Lead,close,
 2,skill,121456,LLM,exact,synonym
-11,skill,90746,NLU,close,narrower
+11,skill,90746,NLU,close,related
 17,skill,138130,Copilot för Microsoft 365,exact,synonym
 23,skill,97294,Cursors,close,product
 1,skill,351204,AI & Generative AI,close,related
@@ -332,3 +332,13 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 9,skill,236855,MCP server,exact,synonym
 9,skill,283786,MCP servers,exact,synonym
 9,skill,265515,MCP Server Development,exact,synonym
+11,skill,60062,Conversational AI,exact,synonym
+11,skill,34813,Chatbot,exact,synonym
+11,skill,35161,Chatbots,exact,synonym
+11,skill,157642,Chatbot-utveckling,exact,synonym
+11,skill,190299,Chatbotutveckling,exact,synonym
+11,skill,82390,Chatbot utvecklare,exact,synonym
+11,skill,156026,Chatbot Design,exact,synonym
+11,skill,190445,Bot Framework,exact,narrower
+11,skill,66641,Azure Bot Framework,exact,narrower
+11,skill,198457,Copilot Studio,exact,narrower
