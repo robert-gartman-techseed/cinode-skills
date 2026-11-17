@@ -62,6 +62,22 @@
   "Vector Databases": "related",
   "Vektordatabaser": "related"
  },
+ "T08": {
+  "AI Fine-tuning": "synonym",
+  "AI Finetuning": "synonym",
+  "AI-finetuning": "synonym",
+  "Code Fine-Tuning": "narrower",
+  "Fine-Tuning Techniques": "synonym",
+  "Fine-Tuning of Large Language Models": "synonym",
+  "Fine-tuning": "synonym",
+  "Fine-tuning & PEFT/LoRA": "narrower",
+  "Fine-tuning LLMs": "synonym",
+  "Finetuning": "synonym",
+  "Finetuning Models": "synonym",
+  "Finetuning av AI": "synonym",
+  "LoRA fine-tuning": "narrower",
+  "Machine Learning Model Fine-Tuning": "synonym"
+ },
  "T09": {
   "Azure AI Foundry Agents": "product",
   "FastMCP": "product",

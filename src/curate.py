@@ -89,6 +89,20 @@ When done, save as .xlsx and run:  uv run src/curate.py check <file>   then   ap
 
 # ---------- shared ----------
 
+EXTRA_KEYWORDS = skills.AI / "extra_keywords.csv"
+
+
+def load_keywords() -> dict[str, dict]:
+    """The keyword catalog plus Cinode keywords nobody at TechSeed uses yet (data/ai/extra_keywords.csv:
+    keyword_id, master_synonym_id, master_synonym, verified), picked by hand from Cinode's keyword search."""
+    kws = skills.load_keywords()
+    for r in skills.read_csv(EXTRA_KEYWORDS):
+        if r["keyword_id"] not in kws:
+            kws[r["keyword_id"]] = {**r, "users": 0, "is_verified": r["verified"] == "True", "syn_list": [],
+                                    "type_name": "", "techseed_users": "0"}
+    return kws
+
+
 def norm(v) -> str:
     if v is None:
         return ""
@@ -130,7 +144,7 @@ def default_suggested(rows: list[dict], kws: dict[str, dict]) -> set[str]:
 def current_view(state: list[dict]) -> dict[str, dict]:
     """keyword_id -> {skill_set, alias_of, suggested} as the workbook shows it."""
     if state and "suggested" not in state[0]:  # never curated: pick a default per skill set
-        sug = default_suggested(state, skills.load_keywords())
+        sug = default_suggested(state, load_keywords())
     else:
         sug = {r["keyword_id"] for r in state if r.get("suggested") in ("1", "True", "x")}
     return {r["keyword_id"]: {"skill_set": norm(r["skill_name"]),
@@ -161,7 +175,7 @@ def people_per_skill(state: list[dict]) -> dict[str, int]:
 
 def cmd_export(args) -> None:
     state = buckets.read_state()
-    kws = skills.load_keywords()
+    kws = load_keywords()
     view = current_view(state)
     by_skill = defaultdict(list)
     for r in state:
@@ -512,7 +526,7 @@ def cmd_import(args, apply: bool) -> int:
     if KW_SHEET not in wb.sheetnames:
         sys.exit(f"{src} has no '{KW_SHEET}' sheet")
     state = buckets.read_state()
-    kws = skills.load_keywords()
+    kws = load_keywords()
     new_state, res = curate(state, kws, read_sheet(wb, KW_SHEET), read_sheet(wb, SET_SHEET))
     return finish(res, new_state, src, apply)
 
@@ -601,7 +615,7 @@ def ai_sheet(state: list[dict], kws: dict[str, dict]) -> tuple[list[dict], list[
 
 def cmd_ai_sync(args) -> int:
     state = buckets.read_state()
-    kws = skills.load_keywords()
+    kws = load_keywords()
     kw_rows, notes = ai_sheet(state, kws)
     set_rows = [{"_row": 0, "skill_set": n} for n in dict.fromkeys(norm(r["skill_name"]) for r in state)]
     new_state, res = curate(state, kws, kw_rows, set_rows)

@@ -312,3 +312,17 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 6,skill,185716,Prompting,exact,narrower
 6,skill,258196,Prompt Design,exact,narrower
 3,skill,262901,AI-agenter,exact,synonym
+8,skill,105422,Fine-tuning,exact,synonym
+8,skill,141182,Finetuning,exact,synonym
+8,skill,167299,Fine-tuning LLMs,exact,synonym
+8,skill,297034,Fine-Tuning of Large Language Models,exact,synonym
+8,skill,169146,Fine-Tuning Techniques,exact,synonym
+8,skill,144984,Finetuning Models,exact,synonym
+8,skill,157643,Finetuning av AI,exact,synonym
+8,skill,157645,AI-finetuning,exact,synonym
+8,skill,338719,AI Finetuning,exact,synonym
+8,skill,202691,AI Fine-tuning,exact,synonym
+8,skill,231484,Machine Learning Model Fine-Tuning,exact,synonym
+8,skill,346124,Fine-tuning & PEFT/LoRA,exact,narrower
+8,skill,274978,LoRA fine-tuning,exact,narrower
+8,skill,267276,Code Fine-Tuning,exact,narrower

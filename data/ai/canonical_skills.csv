@@ -6,7 +6,7 @@ T04,Multi-agent-system / orkestrering,"Designs systems where several AI agents c
 T05,RAG (Retrieval-Augmented Generation),Builds retrieval-augmented generation: grounding LLM answers in the organisation's own documents and data via search and retrieval.,Koncept och tekniker,True,106593,
 T06,Prompt engineering / context engineering,"Writes and tests prompts, instructions and context (system prompts, examples, retrieved data) so models give reliable results.",Koncept och tekniker,True,221347,
 T07,Vektordatabaser / embeddings,"Uses embeddings and vector databases (e.g. pgvector, Pinecone, Azure AI Search) for semantic search, matching and RAG.",Koncept och tekniker,True,65733,
-T08,Fine-tuning,"Adapts pre-trained models to a domain or task by fine-tuning on own data, incl. data preparation, training and evaluation.",Koncept och tekniker,True,,
+T08,Fine-tuning,"Adapts pre-trained models to a domain or task by fine-tuning on own data, incl. data preparation, training and evaluation.",Koncept och tekniker,True,173637,
 T09,MCP / A2A / agentplattformar,"Builds on the agent platform layer: MCP servers and clients, A2A, and vendor agent SDKs (OpenAI Agents, Azure AI Foundry Agents) so agents can use tools, data and each other.",Koncept och tekniker,True,198626,
 T10,Machine Learning / Deep Learning,"Builds, trains and evaluates machine learning and deep learning models for prediction, classification, vision or similar.",Koncept och tekniker,True,3823,
 T11,NLP / Conversational AI / chatbotar / röstagenter,"Builds solutions that understand or produce natural language and speech: chatbots, real-time voice agents, speech-to-text, classification and text analysis.",Koncept och tekniker,True,27405,
