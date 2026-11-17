@@ -2,7 +2,7 @@ id,name,definition,domain,ai_related,preferred_keyword_id,wikidata_qid
 T01,Generativ AI (GenAI),"Builds solutions where AI models generate text, code, images or other content, and knows their strengths, limits and costs.",Koncept och tekniker,True,107472,
 T02,LLM (Large Language Models),"Selects, integrates and evaluates large language models (e.g. GPT, Claude, Llama) in applications, including hosting, cost and data handling.",Koncept och tekniker,True,102571,
 T03,Agentisk AI / AI-agenter,"Designs AI agents that plan and carry out multi-step tasks with tools and APIs, with guardrails and human oversight.",Koncept och tekniker,True,161642,
-T04,Multi-agent-system / orkestrering,"Designs systems where several AI agents cooperate, including role split, hand-offs, orchestration and failure handling.",Koncept och tekniker,True,52787,
+T04,Multi-agent-system / orkestrering,"Designs systems where several AI agents cooperate, including role split, hand-offs, orchestration and failure handling.",Koncept och tekniker,True,161642,
 T05,RAG (Retrieval-Augmented Generation),Builds retrieval-augmented generation: grounding LLM answers in the organisation's own documents and data via search and retrieval.,Koncept och tekniker,True,106593,
 T06,Prompt engineering / context engineering,"Writes and tests prompts, instructions and context (system prompts, examples, retrieved data) so models give reliable results.",Koncept och tekniker,True,221347,
 T07,Vektordatabaser / embeddings,"Uses embeddings and vector databases (e.g. pgvector, Pinecone, Azure AI Search) for semantic search, matching and RAG.",Koncept och tekniker,True,65733,

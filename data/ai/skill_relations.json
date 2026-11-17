@@ -18,6 +18,7 @@
   "LiteLLM": "product"
  },
  "T03": {
+  "AI-agenter": "synonym",
   "AI-agentutveckling": "synonym",
   "Agent Design": "narrower",
   "Agentic AI": "synonym",
@@ -32,9 +33,9 @@
   "OpenAI Agents": "product"
  },
  "T04": {
-  "Agent Orchestration": "narrower",
-  "Agentic AI Architectures (Single- & Multi-Agent Systems)": "related",
-  "Agentic AI Architectures (Single‑ & Multi‑Agent Systems)": "related",
+  "Agent Orchestration": "synonym",
+  "Agentic AI Architectures (Single- & Multi-Agent Systems)": "narrower",
+  "Agentic AI Architectures (Single‑ & Multi‑Agent Systems)": "narrower",
   "Agentiska system": "related",
   "Cooperative AI Systems": "synonym",
   "Multi-agent Systems": "synonym"

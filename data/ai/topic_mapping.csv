@@ -18,7 +18,7 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 3,skill,236810,Agentic development,close,synonym
 3,tag,298893,Agentic AI,exact,
 4,skill,61303,Multi-agent Systems,exact,synonym
-4,skill,330439,Agentic AI Architectures (Single- & Multi-Agent Systems),exact,related
+4,skill,330439,Agentic AI Architectures (Single- & Multi-Agent Systems),exact,narrower
 4,skill,283692,Agentiska system,close,related
 5,skill,149341,Retrieval-Augmented Generation (RAG),exact,synonym
 5,skill,140239,Retrieval-Augmented Generation,exact,synonym
@@ -155,7 +155,7 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 3,skill,301280,Agentisk utveckling,exact,synonym
 3,skill,133124,LLM Agents,exact,synonym
 3,skill,309299,OpenAI Agents,close,product
-4,skill,327651,Agent Orchestration,exact,narrower
+4,skill,327651,Agent Orchestration,exact,synonym
 4,skill,307208,Cooperative AI Systems,close,synonym
 5,skill,126552,RAG (LLM),exact,synonym
 6,skill,325814,AI Context Engineering,exact,synonym
@@ -311,3 +311,4 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 33,skill,87092,Embedded AI,close,related
 6,skill,185716,Prompting,exact,narrower
 6,skill,258196,Prompt Design,exact,narrower
+3,skill,262901,AI-agenter,exact,synonym
