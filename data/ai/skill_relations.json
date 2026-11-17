@@ -146,9 +146,21 @@
   "Model Quantization": "narrower"
  },
  "T14": {
-  "Data Strategi": "synonym",
-  "Data Strategy": "synonym",
-  "Datastrategi": "synonym"
+  "AI Data Engineering": "narrower",
+  "AI-Ready Data Management": "synonym",
+  "AI-ready Data Foundations": "synonym",
+  "AI-ready Data Strategy": "synonym",
+  "AI-ready data": "synonym",
+  "Data Annotations": "narrower",
+  "Data Labeling": "narrower",
+  "Data Strategi": "related",
+  "Data Strategy": "related",
+  "Data preprocessing": "narrower",
+  "Datastrategi": "related",
+  "Feature engineering": "narrower",
+  "Image annotation": "narrower",
+  "Synthetic training data": "narrower",
+  "Vector Databases": "narrower"
  },
  "T15": {
   "Data lakehouse": "synonym",

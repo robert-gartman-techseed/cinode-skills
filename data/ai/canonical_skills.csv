@@ -12,7 +12,7 @@ T10,Machine Learning / Deep Learning,"Builds, trains and evaluates machine learn
 T11,NLP / Conversational AI / chatbotar / röstagenter,"Builds solutions that understand or produce natural language and speech: chatbots, real-time voice agents, speech-to-text, classification and text analysis.",Koncept och tekniker,True,51745,
 T12,Intelligent automation / Agentic process automation,"Automates business processes by combining RPA, workflow tools and AI agents that read documents, decide and act.",Koncept och tekniker,True,78560,
 T13,MLOps / LLMOps / AI FinOps,"Runs ML/LLM models in production: deployment, versioning, monitoring, retraining, CI/CD for models, and inference cost control (AI FinOps).",Drift plattform och data,True,53537,
-T14,AI-ready data / datastrategi,"Prepares an organisation's data for AI: data strategy, quality, ownership, access, metadata and governance.",Drift plattform och data,True,69227,
+T14,AI-ready data / datastrategi,"Prepares data for AI and machine learning: quality, labelling and annotation, feature engineering, training and synthetic data, and vector stores for retrieval.",Drift plattform och data,True,325866,
 T15,Data lakehouse / Data platform,"Designs and builds data platforms (lakehouse, warehouse, e.g. Databricks, Fabric, Snowflake) that AI and analytics run on.",Drift plattform och data,False,38849,
 T16,Evaluering / guardrails / agent-observability,"Measures and controls AI quality in use: test sets, evals of answers and agent runs, guardrails, tracing, drift and user feedback.",Drift plattform och data,True,133070,
 T17,Microsoft Copilot / M365 Copilot,"Introduces and gets value from Microsoft 365 Copilot and Copilot Chat: licensing, data access, adoption and use cases.",Verktyg och plattformar,True,108251,

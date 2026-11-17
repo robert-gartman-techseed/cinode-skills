@@ -50,9 +50,9 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 12,tag,307008,Automation,close,
 13,skill,62181,MLOps,exact,synonym
 13,tag,298897,MLOps,exact,
-14,skill,80719,Data Strategy,exact,synonym
-14,skill,81435,Data Strategi,exact,synonym
-14,skill,63277,Datastrategi,exact,synonym
+14,skill,80719,Data Strategy,exact,related
+14,skill,81435,Data Strategi,exact,related
+14,skill,63277,Datastrategi,exact,related
 14,tag,296063,Data Governance,close,
 14,tag,299236,Data Management,close,
 15,skill,135509,Data lakehouse,exact,synonym
@@ -343,3 +343,15 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 11,skill,66641,Azure Bot Framework,exact,narrower
 11,skill,198457,Copilot Studio,exact,related
 12,skill,362687,Agentic Automation,exact,synonym
+14,skill,363267,AI-ready data,exact,synonym
+14,skill,360176,AI-ready Data Foundations,exact,synonym
+14,skill,363181,AI-Ready Data Management,exact,synonym
+14,skill,363182,AI-ready Data Strategy,exact,synonym
+14,skill,32690,Feature engineering,exact,narrower
+14,skill,86997,Data Labeling,exact,narrower
+14,skill,95940,Data Annotations,exact,narrower
+14,skill,116724,Image annotation,exact,narrower
+14,skill,287812,Synthetic training data,exact,narrower
+14,skill,342826,AI Data Engineering,exact,narrower
+14,skill,97382,Data preprocessing,exact,narrower
+14,skill,147371,Vector Databases,exact,narrower
