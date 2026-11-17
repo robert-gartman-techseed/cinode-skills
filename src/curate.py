@@ -564,7 +564,8 @@ def ai_sheet(state: list[dict], kws: dict[str, dict]) -> tuple[list[dict], list[
     For each topic in ai_skillset_proposal.csv with a `skill_set`: its keywords in topic_mapping.csv
     with relation synonym or narrower (and the proposed keyword) move to that skill set with their
     whole alias bucket; synonyms become aliases of the proposed keyword, which heads its bucket and
-    is the skill set's only suggested keyword. Products and related keywords are not moved.
+    is the skill set's only suggested keyword (unless `suggest` is "no": the topic is then one skill
+    under the skill set, e.g. MCP under the agentic AI set). Products and related keywords are not moved.
     """
     view = current_view(state)
     name = {r["keyword_id"]: r["name"] for r in state}
@@ -604,12 +605,16 @@ def ai_sheet(state: list[dict], kws: dict[str, dict]) -> tuple[list[dict], list[
         for k in moved:
             if head(k) in syn_heads:
                 rows[k]["alias_of"] = "" if k == pk else pname
-        for r in rows.values():
-            if r["skill_set"] == sset:
-                r["suggested"] = "x" if r["keyword_id"] == pk else ""
+        if norm(p.get("suggest")).lower() in ("no", "n", "nej"):  # a skill under another topic's skill set
+            rows[pk]["suggested"] = ""
+        else:
+            for r in rows.values():
+                if r["skill_set"] == sset:
+                    r["suggested"] = "x" if r["keyword_id"] == pk else ""
         for k in moved:
             rows[k]["comment"] = rows[k]["comment"] or f"AI topic {tid} ({p.get('topic', '')})"
-        notes.append(f"{tid} -> skill set '{sset}', suggested '{pname}', {len(moved)} keywords")
+        role = "skill" if not rows[pk]["suggested"] else "suggested"
+        notes.append(f"{tid} -> skill set '{sset}', {role} '{pname}', {len(moved)} keywords")
     return [{"_row": i, **r} for i, r in enumerate(rows.values(), 2)], notes
 
 

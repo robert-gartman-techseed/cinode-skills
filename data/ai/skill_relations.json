@@ -82,6 +82,12 @@
   "Azure AI Foundry Agents": "product",
   "FastMCP": "product",
   "MCP (Model Context Protocol)": "synonym",
+  "MCP Server Development": "synonym",
+  "MCP server": "synonym",
+  "MCP servers": "synonym",
+  "Model Context Protocol": "synonym",
+  "Model Context Protocol (MCP": "synonym",
+  "Model Context Protocol (MCP)": "synonym",
   "OpenAI Agents": "product",
   "n8n Automations": "product"
  },

@@ -247,7 +247,8 @@ TechSeed uses yet can be listed in `data/ai/extra_keywords.csv`): give a topic a
 (and its `proposed_keyword` / `keyword_id`), then `uv run src/curate.py ai-sync` (report) and
 `ai-sync --apply`. The topic's synonym and narrower keywords from `topic_mapping.csv` move into
 that skill set with their alias buckets, synonyms become aliases of the proposed keyword, and the
-proposed keyword becomes the skill set's suggested keyword. Products and related keywords stay
+proposed keyword becomes the skill set's suggested keyword (set `suggest` to `no` to add a topic as
+one skill under another topic's skill set instead, as MCP is under the agentic AI set). Products and related keywords stay
 where they are. The proposal wins for those keywords, so run `ai-sync` again after a workbook
 `apply`.
 

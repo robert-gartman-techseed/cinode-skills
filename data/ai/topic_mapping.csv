@@ -326,3 +326,9 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 8,skill,346124,Fine-tuning & PEFT/LoRA,exact,narrower
 8,skill,274978,LoRA fine-tuning,exact,narrower
 8,skill,267276,Code Fine-Tuning,exact,narrower
+9,skill,220199,Model Context Protocol,exact,synonym
+9,skill,296974,Model Context Protocol (MCP,exact,synonym
+9,skill,347321,Model Context Protocol (MCP),exact,synonym
+9,skill,236855,MCP server,exact,synonym
+9,skill,283786,MCP servers,exact,synonym
+9,skill,265515,MCP Server Development,exact,synonym

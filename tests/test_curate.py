@@ -144,3 +144,17 @@ def test_ai_sync_moves_topic_buckets_and_sets_the_suggested_keyword(tmp_path, mo
     assert ce == {"T-SQL", "SQL", "NumPy", "Pandas"}  # related Mentoring stays; untouched T07
     assert by["SQL"]["bucket_head"] == "T-SQL" and by["T-SQL"]["suggested"] == "1"  # synonym -> alias of proposed
     assert by["NumPy"]["bucket_head"] == "NumPy" and not by["NumPy"]["suggested"]
+
+
+def test_ai_sync_suggest_no_adds_a_skill_without_taking_the_suggestion(tmp_path, monkeypatch):
+    kws = {k: {**v, "master_synonym_id": "s" + k} for k, v in KWS.items()}
+    prop, mapping = tmp_path / "p.csv", tmp_path / "m.csv"
+    prop.write_text("topic_id,topic,skill_set,suggest,keyword_id\nT09,MCP,SQL,no,6\n", encoding="utf-8")
+    mapping.write_text("topic_id,kind,cinode_id,cinode_name,match,relation\n", encoding="utf-8")
+    monkeypatch.setattr(curate, "AI_PROPOSAL", prop)
+    monkeypatch.setattr(curate, "AI_MAPPING", mapping)
+    st = state()
+    new, res = curate.curate(st, kws, curate.ai_sheet(st, kws)[0], sets(st))
+    by = {r["name"]: r for r in new}
+    assert by["Mentoring"]["skill_name"] == "SQL" and not by["Mentoring"]["suggested"]
+    assert by["SQL"]["suggested"] == "1"
