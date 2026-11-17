@@ -63,7 +63,8 @@ STATE = TAX / "skill_buckets.csv"
 MARKETABLE = TAX / "marketable_skills.csv"
 GROUPS: list[dict] = []  # optional reviewed groups (--groups), e.g. data/ai/topic_mapping.csv
 FIELDS = ["keyword_id", "name", "verified", "users", "bucket_id", "bucket_head", "decision",
-          "matched_keyword", "reason", "batch", "model", "skill_id", "skill_name"]
+          "matched_keyword", "reason", "batch", "model", "skill_id", "skill_name",
+          "suggested"]  # suggested: 1 = the keyword to pick for its skill set (set by src/curate.py)
 SHORTLIST = 15
 
 JUDGE_RULES = """\

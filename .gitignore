@@ -28,3 +28,6 @@ data/out/
 
 # Intermediate batch/decision files from src/buckets.py
 data/work/
+
+# Curation workbooks and import reports from src/curate.py
+data/curation/

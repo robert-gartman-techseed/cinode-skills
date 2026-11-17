@@ -37,6 +37,7 @@ data/external/techseed_web/ what_we_build.md: the 6 expertise areas from techsee
 src/load_duckdb.py       rebuilds db/cinode.duckdb from everything above
 src/skills.py            taxonomy core: catalog, synonym review, Wikidata, person summary
 src/buckets.py           taxonomy: alias buckets and marketable skills
+src/curate.py            taxonomy: Excel round trip for human curation
 src/ai_topics.py         AI layer: canonical AI skills, AI report, catalogue view
 src/fetch_api.py         direct-API fetcher (token from .env)
 tests/                   offline tests (uv run pytest)
@@ -215,6 +216,30 @@ judged only against a shortlist of up to 15 candidate buckets found by cheap
 signals (normalised name, spelling, sv/en token overlap, abbreviation, shared
 Wikidata item, same `--groups` group); a synonym with none of these in common can be
 missed.
+
+### Human curation round trip (`src/curate.py`)
+
+For hand curation of skill sets (level 2), aliases (level 1) and the suggested keyword per
+skill set, the taxonomy goes out to an Excel workbook and back:
+
+```
+uv run src/curate.py export                       # data/curation/curation_<date>.xlsx
+#   people edit it in Excel (or Google Sheets / Numbers, saved back as .xlsx)
+uv run src/curate.py check data/curation/X.xlsx   # validate + diff report, writes nothing
+uv run src/curate.py apply data/curation/X.xlsx   # same, then skill_buckets.csv + marketable_skills.csv
+```
+
+The Keywords sheet has one row per keyword with editable `skill_set` (dropdown; a new name
+creates a skill set), `alias_of` (blank = stands on its own, else the keyword it is an alias
+of, same skill set), `suggested` (x = the keyword consultants should pick for the skill set)
+and `comment` (kept as the reason). The Skill sets sheet has `rename_to` (rename, or merge when
+two share a name) and live counts; More keywords lists 1-person keywords that can be copied in.
+Errors (deleted rows, unknown keywords, aliases across skill sets, alias loops, a suggested
+alias, empty skill set) block `apply`; warnings (no suggested keyword, a likely typo in a new
+skill set name, a workbook exported before the taxonomy changed) do not. Every run writes a
+Markdown report next to the workbook. Changed rows get `decision=curated`, `model=human`.
+Until the first `apply`, the suggested keyword defaults to the bucket head named like the skill
+set, else the most used verified head. `data/curation/` is gitignored.
 
 ## AI hot topics (`src/ai_topics.py`, `data/ai/`)
 
