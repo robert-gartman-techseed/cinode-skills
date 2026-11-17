@@ -188,7 +188,7 @@ def cmd_export(args) -> None:
                 n += 1
                 v = view[r["keyword_id"]]
                 k = kws.get(r["keyword_id"], {})
-                ws.append([int(r["keyword_id"]), r["name"], r["verified"] == "True", int(r["users"] or 0),
+                ws.append([int(r["keyword_id"]), r["name"], r["verified"] == "True", k.get("users", int(r["users"] or 0)),
                            v["skill_set"], v["alias_of"], v["suggested"], "", k.get("type_name", ""),
                            v["skill_set"], v["alias_of"], v["suggested"],
                            f'=IF(OR(E{n}<>J{n},F{n}<>K{n},G{n}<>L{n}),"changed","")'])
