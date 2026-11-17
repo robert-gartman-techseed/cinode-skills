@@ -342,3 +342,4 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 11,skill,190445,Bot Framework,exact,narrower
 11,skill,66641,Azure Bot Framework,exact,narrower
 11,skill,198457,Copilot Studio,exact,related
+12,skill,362687,Agentic Automation,exact,synonym
