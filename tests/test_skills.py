@@ -144,7 +144,8 @@ def test_semantic_synonyms_and_scope():
     assert rel[("2", "LLM")] == "synonym"  # abbreviation of the same concept
     assert rel[("3", "LLM Agents")] == "synonym"  # other words, same concept
     assert rel[("3", "Agent Design")] == "narrower"  # part of the skill
-    assert rel[("6", "Context Engineering")] == "related"  # neighbouring skill
+    assert rel[("6", "Context Engineering")] == "synonym"  # Robert 2026-11-17: the skill set's headline
+    assert rel[("6", "Prompt Engineering")] == "narrower"  # one of several skills under it
     assert rel[("10", "AI/ML")] == "related"  # superset
 
 

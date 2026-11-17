@@ -123,3 +123,24 @@ def test_workbook_round_trip(tmp_path, monkeypatch):
     wb = load_workbook(path, data_only=True)
     new, res = curate.curate(st, KWS, curate.read_sheet(wb, curate.KW_SHEET), curate.read_sheet(wb, curate.SET_SHEET))
     assert not res.errors and list(res.changes) == ["Became an alias"]
+
+
+def test_ai_sync_moves_topic_buckets_and_sets_the_suggested_keyword(tmp_path, monkeypatch):
+    kws = {k: {**v, "master_synonym_id": "s" + k} for k, v in KWS.items()}
+    prop, mapping = tmp_path / "p.csv", tmp_path / "m.csv"
+    prop.write_text("topic_id,topic,skill_set,keyword_id\nT06,Prompting,Context Engineering,5\n"
+                    "T07,Other,,1\n", encoding="utf-8")
+    mapping.write_text("topic_id,kind,cinode_id,cinode_name,match,relation\n6,skill,s4,SQL,exact,synonym\n"
+                       "6,skill,s3,NumPy,exact,narrower\n6,skill,s6,Mentoring,exact,related\n"
+                       "6,skill,s9,Pandas,exact,narrower\n", encoding="utf-8")
+    monkeypatch.setattr(curate, "AI_PROPOSAL", prop)
+    monkeypatch.setattr(curate, "AI_MAPPING", mapping)
+    st = state()
+    rows, notes = curate.ai_sheet(st, kws)
+    new, res = curate.curate(st, kws, rows, sets(st))
+    assert not res.errors, res.errors
+    by = {r["name"]: r for r in new}
+    ce = {n for n, r in by.items() if r["skill_name"] == "Context Engineering"}
+    assert ce == {"T-SQL", "SQL", "NumPy", "Pandas"}  # related Mentoring stays; untouched T07
+    assert by["SQL"]["bucket_head"] == "T-SQL" and by["T-SQL"]["suggested"] == "1"  # synonym -> alias of proposed
+    assert by["NumPy"]["bucket_head"] == "NumPy" and not by["NumPy"]["suggested"]

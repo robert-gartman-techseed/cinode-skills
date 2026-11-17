@@ -23,8 +23,8 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 5,skill,149341,Retrieval-Augmented Generation (RAG),exact,synonym
 5,skill,140239,Retrieval-Augmented Generation,exact,synonym
 5,skill,134969,RAG,exact,synonym
-6,skill,116239,Prompt Engineering,exact,synonym
-6,skill,253290,Context Engineering,exact,related
+6,skill,116239,Prompt Engineering,exact,narrower
+6,skill,253290,Context Engineering,exact,synonym
 7,skill,147371,Vector Databases,exact,related
 7,skill,232472,Vektordatabaser,exact,related
 7,skill,76763,Embeddings,exact,synonym
@@ -158,10 +158,10 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 4,skill,327651,Agent Orchestration,exact,narrower
 4,skill,307208,Cooperative AI Systems,close,synonym
 5,skill,126552,RAG (LLM),exact,synonym
-6,skill,325814,AI Context Engineering,exact,related
-6,skill,301856,AI Prompting,exact,synonym
-6,skill,277103,AI promptning,exact,synonym
-6,skill,148552,LLM prompting,exact,synonym
+6,skill,325814,AI Context Engineering,exact,synonym
+6,skill,301856,AI Prompting,exact,narrower
+6,skill,277103,AI promptning,exact,narrower
+6,skill,148552,LLM prompting,exact,narrower
 10,skill,80363,Machine Learning & AI,close,related
 10,skill,123693,AI/ML,close,related
 10,skill,95762,ML/AI,close,related
@@ -309,3 +309,5 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 13,skill,260071,Model Quantization,close,narrower
 20,skill,21829,Gemini,close,product
 33,skill,87092,Embedded AI,close,related
+6,skill,185716,Prompting,exact,narrower
+6,skill,258196,Prompt Design,exact,narrower

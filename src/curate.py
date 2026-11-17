@@ -4,6 +4,7 @@
     #   people edit the Keywords and Skill sets sheets in Excel (or Google Sheets / Numbers)
     uv run src/curate.py check  FILE.xlsx       # validate + diff report, changes nothing
     uv run src/curate.py apply  FILE.xlsx       # same, then writes skill_buckets.csv + marketable_skills.csv
+    uv run src/curate.py ai-sync [--apply]      # AI topics with a skill_set in data/ai/ai_skillset_proposal.csv
 
 Model (one row per keyword in the Keywords sheet):
   skill_set  the level-2 marketable skill the keyword belongs to (buyer-facing headline)
@@ -513,6 +514,10 @@ def cmd_import(args, apply: bool) -> int:
     state = buckets.read_state()
     kws = skills.load_keywords()
     new_state, res = curate(state, kws, read_sheet(wb, KW_SHEET), read_sheet(wb, SET_SHEET))
+    return finish(res, new_state, src, apply)
+
+
+def finish(res: Result, new_state: list[dict], src: Path, apply: bool) -> int:
     do_apply = apply and not res.errors
     text = report(res, src, do_apply)
     OUT.mkdir(parents=True, exist_ok=True)
@@ -533,6 +538,78 @@ def cmd_import(args, apply: bool) -> int:
     return 1 if res.errors else 0
 
 
+# ---------- AI layer -> taxonomy ----------
+
+AI_PROPOSAL = skills.AI / "ai_skillset_proposal.csv"
+AI_MAPPING = skills.AI / "topic_mapping.csv"
+
+
+def ai_sheet(state: list[dict], kws: dict[str, dict]) -> tuple[list[dict], list[str]]:
+    """Keywords-sheet rows with the AI proposal applied (proposal wins for topics with a skill_set).
+
+    For each topic in ai_skillset_proposal.csv with a `skill_set`: its keywords in topic_mapping.csv
+    with relation synonym or narrower (and the proposed keyword) move to that skill set with their
+    whole alias bucket; synonyms become aliases of the proposed keyword, which heads its bucket and
+    is the skill set's only suggested keyword. Products and related keywords are not moved.
+    """
+    view = current_view(state)
+    name = {r["keyword_id"]: r["name"] for r in state}
+    rows = {k: {"keyword_id": k, "keyword": name[k], **v, "comment": ""} for k, v in view.items()}
+    by_syn = {k["master_synonym_id"]: kid for kid, k in kws.items()}
+    by_name = {k["master_synonym"].casefold(): kid for kid, k in kws.items()}
+    notes = []
+
+    def head(k):
+        return rows[k]["alias_of"] or rows[k]["keyword"]
+
+    for p in skills.read_csv(AI_PROPOSAL):
+        sset = norm(p.get("skill_set"))
+        if not sset:
+            continue
+        tid, pk = p["topic_id"], p["keyword_id"]
+        if pk not in kws:
+            notes.append(f"{tid}: proposed keyword id {pk} unknown; skipped")
+            continue
+        rel = {}
+        for m in skills.read_csv(AI_MAPPING):
+            if m["kind"] == "skill" and f"T{int(m['topic_id']):02d}" == tid and m["relation"] in ("synonym", "narrower"):
+                k = by_syn.get(m["cinode_id"]) or by_name.get(m["cinode_name"].casefold())
+                if k:
+                    rel[k] = m["relation"]
+        rel[pk] = "synonym"
+        for k in rel:
+            if k not in rows:
+                rows[k] = {"keyword_id": k, "keyword": kws[k]["master_synonym"], "skill_set": sset, "alias_of": "",
+                           "suggested": "", "comment": f"added from AI topic {tid}"}
+        heads = {head(k) for k in rel}
+        moved = [k for k in rows if head(k) in heads]
+        for k in moved:
+            rows[k]["skill_set"] = sset
+        pname = rows[pk]["keyword"]
+        syn_heads = {head(k) for k, r in rel.items() if r == "synonym"}
+        for k in moved:
+            if head(k) in syn_heads:
+                rows[k]["alias_of"] = "" if k == pk else pname
+        for r in rows.values():
+            if r["skill_set"] == sset:
+                r["suggested"] = "x" if r["keyword_id"] == pk else ""
+        for k in moved:
+            rows[k]["comment"] = rows[k]["comment"] or f"AI topic {tid} ({p.get('topic', '')})"
+        notes.append(f"{tid} -> skill set '{sset}', suggested '{pname}', {len(moved)} keywords")
+    return [{"_row": i, **r} for i, r in enumerate(rows.values(), 2)], notes
+
+
+def cmd_ai_sync(args) -> int:
+    state = buckets.read_state()
+    kws = skills.load_keywords()
+    kw_rows, notes = ai_sheet(state, kws)
+    set_rows = [{"_row": 0, "skill_set": n} for n in dict.fromkeys(norm(r["skill_name"]) for r in state)]
+    new_state, res = curate(state, kws, kw_rows, set_rows)
+    if not res.errors:
+        res.changes = {"AI topics synced": notes, **res.changes}
+    return finish(res, new_state, AI_PROPOSAL, args.apply)
+
+
 def main() -> int:
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -541,7 +618,11 @@ def main() -> int:
     for name in ("check", "apply"):
         s = sub.add_parser(name, help=f"{name} an edited workbook")
         s.add_argument("file")
+    a = sub.add_parser("ai-sync", help="move AI topics with a skill_set in ai_skillset_proposal.csv into the taxonomy")
+    a.add_argument("--apply", action="store_true", help="write the result (default: report only)")
     args = p.parse_args()
+    if args.cmd == "ai-sync":
+        return cmd_ai_sync(args)
     if args.cmd == "export":
         cmd_export(args)
         return 0

@@ -242,6 +242,14 @@ Markdown report next to the workbook. Changed rows get `decision=curated`, `mode
 Until the first `apply`, the suggested keyword defaults to the bucket head named like the skill
 set, else the most used verified head. `data/curation/` is gitignored.
 
+AI topics are curated in `data/ai/ai_skillset_proposal.csv` instead: give a topic a `skill_set`
+(and its `proposed_keyword` / `keyword_id`), then `uv run src/curate.py ai-sync` (report) and
+`ai-sync --apply`. The topic's synonym and narrower keywords from `topic_mapping.csv` move into
+that skill set with their alias buckets, synonyms become aliases of the proposed keyword, and the
+proposed keyword becomes the skill set's suggested keyword. Products and related keywords stay
+where they are. The proposal wins for those keywords, so run `ai-sync` again after a workbook
+`apply`.
+
 ## AI hot topics (`src/ai_topics.py`, `data/ai/`)
 
 The hot AI topics (`hot_topics.csv`, 39 topics: T01-T31 from the sales team,

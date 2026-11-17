@@ -46,12 +46,14 @@
   "Retrieval-Augmented Generation (RAG)": "synonym"
  },
  "T06": {
-  "AI Context Engineering": "related",
-  "AI Prompting": "synonym",
-  "AI promptning": "synonym",
-  "Context Engineering": "related",
-  "LLM prompting": "synonym",
-  "Prompt Engineering": "synonym"
+  "AI Context Engineering": "synonym",
+  "AI Prompting": "narrower",
+  "AI promptning": "narrower",
+  "Context Engineering": "synonym",
+  "LLM prompting": "narrower",
+  "Prompt Design": "narrower",
+  "Prompt Engineering": "narrower",
+  "Prompting": "narrower"
  },
  "T07": {
   "Embeddings": "synonym",
