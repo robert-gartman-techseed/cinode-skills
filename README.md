@@ -233,7 +233,8 @@ The Keywords sheet has one row per keyword with editable `skill_set` (dropdown; 
 creates a skill set), `alias_of` (blank = stands on its own, else the keyword it is an alias
 of, same skill set), `suggested` (x = the keyword consultants should pick for the skill set)
 and `comment` (kept as the reason). The Skill sets sheet has `rename_to` (rename, or merge when
-two share a name) and live counts; More keywords lists 1-person keywords that can be copied in.
+two share a name), keyword counts and uses (live) and distinct people per skill set (at
+export, when profile data is loaded); More keywords lists 1-person keywords that can be copied in.
 Errors (deleted rows, unknown keywords, aliases across skill sets, alias loops, a suggested
 alias, empty skill set) block `apply`; warnings (no suggested keyword, a likely typo in a new
 skill set name, a workbook exported before the taxonomy changed) do not. Every run writes a

@@ -38,10 +38,11 @@ import skills  # noqa: E402
 
 OUT = skills.ROOT / "data" / "curation"
 KW_SHEET, SET_SHEET, MORE_SHEET, README_SHEET = "Keywords", "Skill sets", "More keywords", "Read me"
-KW_COLS = ["keyword_id", "keyword", "verified", "users", "skill_set", "alias_of", "suggested", "comment",
+KW_COLS = ["keyword_id", "keyword", "verified", "people", "skill_set", "alias_of", "suggested", "comment",
            "cinode_type", "was_skill_set", "was_alias_of", "was_suggested", "changed"]
 EDITABLE = {"skill_set", "alias_of", "suggested", "comment"}
-SET_COLS = ["skill_id", "skill_set", "rename_to", "keywords", "users", "suggested_at_export", "comment"]
+SET_COLS = ["skill_id", "skill_set", "rename_to", "keywords", "keyword_uses", "people_at_export",
+            "suggested_at_export", "comment"]
 YES = {"x", "yes", "y", "1", "true", "ja", "sant"}
 MAX_ROWS = 20000
 
@@ -56,6 +57,8 @@ Skills are a sales tool: consultant buyers search them. Judge every move with th
 would a buyer searching for one keyword consider a consultant listing the other to have the same
 marketable skill?
 
+'people' in the Keywords sheet is the number of TechSeed employees listing that keyword.
+
 Edit only the yellow columns in the Keywords sheet:
   skill_set   which skill set (buyer-facing headline) the keyword belongs to. Pick from the list,
               or type a new name to create a new skill set.
@@ -68,7 +71,10 @@ Edit only the yellow columns in the Keywords sheet:
   comment     free text; kept as the reason for the change.
 
 Skill sets sheet: type a new name in rename_to to rename a skill set. Give two skill sets the same
-rename_to to merge them. keywords / users update as you edit.
+rename_to to merge them. keywords and keyword_uses update as you edit. keyword_uses adds up
+'people' per keyword, so a person listing two keywords of a skill set counts twice; it measures
+how often the skill set's keywords are used, not how many people have it. people_at_export is the
+number of distinct employees (filled only when profile data is loaded locally).
 
 More keywords sheet: keywords used by only one person (not yet in the taxonomy). To bring one in,
 copy its row into the bottom of the Keywords sheet and fill in skill_set.
@@ -133,6 +139,25 @@ def current_view(state: list[dict]) -> dict[str, dict]:
 
 # ---------- export ----------
 
+def people_per_skill(state: list[dict]) -> dict[str, int]:
+    """skill_id -> distinct employees with any of its keywords (aggregate only); {} without profile data."""
+    db = skills.ROOT / "db" / "cinode.duckdb"
+    if not db.exists():
+        return {}
+    import duckdb
+    try:
+        con = duckdb.connect(str(db), read_only=True)
+        pairs = con.sql("SELECT DISTINCT CAST(keyword_id AS VARCHAR), company_user_id FROM employee_skills").fetchall()
+    except duckdb.Error:
+        return {}
+    skill_of = {r["keyword_id"]: r["skill_id"] for r in state}
+    who = defaultdict(set)
+    for k, u in pairs:
+        if k in skill_of:
+            who[skill_of[k]].add(u)
+    return {s: len(v) for s, v in who.items()}
+
+
 def cmd_export(args) -> None:
     state = buckets.read_state()
     kws = skills.load_keywords()
@@ -148,6 +173,7 @@ def cmd_export(args) -> None:
         ws_r.cell(i, 1, line).font = Font(name="Menlo", size=11, bold=(i == 1))
     ws_r.column_dimensions["A"].width = 110
 
+    people = people_per_skill(state)
     ws = wb.create_sheet(KW_SHEET)
     ws.append(KW_COLS)
     order = sorted(by_skill, key=lambda s: (-buckets.bucket_users(by_skill[s]), by_skill[s][0]["skill_name"]))
@@ -176,24 +202,33 @@ def cmd_export(args) -> None:
         rs = by_skill[sid]
         sug = "; ".join(r["name"] for r in rs if view[r["keyword_id"]]["suggested"])
         ws_s.append([int(sid), rs[0]["skill_name"], "", f"=COUNTIF('{KW_SHEET}'!$E:$E,B{i})",
-                     f"=SUMIF('{KW_SHEET}'!$E:$E,B{i},'{KW_SHEET}'!$D:$D)", sug, ""])
-    _style_table(ws_s, {"skill_id": 9, "skill_set": 38, "rename_to": 30, "keywords": 10, "users": 8,
-                        "suggested_at_export": 40, "comment": 40}, editable={"rename_to", "comment"})
+                     f"=SUMIF('{KW_SHEET}'!$E:$E,B{i},'{KW_SHEET}'!$D:$D)", people.get(sid), sug, ""])
+    _style_table(ws_s, {"skill_id": 9, "skill_set": 38, "rename_to": 30, "keywords": 10, "keyword_uses": 13,
+                        "people_at_export": 16, "suggested_at_export": 40, "comment": 40},
+                 editable={"rename_to", "comment"})
+    ws_s.cell(1, SET_COLS.index("keyword_uses") + 1).comment = Comment(
+        "Sum of 'people' over the skill set's keywords. One person listing two of its keywords counts twice, "
+        "so this is keyword uses, not people. Updates as you edit.", "curate")
+    ws_s.cell(1, SET_COLS.index("people_at_export") + 1).comment = Comment(
+        "Distinct employees with at least one keyword of the skill set, at export time (from the local "
+        "profile data). Blank when profiles are not loaded. Does not update as you edit.", "curate")
 
     ws_m = wb.create_sheet(MORE_SHEET)
-    ws_m.append(["keyword_id", "keyword", "verified", "users", "cinode_type", "synonyms"])
+    ws_m.append(["keyword_id", "keyword", "verified", "people", "cinode_type", "synonyms"])
     in_state = {r["keyword_id"] for r in state}
     more = sorted((k for k in kws.values() if k["keyword_id"] not in in_state),
                   key=lambda k: (-k["users"], not k["is_verified"], k["master_synonym"].lower()))
     for k in more:
         ws_m.append([int(k["keyword_id"]), k["master_synonym"], k["is_verified"], k["users"], k["type_name"],
                      "; ".join(k["syn_list"][:8])])
-    _style_table(ws_m, {"keyword_id": 11, "keyword": 40, "verified": 9, "users": 7, "cinode_type": 18,
+    _style_table(ws_m, {"keyword_id": 11, "keyword": 40, "verified": 9, "people": 7, "cinode_type": 18,
                         "synonyms": 80}, editable=set())
 
     OUT.mkdir(parents=True, exist_ok=True)
     path = Path(args.out) if args.out else OUT / f"curation_{dt.date.today():%Y-%m-%d}.xlsx"
     wb.save(path)
+    if not people:
+        print("No profile data in db/cinode.duckdb: people_at_export left blank (run load_duckdb.py with profiles)")
     print(f"Wrote {path.relative_to(skills.ROOT) if path.is_relative_to(skills.ROOT) else path}: "
           f"{n - 1} keywords, {len(order)} skill sets, {len(more)} more keywords")
 
@@ -210,7 +245,7 @@ def _style_table(ws, widths: dict[str, int], editable: set[str]) -> None:
 
 
 def _style_keywords(ws, last: int) -> None:
-    widths = {"keyword_id": 11, "keyword": 36, "verified": 9, "users": 7, "skill_set": 32, "alias_of": 30,
+    widths = {"keyword_id": 11, "keyword": 36, "verified": 9, "people": 7, "skill_set": 32, "alias_of": 30,
               "suggested": 10, "comment": 30, "cinode_type": 16, "was_skill_set": 26, "was_alias_of": 22,
               "was_suggested": 9, "changed": 9}
     _style_table(ws, widths, EDITABLE)
