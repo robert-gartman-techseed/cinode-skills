@@ -64,7 +64,7 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 15,tag,299197,Snowflake,exact,
 15,tag,302971,Microsoft Fabric,exact,
 15,tag,266280,Dataplattform,exact,
-16,skill,157638,LLM Evaluation,exact,synonym
+16,skill,157638,LLM Evaluation,exact,narrower
 16,skill,153854,Monitoring and observability,close,related
 16,tag,306983,Observability,close,
 17,skill,128659,Microsoft 365 Copilot,exact,synonym
@@ -170,7 +170,7 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 10,skill,139804,AI och maskininlärning,close,related
 13,skill,163171,AI Model Deployment,close,narrower
 13,skill,348349,LLM Model Inference Optimization,close,narrower
-16,skill,310964,AI/ML model evaluation,exact,related
+16,skill,310964,AI/ML model evaluation,exact,narrower
 17,skill,168588,Copilot metrics,close,narrower
 18,skill,265102,Azure AI Foundry / OpenAI / Azure AI,exact,product
 18,skill,94875,Azure AI Engineer Associate,close,related
@@ -283,7 +283,7 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 11,skill,99862,Text to speech,close,narrower
 13,skill,86635,MLflow,close,product
 13,skill,35570,Cost Optimization,close,related
-16,skill,86653,Model Evaluation,exact,synonym
+16,skill,86653,Model Evaluation,exact,narrower
 16,skill,16775,Evaluation,close,related
 23,skill,61233,Codex,close,product
 27,skill,115765,Red teaming,close,narrower
@@ -355,3 +355,26 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 14,skill,342826,AI Data Engineering,exact,narrower
 14,skill,97382,Data preprocessing,exact,narrower
 14,skill,147371,Vector Databases,exact,narrower
+16,skill,219286,AI Quality Assurance,exact,synonym
+16,skill,106356,AI testing,exact,synonym
+16,skill,274413,AI testing strategies,exact,synonym
+16,skill,337342,Evals / LLM evaluation,exact,narrower
+16,skill,371187,LLM evaluation and observability,exact,narrower
+16,skill,356694,LLM Evaluation & Release Gates,exact,narrower
+16,skill,324430,AI evaluation,exact,narrower
+16,skill,324237,ML Model Validation,exact,narrower
+16,skill,136535,Model Validation and Evaluation,exact,narrower
+16,skill,263779,ISTQB AI Testing,exact,narrower
+16,skill,343354,ISTQB Specialist Certificate in AI Testing,exact,narrower
+16,skill,250593,LangFuse,exact,narrower
+16,skill,265090,Langfuse (spårning av promptar),exact,narrower
+16,skill,265105,Langfuse (utvärdering och spårning av promptar),exact,narrower
+16,skill,201971,langsmith,exact,narrower
+16,skill,168160,RAGAS,exact,narrower
+16,skill,272055,Deepeval,exact,narrower
+16,skill,360582,Promptfoo,exact,narrower
+16,skill,115765,Red teaming,exact,narrower
+16,skill,346111,Bias & fairness,exact,narrower
+16,skill,337420,Algorithmic Fairness,exact,narrower
+16,skill,370409,AI - Fairness evaluation,exact,narrower
+16,skill,264539,RAG System Validation,exact,narrower

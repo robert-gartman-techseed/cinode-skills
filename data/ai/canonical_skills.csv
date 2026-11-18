@@ -14,7 +14,7 @@ T12,Intelligent automation / Agentic process automation,"Automates business proc
 T13,MLOps / LLMOps / AI FinOps,"Runs ML/LLM models in production: deployment, versioning, monitoring, retraining, CI/CD for models, and inference cost control (AI FinOps).",Drift plattform och data,True,53537,
 T14,AI-ready data / datastrategi,"Prepares data for AI and machine learning: quality, labelling and annotation, feature engineering, training and synthetic data, and vector stores for retrieval.",Drift plattform och data,True,325866,
 T15,Data lakehouse / Data platform,"Designs and builds data platforms (lakehouse, warehouse, e.g. Databricks, Fabric, Snowflake) that AI and analytics run on.",Drift plattform och data,False,38849,
-T16,Evaluering / guardrails / agent-observability,"Measures and controls AI quality in use: test sets, evals of answers and agent runs, guardrails, tracing, drift and user feedback.",Drift plattform och data,True,133070,
+T16,Evaluering / guardrails / agent-observability,"Tests and assures the quality of AI systems: evaluations of model and agent output, LLM observability, red teaming, bias and fairness testing, and model validation.",Drift plattform och data,True,189321,
 T17,Microsoft Copilot / M365 Copilot,"Introduces and gets value from Microsoft 365 Copilot and Copilot Chat: licensing, data access, adoption and use cases.",Verktyg och plattformar,True,108251,
 T18,Copilot Studio / Azure AI Foundry,"Builds custom copilots and agents with Copilot Studio and Azure AI Foundry, connected to company data and systems.",Verktyg och plattformar,True,169842,
 T19,Azure OpenAI / OpenAI API,"Builds applications on OpenAI models via Azure OpenAI or the OpenAI API, incl. security, quotas and responsible use.",Verktyg och plattformar,True,92251,
