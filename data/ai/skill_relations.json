@@ -331,10 +331,6 @@
   "AI Strategy": "synonym",
   "AI-driven business strategy": "related"
  },
- "T29": {
-  "AI Use Case Discovery": "synonym",
-  "AI Use Cases": "synonym"
- },
  "T30": {
   "AI Adoption & Enablement": "related",
   "AI Enablement (Technical & Governance)": "related",
@@ -346,7 +342,9 @@
   "MS Copilot": "product",
   "Microsoft 365 / Copilot": "product",
   "Microsoft 365 Copilot": "product",
-  "Microsoft Copilot": "product"
+  "Microsoft Copilot": "product",
+  "AI Use Case Discovery": "narrower",
+  "AI Use Cases": "narrower"
  },
  "T31": {
   "AI-based Decision Support": "related",

@@ -130,9 +130,9 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 28,skill,169259,AI-Strateg,exact,related
 28,skill,154812,AI Strategist,close,related
 28,tag,258463,AI strategi,exact,
-29,skill,320245,AI Use Case Discovery,exact,synonym
-29,skill,141097,AI Use Cases,exact,synonym
-29,skill,173309,AI in Business Development,close,related
+30,skill,320245,AI Use Case Discovery,exact,narrower
+30,skill,141097,AI Use Cases,exact,narrower
+30,skill,173309,AI in Business Development,close,related
 30,skill,188676,AI Transformation,exact,synonym
 30,skill,340945,AI Adoption & Enablement,exact,related
 30,skill,153877,AI implementation,close,related
@@ -203,7 +203,7 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 26,skill,289462,Supported organizations in aligning AI initiatives with governance frameworks and compliance standards.,exact,synonym
 27,skill,307248,Secure AI Workflows,close,related
 28,skill,325904,AI-driven business strategy,exact,related
-29,skill,348080,AI-stödd verksamhetsutveckling,close,related
+30,skill,348080,AI-stödd verksamhetsutveckling,close,related
 30,skill,327938,AI Enablement (Technical & Governance),close,related
 30,skill,312071,AI Enablement Lead,close,related
 30,skill,316363,AI-acceleration,close,related
