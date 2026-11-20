@@ -51,7 +51,23 @@
   "Agentisk utveckling": "synonym",
   "Implementation av AI-agenter": "synonym",
   "LLM Agents": "synonym",
-  "OpenAI Agents": "product"
+  "OpenAI Agents": "product",
+  "Azure AI Foundry Agents": "product",
+  "FastMCP": "product",
+  "MCP (Model Context Protocol)": "narrower",
+  "MCP Server Development": "narrower",
+  "MCP server": "narrower",
+  "MCP servers": "narrower",
+  "Model Context Protocol": "narrower",
+  "Model Context Protocol (MCP": "narrower",
+  "Model Context Protocol (MCP)": "narrower",
+  "n8n Automations": "product",
+  "Azure AI Engineer Associate": "related",
+  "Azure AI Foundry": "product",
+  "Azure AI Foundry / OpenAI / Azure AI": "product",
+  "Azure Foundry": "product",
+  "Copilot Studio": "product",
+  "Microsoft Azure AI Foundry": "product"
  },
  "T04": {
   "Agent Orchestration": "synonym",
@@ -99,19 +115,6 @@
   "LoRA fine-tuning": "narrower",
   "Machine Learning Model Fine-Tuning": "synonym"
  },
- "T09": {
-  "Azure AI Foundry Agents": "product",
-  "FastMCP": "product",
-  "MCP (Model Context Protocol)": "synonym",
-  "MCP Server Development": "synonym",
-  "MCP server": "synonym",
-  "MCP servers": "synonym",
-  "Model Context Protocol": "synonym",
-  "Model Context Protocol (MCP": "synonym",
-  "Model Context Protocol (MCP)": "synonym",
-  "OpenAI Agents": "product",
-  "n8n Automations": "product"
- },
  "T10": {
   "AI och maskininlärning": "related",
   "AI/ML": "related",
@@ -123,7 +126,23 @@
   "Machine Learning & AI": "related",
   "Machine Learning Integration": "narrower",
   "Maskininlärning": "synonym",
-  "Maskinlæring": "synonym"
+  "Maskinlæring": "synonym",
+  "Data Science": "related",
+  "Hugging Face": "product",
+  "Jupyter": "product",
+  "Jupyter Notebook": "product",
+  "Keras": "product",
+  "Matplotlib": "product",
+  "NumPy": "product",
+  "Pandas": "product",
+  "Polars": "product",
+  "PySpark": "product",
+  "PyTorch": "product",
+  "Python": "related",
+  "Python programming language": "related",
+  "Scikit-learn": "product",
+  "Streamlit": "product",
+  "TensorFlow": "product"
  },
  "T11": {
   "Azure Bot Framework": "narrower",
@@ -219,43 +238,6 @@
   "Red teaming": "narrower",
   "langsmith": "narrower"
  },
- "T17": {
-  "Copilot for Microsoft 365": "synonym",
-  "Copilot för Microsoft 365": "synonym",
-  "Copilot metrics": "narrower",
-  "M365 Copilot": "synonym",
-  "MS Copilot": "related",
-  "Microsoft 365 / Copilot": "synonym",
-  "Microsoft 365 Copilot": "synonym",
-  "Microsoft Copilot": "related"
- },
- "T18": {
-  "Azure AI Engineer Associate": "related",
-  "Azure AI Foundry": "product",
-  "Azure AI Foundry / OpenAI / Azure AI": "product",
-  "Azure AI Foundry Agents": "product",
-  "Azure Foundry": "product",
-  "Copilot Studio": "synonym",
-  "Microsoft Azure AI Foundry": "product"
- },
- "T22": {
-  "Data Science": "related",
-  "Hugging Face": "product",
-  "Jupyter": "product",
-  "Jupyter Notebook": "product",
-  "Keras": "product",
-  "Matplotlib": "product",
-  "NumPy": "product",
-  "Pandas": "product",
-  "Polars": "product",
-  "PySpark": "product",
-  "PyTorch": "synonym",
-  "Python": "related",
-  "Python programming language": "related",
-  "Scikit-learn": "product",
-  "Streamlit": "product",
-  "TensorFlow": "product"
- },
  "T23": {
   "AI Coding (codex & Claude code)": "synonym",
   "AI Coding - Codex & Claude Code": "synonym",
@@ -319,7 +301,15 @@
  "T30": {
   "AI Adoption & Enablement": "related",
   "AI Enablement (Technical & Governance)": "related",
-  "AI Transformation": "synonym"
+  "AI Transformation": "synonym",
+  "Copilot for Microsoft 365": "product",
+  "Copilot för Microsoft 365": "product",
+  "Copilot metrics": "product",
+  "M365 Copilot": "product",
+  "MS Copilot": "product",
+  "Microsoft 365 / Copilot": "product",
+  "Microsoft 365 Copilot": "product",
+  "Microsoft Copilot": "product"
  },
  "T31": {
   "AI-based Decision Support": "related",

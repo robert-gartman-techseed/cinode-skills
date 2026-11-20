@@ -29,8 +29,8 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 7,skill,232472,Vektordatabaser,exact,related
 7,skill,76763,Embeddings,exact,synonym
 7,skill,130885,Pgvector,exact,product
-9,skill,229030,MCP (Model Context Protocol),exact,synonym
-9,skill,266559,FastMCP,close,product
+3,skill,229030,MCP (Model Context Protocol),exact,narrower
+3,skill,266559,FastMCP,close,product
 10,skill,4931,Machine Learning,exact,synonym
 10,skill,9132,Maskininlärning,exact,synonym
 10,skill,72195,Maskinlæring,exact,synonym
@@ -67,20 +67,20 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 16,skill,157638,LLM Evaluation,exact,narrower
 16,skill,153854,Monitoring and observability,close,related
 16,tag,306983,Observability,close,
-17,skill,128659,Microsoft 365 Copilot,exact,synonym
-17,skill,165451,M365 Copilot,exact,synonym
-17,skill,182599,Copilot for Microsoft 365,exact,synonym
-17,skill,138163,Microsoft Copilot,exact,related
-17,skill,356364,Microsoft 365 / Copilot,exact,synonym
-17,skill,179679,MS Copilot,exact,related
-17,tag,306433,Microsoft 365,close,
-18,skill,198457,Copilot Studio,exact,synonym
-18,skill,210616,Azure AI Foundry,exact,product
-18,skill,267436,Microsoft Azure AI Foundry,exact,product
-18,skill,286986,Azure Foundry,exact,product
-18,skill,330440,Azure AI Foundry Agents,exact,product
-18,tag,302964,Power Platform,close,
-18,tag_type,11450,Power Platform,close,
+30,skill,128659,Microsoft 365 Copilot,exact,product
+30,skill,165451,M365 Copilot,exact,product
+30,skill,182599,Copilot for Microsoft 365,exact,product
+30,skill,138163,Microsoft Copilot,exact,product
+30,skill,356364,Microsoft 365 / Copilot,exact,product
+30,skill,179679,MS Copilot,exact,product
+30,tag,306433,Microsoft 365,close,
+3,skill,198457,Copilot Studio,exact,product
+3,skill,210616,Azure AI Foundry,exact,product
+3,skill,267436,Microsoft Azure AI Foundry,exact,product
+3,skill,286986,Azure Foundry,exact,product
+3,skill,330440,Azure AI Foundry Agents,exact,product
+3,tag,302964,Power Platform,close,
+3,tag_type,11450,Power Platform,close,
 2,skill,119799,Azure Openai,exact,product
 2,skill,121665,OpenAI API,exact,product
 2,skill,123596,OpenAI APIs,exact,product
@@ -93,10 +93,10 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 2,skill,120381,Langchain,exact,product
 2,skill,200947,LangGraph,exact,product
 2,skill,350443,LangGraph/LangChain,exact,product
-22,skill,2930,Python,exact,related
-22,skill,43517,PyTorch,exact,synonym
-22,skill,92384,Hugging Face,exact,product
-22,tag,296163,Python,exact,
+10,skill,2930,Python,exact,related
+10,skill,43517,PyTorch,exact,product
+10,skill,92384,Hugging Face,exact,product
+10,tag,296163,Python,exact,
 23,skill,83705,GitHub Copilot,exact,product
 23,skill,229624,AI-assisted development,exact,synonym
 23,skill,325388,AI-assisterad mjukvaruutveckling,exact,synonym
@@ -142,7 +142,7 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 30,tag,305302,Transformation Lead,close,
 2,skill,121456,LLM,exact,synonym
 11,skill,90746,NLU,close,related
-17,skill,138130,Copilot för Microsoft 365,exact,synonym
+30,skill,138130,Copilot för Microsoft 365,exact,product
 23,skill,97294,Cursors,close,product
 1,skill,351204,AI & Generative AI,close,related
 1,skill,327469,AI och Generativ AI,close,related
@@ -171,9 +171,9 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 13,skill,163171,AI Model Deployment,close,narrower
 13,skill,348349,LLM Model Inference Optimization,close,narrower
 16,skill,310964,AI/ML model evaluation,exact,narrower
-17,skill,168588,Copilot metrics,close,narrower
-18,skill,265102,Azure AI Foundry / OpenAI / Azure AI,exact,product
-18,skill,94875,Azure AI Engineer Associate,close,related
+30,skill,168588,Copilot metrics,close,product
+3,skill,265102,Azure AI Foundry / OpenAI / Azure AI,exact,product
+3,skill,94875,Azure AI Engineer Associate,close,related
 2,skill,113978,Open AI,exact,product
 2,skill,167444,open ai api,exact,product
 2,skill,261813,Open AI Integration,exact,product
@@ -274,9 +274,7 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 39,skill,252549,Cybersecurity Standards (IEC62443-4-2),close,narrower
 39,skill,238190,Digitala Produktpass (DPP),close,narrower
 39,skill,343120,DPP (digitala produktpass),close,narrower
-9,skill,309299,OpenAI Agents,close,product
-9,skill,330440,Azure AI Foundry Agents,close,product
-9,skill,263505,n8n Automations,close,product
+3,skill,263505,n8n Automations,close,product
 11,skill,176651,OpenAI Whisper,close,product
 11,skill,3444,Speech Recognition,close,narrower
 11,skill,105712,Speech-to-text,close,narrower
@@ -291,18 +289,18 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 27,skill,264640,Zero-Trust Security,close,related
 38,skill,233678,Ollama/ self-host AI,close,product
 38,skill,154934,llama.cpp,close,product
-22,skill,27842,TensorFlow,exact,product
-22,skill,17603,Scikit-learn,exact,product
-22,skill,35639,Keras,exact,product
-22,skill,13803,NumPy,exact,product
-22,skill,24759,Pandas,exact,product
-22,skill,28541,Matplotlib,exact,product
-22,skill,63162,Jupyter,exact,product
-22,skill,31180,Jupyter Notebook,exact,product
-22,skill,23985,PySpark,close,product
-22,skill,121195,Polars,close,product
-22,skill,76511,Streamlit,close,product
-22,skill,9889,Data Science,close,related
+10,skill,27842,TensorFlow,exact,product
+10,skill,17603,Scikit-learn,exact,product
+10,skill,35639,Keras,exact,product
+10,skill,13803,NumPy,exact,product
+10,skill,24759,Pandas,exact,product
+10,skill,28541,Matplotlib,exact,product
+10,skill,63162,Jupyter,exact,product
+10,skill,31180,Jupyter Notebook,exact,product
+10,skill,23985,PySpark,close,product
+10,skill,121195,Polars,close,product
+10,skill,76511,Streamlit,close,product
+10,skill,9889,Data Science,close,related
 13,skill,41378,Airflow,close,product
 13,skill,49079,Apache Airflow,close,product
 13,skill,34481,Amazon SageMaker,close,product
@@ -326,12 +324,12 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 8,skill,346124,Fine-tuning & PEFT/LoRA,exact,narrower
 8,skill,274978,LoRA fine-tuning,exact,narrower
 8,skill,267276,Code Fine-Tuning,exact,narrower
-9,skill,220199,Model Context Protocol,exact,synonym
-9,skill,296974,Model Context Protocol (MCP,exact,synonym
-9,skill,347321,Model Context Protocol (MCP),exact,synonym
-9,skill,236855,MCP server,exact,synonym
-9,skill,283786,MCP servers,exact,synonym
-9,skill,265515,MCP Server Development,exact,synonym
+3,skill,220199,Model Context Protocol,exact,narrower
+3,skill,296974,Model Context Protocol (MCP,exact,narrower
+3,skill,347321,Model Context Protocol (MCP),exact,narrower
+3,skill,236855,MCP server,exact,narrower
+3,skill,283786,MCP servers,exact,narrower
+3,skill,265515,MCP Server Development,exact,narrower
 11,skill,60062,Conversational AI,exact,synonym
 11,skill,34813,Chatbot,exact,synonym
 11,skill,35161,Chatbots,exact,synonym

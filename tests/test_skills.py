@@ -125,7 +125,7 @@ def test_topic_mapping_relations():
     assert rows and all(r["relation"] in skills.RELATIONS for r in rows)
     rel = {(r["topic_id"], r["cinode_name"]): r["relation"] for r in rows}
     assert rel[("2", "ChatGPT 4")] == "product"  # T19 merged into T02 as a product
-    assert rel[("18", "Azure AI Foundry")] == "product"
+    assert rel[("3", "Azure AI Foundry")] == "product"  # T18 merged into T03
     assert rel[("23", "GitHub Copilot")] == "product"
     assert rel[("5", "RAG")] == "synonym"
     assert rel[("1", "Generativ AI")] == "synonym"
@@ -162,14 +162,20 @@ def test_loader_handles_missing_private_raw_folders(tmp_path, monkeypatch):
 
 
 def test_retired_topics_have_no_skill_set_and_no_active_mapping():
-    """A merged/dropped hot topic keeps its id in hot_topics.csv (never reused) but has no
-    canonical skill, no skill-set proposal row and no mapping rows; its parent must be active."""
+    """A merged hot topic keeps its id in hot_topics.csv (never reused) and a row in the proposal
+    with status "merged", its parent in merged_into and no keyword or skill set; it has no
+    canonical skill and no mapping rows, and its parent is active."""
     topics = skills.read_csv(skills.AI / "hot_topics.csv")
     merged = {f"T{int(t['topic_id']):02d}": t for t in topics if t["status"] == "merged"}
-    assert {"T19", "T20", "T21"} <= merged.keys()
+    assert {"T09", "T17", "T18", "T19", "T20", "T21", "T22"} <= merged.keys()
     active = {f"T{int(t['topic_id']):02d}" for t in topics if t["status"] != "merged"}
     assert all(t["parent_topic"] in active for t in merged.values())
-    proposal = {r["topic_id"] for r in skills.read_csv(skills.AI / "ai_skillset_proposal.csv")}
+    proposal = {r["topic_id"]: r for r in skills.read_csv(skills.AI / "ai_skillset_proposal.csv")}
+    for tid, t in merged.items():
+        p = proposal[tid]
+        assert p["status"] == "merged" and p["merged_into"] == t["parent_topic"]
+        assert not (p["proposed_keyword"] or p["keyword_id"] or p["skill_set"])
+    assert all(proposal[t]["status"] in ("active", "dropped") for t in active)
     canonical = {r["id"] for r in skills.read_csv(ai_topics.CANONICAL)}
     mapped = {f"T{int(r['topic_id']):02d}" for r in skills.read_csv(skills.AI / "topic_mapping.csv")}
-    assert not merged.keys() & (proposal | canonical | mapped)
+    assert not merged.keys() & (canonical | mapped)

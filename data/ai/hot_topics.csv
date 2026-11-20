@@ -1,13 +1,13 @@
 topic_id,category,topic,status,gap_note,parent_topic
 1,Koncept och tekniker,Generativ AI (GenAI),exact,Skill exists in 4 spellings; no dedicated tag (AI/LLM is close),
 2,Koncept och tekniker,LLM (Large Language Models) / LLM application development,exact,"3 near-duplicate skill spellings; tag AI/LLM; widened 2026-11-20 to LLM application development (absorbs T19 model APIs, T20 cloud model platforms, T21 LLM frameworks)",
-3,Koncept och tekniker,Agentisk AI / AI-agenter,exact,Skill and tag both exist (Agentic AI),
+3,Koncept och tekniker,Agentisk AI / AI-agenter / agentprotokoll och plattformar,exact,Skill and tag both exist (Agentic AI); renamed/widened 2026-11-20,
 4,Koncept och tekniker,Multi-agent-system / orkestrering,exact,Skill Multi-agent Systems exists; nothing for orchestration,
 5,Koncept och tekniker,RAG (Retrieval-Augmented Generation),exact,Skill exists; no tag,
 6,Koncept och tekniker,Prompt engineering / context engineering,exact,Both skills exist; no tag,
 7,Koncept och tekniker,Vektordatabaser / embeddings,exact,"Vector Databases, Vektordatabaser, Embeddings, Pgvector; Pinecone/Weaviate not checked",
 8,Koncept och tekniker,Fine-tuning,none,No skill used by any employee and no tag,
-9,Koncept och tekniker,MCP / A2A / agentplattformar,exact,"MCP (Model Context Protocol) exists; OpenAI Agents, Azure AI Foundry Agents, n8n as products; no A2A keyword. Widened 2026-11: the marketable skill is the agent platform layer, not one protocol",
+9,Koncept och tekniker,MCP / A2A / agentplattformar,merged,"MCP (Model Context Protocol) exists; OpenAI Agents, Azure AI Foundry Agents, n8n as products; no A2A keyword. Widened 2026-11: the marketable skill is the agent platform layer, not one protocol; Robert 2026-11-20: mainly products/protocols, merged into T03",T03
 10,Koncept och tekniker,Machine Learning / Deep Learning,exact,"Skills in EN/SV/NO; tags Machine Learning, AI/ML, Data Science/ML",
 11,Koncept och tekniker,NLP / Conversational AI / chatbotar / röstagenter,close,"NLP skill exists; Whisper, Speech Recognition, Speech-to-text, Text to speech cover voice; no Conversational AI, Chatbot or Voice Agent keyword",
 12,Koncept och tekniker,Intelligent automation / Agentic process automation,exact,"Intelligent Automation + RPA skills; tags Hyperautomation, Automation are close; nothing for 'agentic process automation'",
@@ -15,14 +15,14 @@ topic_id,category,topic,status,gap_note,parent_topic
 14,Drift plattform och data,AI-ready data / datastrategi,close,Data Strategy skill (3 spellings); nothing for 'AI-ready data',
 15,Drift plattform och data,Data lakehouse / Data platform,exact,"Databricks, Snowflake, Microsoft Fabric exist as both skills and tags",
 16,Drift plattform och data,Evaluering / guardrails / agent-observability,close,"LLM Evaluation (1), Model Evaluation (3), generic Evaluation/observability; no Guardrails, LangSmith or Langfuse keyword",
-17,Verktyg och plattformar,Microsoft Copilot / M365 Copilot,exact,5 near-duplicate spellings; tag Microsoft 365 is close,
-18,Verktyg och plattformar,Copilot Studio / Azure AI Foundry,exact,Both skills exist; Power Platform tag/tag type is close,
+17,Verktyg och plattformar,Microsoft Copilot / M365 Copilot,merged,"5 near-duplicate spellings; tag Microsoft 365 is close; Robert 2026-11-20: mainly products/protocols, merged into T30",T30
+18,Verktyg och plattformar,Copilot Studio / Azure AI Foundry,merged,"Both skills exist; Power Platform tag/tag type is close; Robert 2026-11-20: mainly products/protocols, merged into T03",T03
 19,Verktyg och plattformar,Azure OpenAI / OpenAI API,merged,"Skills exist; tag Azure is close; Robert 2026-11-20: products and services, not a skill set of their own; merged into T02 as products",T02
 20,Verktyg och plattformar,AWS Bedrock / Google Vertex AI,merged,"Amazon Bedrock exists; Gemini (verified, 4) as product; Vertex AI not in use; Robert 2026-11-20: products and services, not a skill set of their own; merged into T02 as products",T02
 21,Verktyg och plattformar,LangChain / LangGraph / Semantic Kernel,merged,"LangChain, LangGraph exist (1 person); Semantic Kernel not in use; Robert 2026-11-20: products and services, not a skill set of their own; merged into T02 as products",T02
-22,Verktyg och plattformar,"Python / ML- och data science-stack (PyTorch, TensorFlow, Hugging Face)",exact,"Verified: Python 98, TensorFlow 7, PyTorch 7, Scikit-learn 5, NumPy 5, Pandas 4, Matplotlib 3, Keras 2, Jupyter Notebook 1; custom Jupyter 2, PySpark 5; tag Python. Combo keywords (Keras/TensorFlow, Pandas/ numpy) are bucket-merge candidates",
+22,Verktyg och plattformar,"Python / ML- och data science-stack (PyTorch, TensorFlow, Hugging Face)",merged,"Verified: Python 98, TensorFlow 7, PyTorch 7, Scikit-learn 5, NumPy 5, Pandas 4, Matplotlib 3, Keras 2, Jupyter Notebook 1; custom Jupyter 2, PySpark 5; tag Python. Combo keywords (Keras/TensorFlow, Pandas/ numpy) are bucket-merge candidates; Robert 2026-11-20: mainly products/protocols, merged into T10",T10
 23,Verktyg och plattformar,GitHub Copilot / AI-assisterad utveckling,exact,"GitHub Copilot, AI-assisted development, Cursor, Claude Code, Codex skills; no spec-driven development keyword; no tag",
-24,Verktyg och plattformar,ServiceNow Now Assist / AIOps,close,AIOps skill exists; Now Assist not in use (ServiceNow is close),
+24,Verktyg och plattformar,AIOps,close,AIOps skill exists; Now Assist not in use (ServiceNow is close); renamed/widened 2026-11-20,
 25,Styrning risk och verksamhet,EU AI Act / AI-förordningen,exact,"AI Act, AI-förordningen (AI Act), AI Act Compliance; no tag",
 26,Styrning risk och verksamhet,AI governance / Responsible AI / AI-etik,exact,"AI Governance, Responsible AI, AI Ethics; tags IT Governance/Data Governance are close",
 27,Styrning risk och verksamhet,AI- och agentsäkerhet,close,"AI Risk Management, Red teaming (1), OWASP (3), Zero-Trust (1); no AI Security, Prompt injection or ISO/IEC 42001 keyword; tags GDPR, Information Security are close",

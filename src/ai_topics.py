@@ -130,9 +130,9 @@ def cmd_view(args) -> None:
                for k, (src, match, rel) in members[tid].items() if k != chosen and k in kws]
         syn.sort(key=lambda x: (skills.RELATIONS.index(x["relation"]), -x["users"], x["name"].lower()))
         out.append({"topic_id": tid, "topic": hot.get(tid, c["name"]), "canonical": p.get("proposed_keyword", c["name"]),
-                    "canonical_verified": p.get("status") == "verified",
+                    "canonical_verified": p.get("keyword_status", p.get("status")) == "verified",
                     "canonical_users": int(p.get("users_on_profiles") or 0),
-                    "needs_new_keyword": p.get("status") == "needs new keyword", "hot": tid in hot,
+                    "needs_new_keyword": p.get("keyword_status", p.get("status")) == "needs new keyword", "hot": tid in hot,
                     "ai_related": c["ai_related"] == "True", "domain": c["domain"], "definition": c["definition"],
                     "synonyms": syn})
     path = AI / "canonical_skills_view.json"
