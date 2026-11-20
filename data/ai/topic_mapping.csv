@@ -214,7 +214,7 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 31,skill,349856,Beslutsstöd baserat på AI och dataanalys,close,related
 32,skill,25781,Computer Vision,exact,synonym
 32,skill,153133,Computer Vision (CV),exact,synonym
-32,skill,2964,OpenCV,close,product
+32,skill,2964,OpenCV,close,narrower
 32,skill,14964,Image processing,close,narrower
 32,skill,54710,Object detection,close,narrower
 32,skill,193167,Vision Language Models (VLM),close,narrower
@@ -399,8 +399,8 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 37,skill,78871,HMI / SCADA / PLC,close,narrower
 37,skill,16665,BMS,close,narrower
 37,skill,126842,BMS Specialist,close,narrower
-37,skill,104621,Ignition,close,product
-37,skill,222086,Ignition SCADA,close,product
+37,skill,104621,Ignition,close,narrower
+37,skill,222086,Ignition SCADA,close,narrower
 37,skill,84812,Inductive Automation Ignition SCADA,close,product
 37,skill,221888,Citect/Plant Scada,close,product
 37,skill,81855,Webport SCADA,close,product

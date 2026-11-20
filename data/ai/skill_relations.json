@@ -327,7 +327,7 @@
   "GPT-4o Vision": "product",
   "Image processing": "narrower",
   "Object detection": "narrower",
-  "OpenCV": "product",
+  "OpenCV": "narrower",
   "Vision Language Models (VLM)": "narrower"
  },
  "T33": {
@@ -410,8 +410,8 @@
   "HMI / SCADA / PLC": "narrower",
   "BMS": "narrower",
   "BMS Specialist": "narrower",
-  "Ignition": "product",
-  "Ignition SCADA": "product",
+  "Ignition": "narrower",
+  "Ignition SCADA": "narrower",
   "Inductive Automation Ignition SCADA": "product",
   "Citect/Plant Scada": "product",
   "Webport SCADA": "product",

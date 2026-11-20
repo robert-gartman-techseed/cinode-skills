@@ -161,9 +161,7 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 164,Bluetooth,4,2,21,427; 531,Bluetooth; Bluetooth LE
 167,Business Process Management,16,15,69,222; 262; 502; 698; 715; 791; 857; 984; 985; 986; 1096; 1527; 1620; 1948; 2069,Business Process; Workflow; Processmodellering; Verksamhetsprocesser; Arbetsflöden; Processledning; Process implementation; BPMN; Process analysis; Process Manager; Processhantering; Business Process Management; Workflow analysis; Processdesign; Workflow Mapping
 168,Microsoft IIS,1,1,12,226,Microsoft Internet Information Server
-169,SCADA,2,2,7,923; 1611,Ignition; Ignition SCADA
 170,Claude,3,2,17,264; 334,Claude; Claude Code
-171,Computer Vision & Imaging,5,5,13,668; 1852; 1877; 2075; 2076,OpenCV; Imaging Software; Kamerasystem; Yolo; YOLOv8
 173,Google Cloud Platform,3,1,12,637,Google Cloud
 174,Android,4,4,19,236; 712; 1060; 1731,Android; Android Development; Android Studio; Android App
 175,iOS,2,2,16,246; 648,iOS; iOS Developer
@@ -436,8 +434,8 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 491,AI Strategy & Transformation,6,3,8,21; 22; 24,AI Strategy; AI Use Case Discovery; AI Transformation
 492,RAG,4,1,8,26,Retrieval-Augmented Generation (RAG)
 493,Embeddings,1,1,4,28,Embeddings
-494,Fastighetsautomation,27,22,58,232; 667; 976; 1084; 1295; 1308; 2120; 2123; 2124; 2127; 2128; 2131; 2133; 2134; 2135; 2136; 2137; 2138; 2143; 2148; 2149; 2151,SCADA; MES System; OPC UA; PLC; BMS; Fastighetsautomation; Manufacturing IT (MES/MOM); SCADA system; Manufacturing Execution Systems (MES); MES (Manufacturing Execution System); MES Systems; MES Integration; MES-utveckling; MES Implementation; MES Migration; MES Platforms; Unified namespace; OPC/UNS integration; PLC- system; PLC Communication; HMI / SCADA / PLC; BMS Specialist
-495,Computer Vision,5,4,21,266; 545; 1929; 2139,Computer Vision; Image processing; Object detection; Vision Language Models (VLM)
+494,Fastighetsautomation,29,24,65,232; 667; 923; 976; 1084; 1295; 1308; 1611; 2120; 2123; 2124; 2127; 2128; 2131; 2133; 2134; 2135; 2136; 2137; 2138; 2143; 2148; 2149; 2151,SCADA; MES System; OPC UA; Ignition; Ignition SCADA; PLC; BMS; Fastighetsautomation; Manufacturing IT (MES/MOM); SCADA system; Manufacturing Execution Systems (MES); MES (Manufacturing Execution System); MES Systems; MES Integration; MES-utveckling; MES Implementation; MES Migration; MES Platforms; Unified namespace; OPC/UNS integration; PLC- system; PLC Communication; HMI / SCADA / PLC; BMS Specialist
+495,Computer Vision,10,9,34,266; 545; 668; 1852; 1877; 1929; 2075; 2076; 2139,Computer Vision; Image processing; OpenCV; Imaging Software; Kamerasystem; Object detection; Yolo; YOLOv8; Vision Language Models (VLM)
 496,LiteLLM,1,1,1,378,LiteLLM
 497,Edge AI,5,5,7,379; 1810; 1912; 2129; 2150,Edge AI; Model Quantization; LLM Model Inference Optimization; TinyML; Real-time Inference
 498,Predictive Maintenance,3,3,10,595; 1692; 2125,Time Series Analysis; Predictive maintenance; Time Series Analysis & Forecasting
