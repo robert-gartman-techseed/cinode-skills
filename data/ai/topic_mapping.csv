@@ -93,10 +93,10 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 2,skill,120381,Langchain,exact,product
 2,skill,200947,LangGraph,exact,product
 2,skill,350443,LangGraph/LangChain,exact,product
-10,skill,2930,Python,exact,related
-10,skill,43517,PyTorch,exact,product
-10,skill,92384,Hugging Face,exact,product
-10,tag,296163,Python,exact,
+22,skill,2930,Python,exact,related
+22,skill,43517,PyTorch,exact,narrower
+22,skill,92384,Hugging Face,exact,narrower
+22,tag,296163,Python,exact,
 23,skill,83705,GitHub Copilot,exact,product
 23,skill,229624,AI-assisted development,exact,synonym
 23,skill,325388,AI-assisterad mjukvaruutveckling,exact,synonym
@@ -279,18 +279,18 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 27,skill,264640,Zero-Trust Security,close,related
 38,skill,233678,Ollama/ self-host AI,close,product
 38,skill,154934,llama.cpp,close,product
-10,skill,27842,TensorFlow,exact,product
-10,skill,17603,Scikit-learn,exact,product
-10,skill,35639,Keras,exact,product
-10,skill,13803,NumPy,exact,product
-10,skill,24759,Pandas,exact,product
-10,skill,28541,Matplotlib,exact,product
-10,skill,63162,Jupyter,exact,product
-10,skill,31180,Jupyter Notebook,exact,product
-10,skill,23985,PySpark,close,product
-10,skill,121195,Polars,close,product
-10,skill,76511,Streamlit,close,product
-10,skill,9889,Data Science,close,related
+22,skill,27842,TensorFlow,exact,narrower
+22,skill,17603,Scikit-learn,exact,narrower
+22,skill,35639,Keras,exact,narrower
+22,skill,13803,NumPy,exact,narrower
+22,skill,24759,Pandas,exact,narrower
+22,skill,28541,Matplotlib,exact,narrower
+22,skill,63162,Jupyter,exact,narrower
+22,skill,31180,Jupyter Notebook,exact,narrower
+22,skill,23985,PySpark,close,narrower
+22,skill,121195,Polars,close,narrower
+22,skill,76511,Streamlit,close,narrower
+22,skill,9889,Data Science,close,related
 13,skill,41378,Airflow,close,product
 13,skill,49079,Apache Airflow,close,product
 13,skill,34481,Amazon SageMaker,close,product
