@@ -181,3 +181,82 @@ def test_ai_sync_moves_products_out_and_uses_interim_keywords(tmp_path, monkeypa
     assert by["NumPy"]["skill_name"] == "NumPy"  # product moved out of the Python skill set
     assert by["Mentoring"]["skill_name"] == "Coaching"  # general topic synced
     assert any("T31" in n and "skipped" in n for n in notes)
+
+
+def _export_and_open(tmp_path, monkeypatch, st, proposal=""):
+    prop = tmp_path / "prop.csv"
+    prop.write_text(proposal or "topic_id,status,scope,skill_set,cinode_skill_set_id\n", encoding="utf-8")
+    monkeypatch.setattr(curate, "AI_PROPOSAL", prop)
+    monkeypatch.setattr(curate, "AI_MAPPING", tmp_path / "none.csv")
+    monkeypatch.setattr(curate, "EXCLUDED", tmp_path / "excluded.csv")
+    monkeypatch.setattr(buckets, "read_state", lambda: st)
+    monkeypatch.setattr(curate.skills, "load_keywords", lambda: KWS)
+    path = tmp_path / "c.xlsx"
+    curate.cmd_export(type("A", (), {"out": str(path)}))
+    wb = load_workbook(path)
+    ws = wb[curate.KW_SHEET]
+    col = {c.value: c.column for c in ws[1]}
+    row = {ws.cell(r, col["keyword"]).value: r for r in range(2, ws.max_row + 1)}
+    return path, wb, ws, col, row
+
+
+def _check(path, st):
+    wb = load_workbook(path, data_only=True)
+    return curate.curate(st, KWS, curate.read_sheet(wb, curate.KW_SHEET), curate.read_sheet(wb, curate.SET_SHEET))
+
+
+def test_new_workbook_has_instructions_set_info_and_dropdowns(tmp_path, monkeypatch):
+    st = state()
+    path, wb, ws, col, _ = _export_and_open(tmp_path, monkeypatch, st,
+                                            "topic_id,status,scope,skill_set,cinode_skill_set_id\nT99,active,ai,SQL,9999\n")
+    assert curate.README_SHEET in wb.sheetnames and wb.sheetnames[0] == "Instructions"
+    assert {"new_skill_set", "exclude", "skill_set", "was_skill_set"} <= set(col)
+    sets = wb[curate.SET_SHEET]
+    scol = {c.value: c.column for c in sets[1]}
+    sql = next(r for r in range(2, sets.max_row + 1) if sets.cell(r, scol["skill_set"]).value == "SQL")
+    assert sets.cell(sql, scol["scope"]).value == "ai" and sets.cell(sql, scol["cinode_skill_set_id"]).value == "9999"
+    dv = {str(d.sqref).split(":")[0][:1]: d for d in ws.data_validations.dataValidation}
+    assert dv[ws.cell(1, col["skill_set"]).column_letter].errorStyle == "stop"
+    assert ws.freeze_panes == "C2" and ws.auto_filter.ref
+
+
+def test_round_trip_move_new_set_exclude_and_cinode_plan(tmp_path, monkeypatch):
+    st = state()
+    path, wb, ws, col, row = _export_and_open(
+        tmp_path, monkeypatch, st, "topic_id,status,scope,skill_set,cinode_skill_set_id\nT99,active,ai,SQL,9999\n")
+    ws.cell(row["NumPy"], col["skill_set"]).value = "SQL"          # move into a Cinode-backed set
+    ws.cell(row["Mentoring"], col["new_skill_set"]).value = "Coaching & Mentoring"  # propose a new set
+    ws.cell(row["Python3"], col["exclude"]).value = "x"            # exclude an alias
+    ws.cell(row["Python3"], col["alias_of"]).value = ""
+    wb.save(path)
+    new, res = _check(path, st)
+    assert not res.errors, res.errors
+    by = {r["name"]: r for r in new}
+    assert by["NumPy"]["skill_name"] == "SQL" and by["Mentoring"]["skill_name"] == "Coaching & Mentoring"
+    assert "Python3" not in by and res.excluded[0]["name"] == "Python3"
+    assert {"Moved to another skill set", "Skill sets created", "Excluded (taken out of the skill sets)"} <= set(res.changes)
+    assert res.cinode_plan == [{"cinode_skill_set_id": 9999, "skill_set": "SQL",
+                                "add": [{"id": 3, "keyword": "NumPy"}], "remove": []}]
+    # apply writes the taxonomy and the excluded list (into tmp files)
+    monkeypatch.setattr(buckets, "STATE", tmp_path / "state.csv")
+    monkeypatch.setattr(buckets, "MARKETABLE", tmp_path / "m.csv")
+    monkeypatch.setattr(curate, "OUT", tmp_path / "out")
+    monkeypatch.setattr(curate.skills, "ROOT", tmp_path)
+    assert curate.finish(res, new, path, apply=True) == 0
+    assert "Python3" in (tmp_path / "excluded.csv").read_text(encoding="utf-8")
+    assert "NumPy" in (tmp_path / "state.csv").read_text(encoding="utf-8")
+
+
+def test_strict_checks_unknown_set_and_mismatched_keyword(tmp_path, monkeypatch):
+    st = state()
+    path, wb, ws, col, row = _export_and_open(tmp_path, monkeypatch, st)
+    ws.cell(row["NumPy"], col["skill_set"]).value = "Pythn"         # unknown name in skill_set
+    ws.cell(row["SQL"], col["keyword"]).value = "MySQL"             # keyword edited: id/name mismatch
+    ws.cell(row["T-SQL"], col["people"]).value = 999                # read-only cell edited
+    ws.cell(row["Python"], col["exclude"]).value = "x"              # excluded head, alias still points at it
+    wb.save(path)
+    _, res = _check(path, st)
+    text = " ".join(res.errors)
+    assert "unknown skill set 'Pythn'" in text and "did you mean 'Python'" in text
+    assert "do not match" in text and "which is excluded" in text
+    assert any("read-only column 'people'" in w for w in res.warnings)

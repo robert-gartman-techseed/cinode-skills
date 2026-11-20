@@ -229,18 +229,43 @@ uv run src/curate.py check data/curation/X.xlsx   # validate + diff report, writ
 uv run src/curate.py apply data/curation/X.xlsx   # same, then skill_buckets.csv + marketable_skills.csv
 ```
 
-The Keywords sheet has one row per keyword with editable `skill_set` (dropdown; a new name
-creates a skill set), `alias_of` (blank = stands on its own, else the keyword it is an alias
-of, same skill set), `suggested` (x = the keyword consultants should pick for the skill set)
-and `comment` (kept as the reason). The Skill sets sheet has `rename_to` (rename, or merge when
-two share a name), keyword counts and uses (live) and distinct people per skill set (at
-export, when profile data is loaded); More keywords lists 1-person keywords that can be copied in.
-Errors (deleted rows, unknown keywords, aliases across skill sets, alias loops, a suggested
-alias, empty skill set) block `apply`; warnings (no suggested keyword, a likely typo in a new
-skill set name, a workbook exported before the taxonomy changed) do not. Every run writes a
-Markdown report next to the workbook. Changed rows get `decision=curated`, `model=human`.
-Until the first `apply`, the suggested keyword defaults to the bucket head named like the skill
-set, else the most used verified head. `data/curation/` is gitignored.
+The workbook starts with an Instructions sheet in plain English. The Keywords sheet has one
+row per keyword. The yellow columns are editable:
+- `skill_set`: a dropdown of the existing skill sets.
+- `new_skill_set`: free text to propose a new set.
+- `exclude`: x takes the keyword out of the skill sets.
+- `alias_of`: blank means the keyword stands on its own; otherwise the keyword it is an alias of,
+  in the same skill set.
+- `suggested`: x marks the keyword consultants should pick for the skill set.
+- `comment`: kept as the reason.
+
+keyword_id, keyword, verified, people, cinode_type and the `was_*` columns are grey and read-only.
+The Skill sets sheet lists every valid set with its `scope` (ai/general), `topic_ids` and
+`cinode_skill_set_id` (from the AI proposal), plus `rename_to` (rename, or merge when two share a
+name), live keyword counts and uses, and distinct people per skill set at export (counts only,
+when profile data is loaded). More keywords lists 1-person keywords that can be copied in.
+
+These errors block `apply`:
+- deleted rows, unknown keywords, or a keyword_id whose name does not match
+- an unknown name in `skill_set` (new sets go in `new_skill_set`)
+- aliases across skill sets, alias loops, a suggested alias, an alias of an excluded keyword
+- an empty skill set
+
+These are warnings and don't block it:
+- no suggested keyword, a likely typo in a new set name
+- edited read-only cells (ignored)
+- a workbook exported before the taxonomy changed
+- a hand move that ai-sync would undo (the keyword is mapped into an AI topic's set)
+
+Every run writes a Markdown report next to the workbook. When an existing Cinode skill set would
+change, the run also writes a `*_cinode_plan.json` (keyword ids to add or remove per Cinode set).
+The plan is never executed; syncing Cinode is a separate step that needs Robert's go-ahead.
+
+`apply` writes skill_buckets.csv and marketable_skills.csv. It appends exclusions to
+`data/taxonomy/excluded_keywords.csv`, which ai-sync respects, and carries skill set renames into
+`ai_skillset_proposal.csv`. Changed rows get `decision=curated`, `model=human`. Until the first
+`apply`, the suggested keyword defaults to the bucket head named like the skill set, else the most
+used verified head. `data/curation/` is gitignored.
 
 AI topics are curated in `data/ai/ai_skillset_proposal.csv` instead (Cinode keywords nobody at
 TechSeed uses yet can be listed in `data/ai/extra_keywords.csv`): give a topic a `skill_set`

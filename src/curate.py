@@ -38,12 +38,13 @@ import buckets  # noqa: E402
 import skills  # noqa: E402
 
 OUT = skills.ROOT / "data" / "curation"
-KW_SHEET, SET_SHEET, MORE_SHEET, README_SHEET = "Keywords", "Skill sets", "More keywords", "Read me"
-KW_COLS = ["keyword_id", "keyword", "verified", "people", "skill_set", "alias_of", "suggested", "comment",
-           "cinode_type", "was_skill_set", "was_alias_of", "was_suggested", "changed"]
-EDITABLE = {"skill_set", "alias_of", "suggested", "comment"}
-SET_COLS = ["skill_id", "skill_set", "rename_to", "keywords", "keyword_uses", "people_at_export",
-            "suggested_at_export", "comment"]
+KW_SHEET, SET_SHEET, MORE_SHEET, README_SHEET = "Keywords", "Skill sets", "More keywords", "Instructions"
+KW_COLS = ["keyword_id", "keyword", "verified", "people", "skill_set", "new_skill_set", "exclude", "alias_of",
+           "suggested", "comment", "cinode_type", "was_skill_set", "was_alias_of", "was_suggested", "changed"]
+EDITABLE = {"skill_set", "new_skill_set", "exclude", "alias_of", "suggested", "comment"}
+SET_COLS = ["skill_id", "skill_set", "rename_to", "scope", "topic_ids", "cinode_skill_set_id", "keywords",
+            "keyword_uses", "people_at_export", "suggested_at_export", "comment"]
+EXCLUDED = skills.TAX / "excluded_keywords.csv"  # keywords curators took out of the taxonomy
 YES = {"x", "yes", "y", "1", "true", "ja", "sant"}
 MAX_ROWS = 20000
 
@@ -52,38 +53,44 @@ EDIT = PatternFill("solid", fgColor="FFF8DC")
 HEAD = PatternFill("solid", fgColor="DDEBF7")
 
 README = """\
-Skill curation workbook
+Skill curation workbook: instructions
 
-Skills are a sales tool: consultant buyers search them. Judge every move with the buyer test:
-would a buyer searching for one keyword consider a consultant listing the other to have the same
-marketable skill?
+What this is
+  Every keyword (skill) TechSeed people use in Cinode, grouped into skill sets. A skill set is the
+  headline a client would search for, for example "Computer Vision". Keywords that mean the same
+  thing are aliases of one main keyword in the set.
 
-'people' in the Keywords sheet is the number of TechSeed employees listing that keyword.
+The test to use
+  Would a client searching for one keyword think a consultant listing the other has the same
+  skill? If yes, they belong in the same skill set.
 
-Edit only the yellow columns in the Keywords sheet:
-  skill_set   which skill set (buyer-facing headline) the keyword belongs to. Pick from the list,
-              or type a new name to create a new skill set.
-  alias_of    leave blank if the keyword stands on its own. Otherwise type (or pick) the keyword it
-              is an alias of, e.g. "Python3" alias_of "Python". The target must be in the same
-              skill set and must not itself be an alias. Moving a keyword that has aliases moves
-              nothing else: move its aliases too, or point them at another keyword.
-  suggested   x marks the keyword consultants should pick for this skill set. Only a keyword that
-              stands on its own can be suggested. Usually one per skill set.
-  comment     free text; kept as the reason for the change.
+What you can change (yellow columns in the Keywords sheet)
+  skill_set      Move a keyword to another skill set: pick a name from the drop-down list.
+  new_skill_set  Propose a new skill set: write its name here (leave skill_set as it is).
+  exclude        Write x to take a keyword out of the skill sets (for example nonsense, duplicates
+                 of a misspelling, or something that is not a skill).
+  alias_of       Blank = the keyword stands on its own. Otherwise the name of the keyword it means
+                 the same as, e.g. "Python3" alias_of "Python". Both must be in the same skill set.
+  suggested      x = the keyword consultants should pick for this skill set (usually one per set).
+  comment        Why you changed something. Kept as the reason.
 
-Skill sets sheet: type a new name in rename_to to rename a skill set. Give two skill sets the same
-rename_to to merge them. keywords and keyword_uses update as you edit. keyword_uses adds up
-'people' per keyword, so a person listing two keywords of a skill set counts twice; it measures
-how often the skill set's keywords are used, not how many people have it. people_at_export is the
-number of distinct employees (filled only when profile data is loaded locally).
+Skill sets sheet
+  One row per skill set. scope says if it is an AI skill set or a general one, topic_ids links it
+  to the AI hot topics, and cinode_skill_set_id shows sets that already exist in Cinode.
+  To rename a skill set, write the new name in rename_to. Give two sets the same rename_to to
+  merge them. keywords and keyword_uses update as you edit ('people' counts, never names).
 
-More keywords sheet: keywords used by only one person (not yet in the taxonomy). To bring one in,
-copy its row into the bottom of the Keywords sheet and fill in skill_set.
+More keywords sheet
+  Keywords used by only one person. To bring one in, copy its row to the bottom of the Keywords
+  sheet and pick a skill_set.
 
-Do not delete rows, and do not edit keyword_id or the grey columns. Sorting and filtering are fine.
-The 'changed' column flags rows that differ from the export.
+Please do not
+  Delete rows, or edit the grey columns (keyword_id, keyword, verified, people, cinode_type and the
+  was_ columns). Sorting and filtering are fine. The 'changed' column marks rows you edited.
 
-When done, save as .xlsx and run:  uv run src/curate.py check <file>   then   apply <file>
+Return the saved .xlsx file. It is then checked and applied with:
+  uv run src/curate.py check <file>      (shows every change, changes nothing)
+  uv run src/curate.py apply <file>      (updates the taxonomy; Cinode is a separate step)
 """
 
 
@@ -154,6 +161,24 @@ def current_view(state: list[dict]) -> dict[str, dict]:
 
 # ---------- export ----------
 
+def col_letter(cols: list[str], name: str) -> str:
+    from openpyxl.utils import get_column_letter
+    return get_column_letter(cols.index(name) + 1)
+
+
+def set_info() -> dict[str, dict]:
+    """skill set name -> scope, topic ids and Cinode skill set ids from the AI proposal."""
+    out = defaultdict(lambda: {"scope": set(), "topics": [], "cinode": []})
+    for p in skills.read_csv(AI_PROPOSAL):
+        s = norm(p.get("skill_set"))
+        if not s or p.get("status") not in (None, "", "active"):
+            continue
+        out[s]["scope"].add(p.get("scope") or "ai")
+        out[s]["topics"].append(p["topic_id"])
+        if norm(p.get("cinode_skill_set_id")) and p["cinode_skill_set_id"] not in out[s]["cinode"]:
+            out[s]["cinode"].append(p["cinode_skill_set_id"])
+    return out
+
 def people_per_skill(state: list[dict]) -> dict[str, int]:
     """skill_id -> distinct employees with any of its keywords (aggregate only); {} without profile data."""
     db = skills.ROOT / "db" / "cinode.duckdb"
@@ -203,24 +228,34 @@ def cmd_export(args) -> None:
                 n += 1
                 v = view[r["keyword_id"]]
                 k = kws.get(r["keyword_id"], {})
+                L = lambda c: f"{col_letter(KW_COLS, c)}{n}"
                 ws.append([int(r["keyword_id"]), r["name"], r["verified"] == "True", k.get("users", int(r["users"] or 0)),
-                           v["skill_set"], v["alias_of"], v["suggested"], "", k.get("type_name", ""),
+                           v["skill_set"], "", "", v["alias_of"], v["suggested"], "", k.get("type_name", ""),
                            v["skill_set"], v["alias_of"], v["suggested"],
-                           f'=IF(OR(E{n}<>J{n},F{n}<>K{n},G{n}<>L{n}),"changed","")'])
+                           f'=IF(OR({L("skill_set")}<>{L("was_skill_set")},{L("new_skill_set")}<>"",'
+                           f'{L("exclude")}<>"",{L("alias_of")}<>{L("was_alias_of")},'
+                           f'{L("suggested")}<>{L("was_suggested")}),"changed","")'])
                 if not v["alias_of"]:
                     ws.cell(n, 2).fill = HEAD
     _style_keywords(ws, n)
 
     ws_s = wb.create_sheet(SET_SHEET)
     ws_s.append(SET_COLS)
+    info = set_info()
+    ks, kp = col_letter(KW_COLS, "skill_set"), col_letter(KW_COLS, "people")
     for i, sid in enumerate(order, 2):
         rs = by_skill[sid]
         sug = "; ".join(r["name"] for r in rs if view[r["keyword_id"]]["suggested"])
-        ws_s.append([int(sid), rs[0]["skill_name"], "", f"=COUNTIF('{KW_SHEET}'!$E:$E,B{i})",
-                     f"=SUMIF('{KW_SHEET}'!$E:$E,B{i},'{KW_SHEET}'!$D:$D)", people.get(sid), sug, ""])
-    _style_table(ws_s, {"skill_id": 9, "skill_set": 38, "rename_to": 30, "keywords": 10, "keyword_uses": 13,
-                        "people_at_export": 16, "suggested_at_export": 40, "comment": 40},
+        si = info.get(norm(rs[0]["skill_name"]))
+        scope = "/".join(sorted(si["scope"])) if si else ""
+        ws_s.append([int(sid), rs[0]["skill_name"], "", scope, ", ".join(si["topics"]) if si else "",
+                     ", ".join(si["cinode"]) if si else "", f"=COUNTIF('{KW_SHEET}'!${ks}:${ks},B{i})",
+                     f"=SUMIF('{KW_SHEET}'!${ks}:${ks},B{i},'{KW_SHEET}'!${kp}:${kp})", people.get(sid), sug, ""])
+    _style_table(ws_s, {"skill_id": 9, "skill_set": 38, "rename_to": 30, "scope": 9, "topic_ids": 14,
+                        "cinode_skill_set_id": 12, "keywords": 10, "keyword_uses": 13, "people_at_export": 16,
+                        "suggested_at_export": 40, "comment": 40},
                  editable={"rename_to", "comment"})
+    _grey_cells(ws_s, SET_COLS, {"rename_to", "comment"}, len(order) + 1)
     ws_s.cell(1, SET_COLS.index("keyword_uses") + 1).comment = Comment(
         "Sum of 'people' over the skill set's keywords. One person listing two of its keywords counts twice, "
         "so this is keyword uses, not people. Updates as you edit.", "curate")
@@ -259,15 +294,28 @@ def _style_table(ws, widths: dict[str, int], editable: set[str]) -> None:
     ws.auto_filter.ref = ws.dimensions
 
 
+def _grey_cells(ws, cols: list[str], editable: set[str], last: int, keep_fill: set[str] = frozenset()) -> None:
+    for j, col in enumerate(cols, 1):
+        if col in editable or col in keep_fill:
+            continue
+        for i in range(2, last + 1):
+            ws.cell(i, j).fill = GREY
+
+
 def _style_keywords(ws, last: int) -> None:
-    widths = {"keyword_id": 11, "keyword": 36, "verified": 9, "people": 7, "skill_set": 32, "alias_of": 30,
-              "suggested": 10, "comment": 30, "cinode_type": 16, "was_skill_set": 26, "was_alias_of": 22,
-              "was_suggested": 9, "changed": 9}
+    widths = {"keyword_id": 11, "keyword": 36, "verified": 9, "people": 7, "skill_set": 32, "new_skill_set": 26,
+              "exclude": 8, "alias_of": 30, "suggested": 10, "comment": 30, "cinode_type": 16, "was_skill_set": 26,
+              "was_alias_of": 22, "was_suggested": 9, "changed": 9}
     _style_table(ws, widths, EDITABLE)
     for j, col in enumerate(KW_COLS, 1):
         if col in EDITABLE:
             for i in range(2, last + 1):
                 ws.cell(i, j).fill = EDIT
+    _grey_cells(ws, KW_COLS, EDITABLE, last, keep_fill={"keyword"})
+    ws.cell(1, KW_COLS.index("new_skill_set") + 1).comment = Comment(
+        "Propose a new skill set: write its name here and leave skill_set as it is.", "curate")
+    ws.cell(1, KW_COLS.index("exclude") + 1).comment = Comment(
+        "x = take this keyword out of the skill sets (not a skill, nonsense, misspelling).", "curate")
     for col in ("was_skill_set", "was_alias_of", "was_suggested", "changed"):
         ws.cell(1, KW_COLS.index(col) + 1).font = Font(bold=True, color="888888")
     ws.cell(1, KW_COLS.index("alias_of") + 1).comment = Comment(
@@ -277,13 +325,14 @@ def _style_keywords(ws, last: int) -> None:
     rng = lambda col: f"{ws.cell(1, KW_COLS.index(col) + 1).column_letter}2:" \
                       f"{ws.cell(1, KW_COLS.index(col) + 1).column_letter}{MAX_ROWS}"
     dv_set = DataValidation(type="list", formula1=f"='{SET_SHEET}'!$B$2:$B${MAX_ROWS}", allow_blank=True,
-                            errorStyle="warning", showErrorMessage=True, errorTitle="New skill set?",
-                            error="Not an existing skill set. Keep it to create a new skill set.")
+                            errorStyle="stop", showErrorMessage=True, errorTitle="Unknown skill set",
+                            error="Pick a skill set from the list. To propose a new one, write it in new_skill_set.")
     dv_alias = DataValidation(type="list", formula1=f"=$B$2:$B${MAX_ROWS}", allow_blank=True,
                               errorStyle="warning", showErrorMessage=True, errorTitle="Unknown keyword",
                               error="alias_of should be a keyword name from column B.")
     dv_sug = DataValidation(type="list", formula1='"x"', allow_blank=True)
-    for dv, col in ((dv_set, "skill_set"), (dv_alias, "alias_of"), (dv_sug, "suggested")):
+    dv_exc = DataValidation(type="list", formula1='"x"', allow_blank=True)
+    for dv, col in ((dv_set, "skill_set"), (dv_alias, "alias_of"), (dv_sug, "suggested"), (dv_exc, "exclude")):
         ws.add_data_validation(dv)
         dv.add(rng(col))
 
@@ -295,6 +344,9 @@ class Result:
         self.errors: list[str] = []
         self.warnings: list[str] = []
         self.changes: dict[str, list[str]] = defaultdict(list)
+        self.excluded: list[dict] = []
+        self.renames: dict[str, str] = {}
+        self.cinode_plan: list[dict] = []
 
 
 def read_sheet(wb, name: str) -> list[dict]:
@@ -335,6 +387,12 @@ def curate(state: list[dict], kws: dict[str, dict], kw_rows: list[dict], set_row
         else:
             res.changes["Skill sets renamed"].append(f"{srcs[0]} -> {b}")
 
+    res.renames = dict(rename)
+    strict = any("new_skill_set" in r for r in kw_rows)  # current workbook format: set names must be known
+    known_sets = {rename.get(n, n) for n in old_skill_ids} | set(rename.values()) | \
+        {norm(s.get("skill_set")) for s in set_rows if norm(s.get("skill_set"))}
+    excluded = {}
+
     # keyword rows
     rows, seen = {}, {}
     for r in kw_rows:
@@ -352,10 +410,30 @@ def curate(state: list[dict], kws: dict[str, dict], kw_rows: list[dict], set_row
         seen[k] = r["_row"]
         name = old[k]["name"] if k in old else kws[k]["master_synonym"]
         if norm(r.get("keyword")) and norm(r.get("keyword")) != norm(name):
-            res.warnings.append(f"{where}: keyword name edited ('{norm(r.get('keyword'))}'); names come from "
-                                f"Cinode, kept '{name}'")
+            msg = (f"{where}: keyword_id {k} is '{name}' in Cinode but the row says '{norm(r.get('keyword'))}' "
+                   f"(keyword and keyword_id do not match; names come from Cinode)")
+            (res.errors if strict else res.warnings).append(msg)
+        if strict and k in kws:
+            for col, want in (("verified", str(bool(kws[k]["is_verified"]))), ("people", str(kws[k]["users"]))):
+                got = norm(r.get(col))
+                if got and got.casefold() != want.casefold() and not (col == "verified" and got.casefold() in
+                                                                         (want.casefold(), str(want == "True").lower())):
+                    res.warnings.append(f"{where} ({name}): read-only column '{col}' edited ('{got}'); ignored")
+        if norm(r.get("exclude")).lower() in YES:
+            excluded[k] = {"keyword_id": k, "name": name, "reason": norm(r.get("comment")), "row": r["_row"],
+                           "was": before.get(k, {}).get("skill_set", "")}
+            continue
         sset = norm(r.get("skill_set"))
         sset = rename.get(sset, sset)
+        new_set = norm(r.get("new_skill_set"))
+        if new_set:
+            if new_set in known_sets:
+                res.warnings.append(f"{where} ({name}): new_skill_set '{new_set}' already exists; treated as a move")
+            sset = new_set
+        elif strict and sset and sset not in known_sets:
+            hint = get_close_matches(sset, sorted(known_sets), n=1)
+            res.errors.append(f"{where} ({name}): unknown skill set '{sset}'; pick one from the list or write the "
+                              f"new name in new_skill_set" + (f" (did you mean '{hint[0]}'?)" if hint else ""))
         rows[k] = {"name": name, "skill_set": sset, "alias_of": norm(r.get("alias_of")),
                    "suggested": norm(r.get("suggested")).lower() in YES, "comment": norm(r.get("comment")),
                    "row": r["_row"]}
@@ -369,6 +447,7 @@ def curate(state: list[dict], kws: dict[str, dict], kw_rows: list[dict], set_row
             res.errors.append(f"keyword {old[k]['name']} ({k}) is missing from the Keywords sheet (rows must not be deleted)")
 
     by_name = {norm(v["name"]).casefold(): k for k, v in rows.items()}
+    excluded_names = {norm(v["name"]).casefold(): v for v in excluded.values()}
 
     # aliases: resolve to heads
     head_of = {}
@@ -378,6 +457,10 @@ def curate(state: list[dict], kws: dict[str, dict], kw_rows: list[dict], set_row
         t = by_name.get(v["alias_of"].casefold())
         if t is None and kid(v["alias_of"]) in rows:
             t = kid(v["alias_of"])
+        if t is None and v["alias_of"].casefold() in excluded_names:
+            res.errors.append(f"Keywords row {v['row']} ({v['name']}): alias of '{v['alias_of']}', which is excluded; "
+                              f"exclude it too or clear alias_of")
+            continue
         if t is None:
             hint = get_close_matches(v["alias_of"], [x["name"] for x in rows.values()], n=1)
             res.errors.append(f"Keywords row {v['row']} ({v['name']}): alias_of '{v['alias_of']}' is not a keyword"
@@ -427,6 +510,10 @@ def curate(state: list[dict], kws: dict[str, dict], kw_rows: list[dict], set_row
                                 + ", ".join(rows[k]["name"] for k in ks if rows[k]["suggested"]))
     for n in sorted({rename.get(n, n) for n in old_skill_ids} - set(members)):
         res.changes["Skill sets emptied (removed)"].append(n)
+    for v in excluded.values():
+        res.changes["Excluded (taken out of the skill sets)"].append(
+            f"{v['name']} (was in {v['was'] or 'no skill set'})" + (f"  ({v['reason']})" if v["reason"] else ""))
+    res.excluded = list(excluded.values())
 
     if res.errors:
         return state, res
@@ -452,7 +539,30 @@ def curate(state: list[dict], kws: dict[str, dict], kw_rows: list[dict], set_row
             res.changes["Suggested" if v["suggested"] else "No longer suggested"].append(
                 f"{v['name']} ({v['skill_set']}){note}")
 
-    return build_state(state, kws, rows, head_of, old_skill_ids, rename, before), res
+    new_state = build_state(state, kws, rows, head_of, old_skill_ids, rename, before)
+    res.cinode_plan = cinode_plan(state, new_state, rename)
+    return new_state, res
+
+
+def cinode_plan(state: list[dict], new_state: list[dict], rename: dict[str, str]) -> list[dict]:
+    """Per Cinode skill set (cinode_skill_set_id in the AI proposal): keyword ids to add and remove so the
+    Cinode set matches the new taxonomy. A plan only; nothing is sent to Cinode."""
+    names = {r["keyword_id"]: r["name"] for r in state + new_state}
+    old_m, new_m = defaultdict(set), defaultdict(set)
+    for r in state:
+        old_m[rename.get(norm(r["skill_name"]), norm(r["skill_name"]))].add(r["keyword_id"])
+    for r in new_state:
+        new_m[norm(r["skill_name"])].add(r["keyword_id"])
+    plan = []
+    for s, si in sorted(set_info().items()):
+        s = rename.get(s, s)
+        for cid in si["cinode"]:
+            add, rem = sorted(new_m[s] - old_m[s], key=int), sorted(old_m[s] - new_m[s], key=int)
+            if add or rem:
+                plan.append({"cinode_skill_set_id": int(cid), "skill_set": s,
+                             "add": [{"id": int(k), "keyword": names[k]} for k in add],
+                             "remove": [{"id": int(k), "keyword": names[k]} for k in rem]})
+    return plan
 
 
 def build_state(state, kws, rows, head_of, old_skill_ids, rename, before) -> list[dict]:
@@ -517,6 +627,16 @@ def report(res: Result, src: Path, applied: bool) -> str:
             lines.append("No changes.")
         for title, items in res.changes.items():
             lines += [f"### {title} ({len(items)})", ""] + [f"- {i}" for i in items] + [""]
+        if res.cinode_plan:
+            lines += [f"## Cinode plan ({len(res.cinode_plan)} skill sets, not executed)", "",
+                      "Changes the existing Cinode skill sets would need to match. Run them only with Robert's go-ahead.", ""]
+            for p in res.cinode_plan:
+                lines.append(f"- {p['skill_set']} ({p['cinode_skill_set_id']}): "
+                             + "; ".join(x for x in (
+                                 "add " + ", ".join(f"{a['keyword']} ({a['id']})" for a in p["add"]) if p["add"] else "",
+                                 "remove " + ", ".join(f"{a['keyword']} ({a['id']})" for a in p["remove"]) if p["remove"] else "")
+                                 if x))
+            lines.append("")
     return "\n".join(lines) + "\n"
 
 
@@ -528,7 +648,30 @@ def cmd_import(args, apply: bool) -> int:
     state = buckets.read_state()
     kws = load_keywords()
     new_state, res = curate(state, kws, read_sheet(wb, KW_SHEET), read_sheet(wb, SET_SHEET))
+    if not res.errors:
+        res.warnings += ai_conflicts(state, new_state, kws, res.renames)
     return finish(res, new_state, src, apply)
+
+
+def ai_conflicts(state: list[dict], new_state: list[dict], kws: dict[str, dict], rename: dict[str, str]) -> list[str]:
+    """Keywords moved or excluded by hand that an AI topic maps (synonym/narrower) into its skill set:
+    the next ai-sync would put them back unless topic_mapping.csv is changed too."""
+    topic_set = {p["topic_id"]: rename.get(norm(p.get("skill_set")), norm(p.get("skill_set")))
+                 for p in skills.read_csv(AI_PROPOSAL) if norm(p.get("skill_set")) and p.get("status") in ("", "active")}
+    by_syn = {k["master_synonym_id"]: kid for kid, k in kws.items()}
+    now = {r["keyword_id"]: norm(r["skill_name"]) for r in new_state}
+    before = {r["keyword_id"]: rename.get(norm(r["skill_name"]), norm(r["skill_name"])) for r in state}
+    out = []
+    for m in skills.read_csv(AI_MAPPING):
+        t = f"T{int(m['topic_id']):02d}"
+        k = by_syn.get(m["cinode_id"])
+        if m["kind"] != "skill" or m["relation"] not in ("synonym", "narrower") or t not in topic_set or k not in before:
+            continue
+        if before[k] == topic_set[t] and now.get(k) != topic_set[t]:
+            where = f"moved to '{now[k]}'" if k in now else "excluded"
+            out.append(f"{kws[k]['master_synonym']} {where}, but AI topic {t} maps it into '{topic_set[t]}'; "
+                       f"ai-sync would put it back unless data/ai/topic_mapping.csv changes too")
+    return out
 
 
 def finish(res: Result, new_state: list[dict], src: Path, apply: bool) -> int:
@@ -537,9 +680,20 @@ def finish(res: Result, new_state: list[dict], src: Path, apply: bool) -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     rep = OUT / f"{src.stem}_{'applied' if do_apply else 'check'}_{dt.datetime.now():%Y%m%d-%H%M%S}.md"
     rep.write_text(text, encoding="utf-8")
+    if res.cinode_plan:
+        import json
+        plan_path = rep.with_name(rep.stem + "_cinode_plan.json")
+        plan_path.write_text(json.dumps(res.cinode_plan, ensure_ascii=False, indent=1), encoding="utf-8")
     if do_apply:
         buckets.write_state(new_state)
         buckets.export_marketable(new_state)
+        if res.excluded:
+            rows = skills.read_csv(EXCLUDED) + [{"keyword_id": v["keyword_id"], "name": v["name"], "was_skill_set": v["was"],
+                                                 "reason": v["reason"], "excluded_at": dt.date.today().isoformat(),
+                                                 "source": src.name} for v in res.excluded]
+            skills.write_csv(EXCLUDED, rows, ["keyword_id", "name", "was_skill_set", "reason", "excluded_at", "source"])
+        if res.renames:
+            rename_in_proposal(res.renames)
     summary = ", ".join(f"{t.lower()} {len(v)}" for t, v in res.changes.items()) or "no changes"
     print(f"{len(res.errors)} errors, {len(res.warnings)} warnings; {summary}")
     for e in res.errors[:15]:
@@ -549,7 +703,30 @@ def finish(res: Result, new_state: list[dict], src: Path, apply: bool) -> int:
         print("Nothing applied; fix the errors and run again.")
     elif do_apply:
         print(f"Wrote {buckets.STATE.relative_to(skills.ROOT)} and {buckets.MARKETABLE.relative_to(skills.ROOT)}")
+    if res.cinode_plan:
+        print(f"Cinode plan (not executed): {len(res.cinode_plan)} skill sets, {plan_path.relative_to(skills.ROOT)}")
     return 1 if res.errors else 0
+
+
+def rename_in_proposal(rename: dict[str, str]) -> None:
+    """Skill set renames and merges from the workbook, carried into ai_skillset_proposal.csv."""
+    import csv
+    with AI_PROPOSAL.open(newline="", encoding="utf-8") as f:
+        r = csv.DictReader(f)
+        fields, rows = r.fieldnames, list(r)
+    hit = False
+    for p in rows:
+        s = norm(p.get("skill_set"))
+        if s in rename:
+            p["skill_set"] = rename[s]
+            p["changed"] = "; ".join(x for x in (p.get("changed", ""), f"skill set renamed to '{rename[s]}' in curation "
+                                                 f"({dt.date.today().isoformat()})") if x)
+            hit = True
+    if hit:
+        with AI_PROPOSAL.open("w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=fields, lineterminator="\r\n")
+            w.writeheader()
+            w.writerows(rows)
 
 
 # ---------- AI layer -> taxonomy ----------
@@ -574,6 +751,7 @@ def ai_sheet(state: list[dict], kws: dict[str, dict]) -> tuple[list[dict], list[
     view = current_view(state)
     name = {r["keyword_id"]: r["name"] for r in state}
     rows = {k: {"keyword_id": k, "keyword": name[k], **v, "comment": ""} for k, v in view.items()}
+    excluded = {r["keyword_id"] for r in skills.read_csv(EXCLUDED)}
     by_syn = {k["master_synonym_id"]: kid for kid, k in kws.items()}
     by_name = {k["master_synonym"].casefold(): kid for kid, k in kws.items()}
     notes = []
@@ -595,7 +773,7 @@ def ai_sheet(state: list[dict], kws: dict[str, dict]) -> tuple[list[dict], list[
         for m in skills.read_csv(AI_MAPPING):
             if m["kind"] == "skill" and f"T{int(m['topic_id']):02d}" == tid and m["relation"] in ("synonym", "narrower"):
                 k = by_syn.get(m["cinode_id"]) or by_name.get(m["cinode_name"].casefold())
-                if k:
+                if k and k not in excluded:  # curators took it out of the skill sets
                     rel[k] = m["relation"]
         rel[pk] = "synonym"
         for k in rel:
