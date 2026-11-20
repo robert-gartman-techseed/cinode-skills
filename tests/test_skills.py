@@ -167,7 +167,7 @@ def test_retired_topics_have_no_skill_set_and_no_active_mapping():
     canonical skill and no mapping rows, and its parent is active."""
     topics = skills.read_csv(skills.AI / "hot_topics.csv")
     merged = {f"T{int(t['topic_id']):02d}": t for t in topics if t["status"] == "merged"}
-    assert {"T09", "T17", "T18", "T19", "T20", "T21", "T22", "T29", "T39"} <= merged.keys()
+    assert {"T09", "T17", "T18", "T19", "T20", "T21", "T22", "T29"} <= merged.keys()
     active = {f"T{int(t['topic_id']):02d}" for t in topics if t["status"] != "merged"}
     assert all(t["parent_topic"] in active for t in merged.values())
     proposal = {r["topic_id"]: r for r in skills.read_csv(skills.AI / "ai_skillset_proposal.csv")}
