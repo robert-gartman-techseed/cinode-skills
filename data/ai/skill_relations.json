@@ -15,7 +15,28 @@
   "Large Language Models": "synonym",
   "Large Language Models (LLM)": "synonym",
   "Large Language Models (LLMs)": "synonym",
-  "LiteLLM": "product"
+  "LiteLLM": "product",
+  "Azure OpenAI": "product",
+  "Azure Openai": "product",
+  "Chat GPT & Claude": "product",
+  "ChatGPT": "product",
+  "ChatGPT 4": "product",
+  "GPT": "product",
+  "GPT-4o Vision": "product",
+  "Open AI": "product",
+  "Open AI Integration": "product",
+  "OpenAI": "product",
+  "OpenAI API": "product",
+  "OpenAI APIs": "product",
+  "OpenAI Assistants API": "narrower",
+  "OpenAI SDK": "narrower",
+  "open ai api": "product",
+  "Amazon Bedrock": "product",
+  "Gemini": "product",
+  "LangChain": "product",
+  "LangGraph": "product",
+  "LangGraph/LangChain": "product",
+  "Langchain": "product"
  },
  "T03": {
   "AI-agenter": "synonym",
@@ -216,33 +237,6 @@
   "Azure Foundry": "product",
   "Copilot Studio": "synonym",
   "Microsoft Azure AI Foundry": "product"
- },
- "T19": {
-  "Azure OpenAI": "product",
-  "Azure Openai": "product",
-  "Chat GPT & Claude": "product",
-  "ChatGPT": "product",
-  "ChatGPT 4": "product",
-  "GPT": "product",
-  "GPT-4o Vision": "product",
-  "Open AI": "product",
-  "Open AI Integration": "synonym",
-  "OpenAI": "product",
-  "OpenAI API": "synonym",
-  "OpenAI APIs": "synonym",
-  "OpenAI Assistants API": "narrower",
-  "OpenAI SDK": "narrower",
-  "open ai api": "synonym"
- },
- "T20": {
-  "Amazon Bedrock": "synonym",
-  "Gemini": "product"
- },
- "T21": {
-  "LangChain": "synonym",
-  "LangGraph": "product",
-  "LangGraph/LangChain": "product",
-  "Langchain": "synonym"
  },
  "T22": {
   "Data Science": "related",

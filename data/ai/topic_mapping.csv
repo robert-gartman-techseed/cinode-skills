@@ -81,18 +81,18 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 18,skill,330440,Azure AI Foundry Agents,exact,product
 18,tag,302964,Power Platform,close,
 18,tag_type,11450,Power Platform,close,
-19,skill,119799,Azure Openai,exact,product
-19,skill,121665,OpenAI API,exact,synonym
-19,skill,123596,OpenAI APIs,exact,synonym
-19,skill,107665,OpenAI,exact,product
-19,skill,171262,OpenAI Assistants API,close,narrower
-19,skill,252980,OpenAI SDK,close,narrower
-19,tag,296156,Azure,close,
-20,skill,140518,Amazon Bedrock,exact,synonym
-20,tag,296058,AWS,close,
-21,skill,120381,Langchain,exact,synonym
-21,skill,200947,LangGraph,exact,product
-21,skill,350443,LangGraph/LangChain,exact,product
+2,skill,119799,Azure Openai,exact,product
+2,skill,121665,OpenAI API,exact,product
+2,skill,123596,OpenAI APIs,exact,product
+2,skill,107665,OpenAI,exact,product
+2,skill,171262,OpenAI Assistants API,close,narrower
+2,skill,252980,OpenAI SDK,close,narrower
+2,tag,296156,Azure,close,
+2,skill,140518,Amazon Bedrock,exact,product
+2,tag,296058,AWS,close,
+2,skill,120381,Langchain,exact,product
+2,skill,200947,LangGraph,exact,product
+2,skill,350443,LangGraph/LangChain,exact,product
 22,skill,2930,Python,exact,related
 22,skill,43517,PyTorch,exact,synonym
 22,skill,92384,Hugging Face,exact,product
@@ -174,14 +174,14 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 17,skill,168588,Copilot metrics,close,narrower
 18,skill,265102,Azure AI Foundry / OpenAI / Azure AI,exact,product
 18,skill,94875,Azure AI Engineer Associate,close,related
-19,skill,113978,Open AI,exact,product
-19,skill,167444,open ai api,exact,synonym
-19,skill,261813,Open AI Integration,exact,synonym
-19,skill,111965,ChatGPT,close,product
-19,skill,156439,ChatGPT 4,close,product
-19,skill,95052,GPT,close,product
-19,skill,350323,GPT-4o Vision,close,product
-19,skill,342653,Chat GPT & Claude,close,product
+2,skill,113978,Open AI,exact,product
+2,skill,167444,open ai api,exact,product
+2,skill,261813,Open AI Integration,exact,product
+2,skill,111965,ChatGPT,close,product
+2,skill,156439,ChatGPT 4,close,product
+2,skill,95052,GPT,close,product
+2,skill,350323,GPT-4o Vision,close,product
+2,skill,342653,Chat GPT & Claude,close,product
 23,skill,348274,AI Coding (codex & Claude code),exact,synonym
 23,skill,348288,AI Coding - Codex & Claude Code,exact,synonym
 23,skill,334199,Open AI Codex,exact,product
@@ -307,7 +307,7 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 13,skill,49079,Apache Airflow,close,product
 13,skill,34481,Amazon SageMaker,close,product
 13,skill,260071,Model Quantization,close,narrower
-20,skill,21829,Gemini,close,product
+2,skill,21829,Gemini,close,product
 33,skill,87092,Embedded AI,close,related
 6,skill,185716,Prompting,exact,narrower
 6,skill,258196,Prompt Design,exact,narrower

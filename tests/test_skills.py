@@ -124,7 +124,7 @@ def test_topic_mapping_relations():
     rows = [r for r in skills.read_csv(skills.AI / "topic_mapping.csv") if r["kind"] == "skill"]
     assert rows and all(r["relation"] in skills.RELATIONS for r in rows)
     rel = {(r["topic_id"], r["cinode_name"]): r["relation"] for r in rows}
-    assert rel[("19", "ChatGPT 4")] == "product"
+    assert rel[("2", "ChatGPT 4")] == "product"  # T19 merged into T02 as a product
     assert rel[("18", "Azure AI Foundry")] == "product"
     assert rel[("23", "GitHub Copilot")] == "product"
     assert rel[("5", "RAG")] == "synonym"
@@ -159,3 +159,17 @@ def test_loader_handles_missing_private_raw_folders(tmp_path, monkeypatch):
     profiles, names, kws = load_duckdb.load_profile_skills()
     for df in (hits, syn, profiles, names, kws):
         assert df.empty and len(df.columns) > 0
+
+
+def test_retired_topics_have_no_skill_set_and_no_active_mapping():
+    """A merged/dropped hot topic keeps its id in hot_topics.csv (never reused) but has no
+    canonical skill, no skill-set proposal row and no mapping rows; its parent must be active."""
+    topics = skills.read_csv(skills.AI / "hot_topics.csv")
+    merged = {f"T{int(t['topic_id']):02d}": t for t in topics if t["status"] == "merged"}
+    assert {"T19", "T20", "T21"} <= merged.keys()
+    active = {f"T{int(t['topic_id']):02d}" for t in topics if t["status"] != "merged"}
+    assert all(t["parent_topic"] in active for t in merged.values())
+    proposal = {r["topic_id"] for r in skills.read_csv(skills.AI / "ai_skillset_proposal.csv")}
+    canonical = {r["id"] for r in skills.read_csv(ai_topics.CANONICAL)}
+    mapped = {f"T{int(r['topic_id']):02d}" for r in skills.read_csv(skills.AI / "topic_mapping.csv")}
+    assert not merged.keys() & (proposal | canonical | mapped)
