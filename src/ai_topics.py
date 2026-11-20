@@ -133,7 +133,8 @@ def cmd_view(args) -> None:
                     "canonical_verified": p.get("keyword_status", p.get("status")) == "verified",
                     "canonical_users": int(p.get("users_on_profiles") or 0),
                     "needs_new_keyword": p.get("keyword_status", p.get("status")) == "needs new keyword", "hot": tid in hot,
-                    "ai_related": c["ai_related"] == "True", "domain": c["domain"], "definition": c["definition"],
+                    "ai_related": c["ai_related"] == "True", "scope": p.get("scope") or "ai",
+                    "domain": c["domain"], "definition": c["definition"],
                     "synonyms": syn})
     path = AI / "canonical_skills_view.json"
     path.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")

@@ -579,7 +579,7 @@ def ai_sheet(state: list[dict], kws: dict[str, dict]) -> tuple[list[dict], list[
 
     for p in skills.read_csv(AI_PROPOSAL):
         sset = norm(p.get("skill_set"))
-        if not sset:
+        if not sset or p.get("scope") == "general":  # general skill sets are not synced as AI skill sets
             continue
         tid, pk = p["topic_id"], p["keyword_id"]
         if pk not in kws:
