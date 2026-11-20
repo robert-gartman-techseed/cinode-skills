@@ -264,16 +264,6 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 36,skill,19987,Sensor fusion,close,narrower
 36,skill,50234,LIDAR,close,related
 38,skill,157430,Ollama,close,product
-39,skill,133333,NIS2,close,narrower
-39,skill,136804,NIS2 directive,close,narrower
-39,skill,112063,NIS2-direktivet,close,narrower
-39,skill,123531,Cyber Resilience Act,close,narrower
-39,skill,262377,Cyber Resiliance Act,close,narrower
-39,skill,268146,CRA-direktivet,close,narrower
-39,skill,104402,IEC 62443,close,narrower
-39,skill,252549,Cybersecurity Standards (IEC62443-4-2),close,narrower
-39,skill,238190,Digitala Produktpass (DPP),close,narrower
-39,skill,343120,DPP (digitala produktpass),close,narrower
 3,skill,263505,n8n Automations,close,product
 11,skill,176651,OpenAI Whisper,close,product
 11,skill,3444,Speech Recognition,close,narrower
@@ -376,32 +366,12 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 16,skill,337420,Algorithmic Fairness,exact,narrower
 16,skill,370409,AI - Fairness evaluation,exact,narrower
 16,skill,264539,RAG System Validation,exact,narrower
-39,skill,134144,NIS 2,close,narrower
-39,skill,163465,NIS2 Compliance,close,narrower
-39,skill,320636,Cyber Resilience Act (CRA),close,narrower
-39,skill,137969,Data Act,close,narrower
-39,skill,233749,Data Act Compliance,close,narrower
-39,skill,322658,Maskinförordningen (EU2023/1230),close,narrower
-39,skill,75120,UNECE R155,close,narrower
-39,skill,201452,UNECE R155 Compliance,close,narrower
-39,skill,281424,UNECE R156 Compliance,close,narrower
-39,skill,147667,UN R155/156,close,narrower
-39,skill,338884,UN R155/R156,close,narrower
-39,skill,133421,ISO/SAE 21434 and UN R155,close,narrower
-39,skill,73776,IEC62443,close,narrower
-39,skill,252919,IEC EC62443-4-2,close,narrower
-39,skill,322866,IEC 62443-4-2,close,narrower
-39,skill,73875,Radio Equipment Directive,close,narrower
-39,skill,170538,Radio Equipment Directive (RED),close,narrower
-39,skill,335031,Producentansvar och produktpass,close,narrower
-39,skill,276985,ESPR (Ecodesign for Sustainable Products Regulation),close,narrower
 25,skill,17587,GDPR,close,related
 25,skill,128862,General Data Protection Regulation  (GDPR),close,related
 25,skill,42920,GDPR Compliance,close,related
 25,skill,12150,Regulatory Compliance,close,related
 25,skill,5071,Compliance,close,related
 25,skill,29417,EU Directives,close,related
-39,skill,63600,ISO 21434,close,related
 25,skill,66918,ePrivacy-direktivet,close,related
 37,skill,6960,Fastighetsautomation,exact,synonym
 37,skill,21505,Building Automation,close,synonym
