@@ -23,7 +23,7 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 23,DevOps,8,6,71,45; 551; 889; 1654; 1838; 1939,DevOps; Infrastructure as Code; DevOps-tekniker; DevSecOps; GitOps; Platform Engineer
 24,Requirements Analysis,28,21,227,51; 73; 158; 198; 230; 238; 534; 591; 598; 636; 674; 696; 771; 1199; 1257; 1420; 1510; 1535; 1880; 1970; 2052,Requirement Analysis; Requirements handling; Requirement Specifications; Requirements Gathering; Requirements Engineering; Business Requirements Analysis; Requirements; Business Requirements; System requirements; Verksamhetsbehov; GAP-analys; Prioritization; User Stories; Kundbehovsanalys; Funktionella krav; IT Requirements; Requirements documentation; Use Case; Kravhantering och Kravställning; Requirements Gathering and Analysis; User Story Writing
 25,CI/CD,9,6,74,46; 714; 870; 1571; 1788; 2074,Continuous Integration; CI/CD pipeline; Application deployment; Continuous Delivery; Deployment Processes; YAML pipeline
-26,Artificial Intelligence,24,17,80,21; 22; 25; 62; 346; 349; 350; 351; 354; 357; 359; 1633; 1725; 1726; 1810; 2078; 2079,AI; AI Strategy; AI Integration; Multi-agent Systems; AI Engineering; AI workflows; Edge AI; AI Use Case Discovery; AI Adoption & Enablement; AI Enablement (Technical & Governance); AI Enablement Lead; AI Ethics; AI implementation; AI-acceleration; AI-driven business strategy; AI-based Decision Support; Beslutsstöd baserat på AI och dataanalys
+26,Artificial Intelligence,22,16,77,21; 22; 62; 346; 349; 350; 351; 354; 357; 359; 1633; 1725; 1726; 1810; 2078; 2079,AI; AI Strategy; AI Integration; AI Engineering; AI workflows; Edge AI; AI Use Case Discovery; AI Adoption & Enablement; AI Enablement (Technical & Governance); AI Enablement Lead; AI Ethics; AI implementation; AI-acceleration; AI-driven business strategy; AI-based Decision Support; Beslutsstöd baserat på AI och dataanalys
 27,Software Development,40,34,278,54; 60; 61; 84; 204; 221; 494; 572; 578; 810; 885; 886; 887; 1002; 1117; 1156; 1197; 1198; 1369; 1442; 1446; 1455; 1601; 1642; 1643; 1645; 1653; 1834; 1914; 1972; 1999; 2003; 2005; 2057,Software Development; Programming; System Development; Programming languages; Code review; Application development; Object Oriented Programming; Programvaruutvecklare; Refactoring; Software Engineering; Desktop Application; Developer; Development; Development tools; Service Development; Business logic; Business Logic Development; Code Generation; Development environment; Platform Development; Coding Standards; Design patterns; Framework Development; Functional Programming; SDK; Senior Utvecklare; Solution Development; Funktionsutveckling; Multithreading; Reusable Components; Skräddarsydda lösningar; Software Development Processes; Software solutions; Verktygsutveckling
 28,Docker,5,4,64,48; 432; 741; 1165,Docker; Containerization; Docker container; Docker Compose
 29,Stakeholder Management,16,12,119,49; 234; 325; 327; 928; 1434; 1560; 1706; 1707; 1708; 1862; 2009,Stakeholder analysis; Stakeholders management; Stakeholder Communication; Stakeholders; Stakeholder Coordination; Interface management; Stakeholder alignment; Stakeholder collaboration; Stakeholder Management & Collaboration; Samverkansledning; Intressentdialog; Stakeholder interviews
@@ -34,18 +34,18 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 34,FPGA,11,10,79,66; 326; 575; 730; 841; 922; 1831; 1832; 1889; 1916,FPGA; FPGA design; Quartus; CPLD; Altera; HDL; FPGA Development; FPGA Hardware; Libero SoC; Nanoxplore FPGA
 35,IoT,10,8,68,63; 547; 775; 1291; 1604; 1612; 1864; 1865,IoT; Industrial Internet of Things; LoRaWAN; Edge computing; IoT Platforms; LoRa; IoT projects; IoT Specialist
 36,ERP Systems,8,8,65,55; 295; 908; 1092; 1171; 1180; 1662; 1822,Business System; Verksamhetssystem; Finanssystem; ERP Transformation; Business application; Ekonomisystem; ERP solutions; ERP implementations
-38,Automation,12,7,73,4; 56; 529; 546; 571; 1071; 1090,Automation; Automate; Industrial automation; Processautomatisering; Intelligent Automation; Automationssystem; Building Automation
+38,Automation,9,6,69,56; 529; 546; 571; 1071; 1090,Automation; Automate; Industrial automation; Processautomatisering; Automationssystem; Building Automation
 39,Embedded Systems,41,31,227,58; 152; 191; 244; 283; 310; 470; 625; 720; 722; 748; 831; 892; 910; 921; 1173; 1174; 1193; 1211; 1263; 1415; 1578; 1641; 1668; 1718; 1749; 1829; 1841; 1849; 1853; 1935,Embedded Systems; Embedded Software Development; RTOS; Firmware; FreeRTOS; Realtidssystem; Driver development; Device Drivers; Developer: Embedded; Bare Metal; Bootloader; Firmware Development and Testing; VxWorks; Embedded Systems Developer; EEPROM; Firmware Programming; Hardware bring-up; Board Bring-up; Firmware Debugging; Zephyr (RTOS); Embedded Systems Software; Firmware design; GPIO; JTAG; Realtidsprogrammering; Bootloader Development; Firmware Updates; Hardware Abstraction; Hårdvarunära mjukvaruutveckling; Inbäddad programvara; Over-the-Air (OTA) Updates
 40,C# / .NET,36,30,277,39; 59; 170; 171; 208; 219; 328; 419; 425; 426; 447; 685; 694; 701; 704; 718; 732; 833; 849; 863; 912; 1068; 1284; 1326; 1335; 1337; 1529; 1530; 1570; 1719,C#; .NET; .NET Core; ASP.NET; Entity Framework; WPF; .NET Framework 4.5; Windows Communication Foundation; ASP.NET MVC; Blazor; MVVM; SignalR; Telerik; Windows Forms; Xamarin; C#.NET; ASP.NET WebAPI; Dapper; xUnit; ASP.NET Web Forms; C# Application Development; Fluent NHibernate; ASP.NET Core 1.0; LINQ; Moq; NServiceBus; NUnit; Xamarin.Forms; XAML; ABP Framework
 41,Microsoft SQL Server,9,7,70,68; 463; 490; 661; 662; 779; 1302,Microsoft SQL Server; Azure SQL; Microsoft SQL Server Integration Services; Microsoft Analysis Services; Microsoft SQL Server Management Studio; Microsoft SQL Server Reporting Services; MDX
 42,Risk Management,13,11,92,20; 140; 199; 305; 913; 1141; 1427; 1428; 1621; 1677; 1974,Risk Management; Risk Analysis; Risk Assessment; Risk Mitigation; FMEA; Konsekvensbedömning; Crisis Management; Risk Management Analysis; Riskidentifiering; Risk management 14971; AI Risk Management
-43,Machine Learning,19,13,77,2; 300; 339; 355; 361; 381; 383; 683; 784; 906; 1376; 1912; 2016,Machine Learning; Deep Learning; Scikit-learn; Neurala nätverk; Feature engineering; Model deployment; Model Evaluation; Predictive Modelling; Machine Learning & AI; Model Quantization; Supervised Learning; Machine Learning Integration; ML/AI algorithms and tools
+43,Machine Learning,22,17,78,2; 3; 300; 339; 355; 381; 383; 385; 683; 784; 1376; 1912; 2016; 2090; 2091; 2092; 2093,Machine Learning; Deep Learning; Scikit-learn; Neurala nätverk; NLP; Model deployment; Predictive Modelling; Machine Learning & AI; Model Quantization; Supervised Learning; Machine Learning Integration; ML/AI algorithms and tools; NLU; NLTK; SpaCy; Sentiment Analysis; Natural language generation
 44,Sales,10,10,61,64; 464; 980; 1079; 1080; 1130; 1378; 1482; 1713; 1835,Sales; B2B; Pre sales; Säljstrategi; B2B sales; B2C; Consultative selling; Prissättning; Säljprocess; Försäljning och markandsföring
 45,HTML & CSS,11,8,102,77; 99; 435; 466; 1280; 1441; 1483; 1845,CSS; HTML; HTML/CSS; Bootstrap; LESS; SCSS; Tailwind CSS; HTML/CSS/JS
 47,API,18,16,145,65; 139; 237; 296; 323; 475; 524; 809; 1063; 1213; 1470; 1591; 1635; 1732; 1971; 2064,API; REST API; API-integration; API-utveckling; Web Services; GraphQL; Web API; SOAP; APIs (REST and/or GraphQL); API-design; API Gateway; gRPC; Swagger; API Strategy; REST APIs & Backend Services; Webhooks
 48,Business Development,13,10,80,70; 138; 931; 965; 971; 1014; 1038; 1179; 1338; 1809,Business Development; Operations Development; International expansion; Nätverksbyggande; Partnership management; Strategic partnerships; Value realization; Erbjudandeutveckling; Nya affärsmöjligheter; Ecosystem development
 49,Innovation,6,4,54,71; 477; 619; 1556,Innovation; Innovation Management; Innovative; Concept Development
-50,Databases,13,10,73,82; 395; 401; 563; 623; 735; 880; 882; 2011; 2048,Databases; Database Management; NoSQL; Database design; Databasadministration; Databasutveckling; DBeaver; Store data; Transaction management; Vector Databases
+50,Databases,11,9,71,82; 401; 563; 623; 735; 880; 882; 2011; 2048,Databases; Database Management; NoSQL; Database design; Databasadministration; Databasutveckling; DBeaver; Store data; Transaction management
 51,Workshop Facilitation,9,7,55,93; 903; 1330; 1544; 2071; 2072; 2073,Workshop Facilitation; Workshops; Facilitation; Möteshantering; Workshopfacilitering & mötesstruktur; Workshopledning och facilitering på lednings- och verksamhetsnivå; workshopplanering
 52,React,5,5,47,72; 577; 796; 1299; 1686,React.js; React Native; Redux; Next.js; Material UI
 53,Strategic Planning,19,17,118,74; 183; 214; 223; 422; 555; 816; 1024; 1052; 1091; 1094; 1463; 1464; 1631; 1751; 2012; 2033,Strategic planning; Strategiutveckling; Strategy; Business Strategy; Affärsplanering; IT Strategy; Strategisk rådgivning; Technology strategy; Affärsstrategier; Affärsmodeller; Business alignment; Business model; Strategic Thinking; Strategy execution; Business Strategy Development; Strategic Roadmapping; Technical Strategy
@@ -148,7 +148,7 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 151,ServiceNow,5,4,29,233; 288; 1450; 1705,ServiceNow; ServiceNow CMS; ServiceNow ITSM; ServiceNow CMDB
 152,Education & Training,10,9,50,322; 456; 484; 566; 843; 1513; 1627; 1748; 1860,Education; Teaching; Kursutveckling; Pedagogy; Trainer; Användarutbildning; Utbildningsplanering; Bootcamp; Intern utbildning
 153,Accounting,12,11,40,421; 713; 747; 764; 1086; 1186; 1187; 1271; 1281; 1808; 1863,Accounting; Annual accounts; Finansiell rapportering; Invoicing; Bookkeeping; Fakturahantering; Faktureringsprocessen; Kundfordringar; Leverantörsrekontra; E-invoicing; Invoicing Systems
-154,Generative AI,28,14,52,1; 8; 12; 26; 27; 28; 29; 340; 347; 348; 372; 378; 379; 380,LLM; Prompt Engineering; Embeddings; Generativ AI; RAG (LLM); MCP (Model Context Protocol); LLM Evaluation; Agent Design; AI Context Engineering; AI Developer Tools; Generative AI & LLM Integration; LiteLLM; LLM Model Inference Optimization; LLM-integration
+154,Generative AI,18,9,37,1; 12; 26; 28; 348; 372; 378; 379; 380,LLM; Embeddings; Generativ AI; RAG (LLM); AI Developer Tools; Generative AI & LLM Integration; LiteLLM; LLM Model Inference Optimization; LLM-integration
 155,Consulting,14,9,59,205; 285; 486; 836; 862; 1026; 1128; 1869; 2056,Consultant Industry; Rådgivning; Management Consulting; Advisor; Business Consulting; Teknisk rådgivning; Consultancy; IT consulting; Verksamhetsrådgivning
 156,E-commerce,4,4,19,207; 1805; 1806; 1807,E-commerce; E-commerce Integration; E-commerce Platforms; E-handelslösningar
 157,Grafana,1,1,13,210,Grafana
@@ -186,7 +186,7 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 192,Terraform,1,1,10,293,Terraform
 194,Altium Designer,2,1,10,528,Altium Designer
 195,Control Systems,6,4,22,621; 1541; 1947; 1994,Motor Control; Control systems; Process control; Servo
-196,Microsoft Power Platform,8,5,27,10; 1317; 1581; 1691; 1786,Microsoft PowerApps; Power Automate; Copilot Studio; Power Platform; Dataverse
+196,Microsoft Power Platform,7,4,24,1317; 1581; 1691; 1786,Microsoft PowerApps; Power Automate; Power Platform; Dataverse
 197,ChatGPT,4,3,12,298; 338; 366,ChatGPT; GPT; Chat GPT & Claude
 198,ARM,4,4,23,396; 397; 848; 1816,ARM; ARM Cortex; Arm architecture; Embedded ARM development
 199,CMake,3,3,14,399; 953; 1899,CMake; Make; Makefile
@@ -313,7 +313,6 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 334,Playwright,1,1,4,1619,Playwright
 336,Apache Airflow,2,1,4,1727,Airflow
 337,Analytical Skills,3,2,6,1730; 1882,Analytical Skills; Kritiskt tänkande
-338,Natural Language Processing,2,2,4,3; 385,NLP; NLU
 339,Snowflake,1,1,3,301,Snowflake
 342,GIS & Mapping,4,4,9,845; 1207; 1209; 1296,ArcGIS; GIS; Google Maps; Mapbox
 343,Asset Management,2,2,5,850; 1254,Asset Management; IT Asset Management
@@ -403,7 +402,6 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 447,WATS,1,1,2,2063,WATS
 448,Whimsical,1,1,2,2065,Whimsical
 449,LangChain,3,3,3,14; 376; 377,Langchain; LangGraph; LangGraph/LangChain
-450,AI Agents & Agentic AI,12,3,15,23; 341; 342,Agentic systems; Agent Orchestration; Agentic AI Architectures (Single‑ & Multi‑Agent Systems)
 451,Cursor,1,1,1,368,Cursors
 452,Responsible AI,3,3,3,370; 375; 393,Ethical & responsible AI practices; Introduced ethical AI principles and risk assessment practices in municipal and enterprise projects.; Responsible AI
 453,Model Context Protocol (MCP),1,1,1,371,FastMCP
@@ -429,3 +427,9 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 474,Azure AI Foundry,6,4,7,337; 363; 364; 365,Azure Openai; Azure AI Foundry; Azure AI Foundry / OpenAI / Azure AI; Azure AI Foundry Agents
 475,AI-assisted Development,8,1,9,16,AI-assisted development
 476,AI Governance & EU AI Act,14,6,19,18; 19; 343; 352; 391; 392,AI Act; Advisory AI Initiatives alignment with governance frameworks and compliance standards; AI & Data Governance; AI Governance & Adoption; Regulatory awareness (incl. EU AI Act principles); Regulatory Compliance: EU AI Act & EU Data Act
+477,Context Engineering,8,2,11,27; 347,Prompt Engineering; Context Engineering
+478,Agentisk AI / Multi-agent-orkestrering,29,6,32,4; 10; 23; 29; 340; 342,Agentic AI; Copilot Studio; MCP (Model Context Protocol); Intelligent Automation; Agent Design; Agentic AI Architectures (Single‑ & Multi‑Agent Systems)
+479,AI Model Fine-tuning,14,4,0,2080; 2081; 2082; 2083,AI Fine-tuning; Fine-tuning & PEFT/LoRA; LoRA fine-tuning; Code Fine-Tuning
+480,Conversational AI / Chatbots,12,5,4,2084; 2085; 2087; 2088; 2089,Speech-to-text; Speech Recognition; Text to speech; Conversational AI; Bot Framework
+481,AI-ready Data,13,9,7,395; 906; 2094; 2095; 2096; 2097; 2098; 2099; 2100,Feature engineering; Vector Databases; Image annotation; Data preprocessing; AI-ready data; Data Labeling; Data Annotations; Synthetic training data; AI Data Engineering
+482,AI Quality Assurance / AI Testing,26,13,8,8; 361; 2101; 2102; 2104; 2105; 2106; 2107; 2108; 2111; 2113; 2117; 2119,Model Evaluation; AI evaluation; LLM Evaluation; Red teaming; AI Quality Assurance; ISTQB AI Testing; LangFuse; langsmith; RAGAS; Deepeval; Promptfoo; Bias & fairness; RAG System Validation
