@@ -1,6 +1,6 @@
 skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 1,Project Management,65,54,436,30; 132; 228; 256; 267; 276; 287; 324; 455; 498; 499; 517; 539; 573; 652; 679; 681; 819; 838; 883; 884; 974; 979; 981; 989; 1031; 1032; 1048; 1168; 1370; 1392; 1394; 1395; 1396; 1397; 1398; 1399; 1408; 1488; 1564; 1573; 1693; 1787; 1840; 1854; 1861; 1878; 1938; 1945; 1963; 1987; 1988; 2049; 2077,Project Management; Project planning; Program Manager; Planning; Resource Planning; Coordination; IT Project Management; Scheduling; Resource Management; PMO; Portfolio Management; Teknisk projektledning; Delivery management; Project coordination; Team koordinering; Launch planning; Resursallokering; Samordning; Cross-Functional Coordination; Technical Project Manager; Agile Project Management; Delivery Lead; Delivery Responsible; Pilotprojekt; PPS Practical Project Steering; PRINCE2; Project Governance; Tidsestimering; Time Planning; XLPM; Project portfolio; Earned Value Management; PMP – Project Management Professional; Project Administration; Project Delivery; Project initiation; Project methodology; Project Portfolio Management; Project Scoping; Projektmodell; RACI; Technical Planning; Delivery Oversight; Handlingsplanering; Industrial projects; International Project Coordination; Komplex Projekt och Programledning; Planning and Prioritization; Prioritering av åtgärder; RAID log management; Scope Definition; Scope Management & Planning; Tvärfunktionell samordning; Åtgärdsplan
-2,Python,11,10,130,31; 666; 676; 788; 890; 956; 1405; 1608; 1875; 1876,Python; NumPy; PySpark; Pandas; FastAPI; Django; Matplotlib; Python unittest; Jupyter; Jython Programming
+2,Python,6,5,111,31; 890; 1405; 1608; 1876,Python; FastAPI; Django; Python unittest; Jython Programming
 3,C++,6,3,94,96; 895; 1100,C/C++; Embedded C/C++; C/C++&OOP
 4,Git,2,2,73,32; 1206,Git; Gerrit
 5,Jira,5,5,80,33; 705; 1262; 1873; 1874,JIRA; Zephyr; Jira Agile; Jira administration; Jira Service Management
@@ -23,7 +23,7 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 23,DevOps,8,6,71,45; 551; 889; 1654; 1838; 1939,DevOps; Infrastructure as Code; DevOps-tekniker; DevSecOps; GitOps; Platform Engineer
 24,Requirements Analysis,28,21,227,51; 73; 158; 198; 230; 238; 534; 591; 598; 636; 674; 696; 771; 1199; 1257; 1420; 1510; 1535; 1880; 1970; 2052,Requirement Analysis; Requirements handling; Requirement Specifications; Requirements Gathering; Requirements Engineering; Business Requirements Analysis; Requirements; Business Requirements; System requirements; Verksamhetsbehov; GAP-analys; Prioritization; User Stories; Kundbehovsanalys; Funktionella krav; IT Requirements; Requirements documentation; Use Case; Kravhantering och Kravställning; Requirements Gathering and Analysis; User Story Writing
 25,CI/CD,9,6,74,46; 714; 870; 1571; 1788; 2074,Continuous Integration; CI/CD pipeline; Application deployment; Continuous Delivery; Deployment Processes; YAML pipeline
-26,Artificial Intelligence,22,16,77,21; 22; 62; 346; 349; 350; 351; 354; 357; 359; 1633; 1725; 1726; 1810; 2078; 2079,AI; AI Strategy; AI Integration; AI Engineering; AI workflows; Edge AI; AI Use Case Discovery; AI Adoption & Enablement; AI Enablement (Technical & Governance); AI Enablement Lead; AI Ethics; AI implementation; AI-acceleration; AI-driven business strategy; AI-based Decision Support; Beslutsstöd baserat på AI och dataanalys
+26,Artificial Intelligence,16,13,68,62; 346; 349; 350; 351; 354; 357; 359; 1633; 1725; 1726; 2078; 2079,AI; AI Integration; AI Engineering; AI workflows; AI Adoption & Enablement; AI Enablement (Technical & Governance); AI Enablement Lead; AI Ethics; AI implementation; AI-acceleration; AI-driven business strategy; AI-based Decision Support; Beslutsstöd baserat på AI och dataanalys
 27,Software Development,40,34,278,54; 60; 61; 84; 204; 221; 494; 572; 578; 810; 885; 886; 887; 1002; 1117; 1156; 1197; 1198; 1369; 1442; 1446; 1455; 1601; 1642; 1643; 1645; 1653; 1834; 1914; 1972; 1999; 2003; 2005; 2057,Software Development; Programming; System Development; Programming languages; Code review; Application development; Object Oriented Programming; Programvaruutvecklare; Refactoring; Software Engineering; Desktop Application; Developer; Development; Development tools; Service Development; Business logic; Business Logic Development; Code Generation; Development environment; Platform Development; Coding Standards; Design patterns; Framework Development; Functional Programming; SDK; Senior Utvecklare; Solution Development; Funktionsutveckling; Multithreading; Reusable Components; Skräddarsydda lösningar; Software Development Processes; Software solutions; Verktygsutveckling
 28,Docker,5,4,64,48; 432; 741; 1165,Docker; Containerization; Docker container; Docker Compose
 29,Stakeholder Management,16,12,119,49; 234; 325; 327; 928; 1434; 1560; 1706; 1707; 1708; 1862; 2009,Stakeholder analysis; Stakeholders management; Stakeholder Communication; Stakeholders; Stakeholder Coordination; Interface management; Stakeholder alignment; Stakeholder collaboration; Stakeholder Management & Collaboration; Samverkansledning; Intressentdialog; Stakeholder interviews
@@ -34,12 +34,12 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 34,FPGA,11,10,79,66; 326; 575; 730; 841; 922; 1831; 1832; 1889; 1916,FPGA; FPGA design; Quartus; CPLD; Altera; HDL; FPGA Development; FPGA Hardware; Libero SoC; Nanoxplore FPGA
 35,IoT,10,8,68,63; 547; 775; 1291; 1604; 1612; 1864; 1865,IoT; Industrial Internet of Things; LoRaWAN; Edge computing; IoT Platforms; LoRa; IoT projects; IoT Specialist
 36,ERP Systems,8,8,65,55; 295; 908; 1092; 1171; 1180; 1662; 1822,Business System; Verksamhetssystem; Finanssystem; ERP Transformation; Business application; Ekonomisystem; ERP solutions; ERP implementations
-38,Automation,9,6,69,56; 529; 546; 571; 1071; 1090,Automation; Automate; Industrial automation; Processautomatisering; Automationssystem; Building Automation
+38,Automation,7,5,65,56; 529; 546; 571; 1071,Automation; Automate; Industrial automation; Processautomatisering; Automationssystem
 39,Embedded Systems,41,31,227,58; 152; 191; 244; 283; 310; 470; 625; 720; 722; 748; 831; 892; 910; 921; 1173; 1174; 1193; 1211; 1263; 1415; 1578; 1641; 1668; 1718; 1749; 1829; 1841; 1849; 1853; 1935,Embedded Systems; Embedded Software Development; RTOS; Firmware; FreeRTOS; Realtidssystem; Driver development; Device Drivers; Developer: Embedded; Bare Metal; Bootloader; Firmware Development and Testing; VxWorks; Embedded Systems Developer; EEPROM; Firmware Programming; Hardware bring-up; Board Bring-up; Firmware Debugging; Zephyr (RTOS); Embedded Systems Software; Firmware design; GPIO; JTAG; Realtidsprogrammering; Bootloader Development; Firmware Updates; Hardware Abstraction; Hårdvarunära mjukvaruutveckling; Inbäddad programvara; Over-the-Air (OTA) Updates
 40,C# / .NET,36,30,277,39; 59; 170; 171; 208; 219; 328; 419; 425; 426; 447; 685; 694; 701; 704; 718; 732; 833; 849; 863; 912; 1068; 1284; 1326; 1335; 1337; 1529; 1530; 1570; 1719,C#; .NET; .NET Core; ASP.NET; Entity Framework; WPF; .NET Framework 4.5; Windows Communication Foundation; ASP.NET MVC; Blazor; MVVM; SignalR; Telerik; Windows Forms; Xamarin; C#.NET; ASP.NET WebAPI; Dapper; xUnit; ASP.NET Web Forms; C# Application Development; Fluent NHibernate; ASP.NET Core 1.0; LINQ; Moq; NServiceBus; NUnit; Xamarin.Forms; XAML; ABP Framework
 41,Microsoft SQL Server,9,7,70,68; 463; 490; 661; 662; 779; 1302,Microsoft SQL Server; Azure SQL; Microsoft SQL Server Integration Services; Microsoft Analysis Services; Microsoft SQL Server Management Studio; Microsoft SQL Server Reporting Services; MDX
-42,Risk Management,13,11,92,20; 140; 199; 305; 913; 1141; 1427; 1428; 1621; 1677; 1974,Risk Management; Risk Analysis; Risk Assessment; Risk Mitigation; FMEA; Konsekvensbedömning; Crisis Management; Risk Management Analysis; Riskidentifiering; Risk management 14971; AI Risk Management
-43,Machine Learning,22,17,78,2; 3; 300; 339; 355; 381; 383; 385; 683; 784; 1376; 1912; 2016; 2090; 2091; 2092; 2093,Machine Learning; Deep Learning; Scikit-learn; Neurala nätverk; NLP; Model deployment; Predictive Modelling; Machine Learning & AI; Model Quantization; Supervised Learning; Machine Learning Integration; ML/AI algorithms and tools; NLU; NLTK; SpaCy; Sentiment Analysis; Natural language generation
+42,Risk Management,12,10,91,140; 199; 305; 913; 1141; 1427; 1428; 1621; 1677; 1974,Risk Management; Risk Analysis; Risk Assessment; Risk Mitigation; FMEA; Konsekvensbedömning; Crisis Management; Risk Management Analysis; Riskidentifiering; Risk management 14971
+43,Machine Learning,20,15,71,2; 3; 300; 339; 355; 381; 383; 385; 784; 1376; 2016; 2090; 2091; 2092; 2093,Machine Learning; Deep Learning; Neurala nätverk; NLP; Model deployment; Predictive Modelling; Machine Learning & AI; Supervised Learning; Machine Learning Integration; ML/AI algorithms and tools; NLU; NLTK; SpaCy; Sentiment Analysis; Natural language generation
 44,Sales,10,10,61,64; 464; 980; 1079; 1080; 1130; 1378; 1482; 1713; 1835,Sales; B2B; Pre sales; Säljstrategi; B2B sales; B2C; Consultative selling; Prissättning; Säljprocess; Försäljning och markandsföring
 45,HTML & CSS,11,8,102,77; 99; 435; 466; 1280; 1441; 1483; 1845,CSS; HTML; HTML/CSS; Bootstrap; LESS; SCSS; Tailwind CSS; HTML/CSS/JS
 47,API,18,16,145,65; 139; 237; 296; 323; 475; 524; 809; 1063; 1213; 1470; 1591; 1635; 1732; 1971; 2064,API; REST API; API-integration; API-utveckling; Web Services; GraphQL; Web API; SOAP; APIs (REST and/or GraphQL); API-design; API Gateway; gRPC; Swagger; API Strategy; REST APIs & Backend Services; Webhooks
@@ -76,10 +76,10 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 79,Microsoft Visual Studio,2,1,25,137,Microsoft Visual Studio 2013
 80,Teamwork,14,11,83,167; 330; 431; 450; 516; 691; 911; 1590; 1768; 1982; 1983,Teamwork; Cross-functional Collaborations; Collaboration; Personal Relationship Building in Team; Teambuilding; Teamutveckling; Tvärfunktionellt samarbete; Flexibility; Cross-Cultural Collaboration; Samarbete med utvecklingsteam; Samverkan
 81,Data Quality,5,4,33,188; 1153; 1600; 1782,Datakvalitet; Dataintegritet; Data Validation; Data Quality Assurance
-82,Digital Transformation,15,13,72,24; 104; 130; 360; 369; 627; 1162; 1497; 1498; 1499; 1595; 1656; 1793,Digitalization; Digital transformation; Digital strategy; Business transformation; Digitaliseringsstrategi; Digital utveckling; Transformation; Transformation Programme Management; Transformationsledning; Digital Platforms; AI Transformation; AI-stödd verksamhetsutveckling; Digitalisation & AI
-83,Maintenance,4,4,32,105; 952; 1189; 1692,Maintenance; Maintenance plan; Predictive maintenance; Field Service
+82,Digital Transformation,14,12,71,104; 130; 360; 369; 627; 1162; 1497; 1498; 1499; 1595; 1656; 1793,Digitalization; Digital transformation; Digital strategy; Business transformation; Digitaliseringsstrategi; Digital utveckling; Transformation; Transformation Programme Management; Transformationsledning; Digital Platforms; AI-stödd verksamhetsutveckling; Digitalisation & AI
+83,Maintenance,3,3,29,105; 952; 1189,Maintenance; Maintenance plan; Field Service
 84,Prototyping,5,5,33,106; 1400; 1411; 1694; 1959,Prototyping; Proof of Concept Development; Proof of concept; Rapid Prototyping; Prototypframtagning och verifiering
-85,Regulatory Compliance,29,26,104,120; 312; 353; 670; 798; 901; 1122; 1188; 1360; 1457; 1649; 1655; 1663; 1665; 1752; 1763; 1773; 1801; 1802; 1826; 1844; 1890; 1966; 1967; 1968; 2050,Regulatory Compliance; Compliance; PCI DSS; Regulatoriska krav; EU Directives; Data Act; Digitala Produktpass (DPP); EU-regelverk; FDA; Compliance Management; FDA regulations; Patientdatalagen; SOX; Certification Processes; Compliance processes; Cyber Resilience Act; DORA; DORA-förordningen; FDA Compliance; Homologation; Life Cycle management IEC 62304 & Design Control FDA 820:30; Regelverksanalys; Regelverkshantering; Regulatory knowledge; UNECE R155; AI Guidelines
+85,Regulatory Compliance,28,25,103,120; 312; 670; 798; 901; 1122; 1188; 1360; 1457; 1649; 1655; 1663; 1665; 1752; 1763; 1773; 1801; 1802; 1826; 1844; 1890; 1966; 1967; 1968; 2050,Regulatory Compliance; Compliance; PCI DSS; Regulatoriska krav; EU Directives; Data Act; Digitala Produktpass (DPP); EU-regelverk; FDA; Compliance Management; FDA regulations; Patientdatalagen; SOX; Certification Processes; Compliance processes; Cyber Resilience Act; DORA; DORA-förordningen; FDA Compliance; Homologation; Life Cycle management IEC 62304 & Design Control FDA 820:30; Regelverksanalys; Regelverkshantering; Regulatory knowledge; UNECE R155
 86,GDPR,8,6,47,123; 538; 879; 891; 982; 1205,GDPR; Dataskydd; Data processing agreements; DPIA; Privacy by Design; GDPR Risk Assessment
 87,Product Management,12,8,77,119; 157; 505; 509; 1622; 1794; 1950; 1951,Product Development; Product Management; Produktstrategi; Roadmap; Roadmap Development; Digital produktutveckling; product operations; Product Roadmap
 88,Bash,4,2,32,108; 806,Bash; Shell Script
@@ -89,7 +89,7 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 92,MATLAB,3,3,32,112; 487; 1901,MATLAB; MATLAB/Simulink; MathWorks
 93,MQTT,2,2,25,113; 1327,MQTT; Mosquitto
 94,UART & Serial Communication,4,4,39,114; 580; 583; 1628,UART; RS-232; Serial Communication; UART Communication
-95,Simulation,8,7,38,126; 743; 1011; 1756; 1796; 1996; 2021,Simulation; Emulator; Spice; Circuit simulation; Digital Twin; Simuleringsverktyg; System Simulation
+95,Simulation,7,6,36,126; 743; 1011; 1756; 1996; 2021,Simulation; Emulator; Spice; Circuit simulation; Simuleringsverktyg; System Simulation
 96,Data Management,29,25,153,6; 115; 135; 174; 240; 278; 404; 557; 877; 881; 975; 1065; 1144; 1235; 1237; 1343; 1625; 1650; 1651; 1776; 1778; 1779; 1780; 1783; 1900,Data Management; Data Migration; Data Governance; Data processing; Masterdata; Information management; Data Strategy; Metadata Hantering; Stammdaten; Data architect; Datalagring; PIM; Data lineage; Data Ownership; Archiving; CSV; Information Governance; Informationsförvaltning; Open data; Data Control; Data files; Data Governance specialist; Data Lifecycle Management; Data transfer; Master Data Governance
 97,Oracle,4,4,32,118; 669; 1351; 1688,Oracle; Oracle Database; Oracle SOA; Oracle WebLogic
 98,Embedded Linux,11,9,67,131; 143; 520; 721; 859; 1346; 1602; 1933; 1936,Embedded Linux; Yocto; U-Boot; BitBake; Device tree; Buildroot; OpenWRT; OpenEmbedded; Petalinux
@@ -102,7 +102,7 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 105,Application Management,8,6,48,186; 407; 485; 586; 1025; 1871,Application management; Management; Maintenance Management; Software Maintenance; Teknisk förvaltning; IT-förvaltning
 106,Automotive,5,4,26,146; 1126; 1375; 1855,Automotive Industry; Connected Vehicles; Powertrain; Infotainment system
 107,Data Acquisition,2,1,20,160,Datainsamling
-108,Statistics,5,5,34,141; 595; 688; 1755; 2010,Statistics; Time Series Analysis; Statistical analysis; Chemometrics; Statistiska modeller
+108,Statistics,4,4,28,141; 688; 1755; 2010,Statistics; Statistical analysis; Chemometrics; Statistiska modeller
 109,PostgreSQL,4,3,22,155; 390; 1366,PostgreSQL; pgAdmin; Pgvector
 110,Networking,28,27,108,184; 190; 587; 603; 604; 626; 734; 740; 949; 963; 966; 1006; 1043; 1249; 1250; 1293; 1331; 1332; 1339; 1345; 1519; 1673; 1837; 1903; 1917; 1918; 1919,TCP/IP; Ethernet; SSH; Wireless network; Wireshark; DHCP; Data communication; DNS; Load Balancing; Network; Nätverkskonfiguration; SNMP; VPN; Industrial Networking; IPv4; IPv6; LWIP; Network architecture; Networking; Nätverksutrustning; OpenVPN; VLAN; Gigabit Ethernet; Mesh Networking; Network Building; Network card; Network Reliability
 111,Customer Service,6,5,32,268; 945; 1448; 1574; 1679,Customer Service; Customer Experience and Loyalty; Kundresa; Kunddialog; Service
@@ -132,7 +132,7 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 135,MySQL,2,2,17,178; 1297,MySQL; MariaDB
 136,Node.js,2,2,18,179; 964,Node.js; npm
 137,PHP,1,1,15,180,PHP
-138,Robotics,5,4,24,181; 996; 1410; 1975,Robotics; ROS; Rapid; Robot Programming
+138,Robotics,13,13,29,181; 1410; 1975; 2121; 2132; 2140; 2141; 2142; 2144; 2145; 2146; 2147; 2152,Robotics; Rapid; Robot Programming; Industrial Robotics; Industriella robotar; Robotic Control Systems; Robotkontrollsystem; Robotic Systems Integration; Collaborative Robots; Collaborative Robotics; Swarm Robotics; Autonomous navigation; Sensor fusion
 139,Scripting,3,3,19,182; 1111; 2001,Scripting; CLI; smartBasic Scripting
 140,Visual Studio Code,1,1,15,185,Visual Studio Code
 141,Signal Processing,5,3,30,213; 469; 664,Signal Processing; Digital signal processing; Modulation
@@ -148,7 +148,7 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 151,ServiceNow,5,4,29,233; 288; 1450; 1705,ServiceNow; ServiceNow CMS; ServiceNow ITSM; ServiceNow CMDB
 152,Education & Training,10,9,50,322; 456; 484; 566; 843; 1513; 1627; 1748; 1860,Education; Teaching; Kursutveckling; Pedagogy; Trainer; Användarutbildning; Utbildningsplanering; Bootcamp; Intern utbildning
 153,Accounting,12,11,40,421; 713; 747; 764; 1086; 1186; 1187; 1271; 1281; 1808; 1863,Accounting; Annual accounts; Finansiell rapportering; Invoicing; Bookkeeping; Fakturahantering; Faktureringsprocessen; Kundfordringar; Leverantörsrekontra; E-invoicing; Invoicing Systems
-154,Generative AI,18,9,37,1; 12; 26; 28; 348; 372; 378; 379; 380,LLM; Embeddings; Generativ AI; RAG (LLM); AI Developer Tools; Generative AI & LLM Integration; LiteLLM; LLM Model Inference Optimization; LLM-integration
+154,Generative AI,8,3,11,1; 348; 372,Generative AI (GenAI); AI Developer Tools; Generative AI & LLM Integration
 155,Consulting,14,9,59,205; 285; 486; 836; 862; 1026; 1128; 1869; 2056,Consultant Industry; Rådgivning; Management Consulting; Advisor; Business Consulting; Teknisk rådgivning; Consultancy; IT consulting; Verksamhetsrådgivning
 156,E-commerce,4,4,19,207; 1805; 1806; 1807,E-commerce; E-commerce Integration; E-commerce Platforms; E-handelslösningar
 157,Grafana,1,1,13,210,Grafana
@@ -159,12 +159,11 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 162,Feasibility Studies,6,4,28,255; 501; 1827; 1944,Pre-studies; Pre-study management; Feasibility studies; Pre-Study Analysis
 163,IT & Computer Science,12,10,45,270; 549; 552; 760; 1124; 1486; 1598; 1795; 1797; 1870,Datalogi; Informatik; IT; Information Systems; Computer Engineering; Computer Systems; Tech company; Digital teknik; Digitala verktyg/system; IT Systems
 164,Bluetooth,4,2,21,427; 531,Bluetooth; Bluetooth LE
-165,MES,4,2,15,1295; 1308,MES System; Manufacturing IT (MES/MOM)
 167,Business Process Management,16,15,69,222; 262; 502; 698; 715; 791; 857; 984; 985; 986; 1096; 1527; 1620; 1948; 2069,Business Process; Workflow; Processmodellering; Verksamhetsprocesser; Arbetsflöden; Processledning; Process implementation; BPMN; Process analysis; Process Manager; Processhantering; Business Process Management; Workflow analysis; Processdesign; Workflow Mapping
 168,Microsoft IIS,1,1,12,226,Microsoft Internet Information Server
-169,SCADA,3,3,19,232; 923; 1611,SCADA; Ignition; Ignition SCADA
+169,SCADA,2,2,7,923; 1611,Ignition; Ignition SCADA
 170,Claude,3,2,17,264; 334,Claude; Claude Code
-171,Computer Vision & Imaging,9,8,33,266; 545; 668; 1852; 1877; 1929; 2075; 2076,Computer Vision; Image processing; OpenCV; Imaging Software; Kamerasystem; Object detection; Yolo; YOLOv8
+171,Computer Vision & Imaging,5,5,13,668; 1852; 1877; 2075; 2076,OpenCV; Imaging Software; Kamerasystem; Yolo; YOLOv8
 173,Google Cloud Platform,3,1,12,637,Google Cloud
 174,Android,4,4,19,236; 712; 1060; 1731,Android; Android Development; Android Studio; Android App
 175,iOS,2,2,16,246; 648,iOS; iOS Developer
@@ -198,7 +197,7 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 205,Tcl,1,1,9,417,TCL
 206,Open Source,2,1,9,495,Open Source
 207,Visual Basic,5,3,20,597; 697; 829,VB.NET; VBA; Visual Basic
-208,Communication Protocols,17,16,54,665; 667; 675; 700; 997; 1140; 1221; 1283; 1402; 1453; 1509; 1534; 1843; 1902; 1958; 2007,Communication Protocols; Network protocols; OPC UA; Protocol Design; WebSockets; RS485; CRC; HTTP; LIN; Protocol Testing; SMTP; USB; HDLC Protocol; Mavlink; Protocol stack; SpaceWire
+208,Communication Protocols,16,15,49,665; 675; 700; 997; 1140; 1221; 1283; 1402; 1453; 1509; 1534; 1843; 1902; 1958; 2007,Communication Protocols; Network protocols; Protocol Design; WebSockets; RS485; CRC; HTTP; LIN; Protocol Testing; SMTP; USB; HDLC Protocol; Mavlink; Protocol stack; SpaceWire
 209,Medtech,7,6,22,658; 1229; 1252; 1301; 1304; 1558,Medical Device Industry; Medical device; IEC 62304; ISO 14971; MDR; Medical equipment
 210,Monitoring & Logging,8,7,29,384; 443; 781; 1016; 1288; 1562; 1930,Logging; System monitoring; Monitoring; Surveillance; Log Management; Observability; Monitoring and observability
 211,Technical Expertise,7,5,17,1490; 1626; 2032; 2034; 2035,Technical Expertise; Teknik; TECHNICAL SKILLS; Technology solutions; Teknisk förståelse
@@ -215,7 +214,6 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 222,Transportation,2,2,10,1484; 1542,Transportation Industry; TCMS
 223,Ultrasound,3,2,10,1565; 2006,Ultrasound; Sonography
 224,Siemens Insights Hub,2,1,8,1586,Siemens Insights Hub
-225,PyTorch,1,1,7,15,PyTorch
 226,Robotic Process Automation,1,1,7,299,Robotic Process Automation
 227,Apache Kafka,1,1,7,459,Apache Kafka
 228,Figma,1,1,7,473,Figma
@@ -227,7 +225,6 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 234,RabbitMQ,1,1,7,507,RabbitMQ
 236,SQLite,1,1,7,513,SQLite
 237,Tableau,1,1,7,515,Tableau
-238,TensorFlow,2,2,9,518; 1266,TensorFlow; Keras
 239,RFID,2,1,7,680,RFID
 240,Sparx Enterprise Architect,2,1,7,813,Sparx Enterprise Architect
 241,Construction,5,5,13,620; 1127; 1762; 1769; 1867,Construction; Construction Industry; CoClass; Crossing; ISO19650
@@ -245,7 +242,6 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 256,Optics & Laser Technology,2,2,5,1349; 1680,Laser; Optik
 257,n8n,2,2,5,1684; 1915,n8n; n8n Automations
 258,Supabase,1,1,3,1711,Supabase
-259,MLOps & AIOps,3,2,4,5; 17,MLOps; AIOps
 260,Ollama,2,2,4,302; 1932,Ollama/ self-host AI; Ollama
 261,Microsoft Copilot,7,3,8,9; 367; 382,Microsoft 365 Copilot; Copilot metrics; Microsoft Copilot
 262,OpenAI Codex,2,1,2,386,Open AI Codex
@@ -322,7 +318,6 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 348,InfluxDB,1,1,3,924,InfluxDB
 349,macOS,1,1,3,951,macOS
 351,Neo4j,2,2,5,961; 1148,Neo4j; Cypher
-353,PLC Programming,1,1,3,976,PLC
 355,IBM DOORS,1,1,3,994,Rational DOORS
 356,Redis,1,1,3,995,Redis
 357,Scala,1,1,3,999,Scala
@@ -353,7 +348,6 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 389,Trello,1,1,2,1501,Trello
 390,Umbraco,1,1,2,1505,Umbraco
 391,Unreal Engine,1,1,2,1506,Unreal Engine
-393,Building Management Systems,1,1,2,1084,BMS
 394,Booking Systems,1,1,2,1085,Booking system
 395,CAD,1,1,2,1101,CAD
 396,COBOL,1,1,2,1115,COBOL
@@ -405,7 +399,6 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 451,Cursor,1,1,1,368,Cursors
 452,Responsible AI,3,3,3,370; 375; 393,Ethical & responsible AI practices; Introduced ethical AI principles and risk assessment practices in municipal and enterprise projects.; Responsible AI
 453,Model Context Protocol (MCP),1,1,1,371,FastMCP
-454,Hugging Face,1,1,1,374,Hugging Face
 455,Melior,1,1,2,1305,Melior
 456,Mender,1,1,2,1306,Mender
 457,Mergers & Acquisitions,1,1,2,1307,Mergers and Acquisitions (M&A)
@@ -423,13 +416,30 @@ skill_id,skill_name,keywords,buckets,users,bucket_ids,member_buckets
 470,PowerPC,1,1,2,1374,PowerPC
 471,Protocol Buffers,1,1,2,1401,Protocol Buffers
 472,Rational Unified Process,1,1,2,1413,Rational Unified Process
-473,OpenAI API & Platform,10,6,13,11; 336; 373; 387; 388; 389,OpenAI; OpenAI API; GPT-4o Vision; OpenAI Agents; OpenAI Assistants API; OpenAI SDK
+473,OpenAI API & Platform,8,4,11,11; 336; 373; 387,OpenAI; OpenAI API; GPT-4o Vision; OpenAI Agents
 474,Azure AI Foundry,6,4,7,337; 363; 364; 365,Azure Openai; Azure AI Foundry; Azure AI Foundry / OpenAI / Azure AI; Azure AI Foundry Agents
 475,AI-assisted Development,8,1,9,16,AI-assisted development
-476,AI Governance & EU AI Act,14,6,19,18; 19; 343; 352; 391; 392,AI Act; Advisory AI Initiatives alignment with governance frameworks and compliance standards; AI & Data Governance; AI Governance & Adoption; Regulatory awareness (incl. EU AI Act principles); Regulatory Compliance: EU AI Act & EU Data Act
 477,Context Engineering,8,2,11,27; 347,Prompt Engineering; Context Engineering
-478,Agentisk AI / Multi-agent-orkestrering,29,6,32,4; 10; 23; 29; 340; 342,Agentic AI; Copilot Studio; MCP (Model Context Protocol); Intelligent Automation; Agent Design; Agentic AI Architectures (Single‑ & Multi‑Agent Systems)
+478,Agentisk AI / Multi-agent-orkestrering,28,5,29,4; 23; 29; 340; 342,Agentic AI; MCP (Model Context Protocol); Intelligent Automation; Agent Design; Agentic AI Architectures (Single‑ & Multi‑Agent Systems)
 479,AI Model Fine-tuning,14,4,0,2080; 2081; 2082; 2083,AI Fine-tuning; Fine-tuning & PEFT/LoRA; LoRA fine-tuning; Code Fine-Tuning
 480,Conversational AI / Chatbots,12,5,4,2084; 2085; 2087; 2088; 2089,Speech-to-text; Speech Recognition; Text to speech; Conversational AI; Bot Framework
 481,AI-ready Data,13,9,7,395; 906; 2094; 2095; 2096; 2097; 2098; 2099; 2100,Feature engineering; Vector Databases; Image annotation; Data preprocessing; AI-ready data; Data Labeling; Data Annotations; Synthetic training data; AI Data Engineering
-482,AI Quality Assurance / AI Testing,26,13,8,8; 361; 2101; 2102; 2104; 2105; 2106; 2107; 2108; 2111; 2113; 2117; 2119,Model Evaluation; AI evaluation; LLM Evaluation; Red teaming; AI Quality Assurance; ISTQB AI Testing; LangFuse; langsmith; RAGAS; Deepeval; Promptfoo; Bias & fairness; RAG System Validation
+482,AI Quality Assurance / AI Testing,25,12,7,8; 361; 2101; 2104; 2105; 2106; 2107; 2108; 2111; 2113; 2117; 2119,Model Evaluation; AI evaluation; LLM Evaluation; AI Quality Assurance; ISTQB AI Testing; LangFuse; langsmith; RAGAS; Deepeval; Promptfoo; Bias & fairness; RAG System Validation
+483,MLOps,1,1,2,5,MLOps
+484,Copilot Studio,1,1,3,10,Copilot Studio
+485,LLM-applikationsutveckling,5,4,14,12; 380; 388; 389,Large Language Models (LLMs); LLM-integration; OpenAI Assistants API; OpenAI SDK
+486,ML- och data science-stack,13,13,44,15; 374; 518; 666; 676; 683; 788; 956; 1266; 1875; 2122; 2126; 2130,PyTorch; TensorFlow; NumPy; PySpark; Scikit-learn; Pandas; Matplotlib; Keras; Jupyter; Hugging Face; Jupyter Notebook; Polars; Streamlit
+487,AIOps,2,1,2,17,AIOps
+488,Regulatory AI,5,3,10,18; 391; 392,AI Act; Regulatory awareness (incl. EU AI Act principles); Regulatory Compliance: EU AI Act & EU Data Act
+489,AI Governance,10,4,10,19; 343; 352; 353,AI Governance; AI & Data Governance; AI Governance & Adoption; AI Guidelines
+490,AI Security,2,2,2,20; 2102,AI Risk Management; Red teaming
+491,AI Strategy & Transformation,6,3,8,21; 22; 24,AI Strategy; AI Use Case Discovery; AI Transformation
+492,RAG,4,1,8,26,Retrieval-Augmented Generation (RAG)
+493,Embeddings,1,1,4,28,Embeddings
+494,Fastighetsautomation,27,22,58,232; 667; 976; 1084; 1295; 1308; 2120; 2123; 2124; 2127; 2128; 2131; 2133; 2134; 2135; 2136; 2137; 2138; 2143; 2148; 2149; 2151,SCADA; MES System; OPC UA; PLC; BMS; Fastighetsautomation; Manufacturing IT (MES/MOM); SCADA system; Manufacturing Execution Systems (MES); MES (Manufacturing Execution System); MES Systems; MES Integration; MES-utveckling; MES Implementation; MES Migration; MES Platforms; Unified namespace; OPC/UNS integration; PLC- system; PLC Communication; HMI / SCADA / PLC; BMS Specialist
+495,Computer Vision,5,4,21,266; 545; 1929; 2139,Computer Vision; Image processing; Object detection; Vision Language Models (VLM)
+496,LiteLLM,1,1,1,378,LiteLLM
+497,Edge AI,5,5,7,379; 1810; 1912; 2129; 2150,Edge AI; Model Quantization; LLM Model Inference Optimization; TinyML; Real-time Inference
+498,Predictive Maintenance,3,3,10,595; 1692; 2125,Time Series Analysis; Predictive maintenance; Time Series Analysis & Forecasting
+499,ROS,2,1,5,996,ROS
+500,Digital Twin,1,1,2,1796,Digital Twin

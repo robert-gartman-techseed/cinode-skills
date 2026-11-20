@@ -158,3 +158,26 @@ def test_ai_sync_suggest_no_adds_a_skill_without_taking_the_suggestion(tmp_path,
     by = {r["name"]: r for r in new}
     assert by["Mentoring"]["skill_name"] == "SQL" and not by["Mentoring"]["suggested"]
     assert by["SQL"]["suggested"] == "1"
+
+
+def test_ai_sync_moves_products_out_and_uses_interim_keywords(tmp_path, monkeypatch):
+    """A mapped product sitting in a topic's skill set moves to a product skill set of its own; a
+    topic whose new keyword is not in Cinode yet syncs with interim_keyword_id; general topics sync."""
+    kws = {k: {**v, "master_synonym_id": "s" + k} for k, v in KWS.items()}
+    prop, mapping = tmp_path / "p.csv", tmp_path / "m.csv"
+    prop.write_text("topic_id,topic,status,scope,skill_set,keyword_id,interim_keyword_id\n"
+                    "T22,Stack,active,ai,Python,,1\nT35,Twins,active,general,Coaching,6,\n"
+                    "T31,New,active,ai,Decisions,,\n", encoding="utf-8")
+    mapping.write_text("topic_id,kind,cinode_id,cinode_name,match,relation\n22,skill,s3,NumPy,exact,product\n",
+                       encoding="utf-8")
+    monkeypatch.setattr(curate, "AI_PROPOSAL", prop)
+    monkeypatch.setattr(curate, "AI_MAPPING", mapping)
+    st = state()
+    rows, notes = curate.ai_sheet(st, kws)
+    new, res = curate.curate(st, kws, rows, sets(st))
+    assert not res.errors, res.errors
+    by = {r["name"]: r for r in new}
+    assert by["Python"]["skill_name"] == "Python" and by["Python"]["suggested"] == "1"  # interim keyword
+    assert by["NumPy"]["skill_name"] == "NumPy"  # product moved out of the Python skill set
+    assert by["Mentoring"]["skill_name"] == "Coaching"  # general topic synced
+    assert any("T31" in n and "skipped" in n for n in notes)

@@ -565,7 +565,11 @@ def ai_sheet(state: list[dict], kws: dict[str, dict]) -> tuple[list[dict], list[
     with relation synonym or narrower (and the proposed keyword) move to that skill set with their
     whole alias bucket; synonyms become aliases of the proposed keyword, which heads its bucket and
     is the skill set's only suggested keyword (unless `suggest` is "no": the topic is then one skill
-    under the skill set, e.g. MCP under the agentic AI set). Products and related keywords are not moved.
+    under the skill set, e.g. MCP under the agentic AI set). Related keywords are not moved.
+    Topics with scope "general" (e.g. robotics, digital twins) sync the same way into a general skill
+    set. A topic whose proposed keyword does not exist in Cinode yet syncs with `interim_keyword_id`.
+    Finally, mapped products that sit in a topic's skill set (and are not in a moved bucket) move out
+    to a product skill of their own, named after their bucket head.
     """
     view = current_view(state)
     name = {r["keyword_id"]: r["name"] for r in state}
@@ -573,18 +577,20 @@ def ai_sheet(state: list[dict], kws: dict[str, dict]) -> tuple[list[dict], list[
     by_syn = {k["master_synonym_id"]: kid for kid, k in kws.items()}
     by_name = {k["master_synonym"].casefold(): kid for kid, k in kws.items()}
     notes = []
+    sets, anchored = set(), set()
 
     def head(k):
         return rows[k]["alias_of"] or rows[k]["keyword"]
 
     for p in skills.read_csv(AI_PROPOSAL):
         sset = norm(p.get("skill_set"))
-        if not sset or p.get("scope") == "general":  # general skill sets are not synced as AI skill sets
+        if not sset or p.get("status") not in (None, "", "active"):
             continue
-        tid, pk = p["topic_id"], p["keyword_id"]
+        tid, pk = p["topic_id"], p["keyword_id"] or p.get("interim_keyword_id", "")
         if pk not in kws:
-            notes.append(f"{tid}: proposed keyword id {pk} unknown; skipped")
+            notes.append(f"{tid}: no Cinode keyword for '{p.get('proposed_keyword', '')}' yet; skipped")
             continue
+        sets.add(sset)
         rel = {}
         for m in skills.read_csv(AI_MAPPING):
             if m["kind"] == "skill" and f"T{int(m['topic_id']):02d}" == tid and m["relation"] in ("synonym", "narrower"):
@@ -597,6 +603,7 @@ def ai_sheet(state: list[dict], kws: dict[str, dict]) -> tuple[list[dict], list[
                 rows[k] = {"keyword_id": k, "keyword": kws[k]["master_synonym"], "skill_set": sset, "alias_of": "",
                            "suggested": "", "comment": f"added from AI topic {tid}"}
         heads = {head(k) for k in rel}
+        anchored |= heads
         moved = [k for k in rows if head(k) in heads]
         for k in moved:
             rows[k]["skill_set"] = sset
@@ -615,6 +622,19 @@ def ai_sheet(state: list[dict], kws: dict[str, dict]) -> tuple[list[dict], list[
             rows[k]["comment"] = rows[k]["comment"] or f"AI topic {tid} ({p.get('topic', '')})"
         role = "skill" if not rows[pk]["suggested"] else "suggested"
         notes.append(f"{tid} -> skill set '{sset}', {role} '{pname}', {len(moved)} keywords")
+    for m in skills.read_csv(AI_MAPPING):  # products never stay inside a topic's skill set
+        if m["kind"] != "skill" or m["relation"] != "product":
+            continue
+        k = by_syn.get(m["cinode_id"]) or by_name.get(m["cinode_name"].casefold())
+        if k not in rows or rows[k]["skill_set"] not in sets or head(k) in anchored:
+            continue
+        h, old = head(k), rows[k]["skill_set"]
+        bucket = [x for x in rows if head(x) == h]
+        for x in bucket:
+            rows[x]["skill_set"] = h
+            rows[x]["suggested"] = "x" if rows[x]["keyword"] == h else ""
+            rows[x]["comment"] = rows[x]["comment"] or f"product, moved out of '{old}'"
+        notes.append(f"product '{h}' moved out of '{old}' into its own skill set ({len(bucket)} keywords)")
     return [{"_row": i, **r} for i, r in enumerate(rows.values(), 2)], notes
 
 
