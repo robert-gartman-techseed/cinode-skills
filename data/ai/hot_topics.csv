@@ -23,7 +23,7 @@ topic_id,category,topic,status,gap_note,parent_topic
 22,Verktyg och plattformar,"Python / ML- och data science-stack (PyTorch, TensorFlow, Hugging Face)",merged,"Verified: Python 98, TensorFlow 7, PyTorch 7, Scikit-learn 5, NumPy 5, Pandas 4, Matplotlib 3, Keras 2, Jupyter Notebook 1; custom Jupyter 2, PySpark 5; tag Python. Combo keywords (Keras/TensorFlow, Pandas/ numpy) are bucket-merge candidates; Robert 2026-11-20: mainly products/protocols, merged into T10",T10
 23,Verktyg och plattformar,GitHub Copilot / AI-assisterad utveckling,exact,"GitHub Copilot, AI-assisted development, Cursor, Claude Code, Codex skills; no spec-driven development keyword; no tag",
 24,Verktyg och plattformar,AIOps,close,AIOps skill exists; Now Assist not in use (ServiceNow is close); renamed/widened 2026-11-20,
-25,Styrning risk och verksamhet,EU AI Act / AI-förordningen,exact,"AI Act, AI-förordningen (AI Act), AI Act Compliance; no tag",
+25,Styrning risk och verksamhet,Regulatory AI,exact,"AI Act, AI-förordningen (AI Act), AI Act Compliance; no tag; renamed 2026-11-20 from EU AI Act / AI-förordningen (AI-specific regulation in general, EU AI Act first; no ISO/IEC 42001 keyword yet)",
 26,Styrning risk och verksamhet,AI governance / Responsible AI / AI-etik,exact,"AI Governance, Responsible AI, AI Ethics; tags IT Governance/Data Governance are close",
 27,Styrning risk och verksamhet,AI- och agentsäkerhet,close,"AI Risk Management, Red teaming (1), OWASP (3), Zero-Trust (1); no AI Security, Prompt injection or ISO/IEC 42001 keyword; tags GDPR, Information Security are close",
 28,Styrning risk och verksamhet,AI-strategi / AI-roadmap / AI-mognad,exact,AI Strategy skill; tag 'AI strategi',

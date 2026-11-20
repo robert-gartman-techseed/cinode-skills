@@ -109,9 +109,9 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 24,skill,151660,AIOps  Processes & Tools,exact,synonym
 24,skill,5234,ServiceNow,close,product
 24,tag,302969,ServiceNow,close,
-25,skill,92917,AI Act,exact,synonym
-25,skill,282716,AI-förordningen (AI Act),exact,synonym
-25,skill,170134,AI Act Compliance,exact,synonym
+25,skill,92917,AI Act,exact,narrower
+25,skill,282716,AI-förordningen (AI Act),exact,narrower
+25,skill,170134,AI Act Compliance,exact,narrower
 25,tag,299243,GDPR,close,
 26,skill,118076,AI Governance,exact,synonym
 26,skill,350146,AI Governance & Adoption,exact,related
@@ -190,7 +190,7 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 23,skill,172566,AI-driven Development,exact,synonym
 23,skill,232676,AI Developer Tools,exact,related
 23,skill,200940,Claude AI,close,product
-25,skill,310309,AIförordningen (EU AI Act),exact,synonym
+25,skill,310309,AIförordningen (EU AI Act),exact,narrower
 25,skill,314494,Regulatory Compliance: EU AI Act & EU Data Act,exact,related
 25,skill,289441,Regulatory awareness (incl. EU AI Act principles),close,related
 26,skill,289364,AI & Data governance frameworkds,exact,related

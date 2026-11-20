@@ -265,10 +265,10 @@
   "ServiceNow": "product"
  },
  "T25": {
-  "AI Act": "synonym",
-  "AI Act Compliance": "synonym",
-  "AI-förordningen (AI Act)": "synonym",
-  "AIförordningen (EU AI Act)": "synonym",
+  "AI Act": "narrower",
+  "AI Act Compliance": "narrower",
+  "AI-förordningen (AI Act)": "narrower",
+  "AIförordningen (EU AI Act)": "narrower",
   "Regulatory Compliance: EU AI Act & EU Data Act": "related",
   "Regulatory awareness (incl. EU AI Act principles)": "related"
  },
