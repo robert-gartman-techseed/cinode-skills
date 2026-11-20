@@ -403,3 +403,45 @@ topic_id,kind,cinode_id,cinode_name,match,relation
 25,skill,29417,EU Directives,close,related
 39,skill,63600,ISO 21434,close,related
 25,skill,66918,ePrivacy-direktivet,close,related
+37,skill,6960,Fastighetsautomation,exact,synonym
+37,skill,21505,Building Automation,close,synonym
+37,skill,236860,Byggnadsautomation,close,synonym
+37,skill,210393,Byggnadsautomationssystem,close,synonym
+37,skill,5348,SCADA,close,narrower
+37,skill,47740,SCADA system,close,narrower
+37,skill,64539,MES,close,narrower
+37,skill,27241,MES System,close,narrower
+37,skill,19749,Manufacturing IT (MES/MOM),close,narrower
+37,skill,95302,Manufacturing Execution Systems (MES),close,narrower
+37,skill,184483,MES (Manufacturing Execution System),close,narrower
+37,skill,159761,MES Systems,close,narrower
+37,skill,53041,MES Integration,close,narrower
+37,skill,153484,MES-utveckling,close,narrower
+37,skill,153723,MES Implementation,close,narrower
+37,skill,307219,MES Migration,close,narrower
+37,skill,307220,MES Platforms,close,narrower
+37,skill,238565,Unified namespace,close,narrower
+37,skill,350852,OPC/UNS integration,close,narrower
+37,skill,34165,OPC UA,close,narrower
+37,skill,20597,PLC,close,narrower
+37,skill,140936,PLC- system,close,narrower
+37,skill,179395,PLC Communication,close,narrower
+37,skill,78871,HMI / SCADA / PLC,close,narrower
+37,skill,16665,BMS,close,narrower
+37,skill,126842,BMS Specialist,close,narrower
+37,skill,104621,Ignition,close,product
+37,skill,222086,Ignition SCADA,close,product
+37,skill,84812,Inductive Automation Ignition SCADA,close,product
+37,skill,221888,Citect/Plant Scada,close,product
+37,skill,81855,Webport SCADA,close,product
+37,skill,333149,SCADA/PLC (Ignition / Siemens TIA),close,product
+37,skill,49122,Siemens PLC,close,product
+37,skill,129664,Siemens PLC Programming,close,product
+37,skill,228550,Siemens PLC programmering,close,product
+37,skill,84267,Kepware,close,product
+37,skill,176966,Siemens Insights Hub,close,product
+37,skill,222489,Schneider Electric EBO  3.2,close,product
+37,skill,324517,MES 2020 Insight,close,product
+37,skill,27004,Industrial automation,close,related
+37,skill,11887,Industriell automation,close,related
+37,skill,102627,OT Security,close,related

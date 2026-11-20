@@ -186,7 +186,7 @@ def test_general_topics_are_not_ai_related():
     Cinode skill sets: not AI-related and without an AI skill set."""
     proposal = {r["topic_id"]: r for r in skills.read_csv(skills.AI / "ai_skillset_proposal.csv")}
     general = {t for t, r in proposal.items() if r["scope"] == "general"}
-    assert {"T35", "T36"} <= general
+    assert {"T35", "T36", "T37"} <= general
     canonical = {r["id"]: r for r in skills.read_csv(ai_topics.CANONICAL)}
     assert all(canonical[t]["ai_related"] == "False" and not proposal[t]["skill_set"] for t in general)
     assert all(r["scope"] in ("ai", "general") for r in proposal.values() if r["status"] != "merged")

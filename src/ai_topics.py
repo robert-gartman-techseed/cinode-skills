@@ -9,6 +9,7 @@ taxonomy keywords by id and never duplicates them.
     uv run src/ai_topics.py seed      # seed data/ai/canonical_skills.csv from hot_topics.csv (if missing)
     uv run src/ai_topics.py report    # data/ai/reports/ai_verified_keywords.csv
     uv run src/ai_topics.py view      # data/ai/canonical_skills_view.json (catalogue page data)
+    uv run src/ai_topics.py rename T37 "Industriautomation"   # topic name in hot_topics, canonical, proposal
 """
 from __future__ import annotations
 
@@ -145,14 +146,45 @@ def cmd_view(args) -> None:
     print(f"Wrote {path.relative_to(skills.ROOT)}: {len(out)} skills; " + ", ".join(f"{counts[r]} {r}" for r in skills.RELATIONS))
 
 
+def rename_topic(tid: str, name: str, note: str = "") -> list[str]:
+    """Rename a topic everywhere its name is stored (hot_topics, canonical_skills, proposal);
+    the proposal's `changed` column records it. Returns the files changed."""
+    import csv
+    from datetime import date
+    num = str(int(tid.lstrip("T")))
+    changed = []
+    for path, key, val, col in ((HOT_TOPICS, "topic_id", num, "topic"), (CANONICAL, "id", tid, "name"),
+                                (AI / "ai_skillset_proposal.csv", "topic_id", tid, "topic")):
+        with path.open(newline="", encoding="utf-8") as f:
+            r = csv.DictReader(f)
+            fields, rows = r.fieldnames, list(r)
+        hit = [row for row in rows if row[key] == val]
+        for row in hit:
+            row[col] = name
+            if "changed" in row:
+                row["changed"] = "; ".join(x for x in (row["changed"], note or f"renamed ({date.today().isoformat()})") if x)
+        if hit:
+            with path.open("w", newline="", encoding="utf-8") as f:
+                w = csv.DictWriter(f, fieldnames=fields, lineterminator="\r\n")
+                w.writeheader()
+                w.writerows(rows)
+            changed.append(path.name)
+    return changed
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("seed", help="seed canonical_skills.csv from the hot topics (only if missing)")
     sub.add_parser("report", help="write data/ai/reports/ai_verified_keywords.csv")
     sub.add_parser("view", help="build data/ai/canonical_skills_view.json for the catalogue page")
+    rn = sub.add_parser("rename", help="rename a topic in hot_topics, canonical_skills and the proposal")
+    rn.add_argument("topic_id")
+    rn.add_argument("name")
     args = ap.parse_args()
-    if args.cmd == "seed":
+    if args.cmd == "rename":
+        print("Renamed in " + ", ".join(rename_topic(args.topic_id, args.name)))
+    elif args.cmd == "seed":
         seed_canonical(skills.load_keywords())
     else:
         {"report": cmd_report, "view": cmd_view}[args.cmd](args)
