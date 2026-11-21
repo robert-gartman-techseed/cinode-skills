@@ -260,3 +260,37 @@ def test_strict_checks_unknown_set_and_mismatched_keyword(tmp_path, monkeypatch)
     assert "unknown skill set 'Pythn'" in text and "did you mean 'Python'" in text
     assert "do not match" in text and "which is excluded" in text
     assert any("read-only column 'people'" in w for w in res.warnings)
+
+
+def test_internal_labels_are_detected():
+    import skills
+    for bad in ("Embeddings. TechSeed AI Skillset (T34).", "x (T03, incl. T04, T12)", "Pilot från TechSeed",
+                "covers T32", "see topic_id"):
+        assert skills.internal_label(bad), bad
+    for ok in ("T-SQL", "Embeddings and vector search", "AI Skillset", "GPT-4", "T5 models", "Python 3.12"):
+        assert not skills.internal_label(ok), ok
+
+
+def test_internal_labels_in_cinode_facing_names_are_errors():
+    _, res = run(renames={"SQL": "Databases (T07)"})
+    assert any("internal reference" in e for e in res.errors), res.errors
+    _, res = run({"Mentoring": {"new_skill_set": "Coaching TechSeed AI Skillset"}})
+    assert any("internal reference" in e for e in res.errors), res.errors
+
+
+def test_cinode_plan_text_is_checked():
+    import pytest
+    curate.check_cinode_text([{"cinode_skill_set_id": 9867, "skill_set": "Embeddings", "add": [{"id": 1}]}])
+    with pytest.raises(ValueError, match="internal reference"):
+        curate.check_cinode_text([{"skill_set": "Embeddings", "description": "Vectors. TechSeed AI Skillset (T34)."}])
+
+
+def test_repo_cinode_facing_text_is_clean():
+    import skills
+    sources = [(skills.AI / "canonical_skills.csv", ("name", "definition")),
+               (skills.AI / "ai_skillset_proposal.csv", ("skill_set",)),
+               (skills.TAX / "skill_buckets.csv", ("skill_name",)),
+               (skills.TAX / "marketable_skills.csv", ("skill_name",))]
+    bad = [(f.name, c, r[c]) for f, cols in sources for r in skills.read_csv(f) for c in cols
+           if skills.internal_label(r.get(c))]
+    assert not bad, bad

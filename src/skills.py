@@ -54,6 +54,19 @@ LINKS = TAX / "wikidata_links.csv"
 REPORTS = TAX / "reports"
 RAW = ROOT / "data" / "raw"
 OUT = ROOT / "data" / "out"  # gitignored: per-person output
+# Cinode-facing text (skill set names, descriptions, plan JSON) must never carry internal references:
+# topic ids like T32 or "(T03, incl. T04)", or project labels like "TechSeed AI Skillset" / "Pilot från".
+# Descriptions come only from the definition in data/ai/canonical_skills.csv.
+INTERNAL_LABEL = re.compile(r"\(\s*T\d{1,3}\b|\bT\d{2}\b|TechSeed\s+AI\s+Skill\s*set|\bPilot\s+från\b|\btopic[_ ]id\b",
+                            re.IGNORECASE)
+
+
+def internal_label(text) -> str:
+    """The internal reference found in Cinode-facing text, or "" if it is clean."""
+    m = INTERNAL_LABEL.search(str(text or ""))
+    return m.group(0) if m else ""
+
+
 STRONG = {"alias", "exact", "cinode", "wikidata", "fuzzy"}  # methods that count as a suggested synonym
 
 API = "https://www.wikidata.org/w/api.php"

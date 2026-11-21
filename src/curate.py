@@ -376,6 +376,9 @@ def curate(state: list[dict], kws: dict[str, dict], kw_rows: list[dict], set_row
         name, new = norm(s.get("skill_set")), norm(s.get("rename_to"))
         if name and new and new != name:
             rename[name] = new
+        if new and skills.internal_label(new):
+            res.errors.append(f"Skill sets row {s.get('_row', '?')}: rename_to '{new}' contains an internal reference "
+                              f"('{skills.internal_label(new)}'); Cinode-facing names must not")
     targets = defaultdict(list)
     for a, b in rename.items():
         targets[b].append(a)
@@ -426,6 +429,9 @@ def curate(state: list[dict], kws: dict[str, dict], kw_rows: list[dict], set_row
         sset = norm(r.get("skill_set"))
         sset = rename.get(sset, sset)
         new_set = norm(r.get("new_skill_set"))
+        if new_set and skills.internal_label(new_set):
+            res.errors.append(f"{where} ({name}): new_skill_set '{new_set}' contains an internal reference "
+                              f"('{skills.internal_label(new_set)}'); Cinode-facing names must not")
         if new_set:
             if new_set in known_sets:
                 res.warnings.append(f"{where} ({name}): new_skill_set '{new_set}' already exists; treated as a move")
@@ -562,7 +568,21 @@ def cinode_plan(state: list[dict], new_state: list[dict], rename: dict[str, str]
                 plan.append({"cinode_skill_set_id": int(cid), "skill_set": s,
                              "add": [{"id": int(k), "keyword": names[k]} for k in add],
                              "remove": [{"id": int(k), "keyword": names[k]} for k in rem]})
+    check_cinode_text(plan)
     return plan
+
+
+def check_cinode_text(obj, where: str = "") -> None:
+    """Raise ValueError if any string in a Cinode-facing structure carries an internal reference."""
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            check_cinode_text(v, f"{where}.{k}" if where else str(k))
+    elif isinstance(obj, (list, tuple)):
+        for i, v in enumerate(obj):
+            check_cinode_text(v, f"{where}[{i}]")
+    elif isinstance(obj, str) and skills.internal_label(obj):
+        raise ValueError(f"Cinode-facing text at {where or 'value'} contains an internal reference "
+                         f"('{skills.internal_label(obj)}'): {obj!r}")
 
 
 def build_state(state, kws, rows, head_of, old_skill_ids, rename, before) -> list[dict]:
@@ -764,6 +784,9 @@ def ai_sheet(state: list[dict], kws: dict[str, dict]) -> tuple[list[dict], list[
         sset = norm(p.get("skill_set"))
         if not sset or p.get("status") not in (None, "", "active"):
             continue
+        if skills.internal_label(sset):
+            raise ValueError(f"{p['topic_id']}: skill_set '{sset}' contains an internal reference "
+                             f"('{skills.internal_label(sset)}'); Cinode-facing names must not")
         tid, pk = p["topic_id"], p["keyword_id"] or p.get("interim_keyword_id", "")
         if pk not in kws:
             notes.append(f"{tid}: no Cinode keyword for '{p.get('proposed_keyword', '')}' yet; skipped")

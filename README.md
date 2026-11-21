@@ -261,6 +261,13 @@ Every run writes a Markdown report next to the workbook. When an existing Cinode
 change, the run also writes a `*_cinode_plan.json` (keyword ids to add or remove per Cinode set).
 The plan is never executed; syncing Cinode is a separate step that needs Robert's go-ahead.
 
+**Rule: no internal references in Cinode-facing text.** Skill set names and descriptions that go to
+Cinode (workbook names, `ai_skillset_proposal.csv` skill_set, the plan JSON, descriptions typed into
+Cinode) must not contain topic ids (`T32`, `(T03, incl. T04)`) or internal labels such as
+"TechSeed AI Skillset" or "Pilot från". A description is the definition from
+`data/ai/canonical_skills.csv`, nothing appended. `skills.internal_label()` enforces this: curate
+and ai-sync fail on a match, and `tests/test_curate.py` checks the repo's data.
+
 `apply` writes skill_buckets.csv and marketable_skills.csv. It appends exclusions to
 `data/taxonomy/excluded_keywords.csv`, which ai-sync respects, and carries skill set renames into
 `ai_skillset_proposal.csv`. Changed rows get `decision=curated`, `model=human`. Until the first
